@@ -273,7 +273,7 @@
         <field name="name">student.student.tree.1</field>
         <field name="model">student.student</field>
         <field name="arch" type="xml">
-            <tree string="Student Information" create="false" delete="false">
+            <tree string="Student Information" create="True" delete="True">
                 <field name="pid" />
                 <field name="name" />
                 <field name="student_name" invisible="1" />
