@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file:///opt/odoo/odoo/addons/hr_pyzk/.idea/hr_pyzk.iml" filepath="/opt/odoo/odoo/addons/hr_pyzk/.idea/hr_pyzk.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/pfe_gestion_de_pointage_scolaires.iml" filepath="$PROJECT_DIR$/.idea/pfe_gestion_de_pointage_scolaires.iml" />
     </modules>
   </component>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+       <!-- Assign Roll Number Wizard Form View  -->
+    <record id="view_add_student_form" model="ir.ui.view">
+        <field name="name">add_student.form</field>
+        <field name="model">add.student</field>
+        <field name="arch" type="xml">
+            <form string="Add Student">
+                    <group>
+
+                        <field name="student_name"  widget="many2many_tags"/>
+                        <field name="device_id" />
+                    </group>
+
+                    <footer>
+                        <button class="btn oe_stat_button" name="button_add" type="object" string="add"/>
+                    </footer>
+           </form>
+        </field>
+    </record>
+
+
+    <!-- Action Of Form & Tree Views Of Move Classes -->
+    <record id="action_add_student_form" model="ir.actions.act_window">
+        <field name="name">Add student</field>
+        <field name="res_model">add.student</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_add_student_form" />
+        <field name="target">new</field>
+    </record>
+
+    <!-- MenuItem For Configurations->Move Classes -->
+    <menuitem id="menu_add_student_form" name="Add Student" parent="menu_ems" action="action_add_student_form" />
+
+</odoo>

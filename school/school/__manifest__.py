@@ -22,6 +22,7 @@
              'data/student_sequence.xml',
              'wizard/assign_roll_no_wizard.xml',
              'wizard/move_standards_view.xml',
+              'wizard/Add_student.xml',
              'views/report_view.xml',
              'views/identity_card.xml',
              'views/template_view.xml'],
