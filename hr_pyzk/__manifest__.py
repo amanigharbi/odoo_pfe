@@ -23,10 +23,12 @@ It works on zkteco machines using pyzk library( version 1.9)
         'views/devices_view.xml',
         'views/device_attendances_view.xml',
         'views/combined_attendances_view.xml',
+        'views/add_users.xml',
         'wizard/user_wizard.xml',
         'wizard/delete_attendance_wizard_view.xml',
         'security/pyzk_security.xml',
         'security/ir.model.access.csv',
+        'data/importAttendances.xml'
      ],
     'installable': True,
     'auto_install': False,

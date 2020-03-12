@@ -9,12 +9,12 @@
             <form string="Add Student">
                     <group>
 
-                        <field name="student_name"  widget="many2many_tags"/>
-                        <field name="device_id" />
+                        <field name="student_name"  placeholder="Enter Name Student" widget="many2many_tags" string="student name"/>
+                        <field name="device_name" placeholder="device name" />
                     </group>
 
                     <footer>
-                        <button class="oe_highlight" name="button_add" type="object" string="add"/>
+                        <button class="btn btn-sm btn-default fa fa-plus" name="button_add" type="object" string="add"/>
                     </footer>
            </form>
         </field>

@@ -14,8 +14,8 @@ try:
   zk.set_user(26, 'Shubhamoy Chakrabarty', 0, '', '1', '26')
   zk.enroll_user('26')
   conn.enable_device()
-except Exception, e:
-    print "Process terminate : {}".format(e)
+except Exception as e:
+    print ("Process terminate : {}".format(e))
 finally:
     if conn:
         conn.disconnect()
