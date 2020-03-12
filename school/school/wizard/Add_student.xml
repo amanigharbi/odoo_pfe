@@ -14,7 +14,7 @@
                     </group>
 
                     <footer>
-                        <button class="btn oe_stat_button" name="button_add" type="object" string="add"/>
+                        <button class="oe_highlight" name="button_add" type="object" string="add"/>
                     </footer>
            </form>
         </field>

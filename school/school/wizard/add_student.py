@@ -12,7 +12,6 @@ class add_student(models.TransientModel):
     def button_add(self, vals):
         # student =self.env['student.student'].search([('standard_id','=','')])
         if self.student_name and self.device_id:
-
             for student in self.student_name:
                 for device in self.device_id:
                     self.env['device.users'].create({'name':student.name,'device_user_id':student.id,'device_id':device.id})
