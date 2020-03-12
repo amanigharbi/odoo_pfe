@@ -10,10 +10,12 @@
             <form string="Add student">
                     <group>
                         <field name="student_name" placeholder="Enter Name Student" widget="many2many_tags"/>
+                         <field name="device_id"/>
                     </group>
                     <footer>
                         <button class="btn btn-sm btn-default fa fa-plus" name="add_button" string="Add" type="object"/>
                     </footer>
+
            </form>
         </field>
     </record>
