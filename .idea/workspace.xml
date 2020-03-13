@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="48887eca-9025-43fa-ab67-720817bf3bb5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/school/wizard/Add_student.xml" beforeDir="false" afterPath="$PROJECT_DIR$/school/school/wizard/Add_student.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/school/school/wizard/add_student.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/school/wizard/add_student.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,6 +77,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="device_users" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="hr_pyzk" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="/opt/odoo/odoo/addons/hr_pyzk/models" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="/opt/odoo/odoo/addons/hr_pyzk/models/device_users.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="gestion pointage" type="PythonConfigurationType" factoryName="Python">
       <module name="pfe_gestion_de_pointage_scolaires" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -101,6 +121,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.device_users" />
         <item itemvalue="Python.add_users" />
       </list>
     </recent_temporary>
@@ -144,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584015051413</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="[12.0][MOD][Description]">
+      <created>1584024566379</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1584024566379</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -161,50 +189,50 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="688" y="292" width="600" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.923@67.27.1853.923" timestamp="1583929642335" />
-    <state x="815" y="176" width="864" height="695" key="#xdebugger.evaluate" timestamp="1583920344318">
+    <state x="815" y="176" width="864" height="695" key="#xdebugger.evaluate" timestamp="1584093945701">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="815" y="176" width="864" height="695" key="#xdebugger.evaluate/67.27.1853.923@67.27.1853.923" timestamp="1583920344318" />
-    <state x="534" y="31" width="908" height="912" key="CommitChangelistDialog2" timestamp="1584024554505">
+    <state x="815" y="176" width="864" height="695" key="#xdebugger.evaluate/67.27.1853.923@67.27.1853.923" timestamp="1584093945701" />
+    <state x="534" y="31" width="908" height="912" key="CommitChangelistDialog2" timestamp="1584098284787">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="534" y="31" width="908" height="912" key="CommitChangelistDialog2/67.27.1853.923@67.27.1853.923" timestamp="1584024554505" />
+    <state x="534" y="31" width="908" height="912" key="CommitChangelistDialog2/67.27.1853.923@67.27.1853.923" timestamp="1584098284787" />
     <state x="1002" y="214" width="424" height="484" key="FileChooserDialogImpl" timestamp="1583924726108">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="1002" y="214" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.923@67.27.1853.923" timestamp="1583924726108" />
-    <state width="1830" height="292" key="GridCell.Tab.0.bottom" timestamp="1584024367406">
+    <state width="1830" height="236" key="GridCell.Tab.0.bottom" timestamp="1584097978677">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.0.bottom/67.27.1853.923@67.27.1853.923" timestamp="1584024367406" />
-    <state width="1830" height="292" key="GridCell.Tab.0.center" timestamp="1584024367406">
+    <state width="1830" height="236" key="GridCell.Tab.0.bottom/67.27.1853.923@67.27.1853.923" timestamp="1584097978677" />
+    <state width="1830" height="236" key="GridCell.Tab.0.center" timestamp="1584097978677">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.0.center/67.27.1853.923@67.27.1853.923" timestamp="1584024367406" />
-    <state width="1830" height="292" key="GridCell.Tab.0.left" timestamp="1584024367405">
+    <state width="1830" height="236" key="GridCell.Tab.0.center/67.27.1853.923@67.27.1853.923" timestamp="1584097978677" />
+    <state width="1830" height="236" key="GridCell.Tab.0.left" timestamp="1584097978676">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.0.left/67.27.1853.923@67.27.1853.923" timestamp="1584024367405" />
-    <state width="1830" height="292" key="GridCell.Tab.0.right" timestamp="1584024367406">
+    <state width="1830" height="236" key="GridCell.Tab.0.left/67.27.1853.923@67.27.1853.923" timestamp="1584097978676" />
+    <state width="1830" height="236" key="GridCell.Tab.0.right" timestamp="1584097978677">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.0.right/67.27.1853.923@67.27.1853.923" timestamp="1584024367406" />
-    <state width="1830" height="292" key="GridCell.Tab.1.bottom" timestamp="1584024367192">
+    <state width="1830" height="236" key="GridCell.Tab.0.right/67.27.1853.923@67.27.1853.923" timestamp="1584097978677" />
+    <state width="1830" height="292" key="GridCell.Tab.1.bottom" timestamp="1584094063800">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.1.bottom/67.27.1853.923@67.27.1853.923" timestamp="1584024367192" />
-    <state width="1830" height="292" key="GridCell.Tab.1.center" timestamp="1584024367191">
+    <state width="1830" height="292" key="GridCell.Tab.1.bottom/67.27.1853.923@67.27.1853.923" timestamp="1584094063800" />
+    <state width="1830" height="292" key="GridCell.Tab.1.center" timestamp="1584094063800">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.1.center/67.27.1853.923@67.27.1853.923" timestamp="1584024367191" />
-    <state width="1830" height="292" key="GridCell.Tab.1.left" timestamp="1584024367188">
+    <state width="1830" height="292" key="GridCell.Tab.1.center/67.27.1853.923@67.27.1853.923" timestamp="1584094063800" />
+    <state width="1830" height="292" key="GridCell.Tab.1.left" timestamp="1584094063800">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.1.left/67.27.1853.923@67.27.1853.923" timestamp="1584024367188" />
-    <state width="1830" height="292" key="GridCell.Tab.1.right" timestamp="1584024367192">
+    <state width="1830" height="292" key="GridCell.Tab.1.left/67.27.1853.923@67.27.1853.923" timestamp="1584094063800" />
+    <state width="1830" height="292" key="GridCell.Tab.1.right" timestamp="1584094063800">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.1.right/67.27.1853.923@67.27.1853.923" timestamp="1584024367192" />
+    <state width="1830" height="292" key="GridCell.Tab.1.right/67.27.1853.923@67.27.1853.923" timestamp="1584094063800" />
     <state x="667" y="149" width="643" height="677" key="RollbackChangesDialog" timestamp="1583594133898">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
@@ -217,18 +245,22 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state width="498" height="446" key="SwitcherDM/67.27.1853.923@67.27.1853.923" timestamp="1583846571129" />
-    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1584015113324">
+    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1584024578262">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1853.923@67.27.1853.923" timestamp="1584015113324" />
+    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1853.923@67.27.1853.923" timestamp="1584024578262" />
+    <state width="926" height="462" key="XDebugger.FullValuePopup" timestamp="1584092640531">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state width="926" height="462" key="XDebugger.FullValuePopup/67.27.1853.923@67.27.1853.923" timestamp="1584092640531" />
     <state x="649" y="315" key="com.intellij.ide.util.TipDialog" timestamp="1583917438231">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="649" y="315" key="com.intellij.ide.util.TipDialog/67.27.1853.923@67.27.1853.923" timestamp="1583917438231" />
-    <state x="543" y="175" width="891" height="624" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1584015676892">
+    <state x="543" y="175" width="891" height="624" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1584093536373">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="543" y="175" width="891" height="624" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/67.27.1853.923@67.27.1853.923" timestamp="1584015676892" />
+    <state x="543" y="175" width="891" height="624" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/67.27.1853.923@67.27.1853.923" timestamp="1584093536373" />
     <state x="509" y="95" width="1062" height="850" key="find.popup" timestamp="1584020850577">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
@@ -242,31 +274,18 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/school/school/wizard/add_student.py</url>
-          <line>12</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/school/school/wizard/add_student.py</url>
-          <line>13</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/school/school/wizard/add_student.py</url>
-          <line>15</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/school/school/wizard/add_student.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file:///opt/odoo/odoo/addons/hr_pyzk/models/add_users.py</url>
-          <line>19</line>
+          <line>20</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
     </breakpoint-manager>
   </component>
 </project>
