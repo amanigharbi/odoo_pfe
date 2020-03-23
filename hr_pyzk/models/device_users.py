@@ -3,7 +3,7 @@ from odoo import models, fields, api, exceptions, _
 from addons.hr_pyzk.controllers import controller as c
 from zk import ZK, const
 
-class cc(models.Model):
+class DeviceUser(models.Model):
     _name = 'device.users'
     _description = 'device user information'
     _order = "device_user_id"
@@ -104,5 +104,3 @@ class cc(models.Model):
             #         "target": "main",
             #         "context": {'show_message4': True},
             #     }
-
-

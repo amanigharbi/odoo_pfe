@@ -28,7 +28,8 @@ It works on zkteco machines using pyzk library( version 1.9)
         'wizard/delete_attendance_wizard_view.xml',
         'security/pyzk_security.xml',
         'security/ir.model.access.csv',
-        'data/importAttendances.xml'
+        'data/importAttendances.xml',
+        'data/Verification.xml'
      ],
     'installable': True,
     'auto_install': False,

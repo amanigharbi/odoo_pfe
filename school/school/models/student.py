@@ -218,6 +218,7 @@ class StudentStudent(models.Model):
                               ('alumni', 'Alumni')],
                              'Status', readonly=True, default="draft")
     history_ids = fields.One2many('student.history', 'student_id', 'History')
+    descplines_ids = fields.One2many('student.desciplines', 'student_id', 'Desciplines')
     certificate_ids = fields.One2many('student.certificate', 'student_id',
                                       'Certificate')
     student_discipline_line = fields.One2many('student.descipline',
@@ -323,3 +324,12 @@ class StudentStudent(models.Model):
                        'student_code': student_code,
                        'reg_code': registation_code})
         return True
+class StudentDesciplines(models.Model):
+    _name = 'student.desciplines'
+    _description = "Student Disciplines"
+
+    subject_id = fields.Many2one('subject.subject', 'Subject Name')
+    device_datetime = fields.Datetime(string='Device Datetime')
+    status=fields.Char("status")
+
+    student_id = fields.Many2one('student.student', 'Student')
