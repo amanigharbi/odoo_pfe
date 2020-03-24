@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="timetable">
+    <template id="emploie">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.external_layout">
@@ -11,7 +11,7 @@
                             <table width="100%" style="border: 2px solid black;">
                                 <tr>
                                     <td width="25%" align="center" style="font-family: 'Helvetica';font-size: 18px;border: 2px solid black;">
-                                        <b>Academic Year</b>
+                                        <b>annee academique</b>
                                     </td>
                                     <td width="25%" align="center" style="font-family: 'Helvetica';font-size: 18px;border: 2px solid black;">
                                         <b>Standard</b>
@@ -39,7 +39,7 @@
                                 </tr>
                                 <tr style="border: 0px;">
                                     <td colspan="4" style="border: 0px;">
-                                        <t t-if="o.timetable_type == 'regular'">
+                                        <t t-if="o.emploie_type == 'regular'">
                                             <br/>
                                             <table width="100%" style="border: 0px;">
                                                 <tr style="border: 0px;">
@@ -65,7 +65,7 @@
                                                         <b>Samedi</b>
                                                     </td>
                                                 </tr>
-                                                <t t-foreach="get_timetable(o)" t-as="t">
+                                                <t t-foreach="get_emploie(o)" t-as="t">
                                                     <tr>
                                                         <td align="center" width="15%" style="font-family: 'Helvetica';font-size: 16px;border: 2px solid black;">
                                                             <span t-esc="'{0:,.2f}'.format(t['start_time'])"></span>
@@ -94,7 +94,7 @@
                                                 </t>
                                             </table>
                                         </t>
-                                        <t t-if="o.timetable_type == 'exam'">
+                                        <t t-if="o.emploie_type == 'exam'">
                                             <br/>
                                             <table width="100%" style="border: 2px solid black;">
                                                 <tr>
@@ -108,7 +108,7 @@
                                                         <b>Matière</b>
                                                     </td>
                                                 </tr>
-                                                <t t-foreach="o.exam_timetable_line_ids" t-as="t">
+                                                <t t-foreach="o.exam_emploie_line_ids" t-as="t">
                                                     <tr>
                                                         <td align="center" width="14.16%" style="font-family: 'Helvetica';font-size: 16px;border: 2px solid black;">
                                                             <span t-field="t.exm_date" t-options="{'format': 'dd - MM - yyyy'}"></span>

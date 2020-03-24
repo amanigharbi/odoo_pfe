@@ -24,10 +24,10 @@
     <act_window id="act_send_email"
         name="Envoyer Email"
         res_model="send.email"
-        src_model="student.student"
+        src_model="eleve.eleve"
         view_mode="form"
         target="new"
-        view_type="form" groups="ecole.group_ecole_administration,ecole.group_ecole_teacher"
+        view_type="form" groups="ecole.group_ecole_administration,ecole.group_ecole_enseignant"
         />
 
 </odoo>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-    <!-- Form View 1 Of Student's Profiles -->
-    <record id="view_student_student_form_1" model="ir.ui.view">
-        <field name="name">student.student.form.1</field>
-        <field name="model">student.student</field>
+    <!-- Form View 1 Of eleve's Profiles -->
+    <record id="view_eleve_eleve_form_1" model="ir.ui.view">
+        <field name="name">eleve.eleve.form.1</field>
+        <field name="model">eleve.eleve</field>
         <field name="arch" type="xml">
             <form string="Informations Elèves" >
                 <header>
@@ -37,10 +37,10 @@
                     </div>
                     <group>
                         <group string="Information Elèves">
-                            <field name="student_code" readonly="1" />
+                            <field name="eleve_code" readonly="1" />
                             <field name="roll_no" help="Numéro de rôle de l'élève" readonly="1"/>
-                            <field name="year" placeholder="Année" widget="selection" help="Academic year of Student" attrs="{'readonly':['|',('state','in',['alumni','terminate']),('teachr_user_grp','=',True)]}"/>
-                            <field name="ecole_id" placeholder="Ecole" widget="selection" help="Ecole of Student" attrs="{'readonly':['|',('state','in',['alumni','terminate']),('teachr_user_grp','=',True)]}"/>
+                            <field name="year" placeholder="Année" widget="selection" help="annee academique of eleve" attrs="{'readonly':['|',('state','in',['alumni','terminate']),('teachr_user_grp','=',True)]}"/>
+                            <field name="ecole_id" placeholder="Ecole" widget="selection" help="Ecole of eleve" attrs="{'readonly':['|',('state','in',['alumni','terminate']),('teachr_user_grp','=',True)]}"/>
                         </group>
                         <group string="Informations Standard">
                             <field name="standard_id" placeholder="Standard" readonly="1" domain="[('ecole_id','=',ecole_id)]" widget="selection" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
@@ -208,7 +208,7 @@
                                 </tree>
                             </field>
                         </page>
-                        <page string="Historique" groups="ecole.group_ecole_administration,ecole.group_ecole_teacher,ecole.group_ecole_parent,ecole.group_ecole_student">
+                        <page string="Historique" groups="ecole.group_ecole_administration,ecole.group_ecole_enseignant,ecole.group_ecole_parent,ecole.group_ecole_eleve">
                             <field name="history_ids" nolabel="1" colspan="4" readonly="1" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"
                                 options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}">
                                 <tree string="Historique">
@@ -231,7 +231,7 @@
                             <field name="descplines_ids" nolabel="1" colspan="4" readonly="1" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"
                                 options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}">
                                 <tree string="Despline">
-                                    <field name="student_id" invisible="1" />
+                                    <field name="eleve_id" invisible="1" />
                                     <field name="subject_id" required="1"/>
                                     <field name="device_datetime" required="1"/>
                                     <field name="status"/>
@@ -244,15 +244,15 @@
             </form>
         </field>
     </record>
-    <!-- Tree View 1 Of Student's Profiles -->
-    <record id="view_student_student_tree_1" model="ir.ui.view">
-        <field name="name">student.student.tree.1</field>
-        <field name="model">student.student</field>
+    <!-- Tree View 1 Of eleve's Profiles -->
+    <record id="view_eleve_eleve_tree_1" model="ir.ui.view">
+        <field name="name">eleve.eleve.tree.1</field>
+        <field name="model">eleve.eleve</field>
         <field name="arch" type="xml">
             <tree string="Informations Elève" >
                 <field name="pid" />
                 <field name="name" />
-                <field name="student_name" invisible="1" />
+                <field name="eleve_name" invisible="1" />
                 <field name="year" widget="selection" />
                 <field name="admission_date" />
                 <field name="gender" />
@@ -261,15 +261,15 @@
             </tree>
         </field>
     </record>
-    <!-- Search View 1 Of Student's Profiles -->
-    <record id="view_student_student_search_1" model="ir.ui.view">
-        <field name="name">student.student.search.1</field>
-        <field name="model">student.student</field>
+    <!-- Search View 1 Of eleve's Profiles -->
+    <record id="view_eleve_eleve_search_1" model="ir.ui.view">
+        <field name="name">eleve.eleve.search.1</field>
+        <field name="model">eleve.eleve</field>
         <field name="arch" type="xml">
             <search string="Informations Elève">
                 <group col="10" colspan="4">
                     <field name="pid" />
-                    <field name="student_name" invisible="1" />
+                    <field name="eleve_name" invisible="1" />
                     <field name="year" />
                     <field name="gender" />
                     <field name="ecole_id" placeholder="Ecole"/>
@@ -278,7 +278,7 @@
                 <group expand="0" string="Par groupe..." colspan="12" col="10">
                     <filter name="class" string="Classe" help="By Class" context="{'group_by':'standard_id'}" />
                     <filter name="gender" string="Sexe" help="By Gender" context="{'group_by':'gender'}" />
-                    <filter name="name" string="Nom" help="By Class" context="{'group_by':'student_name'}" />
+                    <filter name="name" string="Nom" help="By Class" context="{'group_by':'eleve_name'}" />
                     <filter name="ecole" string="Ecole" help="By Ecole" context="{'group_by':'ecole_id'}" />
                     <filter name="state" string="Etat" help="By State" context="{'group_by':'state'}"/>
                 </group>
@@ -289,10 +289,10 @@
             </search>
         </field>
     </record>
-    <!-- Kanban View Of Student's Profiles -->
-    <record id="student_student_kanban_view" model="ir.ui.view">
+    <!-- Kanban View Of eleve's Profiles -->
+    <record id="eleve_eleve_kanban_view" model="ir.ui.view">
         <field name="name">Elèves KANBAN</field>
-        <field name="model">student.student</field>
+        <field name="model">eleve.eleve</field>
         <field name="arch" type="xml">
             <kanban default_group_by="standard_id" nocreate="1" >
                 <field name="color"/>
@@ -313,7 +313,7 @@
                                                         <field name="name" />
                                                         <field name="middle" />
                                                         <field name="last" />
-                                                        <field name="student_name" invisible="1" />
+                                                        <field name="eleve_name" invisible="1" />
                                                         <field name="standard_id" invisible="1" />
                                                         <field name="ecole_id" invisible="1" />
                                                         <field name="gender" invisible="1" />
@@ -329,7 +329,7 @@
                                         <tr width="300">
                                             <td valign="top" width="64" align="left">
                                                 <a type="open">
-                                                    <img heigh="80" width="80" t-att-src="kanban_image('student.student', 'photo', record.id.raw_value)" alt="image"/>
+                                                    <img heigh="80" width="80" t-att-src="kanban_image('eleve.eleve', 'photo', record.id.raw_value)" alt="image"/>
                                                 </a>
                                             </td>
                                             <td valign="top" align="left" style="padding-left:10px;">
@@ -387,9 +387,9 @@
         </field>
     </record>
     <!-- Form View OfRegistre D'admission Information -->
-    <record id="view_student_student_form_2" model="ir.ui.view">
-        <field name="name">student.student.form.2</field>
-        <field name="model">student.student</field>
+    <record id="view_eleve_eleve_form_2" model="ir.ui.view">
+        <field name="name">eleve.eleve.form.2</field>
+        <field name="model">eleve.eleve</field>
         <field name="arch" type="xml">
             <form string="Registre d'admission">
                 <header>
@@ -564,14 +564,14 @@
         </field>
     </record>
     <!-- Tree View OfRegistre D'admission Information -->
-    <record id="view_student_student_tree_2" model="ir.ui.view">
-        <field name="name">student.student.tree.2</field>
-        <field name="model">student.student</field>
+    <record id="view_eleve_eleve_tree_2" model="ir.ui.view">
+        <field name="name">eleve.eleve.tree.2</field>
+        <field name="model">eleve.eleve</field>
         <field name="arch" type="xml">
             <tree string="Register D'Admission">
                 <field name="pid" />
                 <field name="name" />
-                <field name="student_name" invisible="1" />
+                <field name="eleve_name" invisible="1" />
                 <field name="year" widget="selection" />
                 <field name="standard_id" widget="selection" />
                 <field name="ecole_id" />
@@ -582,14 +582,14 @@
         </field>
     </record>
     <!-- Search View OfRegistre D'admission Information -->
-    <record id="view_student_student_search_2" model="ir.ui.view">
-        <field name="name">student.student.search.2</field>
-        <field name="model">student.student</field>
+    <record id="view_eleve_eleve_search_2" model="ir.ui.view">
+        <field name="name">eleve.eleve.search.2</field>
+        <field name="model">eleve.eleve</field>
         <field name="arch" type="xml">
             <search string="Register D'Admission">
-                <filter string="Brouillon" name="state_student" domain="[('state','=', 'draft')]" help="Admission In Draft State" />
+                <filter string="Brouillon" name="state_eleve" domain="[('state','=', 'draft')]" help="Admission In Draft State" />
                 <separator orientation="vertical" />
-                <field name="student_name" invisible="1" />
+                <field name="eleve_name" invisible="1" />
                 <field name="year" />
                 <field name="standard_id" />
                 <field name="gender" />
@@ -598,7 +598,7 @@
                 <group expand="0" string="Groupe Par..." colspan="12" col="10">
                     <filter name="class" string="Classe" domain="[]" help="By Class" context="{'group_by':'standard_id'}" />
                     <filter name="gender" string="Sexe" domain="[]" help="By Gender" context="{'group_by':'gender'}" />
-                    <filter name="name" string="Nom" domain="[]" help="By Class" context="{'group_by':'student_name'}" />
+                    <filter name="name" string="Nom" domain="[]" help="By Class" context="{'group_by':'eleve_name'}" />
                     <filter name="ecole" string="Ecole" help="By Ecole" context="{'group_by':'ecole_id'}" />
                 </group>
             </search>
@@ -606,59 +606,59 @@
     </record>
 
     <!-- Action Of Form, Tree & Kanban View OfRegistre D'admission Information -->
-    <record id="action_student_student_form_2" model="ir.actions.act_window">
+    <record id="action_eleve_eleve_form_2" model="ir.actions.act_window">
         <field name="name">Register D'Admission </field>
-        <field name="res_model">student.student</field>
+        <field name="res_model">eleve.eleve</field>
         <field name="domain">['|',('state','=','draft'),('state','=','cancel')]</field>
         <field name="view_type">form</field>
-        <field name="view_id" ref="view_student_student_form_2" />
-        <field name="search_view_id" ref="view_student_student_search_2" />
+        <field name="view_id" ref="view_eleve_eleve_form_2" />
+        <field name="search_view_id" ref="view_eleve_eleve_search_2" />
         <field name="view_mode">kanban,tree,form</field>
     </record>
 
-    <!-- Action View 2 Of Kanban View Of Student Information -->
-    <record id="action_view_student_student_kanban_2" model="ir.actions.act_window.view">
+    <!-- Action View 2 Of Kanban View Of eleve Information -->
+    <record id="action_view_eleve_eleve_kanban_2" model="ir.actions.act_window.view">
         <field name="view_mode">kanban</field>
         <field eval="21" name="sequence" />
-        <field name="view_id" ref="student_student_kanban_view" />
-        <field name="act_window_id" ref="action_student_student_form_2" />
+        <field name="view_id" ref="eleve_eleve_kanban_view" />
+        <field name="act_window_id" ref="action_eleve_eleve_form_2" />
     </record>
 
-    <!-- Action View 2 Of Tree View Of Student Information -->
-    <record id="action_student_student_tree_2" model="ir.actions.act_window.view">
+    <!-- Action View 2 Of Tree View Of eleve Information -->
+    <record id="action_eleve_eleve_tree_2" model="ir.actions.act_window.view">
         <field name="view_mode">tree</field>
         <field eval="20" name="sequence" />
-        <field name="view_id" ref="view_student_student_tree_2" />
-        <field name="act_window_id" ref="action_student_student_form_2" />
+        <field name="view_id" ref="view_eleve_eleve_tree_2" />
+        <field name="act_window_id" ref="action_eleve_eleve_form_2" />
     </record>
 
-    <!-- Action Of Form, Tree & Kanban Views Of Student Information -->
-    <record id="action_student_student_form_12" model="ir.actions.act_window">
+    <!-- Action Of Form, Tree & Kanban Views Of eleve Information -->
+    <record id="action_eleve_eleve_form_12" model="ir.actions.act_window">
         <field name="name">Elèves</field>
         <field name="domain">[('state', '=', 'done')]</field>
-        <field name="context">{'search_default_done_student':1}</field>
-        <field name="res_model">student.student</field>
+        <field name="context">{'search_default_done_eleve':1}</field>
+        <field name="res_model">eleve.eleve</field>
         <field name="view_type">form</field>
         <field name="view_id" ref="" />
-        <field name="search_view_id" ref="view_student_student_search_1" />
+        <field name="search_view_id" ref="view_eleve_eleve_search_1" />
         <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <!-- Action of Alumni state -->
-    <record id="action_student_alumni" model="ir.actions.act_window">
+    <record id="action_eleve_alumni" model="ir.actions.act_window">
         <field name="name">Anciens Elèves</field>
         <field name="domain">[('active','=',False)]</field>
-        <field name="res_model">student.student</field>
+        <field name="res_model">eleve.eleve</field>
         <field name="view_type">form</field>
         <field name="view_mode">kanban,tree,form</field>
     </record>
 
-    <!-- Action View 1 Of Kanban View Of Student Information-->
-    <record id="action_view_student_student_kanban_1" model="ir.actions.act_window.view">
+    <!-- Action View 1 Of Kanban View Of eleve Information-->
+    <record id="action_view_eleve_eleve_kanban_1" model="ir.actions.act_window.view">
         <field name="view_mode">kanban</field>
         <field eval="31" name="sequence" />
-        <field name="view_id" ref="student_student_kanban_view" />
-        <field name="act_window_id" ref="action_student_student_form_12" />
+        <field name="view_id" ref="eleve_eleve_kanban_view" />
+        <field name="act_window_id" ref="action_eleve_eleve_form_12" />
     </record>
 
 </odoo>

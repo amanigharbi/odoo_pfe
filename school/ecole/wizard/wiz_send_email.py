@@ -33,9 +33,9 @@ class SendMail(models.TransientModel):
         '''Method to send email'''
         body = ''
         email_template_obj = self.env['mail.template']
-        # search the model student.student
+        # search the model eleve.eleve
         template_id = email_template_obj.search([('model', '=',
-                                                  'student.student')],
+                                                  'eleve.eleve')],
                                                 limit=1)
         if template_id:
             for i in self:

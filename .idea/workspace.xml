@@ -2,100 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48887eca-9025-43fa-ab67-720817bf3bb5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/school/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/__manifest__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/demo/emploie_demo.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/images/hover.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/images/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/models/ecole.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/models/eleve.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/models/emploie.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/models/enseignant.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/models/parent.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/models/res_users.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/security/ir.model.access.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/04_grade_system.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/05_new_updates.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/EMS.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/dashboard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/ems.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/ems_stud_reg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/fb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/identitycard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/in.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/insta.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/odooqa32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/parents.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/serpent_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/student_info.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/teacher2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/twitter.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/youtube.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/src/img/accommodation.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/src/img/admission.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/src/img/course.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/src/img/department.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/src/img/lecturer.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/src/img/lecturer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/src/img/parent.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/static/src/img/student.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/views/carte_identite.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/views/eleve_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/views/emploie.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/views/emploie_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/views/enseignant_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/views/parent_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/views/rapport_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/wizard/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/wizard/assign_roll_no.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/wizard/assign_roll_no_wizard.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/wizard/move_standards.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/wizard/move_standards_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/wizard/teriminate_reason.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/wizard/terminate_reason_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/wizard/wiz_send_email.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/wizard/wiz_send_email_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/README.rst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/__manifest__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/demo/timetable_demo.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/models/timetable.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/report/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/report/timetable_info.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/security/ir.model.access.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/security/timetable_security.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/static/description/SchoolTimetable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/static/description/fb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/static/description/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/static/description/in.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/static/description/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/static/description/insta.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/static/description/serpent_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/static/description/timetable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/static/description/timetable3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/static/description/timetable_create.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/static/description/timetablereport.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/static/description/twitter.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/static/description/youtube.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/tests/test_timetable.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/views/report_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/views/timetable.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/timetable/views/timetable_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school/ecole/data/eleve_sequence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/eleve_info.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school/ecole/static/description/enseignant2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school/ecole/static/src/img/eleve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school/ecole/wizard/Add_eleve.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school/ecole/wizard/add_eleve.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/school/data/student_sequence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/school/school/data/student_sequence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/school/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/school/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/school/models/device.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/school/models/student.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/school/models/student.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/school/security/ir.model.access.csv" beforeDir="false" afterPath="$PROJECT_DIR$/school/school/security/ir.model.access.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/school/views/school_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/school/school/views/school_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/school/views/student_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/school/school/views/student_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr_pyzk/views/device_attendances_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hr_pyzk/views/device_attendances_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr_pyzk/wizard/user_wizard.py" beforeDir="false" afterPath="$PROJECT_DIR$/hr_pyzk/wizard/user_wizard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/demo/emploie_demo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/demo/emploie_demo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/models/ecole.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/models/ecole.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/models/eleve.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/models/eleve.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/models/emploie.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/models/emploie.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/models/enseignant.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/models/enseignant.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/models/parent.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/models/parent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/models/res_users.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/models/res_users.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/security/ir.model.access.csv" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/security/ir.model.access.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/static/description/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/static/description/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/static/description/student_info.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/static/description/teacher2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/static/src/img/student.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/views/carte_identite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/views/carte_identite.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/views/eleve_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/views/eleve_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/views/emploie.xml" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/views/emploie.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/views/emploie_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/views/emploie_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/views/enseignant_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/views/enseignant_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/views/parent_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/views/parent_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/views/rapport_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/views/rapport_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/wizard/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/wizard/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/wizard/assign_roll_no.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/wizard/assign_roll_no.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/wizard/move_standards.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/wizard/move_standards.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/wizard/teriminate_reason.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/wizard/teriminate_reason.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/wizard/terminate_reason_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/wizard/terminate_reason_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/wizard/wiz_send_email.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/wizard/wiz_send_email.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/wizard/wiz_send_email_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/wizard/wiz_send_email_view.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,22 +80,22 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="/opt/odoo/odoo/odoo/fields.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/school/ecole/demo" />
-      <recent name="$PROJECT_DIR$/school/ecole/views" />
-      <recent name="$PROJECT_DIR$/school/ecole/models" />
-      <recent name="$PROJECT_DIR$/school/ecole" />
-      <recent name="$PROJECT_DIR$/school/ecole/security" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="/opt/odoo/odoo/addons/hr_pyzk/data" />
       <recent name="$PROJECT_DIR$/school/ecole/data" />
       <recent name="$PROJECT_DIR$/school" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/school/ecole/demo" />
+      <recent name="$PROJECT_DIR$/school/ecole/views" />
+      <recent name="$PROJECT_DIR$/school/ecole/models" />
+      <recent name="$PROJECT_DIR$/school/ecole" />
     </key>
   </component>
   <component name="RunManager" selected="Python.gestion pointage">
@@ -279,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584098290909</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="[12.0][MOD][Description]">
+      <created>1584993598516</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1584993598516</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -288,10 +238,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="[12.0][MOD][Description]" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="542" y="232" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584801061569">
+    <state x="542" y="232" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585057977211">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="542" y="232" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.923@67.27.1853.923" timestamp="1584801061569" />
+    <state x="542" y="232" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.923@67.27.1853.923" timestamp="1585057977211" />
     <state x="688" y="292" width="600" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583929642335">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
@@ -304,46 +254,46 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="815" y="176" width="864" height="695" key="#xdebugger.evaluate/67.27.1853.923@67.27.1853.923" timestamp="1584720517521" />
-    <state x="534" y="31" width="908" height="912" key="CommitChangelistDialog2" timestamp="1584993563136">
+    <state x="534" y="31" width="908" height="912" key="CommitChangelistDialog2" timestamp="1585071091076">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="534" y="31" width="908" height="912" key="CommitChangelistDialog2/67.27.1853.923@67.27.1853.923" timestamp="1584993563136" />
+    <state x="534" y="31" width="908" height="912" key="CommitChangelistDialog2/67.27.1853.923@67.27.1853.923" timestamp="1585071091076" />
     <state x="1002" y="214" width="424" height="484" key="FileChooserDialogImpl" timestamp="1584799293337">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="1002" y="214" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.923@67.27.1853.923" timestamp="1584799293337" />
-    <state width="1830" height="292" key="GridCell.Tab.0.bottom" timestamp="1584988354901">
+    <state width="1830" height="234" key="GridCell.Tab.0.bottom" timestamp="1585070367561">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.0.bottom/67.27.1853.923@67.27.1853.923" timestamp="1584988354901" />
-    <state width="1830" height="292" key="GridCell.Tab.0.center" timestamp="1584988354898">
+    <state width="1830" height="234" key="GridCell.Tab.0.bottom/67.27.1853.923@67.27.1853.923" timestamp="1585070367561" />
+    <state width="1830" height="234" key="GridCell.Tab.0.center" timestamp="1585070367560">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.0.center/67.27.1853.923@67.27.1853.923" timestamp="1584988354898" />
-    <state width="1830" height="292" key="GridCell.Tab.0.left" timestamp="1584988354898">
+    <state width="1830" height="234" key="GridCell.Tab.0.center/67.27.1853.923@67.27.1853.923" timestamp="1585070367560" />
+    <state width="1830" height="234" key="GridCell.Tab.0.left" timestamp="1585070367556">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.0.left/67.27.1853.923@67.27.1853.923" timestamp="1584988354898" />
-    <state width="1830" height="292" key="GridCell.Tab.0.right" timestamp="1584988354898">
+    <state width="1830" height="234" key="GridCell.Tab.0.left/67.27.1853.923@67.27.1853.923" timestamp="1585070367556" />
+    <state width="1830" height="234" key="GridCell.Tab.0.right" timestamp="1585070367560">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.0.right/67.27.1853.923@67.27.1853.923" timestamp="1584988354898" />
-    <state width="1830" height="292" key="GridCell.Tab.1.bottom" timestamp="1584988354353">
+    <state width="1830" height="234" key="GridCell.Tab.0.right/67.27.1853.923@67.27.1853.923" timestamp="1585070367560" />
+    <state width="1830" height="292" key="GridCell.Tab.1.bottom" timestamp="1585068561232">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.1.bottom/67.27.1853.923@67.27.1853.923" timestamp="1584988354353" />
-    <state width="1830" height="292" key="GridCell.Tab.1.center" timestamp="1584988354353">
+    <state width="1830" height="292" key="GridCell.Tab.1.bottom/67.27.1853.923@67.27.1853.923" timestamp="1585068561232" />
+    <state width="1830" height="292" key="GridCell.Tab.1.center" timestamp="1585068561231">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.1.center/67.27.1853.923@67.27.1853.923" timestamp="1584988354353" />
-    <state width="1830" height="292" key="GridCell.Tab.1.left" timestamp="1584988354352">
+    <state width="1830" height="292" key="GridCell.Tab.1.center/67.27.1853.923@67.27.1853.923" timestamp="1585068561231" />
+    <state width="1830" height="292" key="GridCell.Tab.1.left" timestamp="1585068561229">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.1.left/67.27.1853.923@67.27.1853.923" timestamp="1584988354352" />
-    <state width="1830" height="292" key="GridCell.Tab.1.right" timestamp="1584988354353">
+    <state width="1830" height="292" key="GridCell.Tab.1.left/67.27.1853.923@67.27.1853.923" timestamp="1585068561229" />
+    <state width="1830" height="292" key="GridCell.Tab.1.right" timestamp="1585068561232">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.1.right/67.27.1853.923@67.27.1853.923" timestamp="1584988354353" />
+    <state width="1830" height="292" key="GridCell.Tab.1.right/67.27.1853.923@67.27.1853.923" timestamp="1585068561232" />
     <state x="667" y="149" width="643" height="677" key="RollbackChangesDialog" timestamp="1583594133898">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
@@ -356,26 +306,26 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state width="498" height="446" key="SwitcherDM/67.27.1853.923@67.27.1853.923" timestamp="1583846571129" />
-    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1584098296719">
+    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1584993703378">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1853.923@67.27.1853.923" timestamp="1584098296719" />
+    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1853.923@67.27.1853.923" timestamp="1584993703378" />
     <state width="926" height="462" key="XDebugger.FullValuePopup" timestamp="1584092640531">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state width="926" height="462" key="XDebugger.FullValuePopup/67.27.1853.923@67.27.1853.923" timestamp="1584092640531" />
-    <state x="648" y="314" key="com.intellij.ide.util.TipDialog" timestamp="1584958386285">
+    <state x="648" y="314" key="com.intellij.ide.util.TipDialog" timestamp="1585070200202">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="648" y="314" key="com.intellij.ide.util.TipDialog/67.27.1853.923@67.27.1853.923" timestamp="1584958386285" />
+    <state x="648" y="314" key="com.intellij.ide.util.TipDialog/67.27.1853.923@67.27.1853.923" timestamp="1585070200202" />
     <state x="543" y="175" width="891" height="624" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1584550226454">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="543" y="175" width="891" height="624" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/67.27.1853.923@67.27.1853.923" timestamp="1584550226454" />
-    <state x="442" y="100" width="1062" height="850" key="find.popup" timestamp="1584982252161">
+    <state x="442" y="100" width="1062" height="850" key="find.popup" timestamp="1585056958344">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="442" y="100" width="1062" height="850" key="find.popup/67.27.1853.923@67.27.1853.923" timestamp="1584982252161" />
+    <state x="442" y="100" width="1062" height="850" key="find.popup/67.27.1853.923@67.27.1853.923" timestamp="1585056958344" />
     <state x="656" y="225" key="search.everywhere.popup" timestamp="1583331338112">
       <screen x="67" y="27" width="1853" height="923" />
     </state>

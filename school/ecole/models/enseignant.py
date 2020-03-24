@@ -3,22 +3,22 @@
 from odoo import models, fields, api
 
 
-class EcoleTeacher(models.Model):
-    ''' Defining a Teacher information '''
-    _name = 'ecole.teacher'
-    _description = 'Teacher Information'
+class Ecoleenseignant(models.Model):
+    ''' Defining a enseignant information '''
+    _name = 'ecole.enseignant'
+    _description = 'enseignant Information'
 
     employee_id = fields.Many2one('hr.employee', 'Employee ID',
                                   ondelete="cascade",
                                   delegate=True, required=True)
     standard_id = fields.Many2one('ecole.standard',
                                   "Responsibility of Academic Class",
-                                  help="Standard for which the teacher\
+                                  help="Standard for which the enseignant\
                                   responsible for.")
     stand_id = fields.Many2one('standard.standard', "Course",
                                related="standard_id.standard_id", store=True)
-    subject_id = fields.Many2many('subject.subject', 'subject_teacher_rel',
-                                  'teacher_id', 'subject_id',
+    subject_id = fields.Many2many('subject.subject', 'subject_enseignant_rel',
+                                  'enseignant_id', 'subject_id',
                                   'Course-Subjects')
     ecole_id = fields.Many2one('ecole.ecole', "Campus",
                                 related="standard_id.ecole_id", store=True)
@@ -28,9 +28,9 @@ class EcoleTeacher(models.Model):
     department_id = fields.Many2one('hr.department', 'Department')
     is_parent = fields.Boolean('Is Parent')
     stu_parent_id = fields.Many2one('ecole.parent', 'Related Parent')
-    student_id = fields.Many2many('student.student',
-                                  'students_teachers_parent_rel',
-                                  'teacher_id', 'student_id',
+    eleve_id = fields.Many2many('eleve.eleve',
+                                  'eleves_enseignants_parent_rel',
+                                  'enseignant_id', 'eleve_id',
                                   'Children')
     phone_numbers = fields.Char("Numéro Téléphone")
 
@@ -38,31 +38,31 @@ class EcoleTeacher(models.Model):
     def _onchange_isparent(self):
         if self.is_parent:
             self.stu_parent_id = False
-            self.student_id = [(6, 0, [])]
+            self.eleve_id = [(6, 0, [])]
 
     @api.onchange('stu_parent_id')
-    def _onchangestudent_parent(self):
+    def _onchangeeleve_parent(self):
         stud_list = []
-        if self.stu_parent_id and self.stu_parent_id.student_id:
-            for student in self.stu_parent_id.student_id:
-                stud_list.append(student.id)
-            self.student_id = [(6, 0, stud_list)]
+        if self.stu_parent_id and self.stu_parent_id.eleve_id:
+            for eleve in self.stu_parent_id.eleve_id:
+                stud_list.append(eleve.id)
+            self.eleve_id = [(6, 0, stud_list)]
 
     @api.model
     def create(self, vals):
-        teacher_id = super(EcoleTeacher, self).create(vals)
+        enseignant_id = super(Ecoleenseignant, self).create(vals)
         user_obj = self.env['res.users']
-        user_vals = {'name': teacher_id.name,
-                     'login': teacher_id.work_email,
-                     'email': teacher_id.work_email,
+        user_vals = {'name': enseignant_id.name,
+                     'login': enseignant_id.work_email,
+                     'email': enseignant_id.work_email,
                      }
-        ctx_vals = {'teacher_create': True,
-                    'ecole_id': teacher_id.ecole_id.company_id.id}
+        ctx_vals = {'enseignant_create': True,
+                    'ecole_id': enseignant_id.ecole_id.company_id.id}
         user_id = user_obj.with_context(ctx_vals).create(user_vals)
-        teacher_id.employee_id.write({'user_id': user_id.id})
+        enseignant_id.employee_id.write({'user_id': user_id.id})
         if vals.get('is_parent'):
-            self.parent_crt(teacher_id)
-        return teacher_id
+            self.parent_crt(enseignant_id)
+        return enseignant_id
 
     @api.multi
     def parent_crt(self, manager_id):
@@ -71,13 +71,13 @@ class EcoleTeacher(models.Model):
             stu_parent = manager_id.stu_parent_id
         if not stu_parent:
             emp_user = manager_id.employee_id
-            students = [stu.id for stu in manager_id.student_id]
+            eleves = [stu.id for stu in manager_id.eleve_id]
             parent_vals = {'name': manager_id.name,
                            'email': emp_user.work_email,
                            'parent_create_mng': 'parent',
                            'user_ids': [(6, 0, [emp_user.user_id.id])],
                            'partner_id': emp_user.user_id.partner_id.id,
-                           'student_id': [(6, 0, students)]}
+                           'eleve_id': [(6, 0, eleves)]}
             stu_parent = self.env['ecole.parent'].create(parent_vals)
             manager_id.write({'stu_parent_id': stu_parent.id})
         user = stu_parent.user_ids
@@ -94,8 +94,8 @@ class EcoleTeacher(models.Model):
     def write(self, vals):
         if vals.get('is_parent'):
             self.parent_crt(self)
-        if vals.get('student_id'):
-            self.stu_parent_id.write({'student_id': vals.get('student_id')})
+        if vals.get('eleve_id'):
+            self.stu_parent_id.write({'eleve_id': vals.get('eleve_id')})
         if not vals.get('is_parent'):
             user_rec = self.employee_id.user_id
             ir_obj = self.env['ir.model.data']
@@ -106,7 +106,7 @@ class EcoleTeacher(models.Model):
                 groups -= parent_grp_id
             group_ids = [group.id for group in groups]
             user_rec.write({'groups_id': [(6, 0, group_ids)]})
-        return super(EcoleTeacher, self).write(vals)
+        return super(Ecoleenseignant, self).write(vals)
 
     @api.onchange('address_id')
     def onchange_address_id(self):

@@ -82,7 +82,7 @@
                     </group>
                     <notebook>
                         <page name="children" string="Enfants">
-                            <field name="student_id" colspan="4" domain="[('state','=','done')]"/>
+                            <field name="eleve_id" colspan="4" domain="[('state','=','done')]"/>
                         </page>
                         <page name="internal_notes" string="Note Interne">
                             <field name="comment" placeholder="Note interne..."/>
@@ -104,7 +104,7 @@
 
             <!-- Menu Item Parent-->
     <menuitem id="menu_parent_parents" name="Parents" parent="menu_ems"  action="action_ecole_parent_form" sequence="5"
-            groups="ecole.group_ecole_administration,ecole.group_ecole_student,ecole.group_ecole_teacher,ecole.group_ecole_parent"/>
+            groups="ecole.group_ecole_administration,ecole.group_ecole_eleve,ecole.group_ecole_enseignant,ecole.group_ecole_parent"/>
 
     </data>
 </odoo>

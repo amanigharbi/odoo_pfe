@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <odoo>
-        <!-- Form View Of Time Table Information -->
-        <record id="view_time_table_form" model="ir.ui.view">
-            <field name="name">time.table.form</field>
-            <field name="model">time.table</field>
+        <!-- Form View Of emploie Information -->
+        <record id="view_emploie_emploie_form" model="ir.ui.view">
+            <field name="name">emploie.emploie.form</field>
+            <field name="model">emploie.emploie</field>
             <field name="arch" type="xml">
                 <form string="Calendrier">
                     <sheet>
@@ -16,13 +16,13 @@
                         </group>
                         <notebook colspan="4">
                             <page string="Calendrier">
-                                <field name="timetable_ids" nolabel="1" colspan="4">
+                                <field name="emploie_ids" nolabel="1" colspan="4">
                                     <tree string="Calendrier" editable="top">
                                         <field name="week_day"/>
                                         <field name="subject_id" required="1" options='{"no_open": True, "no_create": True}'/>
                                         <field name="start_time"/>
                                         <field name="end_time"/>
-                                        <field name="teacher_id" options='{"no_open": True, "no_create": True}' required="1"/>
+                                        <field name="enseignant_id" options='{"no_open": True, "no_create": True}' required="1"/>
                                         <field name="class_room_id" options='{"no_open": True, "no_create": True}'/>
                                     </tree>
                                 </field>
@@ -32,10 +32,10 @@
                 </form>
             </field>
         </record>
-        <!-- Tree View Of Time Table Information -->
-        <record id="view_time_table_tree" model="ir.ui.view">
-            <field name="name">time.table.tree</field>
-            <field name="model">time.table</field>
+        <!-- Tree View Of emploie Information -->
+        <record id="view_emploie_emploie_tree" model="ir.ui.view">
+            <field name="name">emploie.emploie.tree</field>
+            <field name="model">emploie.emploie</field>
             <field name="arch" type="xml">
                 <tree string="Calendrier">
                     <field name="name"/>
@@ -44,12 +44,12 @@
                 </tree>
             </field>
         </record>
-        <!-- Search View Time Table Information -->
-        <record id="timetable_search" model="ir.ui.view">
-            <field name="name">time.table.search</field>
-            <field name="model">time.table</field>
+        <!-- Search View emploie Information -->
+        <record id="emploie_search" model="ir.ui.view">
+            <field name="name">emploie.emploie.search</field>
+            <field name="model">emploie.emploie</field>
             <field name="arch" type="xml">
-                <search string="TimeTable">
+                <search string="emploie">
                     <field name="name"/>
                     <field name="standard_id"/>
                     <field name="year_id"/>
@@ -62,13 +62,13 @@
                 </search>
             </field>
         </record>
-        <!-- Actions Of Form & Tree Views Of Time Table Information -->
-        <record id="action_timetable_regular" model="ir.actions.act_window">
+        <!-- Actions Of Form & Tree Views Of emploie Information -->
+        <record id="action_emploie_regular" model="ir.actions.act_window">
             <field name="name">Horaires réguliers</field>
-            <field name="res_model">time.table</field>
+            <field name="res_model">emploie.emploie</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="domain">[('timetable_type','=','regular')]</field>
-            <field name="context">{'default_timetable_type':'regular'}</field>
+            <field name="domain">[('emploie_type','=','regular')]</field>
+            <field name="context">{'default_emploie_type':'regular'}</field>
         </record>
        </odoo>

@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 ##############################################################################
 # For copyright and license notices, see __openerp__.py file in root directory
@@ -228,15 +229,23 @@ class UserWizard(models.TransientModel):
                     emploie_object = self.env['time.table'].search([('standard_id', '=',classe.id)])
                     emploie = emploie_object.id
                     emploie_line_object = self.env['time.table.line'].search([('table_id', '=', emploie) and ('week_day','=',local_day)])
+                    start_time =0
+                    subject_id=0
                     for rec in emploie_line_object:
-                        start_time =rec.start_time
-                        print("id emploie",emploie,',',"table id",rec.table_id.id,", day",rec.week_day,start_time)
-                        subject_id=rec.subject_id.id
-                        subject_object = self.env['subject.subject'].search([('id', '=', rec.subject_id.id)])
-                        for sub in subject_object:
-                            if(current_time-start_time<=0.15):
-                                status="Retard"
-                            else:
-                                status ="Absent"
-                self.env['student.desciplines'].create({'subject_id':subject_id, 'device_datetime': last_date, 'status': status, 'student_id': student_id })
+                        if(current_time-rec.start_time<=1 and current_time-rec.start_time>=0):
+                            start_time =rec.start_time
+                            print("start",start_time)
+                            print("id emploie",emploie,',',"table id",rec.table_id.id,", day",rec.week_day,start_time)
+                            subject_id=rec.subject_id.id
+
+
+                    if(current_time-start_time<=0.15):
+                        status="Retard"
+                    else:
+                        status ="Absent"
+                    self.env['student.desciplines'].create(
+                                    {'subject_id': subject_id, 'device_datetime': last_date, 'status': status,
+                                     'student_id': student_id})
+
+
 

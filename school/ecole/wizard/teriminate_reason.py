@@ -11,20 +11,20 @@ class TerminateReason(models.TransientModel):
 
     @api.multi
     def save_terminate(self):
-        '''Method to terminate student and change state to terminate'''
-        self.env['student.student'
+        '''Method to terminate eleve and change state to terminate'''
+        self.env['eleve.eleve'
                  ].browse(self._context.get('active_id')
                           ).write({'state': 'terminate',
                                    'terminate_reason': self.reason,
                                    'active': False})
-        student_obj = self.env['student.student'].\
+        eleve_obj = self.env['eleve.eleve'].\
             browse(self._context.get('active_id'))
-        student_obj.standard_id._compute_total_student()
+        eleve_obj.standard_id._compute_total_eleve()
         user = self.env['res.users'].\
-            search([('id', '=', student_obj.user_id.id)])
-        student_reminder = self.env['student.reminder'].\
-            search([('stu_id', '=', student_obj.id)])
-        for rec in student_reminder:
+            search([('id', '=', eleve_obj.user_id.id)])
+        eleve_reminder = self.env['eleve.reminder'].\
+            search([('stu_id', '=', eleve_obj.id)])
+        for rec in eleve_reminder:
             rec.active = False
         if user:
             user.active = False

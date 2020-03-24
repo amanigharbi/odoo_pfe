@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-        <report id="report_student_student"
+        <report id="report_eleve_eleve"
                 string="Carte D'Identité"
-                model="student.student"
+                model="eleve.eleve"
                 report_type="qweb-pdf"
                 file="ecole.identity_card"
-                name="ecole.identity_card" groups="ecole.group_ecole_administration,ecole.group_ecole_teacher,ecole.group_ecole_student"/>
+                name="ecole.identity_card" groups="ecole.group_ecole_administration,ecole.group_ecole_enseignant,ecole.group_ecole_eleve"/>
 
-         <report id="report_time_table_qweb"
+         <report id="report_emploie_emploie_qweb"
                 string="Calendrier"
-                model="time.table"
+                model="emploie.emploie"
                 report_type = "qweb-pdf"
-                file="timetable.timetable"
-                name="timetable.timetable" />
+                file="emploie.emploie"
+                name="emploie.emploie" />
 </odoo>

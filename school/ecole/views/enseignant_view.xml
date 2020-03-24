@@ -3,9 +3,9 @@
     <data>
 
         <!-- search View Of Teahcer's Profiles -->
-        <record id="view_ecole_teacher_search" model="ir.ui.view">
-            <field name="name">ecole.teacher.search</field>
-            <field name="model">ecole.teacher</field>
+        <record id="view_ecole_enseignant_search" model="ir.ui.view">
+            <field name="name">ecole.enseignant.search</field>
+            <field name="model">ecole.enseignant</field>
             <field name="arch" type="xml">
                 <search string="Employés">
                     <field name="name" string="Employés" filter_domain="['|',('work_email','ilike',self),('name','ilike',self)]"/>
@@ -26,9 +26,9 @@
         </record>
 
         <!-- tree View Of Teahcer's Profiles -->
-        <record id="view_ecole_teacher_tree" model="ir.ui.view">
-            <field name="name">ecole.teacher.tree</field>
-            <field name="model">ecole.teacher</field>
+        <record id="view_ecole_enseignant_tree" model="ir.ui.view">
+            <field name="name">ecole.enseignant.tree</field>
+            <field name="model">ecole.enseignant</field>
             <field name="arch" type="xml">
                 <tree string="Faculté" decoration-bf="message_needaction==True">
                     <field name="name"/>
@@ -46,9 +46,9 @@
         </record>
 
         <!-- Form View Of Teahcer's Profiles -->
-        <record id="view_ecole_teacher_form" model="ir.ui.view">
-            <field name="name">ecole.teacher.form</field>
-            <field name="model">ecole.teacher</field>
+        <record id="view_ecole_enseignant_form" model="ir.ui.view">
+            <field name="name">ecole.enseignant.form</field>
+            <field name="model">ecole.enseignant</field>
             <field name="arch" type="xml">
                 <form string="Faculté">
                     <sheet>
@@ -116,7 +116,7 @@
                                 </group>
                             </page>
                             <page string="Children" attrs="{'invisible': [('is_parent','=', False)]}">
-                                 <field name="student_id" domain="[('state', '=', 'done')]"/>
+                                 <field name="eleve_id" domain="[('state', '=', 'done')]"/>
                             </page>
                             <page string="HR Settings" groups="hr.group_hr_user" invisible="1">
                                 <group>
@@ -136,17 +136,17 @@
             </field>
         </record>
 
-        <!-- Action View Of ecole teacher-->
+        <!-- Action View Of ecole enseignant-->
 
-        <record id="action_ecole_teacher_form" model="ir.actions.act_window">
+        <record id="action_ecole_enseignant_form" model="ir.actions.act_window">
             <field name="name">Profile Enseignant</field>
-            <field name="res_model">ecole.teacher</field>
+            <field name="res_model">ecole.enseignant</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
 
         <!-- Menu Item Enseignant-->
-    <menuitem id="menu_enseignant_parents" name="Enseignant" parent="menu_ems" sequence="4" action="action_ecole_teacher_form"  groups="ecole.group_ecole_administration,ecole.group_ecole_teacher"/>
+    <menuitem id="menu_enseignant_parents" name="Enseignant" parent="menu_ems" sequence="4" action="action_ecole_enseignant_form"  groups="ecole.group_ecole_administration,ecole.group_ecole_enseignant"/>
 
 
     </data>

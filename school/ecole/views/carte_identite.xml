@@ -12,19 +12,19 @@
                         <br/>
                         <br/>
                         <br/>
-                        <t t-foreach="o" t-as="student">
+                        <t t-foreach="o" t-as="eleve">
                         <br/><br/><br/>
                         <table width="25%" height="50px" style="border: 3px solid black;">
                             <tr>
                                 <td width="100%" align="center" height="30">
                                     <strong>
-                                        <span t-field="student.ecole_id.name" />
+                                        <span t-field="eleve.ecole_id.name" />
                                     </strong>
                                 </td>
                             </tr>
                             <tr>
                                 <td align="center">
-                                    <img t-if="student.photo" t-att-src="'data:image/png;base64,%s' % to_text(student.photo)"
+                                    <img t-if="eleve.photo" t-att-src="'data:image/png;base64,%s' % to_text(eleve.photo)"
                                          style="height:120px;width=120px" />
                                 </td>
                             </tr>
@@ -34,13 +34,13 @@
                             <tr>
                                 <td align="center" height="30px">
                                     <strong>
-                                        <span t-field="student.name" />
+                                        <span t-field="eleve.name" />
                                     </strong>
                                     <strong>
-                                        <span t-field="student.middle" />
+                                        <span t-field="eleve.middle" />
                                     </strong>
                                     <strong>
-                                        <span t-field="student.last" />
+                                        <span t-field="eleve.last" />
                                     </strong>
                                 </td>
                             </tr>
@@ -55,7 +55,7 @@
                                                 <strong>: </strong>
                                             </td>
                                             <td>
-                                                <span t-field="student.roll_no" />
+                                                <span t-field="eleve.roll_no" />
                                             </td>
                                         </tr>
                                         <tr>
@@ -66,7 +66,7 @@
                                                 <strong>: </strong>
                                             </td>
                                             <td>
-                                                <span t-field="student.standard_id.standard_id.name"/>
+                                                <span t-field="eleve.standard_id.standard_id.name"/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -77,7 +77,7 @@
                                                 <strong>: </strong>
                                             </td>
                                             <td>
-                                                <span t-field="student.standard_id.division_id.name"/>
+                                                <span t-field="eleve.standard_id.division_id.name"/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -88,7 +88,7 @@
                                                 <strong>: </strong>
                                             </td>
                                             <td>
-                                                <span t-field="student.medium_id.name" />
+                                                <span t-field="eleve.medium_id.name" />
                                             </td>
                                         </tr>
                                         <tr>
@@ -99,7 +99,7 @@
                                                 <strong>: </strong>
                                             </td>
                                             <td>
-                                                <span t-field="student.date_of_birth" />
+                                                <span t-field="eleve.date_of_birth" />
                                             </td>
                                         </tr>
                                         <tr>
@@ -110,7 +110,7 @@
                                                 <strong>: </strong>
                                             </td>
                                             <td>
-                                                <span t-field="student.blood_group" />
+                                                <span t-field="eleve.blood_group" />
                                             </td>
                                         </tr>
                                     </table>

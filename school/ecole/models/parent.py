@@ -12,27 +12,27 @@ class ParentRelation(models.Model):
 
 
 class EcoleParent(models.Model):
-    ''' Defining a Teacher information '''
+    ''' Defining a enseignant information '''
     _name = 'ecole.parent'
     _description = 'Parent Information'
 
-    @api.onchange('student_id')
-    def onchange_student_id(self):
+    @api.onchange('eleve_id')
+    def onchange_eleve_id(self):
         self.standard_id = [(6, 0, [])]
         self.stand_id = [(6, 0, [])]
-        standard_ids = [student.standard_id.id
-                        for student in self.student_id]
+        standard_ids = [eleve.standard_id.id
+                        for eleve in self.eleve_id]
         if standard_ids:
-            stand_ids = [student.standard_id.standard_id.id
-                         for student in self.student_id]
+            stand_ids = [eleve.standard_id.standard_id.id
+                         for eleve in self.eleve_id]
             self.standard_id = [(6, 0, standard_ids)]
             self.stand_id = [(6, 0, stand_ids)]
 
     partner_id = fields.Many2one('res.partner', 'User ID', ondelete="cascade",
                                  delegate=True, required=True)
     relation_id = fields.Many2one('parent.relation', "Relation with Child")
-    student_id = fields.Many2many('student.student', 'students_parents_rel',
-                                  'students_parent_id', 'student_id',
+    eleve_id = fields.Many2many('eleve.eleve', 'eleves_parents_rel',
+                                  'eleves_parent_id', 'eleve_id',
                                   'Children')
     standard_id = fields.Many2many('ecole.standard',
                                    'ecole_standard_parent_rel',
@@ -42,7 +42,7 @@ class EcoleParent(models.Model):
                                 'standard_standard_parent_rel',
                                 'standard_parent_id', 'standard_id',
                                 'Academic Standard')
-    teacher_id = fields.Many2one('ecole.teacher', 'Teacher',
+    enseignant_id = fields.Many2one('ecole.enseignant', 'enseignant',
                                  related="standard_id.user_id", store=True)
 
     @api.model

@@ -19,34 +19,34 @@ except:
     image_resize_image_big = False
 
 
-class StudentStudent(models.Model):
-    ''' Defining a student information '''
-    _name = 'student.student'
-    _table = "student_student"
-    _description = 'Student Information'
+class eleveeleve(models.Model):
+    ''' Defining a eleve information '''
+    _name = 'eleve.eleve'
+    _table = "eleve_eleve"
+    _description = 'eleve Information'
 
     @api.model
     def _search(self, args, offset=0, limit=None, order=None, count=False,
                 access_rights_uid=None):
-        '''Method to get student of parent having group teacher'''
-        teacher_group = self.env.user.has_group('ecole.group_ecole_teacher')
+        '''Method to get eleve of parent having group enseignant'''
+        enseignant_group = self.env.user.has_group('ecole.group_ecole_enseignant')
         parent_grp = self.env.user.has_group('ecole.group_ecole_parent')
         login_user = self.env['res.users'].browse(self._uid)
-        name = self._context.get('student_id')
-        if name and teacher_group and parent_grp:
+        name = self._context.get('eleve_id')
+        if name and enseignant_group and parent_grp:
             parent_login_stud = self.env['ecole.parent'
                                          ].search([('partner_id', '=',
                                                   login_user.partner_id.id)
                                                    ])
-            childrens = parent_login_stud.student_id
+            childrens = parent_login_stud.eleve_id
             args.append(('id', 'in', childrens.ids))
-        return super(StudentStudent, self)._search(
+        return super(eleveeleve, self)._search(
             args=args, offset=offset, limit=limit, order=order, count=count,
             access_rights_uid=access_rights_uid)
 
     @api.depends('date_of_birth')
-    def _compute_student_age(self):
-        '''Method to calculate student age'''
+    def _compute_eleve_age(self):
+        '''Method to calculate eleve age'''
         current_dt = date.today()
         for rec in self:
             if rec.date_of_birth:
@@ -65,15 +65,15 @@ class StudentStudent(models.Model):
             age_calc = ((current_dt - start).days / 365)
             # Check if age less than 5 years
             if age_calc < 5:
-                raise ValidationError(_('''Age of student should be greater
+                raise ValidationError(_('''Age of eleve should be greater
                 than 5 years!'''))
 
     @api.model
     def create(self, vals):
-        '''Method to create user when student is created'''
+        '''Method to create user when eleve is created'''
         if vals.get('pid', _('New')) == _('New'):
             vals['pid'] = self.env['ir.sequence'
-                                   ].next_by_code('student.student'
+                                   ].next_by_code('eleve.eleve'
                                                   ) or _('New')
         if vals.get('pid', False):
             vals['login'] = vals['pid']
@@ -87,35 +87,35 @@ class StudentStudent(models.Model):
             vals.update(company_vals)
         if vals.get('email'):
             ecole.emailvalidation(vals.get('email'))
-        res = super(StudentStudent, self).create(vals)
-        teacher = self.env['ecole.teacher']
+        res = super(eleveeleve, self).create(vals)
+        enseignant = self.env['ecole.enseignant']
         for data in res.parent_id:
-            teacher_rec = teacher.search([('stu_parent_id',
+            enseignant_rec = enseignant.search([('stu_parent_id',
                                            '=', data.id)])
-            for record in teacher_rec:
-                record.write({'student_id': [(4, res.id, None)]})
-        # Assign group to student based on condition
+            for record in enseignant_rec:
+                record.write({'eleve_id': [(4, res.id, None)]})
+        # Assign group to eleve based on condition
         emp_grp = self.env.ref('base.group_user')
         if res.state == 'draft':
             admission_group = self.env.ref('ecole.group_is_admission')
             new_grp_list = [admission_group.id, emp_grp.id]
             res.user_id.write({'groups_id': [(6, 0, new_grp_list)]})
         elif res.state == 'done':
-            done_student = self.env.ref('ecole.group_ecole_student')
-            group_list = [done_student.id, emp_grp.id]
+            done_eleve = self.env.ref('ecole.group_ecole_eleve')
+            group_list = [done_eleve.id, emp_grp.id]
             res.user_id.write({'groups_id': [(6, 0, group_list)]})
         return res
 
     @api.multi
     def write(self, vals):
-        teacher = self.env['ecole.teacher']
+        enseignant = self.env['ecole.enseignant']
         if vals.get('parent_id'):
             for parent in vals.get('parent_id')[0][2]:
-                teacher_rec = teacher.search([('stu_parent_id',
+                enseignant_rec = enseignant.search([('stu_parent_id',
                                                '=', parent)])
-                for data in teacher_rec:
-                    data.write({'student_id': [(4, self.id)]})
-        return super(StudentStudent, self).write(vals)
+                for data in enseignant_rec:
+                    data.write({'eleve_id': [(4, self.id)]})
+        return super(eleveeleve, self).write(vals)
 
     @api.model
     def _default_image(self):
@@ -127,47 +127,47 @@ class StudentStudent(models.Model):
                                                              ))
 
     @api.depends('state')
-    def _compute_teacher_user(self):
+    def _compute_enseignant_user(self):
         for rec in self:
             if rec.state == 'done':
-                teacher = self.env.user.has_group("ecole.group_ecole_teacher"
+                enseignant = self.env.user.has_group("ecole.group_ecole_enseignant"
                                                   )
-                if teacher:
+                if enseignant:
                     rec.teachr_user_grp = True
 
     @api.model
     def check_current_year(self):
-        '''Method to get default value of logged in Student'''
+        '''Method to get default value of logged in eleve'''
         res = self.env['academic.year'].search([('current', '=',
                                                  True)])
         if not res:
-            raise ValidationError(_('''There is no current Academic Year
+            raise ValidationError(_('''There is no current annee academique
                                     defined!Please contact to Administator!'''
                                     ))
         return res.id
 
-    family_con_ids = fields.One2many('student.family.contact',
+    family_con_ids = fields.One2many('eleve.family.contact',
                                      'family_contact_id',
                                      'Family Contact Detail',
                                      states={'done': [('readonly', True)]})
     user_id = fields.Many2one('res.users', 'User ID', ondelete="cascade",
                               required=True, delegate=True)
-    student_name = fields.Char('Nom Elève', related='user_id.name',
+    eleve_name = fields.Char('Nom Elève', related='user_id.name',
                                store=True, readonly=True)
     pid = fields.Char('ID Elève', required=True,
                       default=lambda self: _('New'),
                       help='Personal IDentification Number')
     reg_code = fields.Char('Code Registration',
-                           help='Student Registration Code')
-    student_code = fields.Char('Code Elève')
+                           help='eleve Registration Code')
+    eleve_code = fields.Char('Code Elève')
     contact_phone = fields.Char('Numéro Téléphone.')
     contact_mobile = fields.Char('Numéro Portable')
     roll_no = fields.Integer('Numéro Roll.', readonly=True)
     photo = fields.Binary('Photo', default=_default_image)
     year = fields.Many2one('academic.year', 'Année Académique', readonly=True,
                            default=check_current_year)
-    cast_id = fields.Many2one('student.cast', 'Réligion/Caste')
-    relation = fields.Many2one('student.relation.master', 'Relation')
+    cast_id = fields.Many2one('eleve.cast', 'Réligion/Caste')
+    relation = fields.Many2one('eleve.relation.master', 'Relation')
 
     admission_date = fields.Date('Date Admission ', default=date.today())
     middle = fields.Char('Deuxième Nom', required=True,
@@ -179,16 +179,16 @@ class StudentStudent(models.Model):
     date_of_birth = fields.Date('Date De Naissance', required=True,
                                 states={'done': [('readonly', True)]})
     mother_tongue = fields.Many2one('mother.toungue', "Langue Maternelle")
-    age = fields.Integer(compute='_compute_student_age', string='Age',
+    age = fields.Integer(compute='_compute_eleve_age', string='Age',
                          readonly=True)
     maritual_status = fields.Selection([('célibataire', 'célibataire'),
                                         ('Marié', 'Marié')],
                                        'Marital Status',
                                        states={'done': [('readonly', True)]})
-    reference_ids = fields.One2many('student.reference', 'reference_id',
+    reference_ids = fields.One2many('eleve.reference', 'reference_id',
                                     'Réferences',
                                     states={'done': [('readonly', True)]})
-    previous_ecole_ids = fields.One2many('student.previous.ecole',
+    previous_ecole_ids = fields.One2many('eleve.previous.ecole',
                                           'previous_ecole_id',
                                           'Détail École précédente',
                                           states={'done': [('readonly',
@@ -217,32 +217,32 @@ class StudentStudent(models.Model):
                               ('cancel', 'Cancel'),
                               ('alumni', 'Alumni')],
                              'Status', readonly=True, default="draft")
-    history_ids = fields.One2many('student.history', 'student_id', 'Historique')
-    descplines_ids = fields.One2many('student.desciplines', 'student_id', 'Desciplines')
-    certificate_ids = fields.One2many('student.certificate', 'student_id',
+    history_ids = fields.One2many('eleve.history', 'eleve_id', 'Historique')
+    descplines_ids = fields.One2many('eleve.desciplines', 'eleve_id', 'Desciplines')
+    certificate_ids = fields.One2many('eleve.certificate', 'eleve_id',
                                       'Certificat')
-    student_discipline_line = fields.One2many('student.descipline',
-                                              'student_id', 'Descipline')
-    document = fields.One2many('student.document', 'doc_id', 'Documents')
-    description = fields.One2many('student.description', 'des_id',
+    eleve_discipline_line = fields.One2many('eleve.descipline',
+                                              'eleve_id', 'Descipline')
+    document = fields.One2many('eleve.document', 'doc_id', 'Documents')
+    description = fields.One2many('eleve.description', 'des_id',
                                   'Déscription')
-    award_list = fields.One2many('student.award', 'award_list_id',
+    award_list = fields.One2many('eleve.award', 'award_list_id',
                                  'Liste des prix')
     stu_name = fields.Char('Prénom', related='user_id.name',
                            readonly=True)
     Acadamic_year = fields.Char('Année', related='year.name',
-                                help='Academic Year', readonly=True)
+                                help='annee academique', readonly=True)
     division_id = fields.Many2one('standard.division', 'Division')
     medium_id = fields.Many2one('standard.medium', 'Medium')
     standard_id = fields.Many2one('ecole.standard', 'Classe')
-    parent_id = fields.Many2many('ecole.parent', 'students_parents_rel',
-                                 'student_id',
-                                 'students_parent_id', 'Parent(s)',
+    parent_id = fields.Many2many('ecole.parent', 'eleves_parents_rel',
+                                 'eleve_id',
+                                 'eleves_parent_id', 'Parent(s)',
                                  states={'done': [('readonly', True)]})
     terminate_reason = fields.Text('Raison')
     active = fields.Boolean(default=True)
     teachr_user_grp = fields.Boolean("Groupe Enseignant",
-                                     compute="_compute_teacher_user",
+                                     compute="_compute_enseignant_user",
                                      )
     active = fields.Boolean(default=True)
 
@@ -254,11 +254,11 @@ class StudentStudent(models.Model):
     @api.multi
     def set_alumni(self):
         '''Method to change state to alumni'''
-        student_user = self.env['res.users']
+        eleve_user = self.env['res.users']
         for rec in self:
             rec.state = 'alumni'
-            rec.standard_id._compute_total_student()
-            user = student_user.search([('id', '=',
+            rec.standard_id._compute_total_eleve()
+            user = eleve_user.search([('id', '=',
                                          rec.user_id.id)])
             rec.active = False
             if user:
@@ -287,7 +287,7 @@ class StudentStudent(models.Model):
         '''Method to confirm admission'''
         ecole_standard_obj = self.env['ecole.standard']
         ir_sequence = self.env['ir.sequence']
-        student_group = self.env.ref('ecole.group_ecole_student')
+        eleve_group = self.env.ref('ecole.group_ecole_eleve')
         emp_group = self.env.ref('base.group_user')
         for rec in self:
             if not rec.standard_id:
@@ -301,89 +301,36 @@ class StudentStudent(models.Model):
                 raise except_orm(_('Avertissement'),
                                  _('''Standard Non trouvé dans
                                      ecole'''))
-            # Assign group to student
+            # Assign group to eleve
             rec.user_id.write({'groups_id': [(6, 0, [emp_group.id,
-                                                     student_group.id])]})
-            # Assign roll no to student
+                                                     eleve_group.id])]})
+            # Assign roll no to eleve
             number = 1
             for rec_std in rec.search(domain):
                 rec_std.roll_no = number
                 number += 1
-            # Assign registration code to student
-            reg_code = ir_sequence.next_by_code('student.registration')
+            # Assign registration code to eleve
+            reg_code = ir_sequence.next_by_code('eleve.registration')
             registation_code = (str(rec.ecole_id.state_id.name) + str('/') +
                                 str(rec.ecole_id.city) + str('/') +
                                 str(rec.ecole_id.name) + str('/') +
                                 str(reg_code))
-            stu_code = ir_sequence.next_by_code('student.code')
-            student_code = (str(rec.ecole_id.code) + str('/') +
+            stu_code = ir_sequence.next_by_code('eleve.code')
+            eleve_code = (str(rec.ecole_id.code) + str('/') +
                             str(rec.year.code) + str('/') +
                             str(stu_code))
             rec.write({'state': 'done',
                        'admission_date': time.strftime('%Y-%m-%d'),
-                       'student_code': student_code,
+                       'eleve_code': eleve_code,
                        'reg_code': registation_code})
         return True
-class StudentDesciplines(models.Model):
-    _name = 'student.desciplines'
-    _description = "Student Disciplines"
+class eleveDesciplines(models.Model):
+    _name = 'eleve.desciplines'
+    _description = "eleve Disciplines"
 
     subject_id = fields.Many2one('subject.subject', 'Nom Matière')
     device_datetime = fields.Many2one('device.attendances','Date/Heure Machine')
     status=fields.Char("status")
-    student_id = fields.Many2one('student.student', 'Elève')
+    eleve_id = fields.Many2one('eleve.eleve', 'Elève')
 
-    class TimeTable(models.Model):
-        _description = 'Time Table'
-        _name = 'time.table'
-
-        @api.depends('timetable_ids')
-        def _compute_user(self):
-            '''Method to compute user'''
-            for rec in self:
-                rec.user_ids = [teacher.teacher_id.employee_id.user_id.id
-                                for teacher in rec.timetable_ids
-                                ]
-            return True
-
-        name = fields.Char('Description')
-        standard_id = fields.Many2one('ecole.standard', 'Classe Academique',
-                                      required=True,
-                                      help="Select Standard")
-        year_id = fields.Many2one('academic.year', 'Année', required=True,
-                                  help="select academic year")
-        timetable_ids = fields.One2many('time.table.line', 'table_id', 'Calendrier')
-        timetable_type = fields.Selection([('regular', 'Regular')],
-                                          'Time Table Type', default="regular",
-                                          inivisible=True)
-        user_ids = fields.Many2many('res.users', string="Utilisateur",
-                                    compute="_compute_user", store=True)
-        class_room_id = fields.Many2one('class.room', 'Numéro Salle')
-
-        @api.constrains('timetable_ids')
-        def _check_lecture(self):
-            '''Method to check same lecture is not assigned on same day'''
-            if self.timetable_type == 'regular':
-                domain = [('table_id', 'in', self.ids)]
-                line_ids = self.env['time.table.line'].search(domain)
-                for rec in line_ids:
-                    records = [rec_check.id for rec_check in line_ids
-                               if (rec.week_day == rec_check.week_day and
-                                   rec.start_time == rec_check.start_time and
-                                   rec.end_time == rec_check.end_time and
-                                   rec.teacher_id.id == rec.teacher_id.id)]
-                    if len(records) > 1:
-                        raise ValidationError(_('''Vous ne pouvez pas définir la conférence en même temps
-                                                heure% s le même jour% s pour l'enseignant
-                                                %s..!''') % (rec.start_time,
-                                                             rec.week_day,
-                                                             rec.teacher_id.name))
-                    # Checks if time is greater than 24 hours than raise error
-                    if rec.start_time > 24:
-                        raise ValidationError(_('''L'heure de début doit être inférieure à
-                                                24 heures!'''))
-                    if rec.end_time > 24:
-                        raise ValidationError(_('''L'heure de fin doit être inférieure à
-                                                24 heures!'''))
-                return True
 

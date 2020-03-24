@@ -14,13 +14,14 @@
                     <field name="device_id"/>
                 </tree>
             </field>
+
         </record>
 
         <record id="device_attendances_form_view" model="ir.ui.view">
             <field name="name">device_attendances_form_view</field>
             <field name="model">device.attendances</field>
             <field name="arch" type="xml">
-                <form string="Device Attendances">
+                <form string="Device Attendances" >
                     <sheet>
                         <group>
                             <field name="device_user_id"/>
@@ -61,9 +62,11 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
+
                 <p class="oe_view_nocontent_create">Get Data from Fingerprint Device
                 </p>
             </field>
+
         </record>
 
         <menuitem id="attendance_menu_item"  name="Attendances"

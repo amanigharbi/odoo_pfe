@@ -2,7 +2,7 @@
 
 <odoo>
     <data>
-        <!-- Form View of terminate student wizard -->
+        <!-- Form View of terminate eleve wizard -->
         <record id="ecole_terminate_reason" model="ir.ui.view">
             <field name="name">Raison Mettre Fin</field>
             <field name="model">terminate.reason</field>
@@ -20,7 +20,7 @@
                 </form>
             </field>
         </record>
-        <!-- Action of Terminate Student Wizard -->
+        <!-- Action of Terminate eleve Wizard -->
         <record id="action_terminate_wizard" model="ir.actions.act_window">
             <field name="name">Raison Mettre Fin</field>
             <field name="res_model">terminate.reason</field>
