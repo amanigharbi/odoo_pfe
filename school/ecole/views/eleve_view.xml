@@ -570,8 +570,8 @@
         <field name="arch" type="xml">
             <tree string="Register D'Admission">
                 <field name="pid" />
-                <field name="name" />
-                <field name="eleve_name" invisible="1" />
+                <field name="eleve_name" />
+                <field name="name" invisible="1" />
                 <field name="year" widget="selection" />
                 <field name="standard_id" widget="selection" />
                 <field name="ecole_id" />

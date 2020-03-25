@@ -20,7 +20,7 @@ class add_student(models.TransientModel):
                     self.env['device.users'].create({'name':student.name,'device_user_id':student.id,'device_id':deivce.id})
                     deivces = self.env['device.users'].search([('device_user_id','=',student.id)])
                     for rec in deivces:
-                        device_users.cc.create_user(rec,rec)
+                        device_users.DeviceUser.create_user(rec,rec)
         else :
             print("")
             #TODO ADD message  error

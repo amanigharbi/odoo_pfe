@@ -65,8 +65,7 @@ class eleveeleve(models.Model):
             age_calc = ((current_dt - start).days / 365)
             # Check if age less than 5 years
             if age_calc < 5:
-                raise ValidationError(_('''Age of eleve should be greater
-                than 5 years!'''))
+                raise ValidationError(_('''Age Eleve obligatoirement supérieur à 5ans!'''))
 
     @api.model
     def create(self, vals):
@@ -79,9 +78,9 @@ class eleveeleve(models.Model):
             vals['login'] = vals['pid']
             vals['password'] = vals['pid']
         else:
-            raise except_orm(_('Error!'),
-                             _('''PID not valid
-                                 so record will not be saved.'''))
+            raise except_orm(_('Erreur!'),
+                             _('''PID non valide
+                                 donc record ne sera pas enregistrer.'''))
         if vals.get('company_id', False):
             company_vals = {'company_ids': [(4, vals.get('company_id'))]}
             vals.update(company_vals)
@@ -329,7 +328,7 @@ class eleveDesciplines(models.Model):
     _description = "eleve Disciplines"
 
     subject_id = fields.Many2one('subject.subject', 'Nom Matière')
-    device_datetime = fields.Many2one('device.attendances','Date/Heure Machine')
+    device_datetime = fields.Datetime(string='Heure Machine')
     status=fields.Char("status")
     eleve_id = fields.Many2one('eleve.eleve', 'Elève')
 

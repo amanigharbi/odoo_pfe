@@ -29,7 +29,8 @@ It works on zkteco machines using pyzk library( version 1.9)
         'security/pyzk_security.xml',
         'security/ir.model.access.csv',
         'data/importAttendances.xml',
-        'data/Verification.xml'
+        'data/VerificationSchool.xml',
+        'data/VerificationEcole.xml',
      ],
     'installable': True,
     'auto_install': False,

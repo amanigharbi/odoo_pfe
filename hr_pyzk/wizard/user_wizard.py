@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 ##############################################################################
 # For copyright and license notices, see __openerp__.py file in root directory
@@ -9,6 +8,7 @@ from odoo import models, fields, api, exceptions, _
 import datetime
 import pytz
 from addons.hr_pyzk.controllers import controller as c
+from odoo.exceptions import ValidationError
 
 
 
@@ -140,52 +140,14 @@ class UserWizard(models.TransientModel):
 
             attendance.state = 'Transferred'
 
+#action planifié de module school
     def test_attendances(self):
-        """
-        user_tz = self.env.user.tz
-        local = pytz.timezone(user_tz)
-        local_time = datetime.datetime.now()
-        x = local_time.strftime("%H:%M:%S")
-        difference = (pytz.timezone('UTC').localize(local_time) - local.localize(local_time))
-        time = local_time+difference
-
-
-        attendance_object = self.env['device.attendances']
-        student_object = self.env['student.student'].search([('id','=',49)])
-        classe =student_object.standard_id
-        print(classe)
-        emploie_object = self.env['time.table'].search([('standard_id', '=',classe.id)])
-        emploie = emploie_object.id
-        emploie_line_object = self.env['time.table.line'].search([('table_id', '=', emploie)])
-        for rec in emploie_line_object:
-            print(emploie,',',rec.table_id)
-
-
-
-        user_object = self.env['device.users']
-        devices_object = self.env['devices']
-        devices = devices_object.search([('state', '=', 0)])
-        for device in devices:
-            latest_rec = attendance_object.search([('device_id', '=', device.id)])
-            check = attendance_object.search([('device_user_id','=',0)])
-            for rec in latest_rec:
-                if rec:
-                    latest_datetime = str(rec.device_datetime)
-                    latest_datetime = datetime.datetime.strptime(latest_datetime, '%Y-%m-%d %H:%M:%S')+difference
-                    time=latest_datetime.strftime("%H:%M:%S")
-                    print(time)
-
-"""
-        user_tz = self.env.user.tz
-        local = pytz.timezone(user_tz)
-        local_time = datetime.datetime.now()
-        difference = (pytz.timezone('UTC').localize(local_time) - local.localize(local_time))
+        # jour de système
         local_day = datetime.date.today().strftime("%A")
-        print(local_day)
-        device_user_object  = self.env['device.users']
+        # les attendances
+        device_user_object = self.env['device.users']
         device_attendances_object = self.env['device.attendances']
         odoo_users = device_user_object.search([])
-
         user_punches2 = []
         user_punches2.clear()
         all_attendance = []
@@ -194,58 +156,115 @@ class UserWizard(models.TransientModel):
         user_clocks.clear()
         attendance = []
         attendance.clear()
-        #clock = []
-        #clock.clear()
 
         for user in odoo_users:
             device_attendances = []
             device_attendances.clear()
+            # attendences check in
             device_attendances = device_attendances_object.search(
                 [('device_user_id', '=', user.id), ('attendance_state', '=', 0)])
 
-            if len(device_attendances)!=0:
-                user_punches = [[int(x.device_user_id),datetime.datetime.strptime(str(x.device_datetime),
-                                                                                  '%Y-%m-%d %H:%M:%S'),
+            if len(device_attendances) != 0:
+                user_punches = [[int(x.device_user_id), datetime.datetime.strptime(str(x.device_datetime),
+                                                                                   '%Y-%m-%d %H:%M:%S'),
                                  x.device_punch] for x in device_attendances]
 
-                print("info last attendance",)
                 user_punches2.extend(user_punches)
                 all_attendance.extend(attendance)
-                #user_clocks.extend(clock)
-
                 for record in device_attendances:
                     if record.attendance_state == 0:
                         record.attendance_state = 1
-
-
+                # classe/matiere/eleve/emploie
                 for x in device_attendances:
-                    student_id=x.device_user_id.device_user_id
+                    student_id = x.device_user_id.device_user_id
                     last_date = datetime.datetime.strptime(str(x.device_datetime), '%Y-%m-%d %H:%M:%S')
                     current_time = last_date.strftime("%H.%M")
-                    current_time=float(current_time)+1.0
-                    student_object = self.env['student.student'].search([('student_name','=',x.device_user_id.name)])
-                    classe =student_object.standard_id
-                    print("id classe",classe.id)
-                    emploie_object = self.env['time.table'].search([('standard_id', '=',classe.id)])
+                    current_time = float(current_time) + 1.0
+                    student_object = self.env['student.student'].search([('student_name', '=', x.device_user_id.name)])
+                    classe = student_object.standard_id
+                    emploie_object = self.env['time.table'].search([('standard_id', '=', classe.id)])
                     emploie = emploie_object.id
-                    emploie_line_object = self.env['time.table.line'].search([('table_id', '=', emploie) and ('week_day','=',local_day)])
-                    start_time =0
-                    subject_id=0
+                    emploie_line_object = self.env['time.table.line'].search(
+                        [('table_id', '=', emploie) and ('week_day', '=', local_day)])
+                    start_time = 0
+                    subject_id = 0
+                    # test
                     for rec in emploie_line_object:
-                        if(current_time-rec.start_time<=1 and current_time-rec.start_time>=0):
-                            start_time =rec.start_time
-                            print("start",start_time)
-                            print("id emploie",emploie,',',"table id",rec.table_id.id,", day",rec.week_day,start_time)
-                            subject_id=rec.subject_id.id
+                        if (current_time - rec.start_time <= 1 and current_time - rec.start_time >= 0):
+                            start_time = rec.start_time
+                            subject_id = rec.subject_id.id
+                        else:
+                            print("Pas de cours dans ce temps")
 
-
-                    if(current_time-start_time<=0.15):
-                        status="Retard"
+                    if (current_time - start_time <= 0.15):
+                        status = "Retard"
                     else:
-                        status ="Absent"
+                        status = "Absent"
                     self.env['student.desciplines'].create(
-                                    {'subject_id': subject_id, 'device_datetime': last_date, 'status': status,
-                                     'student_id': student_id})
+                        {'subject_id': subject_id, 'device_datetime': last_date, 'status': status,
+                         'student_id': student_id})
+            if len(device_attendances) == 0:
+                print("Aucun(e) Elève Pointé")
 
+# action planifié de module ecole
+    def test_attendancesEcole(self):
 
+        #jour de système
+        local_day = datetime.date.today().strftime("%A")
+        #les attendances
+        device_user_object = self.env['device.users']
+        device_attendances_object = self.env['device.attendances']
+        odoo_users = device_user_object.search([])
+        user_punches2 = []
+        user_punches2.clear()
+        all_attendance = []
+        all_attendance.clear()
+        user_clocks = []
+        user_clocks.clear()
+        attendance = []
+        attendance.clear()
 
+        for user in odoo_users:
+            device_attendances = []
+            device_attendances.clear()
+            #attendences check in
+            device_attendances = device_attendances_object.search([('device_user_id', '=', user.id), ('attendance_state', '=', 0)])
+
+            if len(device_attendances) != 0:
+                user_punches = [[int(x.device_user_id), datetime.datetime.strptime(str(x.device_datetime),
+                                                                                   '%Y-%m-%d %H:%M:%S'),
+                                 x.device_punch] for x in device_attendances]
+
+                user_punches2.extend(user_punches)
+                all_attendance.extend(attendance)
+                for record in device_attendances:
+                    if record.attendance_state == 0:
+                        record.attendance_state = 1
+                #classe/matiere/eleve/emploie
+                for x in device_attendances:
+                    student_id = x.device_user_id.device_user_id
+                    last_date = datetime.datetime.strptime(str(x.device_datetime), '%Y-%m-%d %H:%M:%S')
+                    current_time = last_date.strftime("%H.%M")
+                    current_time = float(current_time) + 1.0
+                    student_object = self.env['eleve.eleve'].search([('eleve_name', '=', x.device_user_id.name)])
+                    classe = student_object.standard_id
+                    emploie_object = self.env['emploie.emploie'].search([('standard_id', '=', classe.id)])
+                    emploie = emploie_object.id
+                    emploie_line_object = self.env['emploie.emploie.line'].search([('table_id', '=', emploie) and ('week_day', '=', local_day)])
+                    start_time = 0
+                    subject_id = 0
+                    #test
+                    for rec in emploie_line_object:
+                        if (current_time - rec.start_time <= 1 and current_time - rec.start_time >= 0):
+                            start_time = rec.start_time
+                            subject_id = rec.subject_id.id
+                        else:
+                            raise ValidationError(_('''Pas de cours dans ce temps!'''))
+
+                    if (current_time - start_time <= 0.15):
+                        status = "Retard"
+                    else:
+                        status = "Absent"
+                    self.env['eleve.desciplines'].create({'subject_id': subject_id, 'device_datetime': last_date, 'status': status,'eleve_id': student_id})
+            if len(device_attendances) == 0:
+                raise ValidationError(_('''Aucun(e) Elève Pointé!'''))
