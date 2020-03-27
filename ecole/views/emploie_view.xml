@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<odoo>
+        <!-- Form View Of emploie Information -->
+        <record id="view_emploie_emploie_form" model="ir.ui.view">
+            <field name="name">emploie.emploie.form</field>
+            <field name="model">emploie.emploie</field>
+            <field name="arch" type="xml">
+                <form string="Calendrier">
+                    <sheet>
+                        <group col="4" colspan="4">
+                            <field name="name" placeholder="Entrer Déscription"/>
+                            <field name="standard_id" placeholder="Selectionnez Standard" widget="selection"/>
+                            <field name="year_id" placeholder="Selectionnez Année" widget="selection"/>
+                            <field name="class_room_id" options="{&quot;no_create&quot;: True}" invisible="1"/>
+                            <field name="user_ids" invisible="1"/>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Calendrier">
+                                <field name="emploie_ids" nolabel="1" colspan="4">
+                                    <tree string="Calendrier" editable="top">
+                                        <field name="week_day"/>
+                                        <field name="subject_id" required="1" options='{"no_open": True, "no_create": True}'/>
+                                        <field name="start_time"/>
+                                        <field name="end_time"/>
+                                        <field name="enseignant_id" options='{"no_open": True, "no_create": True}' required="1"/>
+                                        <field name="class_room_id" options='{"no_open": True, "no_create": True}'/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Tree View Of emploie Information -->
+        <record id="view_emploie_emploie_tree" model="ir.ui.view">
+            <field name="name">emploie.emploie.tree</field>
+            <field name="model">emploie.emploie</field>
+            <field name="arch" type="xml">
+                <tree string="Calendrier">
+                    <field name="name"/>
+                    <field name="standard_id"/>
+                    <field name="year_id"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Search View emploie Information -->
+        <record id="emploie_search" model="ir.ui.view">
+            <field name="name">emploie.emploie.search</field>
+            <field name="model">emploie.emploie</field>
+            <field name="arch" type="xml">
+                <search string="emploie">
+                    <field name="name"/>
+                    <field name="standard_id"/>
+                    <field name="year_id"/>
+                    <newline/>
+                    <group expand="1" string="Groupe Par">
+                        <filter name="class" string="Classe académique" help="By class"
+                                context="{'group_by':'standard_id'}"/>
+                        <filter name="year" string="Year" help="Par Année" context="{'group_by':'year_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <!-- Actions Of Form & Tree Views Of emploie Information -->
+        <record id="action_emploie_regular" model="ir.actions.act_window">
+            <field name="name">Horaires réguliers</field>
+            <field name="res_model">emploie.emploie</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('emploie_type','=','regular')]</field>
+            <field name="context">{'default_emploie_type':'regular'}</field>
+        </record>
+       </odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+        <report id="report_eleve_eleve"
+                string="Carte D'Identité"
+                model="eleve.eleve"
+                report_type="qweb-pdf"
+                file="ecole.identity_card"
+                name="ecole.identity_card" groups="ecole.group_ecole_administration,ecole.group_ecole_enseignant,ecole.group_ecole_eleve"/>
+
+         <report id="report_emploie_emploie_qweb"
+                string="Calendrier"
+                model="emploie.emploie"
+                report_type = "qweb-pdf"
+                file="emploie.emploie"
+                name="emploie.emploie" />
+</odoo>

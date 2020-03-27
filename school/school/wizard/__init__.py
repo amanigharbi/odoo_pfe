@@ -4,4 +4,4 @@ from . import assign_roll_no
 from . import move_standards
 from . import wiz_send_email
 from . import teriminate_reason
-from . import Add_student
+from . import add_student

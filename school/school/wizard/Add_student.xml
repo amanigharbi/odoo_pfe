@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-
-    <!-- Assign Roll Number Wizard Form View  -->
+       <!-- Assign Roll Number Wizard Form View  -->
     <record id="view_add_student_form" model="ir.ui.view">
-        <field name="name">Add_student.form</field>
+        <field name="name">add_student.form</field>
         <field name="model">add.student</field>
         <field name="arch" type="xml">
-            <form string="Add student">
+            <form string="Add Student">
                     <group>
-                        <field name="student_name" placeholder="Enter Name Student" widget="many2many_tags"/>
-                         <field name="device_id"/>
-                    </group>
-                    <footer>
-                        <button class="btn btn-sm btn-default fa fa-plus" name="add_button" string="Add" type="object"/>
-                    </footer>
 
+                        <field name="student_name"  placeholder="Enter Name Student" widget="many2many_tags" string="student name"/>
+                        <field name="device_name" placeholder="device name" />
+                    </group>
+
+                    <footer>
+                        <button class="btn btn-sm btn-default fa fa-plus" name="button_add" type="object" string="add"/>
+                    </footer>
            </form>
         </field>
     </record>
+
 
     <!-- Action Of Form & Tree Views Of Move Classes -->
     <record id="action_add_student_form" model="ir.actions.act_window">
@@ -31,6 +32,6 @@
     </record>
 
     <!-- MenuItem For Configurations->Move Classes -->
-    <menuitem id="menu_add_student_form" name="Add student" parent="menu_ems" action="action_add_student_form" />
+    <menuitem id="menu_add_student_form" name="Add Student" parent="menu_ems" action="action_add_student_form" />
 
 </odoo>
