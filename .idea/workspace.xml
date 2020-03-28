@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48887eca-9025-43fa-ab67-720817bf3bb5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/hr_pyzk/data/VerificationEcole.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hr_pyzk/data/VerificationSchool.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/school/ecole/backup/ecole_bd_2020-03-25_15-34-10.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pfe_gestion_de_pointage_scolaires.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pfe_gestion_de_pointage_scolaires.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hr_pyzk/views/device_attendances_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/hr_pyzk/views/device_attendances_view.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hr_pyzk/wizard/user_wizard.py" beforeDir="false" afterPath="$PROJECT_DIR$/hr_pyzk/wizard/user_wizard.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/school/ecole/models/eleve.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/models/eleve.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/ecole/static/description/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/static/description/icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/school/ecole/views/eleve_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/views/eleve_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/school/models/student.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/school/models/student.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/school/views/student_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/school/school/views/student_view.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585150565325</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="[12.0][MOD][Description]">
+      <created>1585413257527</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1585413257527</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -244,10 +244,10 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="815" y="176" width="864" height="695" key="#xdebugger.evaluate/67.27.1853.923@67.27.1853.923" timestamp="1584720517521" />
-    <state x="534" y="31" width="908" height="912" key="CommitChangelistDialog2" timestamp="1585413248036">
+    <state x="534" y="31" width="908" height="912" key="CommitChangelistDialog2" timestamp="1585413661203">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="534" y="31" width="908" height="912" key="CommitChangelistDialog2/67.27.1853.923@67.27.1853.923" timestamp="1585413248036" />
+    <state x="534" y="31" width="908" height="912" key="CommitChangelistDialog2/67.27.1853.923@67.27.1853.923" timestamp="1585413661203" />
     <state x="1002" y="214" width="424" height="484" key="FileChooserDialogImpl" timestamp="1585253622438">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
@@ -296,10 +296,10 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state width="498" height="446" key="SwitcherDM/67.27.1853.923@67.27.1853.923" timestamp="1583846571129" />
-    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1585150573522">
+    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1585413264472">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1853.923@67.27.1853.923" timestamp="1585150573522" />
+    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1853.923@67.27.1853.923" timestamp="1585413264472" />
     <state width="926" height="462" key="XDebugger.FullValuePopup" timestamp="1584092640531">
       <screen x="67" y="27" width="1853" height="923" />
     </state>

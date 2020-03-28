@@ -11,7 +11,6 @@ from addons.hr_pyzk.controllers import controller as c
 from odoo.exceptions import ValidationError
 
 
-
 class UserWizard(models.TransientModel):
     _name = 'user.wizard'
     _description = 'user wizard information'
@@ -140,6 +139,16 @@ class UserWizard(models.TransientModel):
 
             attendance.state = 'Transferred'
 
+
+
+
+
+
+
+
+
+
+
 #action planifié de module school
     def test_attendances(self):
         # jour de système
@@ -194,17 +203,24 @@ class UserWizard(models.TransientModel):
                             start_time = rec.start_time
                             subject_id = rec.subject_id.id
                         else:
-                            print("Pas de cours dans ce temps")
+                            raise ValidationError(_('''Pas de cours dans ce temps!'''))
 
                     if (current_time - start_time <= 0.1):
+                        raise ValidationError(_('''Elève Retard!'''))
                         status = "Retard"
+
                     else:
+                        raise ValidationError(_('''Elève Absent!'''))
                         status = "Absent"
                     self.env['student.desciplines'].create(
                         {'subject_id': subject_id, 'device_datetime': last_date, 'status': status,
                          'student_id': student_id})
-            if len(device_attendances) == 0:
-                print("Aucun(e) Elève Pointé")
+
+
+
+
+        if len(device_attendances) == 0:
+            print("Aucun(e) Elève Pointé")
 
 # action planifié de module ecole
     def test_attendancesEcole(self):
@@ -262,9 +278,17 @@ class UserWizard(models.TransientModel):
                             raise ValidationError(_('''Pas de cours dans ce temps!'''))
 
                     if (current_time - start_time <= 0.1):
+                        raise ValidationError(_('''Elève Retard!'''))
                         status = "Retard"
                     else:
+                        raise ValidationError(_('''Elève Absent!'''))
                         status = "Absent"
                     self.env['eleve.desciplines'].create({'subject_id': subject_id, 'device_datetime': last_date, 'status': status,'eleve_id': student_id})
-            if len(device_attendances) == 0:
-                raise ValidationError(_('''Aucun(e) Elève Pointé!'''))
+
+
+
+
+
+        if len(device_attendances) == 0:
+            print("Aucun(e) Elève Pointé")
+            raise ValidationError(_('''Aucun(e) Elève Pointé!'''))

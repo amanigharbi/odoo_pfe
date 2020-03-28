@@ -5,7 +5,7 @@
             <field name="name">device_attendances_tree_view</field>
             <field name="model">device.attendances</field>
             <field name="arch" type="xml">
-                <tree string="Device Attendances">
+                <tree string="Device Attendances" delete="false">
                     <field name="device_user_id"/>
                     <field name="employee_id"/>
                     <field name="device_datetime"/>
@@ -21,7 +21,7 @@
             <field name="name">device_attendances_form_view</field>
             <field name="model">device.attendances</field>
             <field name="arch" type="xml">
-                <form string="Device Attendances" >
+                <form string="Device Attendances">
                     <sheet>
                         <group>
                             <field name="device_user_id"/>
@@ -52,7 +52,7 @@
         </record>
 
 
-        <!-- window action -->
+
 
         <!--  Attendance Action-->
 
