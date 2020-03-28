@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gestion.ecole">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ecoleicon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.menu.MenuFragment" />
+        <activity android:name=".ui.menu.EmploisEleve"
+            android:parentActivityName=".ui.menu.MenuFragment"></activity>
+        <activity android:name=".ui.menu.ContactEnseignant"
+            android:parentActivityName=".ui.menu.MenuFragment"></activity>
+        <activity android:name=".ui.menu.InformationsEleve"
+            android:parentActivityName=".ui.menu.MenuFragment"></activity>
+        <activity android:name=".NotifActivity" />
+        <receiver android:name=".ui.notif.AlarmReceiver">
+            <intent-filter>
+                <action android:name="com.notification.ecole"></action>
+            </intent-filter>
+        </receiver>
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".AccueilActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity
+            android:name=".Introduction"
+            android:theme="@style/AppTheme.FullScreen" />
+        <activity android:name=".Bienvenue">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.menu.AdapterMenu" />
+    </application>
+</manifest>
