@@ -196,7 +196,7 @@ class UserWizard(models.TransientModel):
                         else:
                             print("Pas de cours dans ce temps")
 
-                    if (current_time - start_time <= 0.15):
+                    if (current_time - start_time <= 0.1):
                         status = "Retard"
                     else:
                         status = "Absent"
@@ -261,7 +261,7 @@ class UserWizard(models.TransientModel):
                         else:
                             raise ValidationError(_('''Pas de cours dans ce temps!'''))
 
-                    if (current_time - start_time <= 0.15):
+                    if (current_time - start_time <= 0.1):
                         status = "Retard"
                     else:
                         status = "Absent"

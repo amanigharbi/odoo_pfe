@@ -228,13 +228,26 @@
                             </field>
                         </page>
                          <page string="Desciplines" >
-                            <field name="descplines_ids" nolabel="1" colspan="4" readonly="1" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"
-                                options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}">
+                            <field name="descplines_ids" nolabel="1" colspan="4"  attrs="{'readonly':[('state','in',['alumni','terminate'])]}"
+                          >
                                 <tree string="Despline">
                                     <field name="eleve_id" invisible="1" />
                                     <field name="subject_id" required="1"/>
                                     <field name="device_datetime" required="1"/>
                                     <field name="status"/>
+
+                                </tree>
+                            </field>
+                         </page>
+
+                            <page string="Statistiques" >
+                            <field name="statistiques_ids" nolabel="1" colspan="4"  attrs="{'readonly':[('state','in',['alumni','terminate'])]}"
+                        >
+                                <tree string="Statistique">
+                                    <field name="eleve_id" invisible="1" />
+                                    <field name="Abscence" required="1"/>
+                                    <field name="avertissement"/>
+                                     <field name="Exclu"/>
 
                                 </tree>
                             </field>
@@ -386,11 +399,22 @@
             </kanban>
         </field>
     </record>
+            <record id="eleve_eleve_view_graph" model="ir.ui.view">
+            <field name="name">eleve.eleve.view.graph</field>
+            <field name="model">eleve.eleve</field>
+            <field name="arch" type="xml">
+                <graph string="Statistiques sur l'absence">
+
+                </graph>
+            </field>
+        </record>
+
     <!-- Form View OfRegistre D'admission Information -->
     <record id="view_eleve_eleve_form_2" model="ir.ui.view">
         <field name="name">eleve.eleve.form.2</field>
         <field name="model">eleve.eleve</field>
         <field name="arch" type="xml">
+
             <form string="Registre d'admission">
                 <header>
                     <button class="oe_highlight oe_stat_button" name="set_terminate" string="Mettre fin" type="object" icon="fa-ban" states="done" groups="ecole.group_ecole_administration"/>
@@ -641,7 +665,7 @@
         <field name="view_type">form</field>
         <field name="view_id" ref="" />
         <field name="search_view_id" ref="view_eleve_eleve_search_1" />
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,tree,form,graph</field>
     </record>
 
     <!-- Action of Alumni state -->

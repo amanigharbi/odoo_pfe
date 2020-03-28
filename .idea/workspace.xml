@@ -2,16 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48887eca-9025-43fa-ab67-720817bf3bb5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/hr_pyzk/data/VerificationEcole.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hr_pyzk/data/VerificationSchool.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/school/ecole/backup/ecole_bd_2020-03-25_15-34-10.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pfe_gestion_de_pointage_scolaires.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pfe_gestion_de_pointage_scolaires.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr_pyzk/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/hr_pyzk/__manifest__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr_pyzk/data/Verification.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/hr_pyzk/wizard/user_wizard.py" beforeDir="false" afterPath="$PROJECT_DIR$/hr_pyzk/wizard/user_wizard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/ecole/backup/ecole_bd" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/backup/ecole_bd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/ecole/backup/ecole_bd_2020-03-24_17-23-16.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/school/ecole/models/eleve.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/models/eleve.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/ecole/static/description/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/static/description/icon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/school/ecole/views/eleve_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/views/eleve_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/ecole/wizard/add_eleve.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/ecole/wizard/add_eleve.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/school/school/wizard/add_student.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/school/wizard/add_student.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/models/student.py" beforeDir="false" afterPath="$PROJECT_DIR$/school/school/models/student.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/views/student_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/school/school/views/student_view.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +34,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="IgnoredFileRootStore">
     <option name="generatedRoots">
@@ -53,22 +56,22 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="/opt/odoo/odoo/addons/crm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="/opt/odoo/odoo/addons/hr_pyzk/data" />
-      <recent name="$PROJECT_DIR$/school/ecole/data" />
-      <recent name="$PROJECT_DIR$/school" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/school/school/data" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/school/ecole/demo" />
       <recent name="$PROJECT_DIR$/school/ecole/views" />
       <recent name="$PROJECT_DIR$/school/ecole/models" />
-      <recent name="$PROJECT_DIR$/school/ecole" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="/opt/odoo/odoo/addons/hr_pyzk/data" />
+      <recent name="$PROJECT_DIR$/school/ecole/data" />
+      <recent name="$PROJECT_DIR$/school" />
     </key>
   </component>
   <component name="RunManager" selected="Python.gestion pointage">
@@ -209,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585071097362</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="[12.0][MOD][Description]">
+      <created>1585150565325</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1585150565325</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -234,46 +244,46 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="815" y="176" width="864" height="695" key="#xdebugger.evaluate/67.27.1853.923@67.27.1853.923" timestamp="1584720517521" />
-    <state x="534" y="31" width="908" height="912" key="CommitChangelistDialog2" timestamp="1585150552164">
+    <state x="534" y="31" width="908" height="912" key="CommitChangelistDialog2" timestamp="1585413248036">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="534" y="31" width="908" height="912" key="CommitChangelistDialog2/67.27.1853.923@67.27.1853.923" timestamp="1585150552164" />
-    <state x="1002" y="214" width="424" height="484" key="FileChooserDialogImpl" timestamp="1584799293337">
+    <state x="534" y="31" width="908" height="912" key="CommitChangelistDialog2/67.27.1853.923@67.27.1853.923" timestamp="1585413248036" />
+    <state x="1002" y="214" width="424" height="484" key="FileChooserDialogImpl" timestamp="1585253622438">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="1002" y="214" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.923@67.27.1853.923" timestamp="1584799293337" />
-    <state width="1830" height="292" key="GridCell.Tab.0.bottom" timestamp="1585150244470">
+    <state x="1002" y="214" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.923@67.27.1853.923" timestamp="1585253622438" />
+    <state width="1830" height="292" key="GridCell.Tab.0.bottom" timestamp="1585407349417">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.0.bottom/67.27.1853.923@67.27.1853.923" timestamp="1585150244470" />
-    <state width="1830" height="292" key="GridCell.Tab.0.center" timestamp="1585150244469">
+    <state width="1830" height="292" key="GridCell.Tab.0.bottom/67.27.1853.923@67.27.1853.923" timestamp="1585407349417" />
+    <state width="1830" height="292" key="GridCell.Tab.0.center" timestamp="1585407349416">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.0.center/67.27.1853.923@67.27.1853.923" timestamp="1585150244469" />
-    <state width="1830" height="292" key="GridCell.Tab.0.left" timestamp="1585150244465">
+    <state width="1830" height="292" key="GridCell.Tab.0.center/67.27.1853.923@67.27.1853.923" timestamp="1585407349416" />
+    <state width="1830" height="292" key="GridCell.Tab.0.left" timestamp="1585407349414">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.0.left/67.27.1853.923@67.27.1853.923" timestamp="1585150244465" />
-    <state width="1830" height="292" key="GridCell.Tab.0.right" timestamp="1585150244470">
+    <state width="1830" height="292" key="GridCell.Tab.0.left/67.27.1853.923@67.27.1853.923" timestamp="1585407349414" />
+    <state width="1830" height="292" key="GridCell.Tab.0.right" timestamp="1585407349416">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.0.right/67.27.1853.923@67.27.1853.923" timestamp="1585150244470" />
-    <state width="1830" height="292" key="GridCell.Tab.1.bottom" timestamp="1585150244225">
+    <state width="1830" height="292" key="GridCell.Tab.0.right/67.27.1853.923@67.27.1853.923" timestamp="1585407349416" />
+    <state width="1830" height="292" key="GridCell.Tab.1.bottom" timestamp="1585393849440">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.1.bottom/67.27.1853.923@67.27.1853.923" timestamp="1585150244225" />
-    <state width="1830" height="292" key="GridCell.Tab.1.center" timestamp="1585150244224">
+    <state width="1830" height="292" key="GridCell.Tab.1.bottom/67.27.1853.923@67.27.1853.923" timestamp="1585393849440" />
+    <state width="1830" height="292" key="GridCell.Tab.1.center" timestamp="1585393849439">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.1.center/67.27.1853.923@67.27.1853.923" timestamp="1585150244224" />
-    <state width="1830" height="292" key="GridCell.Tab.1.left" timestamp="1585150244222">
+    <state width="1830" height="292" key="GridCell.Tab.1.center/67.27.1853.923@67.27.1853.923" timestamp="1585393849439" />
+    <state width="1830" height="292" key="GridCell.Tab.1.left" timestamp="1585393849438">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.1.left/67.27.1853.923@67.27.1853.923" timestamp="1585150244222" />
-    <state width="1830" height="292" key="GridCell.Tab.1.right" timestamp="1585150244224">
+    <state width="1830" height="292" key="GridCell.Tab.1.left/67.27.1853.923@67.27.1853.923" timestamp="1585393849438" />
+    <state width="1830" height="292" key="GridCell.Tab.1.right" timestamp="1585393849439">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="292" key="GridCell.Tab.1.right/67.27.1853.923@67.27.1853.923" timestamp="1585150244224" />
+    <state width="1830" height="292" key="GridCell.Tab.1.right/67.27.1853.923@67.27.1853.923" timestamp="1585393849439" />
     <state x="667" y="149" width="643" height="677" key="RollbackChangesDialog" timestamp="1583594133898">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
@@ -286,18 +296,22 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state width="498" height="446" key="SwitcherDM/67.27.1853.923@67.27.1853.923" timestamp="1583846571129" />
-    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1585071108108">
+    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1585150573522">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1853.923@67.27.1853.923" timestamp="1585071108108" />
+    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1853.923@67.27.1853.923" timestamp="1585150573522" />
     <state width="926" height="462" key="XDebugger.FullValuePopup" timestamp="1584092640531">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state width="926" height="462" key="XDebugger.FullValuePopup/67.27.1853.923@67.27.1853.923" timestamp="1584092640531" />
-    <state x="648" y="314" key="com.intellij.ide.util.TipDialog" timestamp="1585134602563">
+    <state x="648" y="314" key="com.intellij.ide.util.TipDialog" timestamp="1585407052115">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="648" y="314" key="com.intellij.ide.util.TipDialog/67.27.1853.923@67.27.1853.923" timestamp="1585134602563" />
+    <state x="648" y="314" key="com.intellij.ide.util.TipDialog/67.27.1853.923@67.27.1853.923" timestamp="1585407052115" />
+    <state x="761" y="407" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585230918753">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="761" y="407" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.923@67.27.1853.923" timestamp="1585230918753" />
     <state x="543" y="175" width="891" height="624" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1584550226454">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
@@ -306,10 +320,10 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="442" y="100" width="1062" height="850" key="find.popup/67.27.1853.923@67.27.1853.923" timestamp="1585146562156" />
-    <state x="656" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1585148365856">
+    <state x="656" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1585233828619">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="656" y="225" width="672" height="678" key="search.everywhere.popup/67.27.1853.923@67.27.1853.923" timestamp="1585148365856" />
+    <state x="656" y="225" width="672" height="678" key="search.everywhere.popup/67.27.1853.923@67.27.1853.923" timestamp="1585233828619" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

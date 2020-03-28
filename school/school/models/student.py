@@ -219,6 +219,7 @@ class StudentStudent(models.Model):
                              'Status', readonly=True, default="draft")
     history_ids = fields.One2many('student.history', 'student_id', 'History')
     descplines_ids = fields.One2many('student.desciplines', 'student_id', 'Desciplines')
+    statistiques_ids = fields.One2many('student.statistiques', 'student_id', 'Statistiques')
     certificate_ids = fields.One2many('student.certificate', 'student_id',
                                       'Certificate')
     student_discipline_line = fields.One2many('student.descipline',
@@ -333,3 +334,13 @@ class StudentDesciplines(models.Model):
     status=fields.Char("status")
 
     student_id = fields.Many2one('student.student', 'Student')
+
+class StudentStatistique(models.Model):
+        _name = 'student.statistiques'
+        _description = "Student statistiques"
+
+
+        Abscence = fields.Integer("Statistique sur l'abscence")
+        avertissement = fields.Integer("Statistique sur l'avertissement")
+        Exclu = fields.Integer("Statistique sur l'Exclu")
+        student_id = fields.Many2one('student.student', 'Student')

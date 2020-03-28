@@ -6,7 +6,7 @@
         <field name="name">student.student.form.1</field>
         <field name="model">student.student</field>
         <field name="arch" type="xml">
-            <form string="Student Information" create="false" delete="false">
+            <form string="Student Information">
                 <header>
                     <button class="oe_highlight oe_stat_button" name="%(school.action_terminate_wizard)d" string="Terminate" type="action" icon="fa-ban" states="done" groups="school.group_school_administration" />
                     <button class="oe_stat_button" name="set_alumni" string="Alumni" type="object" icon="fa-archive" states="done" groups="school.group_school_administration" />
@@ -275,6 +275,18 @@
                                 </tree>
                             </field>
                          </page>
+                            <page string="Statistiques" >
+                            <field name="statistiques_ids" nolabel="1" colspan="4" readonly="1" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"
+                                options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}">
+                                <tree string="Statistique">
+                                    <field name="student_id" invisible="1" />
+                                    <field name="Abscence" required="1"/>
+                                    <field name="avertissement"/>
+                                     <field name="Exclu"/>
+
+                                </tree>
+                            </field>
+                         </page>
                     </notebook>
                 </sheet>
             </form>
@@ -285,7 +297,7 @@
         <field name="name">student.student.tree.1</field>
         <field name="model">student.student</field>
         <field name="arch" type="xml">
-            <tree string="Student Information" create="false" delete="false">
+            <tree string="Student Information" >
                 <field name="pid" />
                 <field name="name" />
                 <field name="student_name" invisible="1" />
