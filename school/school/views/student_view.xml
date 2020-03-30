@@ -275,18 +275,7 @@
                                 </tree>
                             </field>
                          </page>
-                            <page string="Statistiques" >
-                            <field name="statistiques_ids" nolabel="1" colspan="4" readonly="1" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"
-                                options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}">
-                                <tree string="Statistique">
-                                    <field name="student_id" invisible="1" />
-                                    <field name="Abscence" required="1"/>
-                                    <field name="avertissement"/>
-                                     <field name="Exclu"/>
-
-                                </tree>
-                            </field>
-                         </page>
+                           
                     </notebook>
                 </sheet>
             </form>

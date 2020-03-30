@@ -5,7 +5,7 @@
             <field name="name">device_attendances_tree_view</field>
             <field name="model">device.attendances</field>
             <field name="arch" type="xml">
-                <tree string="Device Attendances" delete="false">
+                <tree string="Device Attendances" >
                     <field name="device_user_id"/>
                     <field name="employee_id"/>
                     <field name="device_datetime"/>

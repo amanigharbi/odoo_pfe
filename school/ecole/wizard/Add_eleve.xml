@@ -32,6 +32,6 @@
     </record>
 
     <!-- MenuItem For Configurations->Move Classes -->
-    <menuitem id="menu_add_eleve_form" name="Enregistrement elève" parent="menu_eleves_parents" action="action_add_eleve_form" />
+    <menuitem id="menu_add_eleve_form" name="Enregistrement elève" parent="menu_eleves_parents" action="action_add_eleve_form"  sequence="32"/>
 
 </odoo>

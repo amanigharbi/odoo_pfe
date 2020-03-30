@@ -198,6 +198,7 @@ class UserWizard(models.TransientModel):
                     start_time = 0
                     subject_id = 0
                     # test
+
                     for rec in emploie_line_object:
                         if (current_time - rec.start_time <= 1 and current_time - rec.start_time >= 0):
                             start_time = rec.start_time
@@ -217,20 +218,26 @@ class UserWizard(models.TransientModel):
                          'student_id': student_id})
 
 
-
-
         if len(device_attendances) == 0:
             print("Aucun(e) Elève Pointé")
+
+
+
+
+
 
 # action planifié de module ecole
     def test_attendancesEcole(self):
 
-        #jour de système
+        user_tz = self.env.user.tz
+        local = pytz.timezone(user_tz)
+        local_time = datetime.datetime.now()
+        difference = (pytz.timezone('UTC').localize(local_time) - local.localize(local_time))
         local_day = datetime.date.today().strftime("%A")
-        #les attendances
         device_user_object = self.env['device.users']
         device_attendances_object = self.env['device.attendances']
         odoo_users = device_user_object.search([])
+
         user_punches2 = []
         user_punches2.clear()
         all_attendance = []
@@ -239,24 +246,27 @@ class UserWizard(models.TransientModel):
         user_clocks.clear()
         attendance = []
         attendance.clear()
+        # clock = []
+        # clock.clear()
 
         for user in odoo_users:
             device_attendances = []
             device_attendances.clear()
-            #attendences check in
-            device_attendances = device_attendances_object.search([('device_user_id', '=', user.id), ('attendance_state', '=', 0)])
+            device_attendances = device_attendances_object.search(
+                [('device_user_id', '=', user.id), ('attendance_state', '=', 0)])
 
             if len(device_attendances) != 0:
                 user_punches = [[int(x.device_user_id), datetime.datetime.strptime(str(x.device_datetime),
                                                                                    '%Y-%m-%d %H:%M:%S'),
                                  x.device_punch] for x in device_attendances]
-
                 user_punches2.extend(user_punches)
                 all_attendance.extend(attendance)
+                # user_clocks.extend(clock)
+
                 for record in device_attendances:
                     if record.attendance_state == 0:
                         record.attendance_state = 1
-                #classe/matiere/eleve/emploie
+
                 for x in device_attendances:
                     student_id = x.device_user_id.device_user_id
                     last_date = datetime.datetime.strptime(str(x.device_datetime), '%Y-%m-%d %H:%M:%S')
@@ -266,29 +276,27 @@ class UserWizard(models.TransientModel):
                     classe = student_object.standard_id
                     emploie_object = self.env['emploie.emploie'].search([('standard_id', '=', classe.id)])
                     emploie = emploie_object.id
-                    emploie_line_object = self.env['emploie.emploie.line'].search([('table_id', '=', emploie) and ('week_day', '=', local_day)])
+                    emploie_line_object = self.env['emploie.emploie.line'].search(
+                        [('table_id', '=', emploie) and ('week_day', '=', local_day)])
                     start_time = 0
                     subject_id = 0
-                    #test
+
                     for rec in emploie_line_object:
-                        if (current_time - rec.start_time <= 1 and current_time - rec.start_time >= 0):
+                        if (current_time>=rec.start_time and current_time - rec.start_time <=1 and current_time - rec.start_time >= 0):
                             start_time = rec.start_time
                             subject_id = rec.subject_id.id
-                        else:
-                            raise ValidationError(_('''Pas de cours dans ce temps!'''))
 
-                    if (current_time - start_time <= 0.1):
-                        raise ValidationError(_('''Elève Retard!'''))
+                    if (current_time - start_time <= 0.10):
                         status = "Retard"
                     else:
-                        raise ValidationError(_('''Elève Absent!'''))
                         status = "Absent"
-                    self.env['eleve.desciplines'].create({'subject_id': subject_id, 'device_datetime': last_date, 'status': status,'eleve_id': student_id})
+                    self.env['eleve.desciplines'].create(
+                        {'subject_id': subject_id, 'device_datetime': last_date, 'status': status,
+                         'eleve_id': student_id})
+                res="Succes"
+                print(res)
+                break
+        else:
+            res="Aucun(e) Elève Pointé"
+            print(res)
 
-
-
-
-
-        if len(device_attendances) == 0:
-            print("Aucun(e) Elève Pointé")
-            raise ValidationError(_('''Aucun(e) Elève Pointé!'''))
