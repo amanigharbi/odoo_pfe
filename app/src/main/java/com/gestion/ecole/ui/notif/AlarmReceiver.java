@@ -24,10 +24,10 @@ public class AlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        Intent notificationIntent = new Intent(context, NotifFragment.class);
+        Intent notificationIntent = new Intent(context, new NotifFragment().getClass());
 
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
-        stackBuilder.addParentStack(NotifFragment.class);
+        stackBuilder.addParentStack(new NotifFragment().getClass());
         stackBuilder.addNextIntent(notificationIntent);
 
         PendingIntent pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -44,7 +44,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             builder.setChannelId(CHANNEL_ID);
         }
 
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(

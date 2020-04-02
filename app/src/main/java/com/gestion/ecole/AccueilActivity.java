@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import com.gestion.ecole.ui.home.HomeFragment;
 import com.gestion.ecole.ui.menu.MenuFragment;
 import com.gestion.ecole.ui.notif.AlarmReceiver;
+import com.gestion.ecole.ui.notif.NotifActivity;
 import com.gestion.ecole.ui.notif.NotifFragment;
 
 import java.util.Calendar;
@@ -81,7 +82,9 @@ public class AccueilActivity extends AppCompatActivity implements View.OnClickLi
                 loadFragment(new MenuFragment());
                 break;
             case R.id.btAccount :
-                loadFragment(new NotifFragment());
+               loadFragment(new NotifFragment());
+               // Intent i = new Intent(this, NotifActivity.class);
+                //startActivity(i);
                 break;
         }
     }
