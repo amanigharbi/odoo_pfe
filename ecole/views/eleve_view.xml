@@ -239,6 +239,16 @@
                                 </tree>
                             </field>
                          </page>
+                         <page string="Sanction disciplinaire" >
+                            <field name="sanction_ids" nolabel="1" colspan="4" readonly="1" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"
+                                options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}">
+                                <tree string="sanction">
+                                    <field name="eleve_id" invisible="1" />
+                                    <field name="status" required="1"/>
+                                    <field name="nombre" required="1"/>
+                                </tree>
+                            </field>
+                         </page>
                     </notebook>
                 </sheet>
             </form>

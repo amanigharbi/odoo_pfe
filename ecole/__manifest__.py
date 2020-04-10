@@ -18,6 +18,7 @@
              'views/ecole_view.xml',
              'views/enseignant_view.xml',
              'views/parent_view.xml',
+              'views/statistiques_descipline_view.xml',
              'data/eleve_sequence.xml',
              'wizard/assign_roll_no_wizard.xml',
              'wizard/move_standards_view.xml',

@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efeffaa3-b337-4c77-a402-e15acfd1ba6d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ecole/models/statistiques_descipline.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecole/views/statistiques_descipline_view.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecole/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecole/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/models/eleve.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecole/models/eleve.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/ecole/static/description/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/views/eleve_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ecole/views/eleve_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/odoo-server.conf" beforeDir="false" afterPath="$PROJECT_DIR$/odoo-server.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/src/uliweb3" beforeDir="false" afterPath="$PROJECT_DIR$/venv/src/uliweb3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,25 +40,25 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="/opt/odoo/odoo/addons/hr_pyzk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ecole/static/description" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="/opt/odoo/odoo/addons/hr_pyzk/wizard" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ecole/static/description" />
       <recent name="$PROJECT_DIR$/school/school/wizard" />
       <recent name="$PROJECT_DIR$/school" />
       <recent name="$PROJECT_DIR$/hr_pyzk" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="/opt/odoo/odoo/addons/hr_pyzk/wizard" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -109,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585329348135</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="[ADD] description">
+      <created>1585871246851</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1585871246851</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -139,50 +154,50 @@
       <screen x="67" y="27" width="1293" height="636" />
     </state>
     <state x="468" y="103" width="424" height="484" key="FileChooserDialogImpl/67.27.1293.636@67.27.1293.636" timestamp="1585251947824" />
-    <state width="1270" height="167" key="GridCell.Tab.0.bottom" timestamp="1585854925076">
+    <state width="1270" height="203" key="GridCell.Tab.0.bottom" timestamp="1586486657471">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="167" key="GridCell.Tab.0.bottom/67.27.1293.636@67.27.1293.636" timestamp="1585854925076" />
-    <state width="1270" height="167" key="GridCell.Tab.0.center" timestamp="1585854925073">
+    <state width="1270" height="203" key="GridCell.Tab.0.bottom/67.27.1293.636@67.27.1293.636" timestamp="1586486657471" />
+    <state width="1270" height="203" key="GridCell.Tab.0.center" timestamp="1586486657467">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="167" key="GridCell.Tab.0.center/67.27.1293.636@67.27.1293.636" timestamp="1585854925073" />
-    <state width="1270" height="167" key="GridCell.Tab.0.left" timestamp="1585854925072">
+    <state width="1270" height="203" key="GridCell.Tab.0.center/67.27.1293.636@67.27.1293.636" timestamp="1586486657467" />
+    <state width="1270" height="203" key="GridCell.Tab.0.left" timestamp="1586486657466">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="167" key="GridCell.Tab.0.left/67.27.1293.636@67.27.1293.636" timestamp="1585854925072" />
-    <state width="1270" height="167" key="GridCell.Tab.0.right" timestamp="1585854925073">
+    <state width="1270" height="203" key="GridCell.Tab.0.left/67.27.1293.636@67.27.1293.636" timestamp="1586486657466" />
+    <state width="1270" height="203" key="GridCell.Tab.0.right" timestamp="1586486657470">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="167" key="GridCell.Tab.0.right/67.27.1293.636@67.27.1293.636" timestamp="1585854925073" />
-    <state width="1270" height="185" key="GridCell.Tab.1.bottom" timestamp="1584633326333">
+    <state width="1270" height="203" key="GridCell.Tab.0.right/67.27.1293.636@67.27.1293.636" timestamp="1586486657470" />
+    <state width="1270" height="203" key="GridCell.Tab.1.bottom" timestamp="1586486656792">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="185" key="GridCell.Tab.1.bottom/67.27.1293.636@67.27.1293.636" timestamp="1584633326333" />
-    <state width="1270" height="185" key="GridCell.Tab.1.center" timestamp="1584633326332">
+    <state width="1270" height="203" key="GridCell.Tab.1.bottom/67.27.1293.636@67.27.1293.636" timestamp="1586486656792" />
+    <state width="1270" height="203" key="GridCell.Tab.1.center" timestamp="1586486656790">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="185" key="GridCell.Tab.1.center/67.27.1293.636@67.27.1293.636" timestamp="1584633326332" />
-    <state width="1270" height="185" key="GridCell.Tab.1.left" timestamp="1584633326332">
+    <state width="1270" height="203" key="GridCell.Tab.1.center/67.27.1293.636@67.27.1293.636" timestamp="1586486656790" />
+    <state width="1270" height="203" key="GridCell.Tab.1.left" timestamp="1586486656789">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="185" key="GridCell.Tab.1.left/67.27.1293.636@67.27.1293.636" timestamp="1584633326332" />
-    <state width="1270" height="185" key="GridCell.Tab.1.right" timestamp="1584633326333">
+    <state width="1270" height="203" key="GridCell.Tab.1.left/67.27.1293.636@67.27.1293.636" timestamp="1586486656789" />
+    <state width="1270" height="203" key="GridCell.Tab.1.right" timestamp="1586486656792">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="185" key="GridCell.Tab.1.right/67.27.1293.636@67.27.1293.636" timestamp="1584633326333" />
+    <state width="1270" height="203" key="GridCell.Tab.1.right/67.27.1293.636@67.27.1293.636" timestamp="1586486656792" />
     <state x="202" y="27" width="1012" height="636" key="SettingsEditor" timestamp="1583972090460">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
     <state x="202" y="27" width="1012" height="636" key="SettingsEditor/67.27.1293.636@67.27.1293.636" timestamp="1583972090460" />
-    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1585871204024">
+    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1585871267593">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1293.636@67.27.1293.636" timestamp="1585871204024" />
-    <state x="369" y="171" key="com.intellij.ide.util.TipDialog" timestamp="1585865128667">
+    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1293.636@67.27.1293.636" timestamp="1585871267593" />
+    <state x="369" y="171" key="com.intellij.ide.util.TipDialog" timestamp="1586464016566">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state x="369" y="171" key="com.intellij.ide.util.TipDialog/67.27.1293.636@67.27.1293.636" timestamp="1585865128667" />
+    <state x="369" y="171" key="com.intellij.ide.util.TipDialog/67.27.1293.636@67.27.1293.636" timestamp="1586464016566" />
     <state x="481" y="264" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583250036800">
       <screen x="67" y="27" width="1293" height="636" />
     </state>

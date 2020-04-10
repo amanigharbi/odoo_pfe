@@ -218,6 +218,7 @@ class eleveeleve(models.Model):
                              'Status', readonly=True, default="draft")
     history_ids = fields.One2many('eleve.history', 'eleve_id', 'Historique')
     descplines_ids = fields.One2many('eleve.desciplines', 'eleve_id', 'Desciplines')
+    sanction_ids= fields.One2many('eleve.sanctions','eleve_id','Sanction disciplinaire')
     certificate_ids = fields.One2many('eleve.certificate', 'eleve_id',
                                       'Certificat')
     eleve_discipline_line = fields.One2many('eleve.descipline',
@@ -331,5 +332,14 @@ class eleveDesciplines(models.Model):
     device_datetime = fields.Datetime(string='Heure Machine')
     status=fields.Char("status")
     eleve_id = fields.Many2one('eleve.eleve', 'Elève')
+
+class eleveSanctions(models.Model):
+    _name='eleve.sanctions'
+    _description="eleve "
+
+
+    eleve_id = fields.Many2one('eleve.eleve', 'Elève')
+    status = fields.Char("Status")
+    nombre=fields.Integer('Nombre', readOnly=True)
 
 

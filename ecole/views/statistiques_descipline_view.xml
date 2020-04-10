@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+       <!-- Assign Roll Number Wizard Form View  -->
+    <record id="view_statistiques_descipline_form" model="ir.ui.view">
+        <field name="name">statistiques_descipline.form</field>
+        <field name="model">statistiques.descipline</field>
+        <field name="arch" type="xml">
+            <form string="statistique descipline">
+                    <group>
+                         <field name="standard_id" placeholder="Choisir classe .." widget="selection"/>
+                        <field  name="academice_year_id" placeholder="Choisir Année scolaire..."  widget="selection" />
+
+                    </group>
+
+                    <footer>
+                        <button class="btn btn-sm btn-default fa fa-plus" name="button_add" type="object" string="Voir"/>
+                    </footer>
+           </form>
+        </field>
+    </record>
+
+
+    <!-- Action Of Form & Tree Views Of Move Classes -->
+    <record id="action_statistiques_descipline_form" model="ir.actions.act_window">
+        <field name="name">statique descipline</field>
+        <field name="res_model">statistiques.descipline</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_statistiques_descipline_form" />
+        <field name="target">new</field>
+    </record>
+
+    <!-- MenuItem pour statistiques -->
+    <menuitem id="menu_statistiques" name="Statistiques" parent="menu_ems" sequence="6"/>
+    <menuitem id="menu_statistiques_descipline_form" name="Desciplines" parent="menu_statistiques" action="action_statistiques_descipline_form" />
+
+</odoo>
