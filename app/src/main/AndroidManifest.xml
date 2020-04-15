@@ -15,9 +15,9 @@
         <activity android:name=".ui.menu.MenuFragment" />
         <activity android:name=".ui.menu.EmploisEleve"
             android:parentActivityName=".ui.menu.MenuFragment"></activity>
-        <activity android:name=".ui.menu.ContactEnseignant"
+        <activity android:name=".ui.menu.ContactEnseignant.ContactEnseignant"
             android:parentActivityName=".ui.menu.MenuFragment"></activity>
-        <activity android:name=".ui.menu.InformationsEleve"
+        <activity android:name=".ui.menu.InformationsEleve.InformationsEleve"
             android:parentActivityName=".ui.menu.MenuFragment"></activity>
         <activity android:name=".ui.notif.NotifActivity" />
         <activity android:name=".ui.notif.NotifFragment" />

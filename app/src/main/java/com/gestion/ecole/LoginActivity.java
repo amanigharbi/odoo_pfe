@@ -2,10 +2,6 @@ package com.gestion.ecole;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.gestion.ecole.odoo.ConnectionOdoo;
 
 import java.net.URL;
 
@@ -41,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
                 String db = "ecole_bd",
                         username = email.getText().toString(),
                         pass = mdp.getText().toString(),
-                        url = "http://192.168.1.9:8069";
+                        url = "http://192.168.1.13:8069";
                 AsyncTask<URL, String, String> verif = new ConnectionOdoo(db, username, pass, url, getApplicationContext()).execute();
                 try {
                     String test = verif.get();
@@ -51,7 +49,8 @@ public class LoginActivity extends AppCompatActivity {
                     } else {
                         Toast.makeText(getApplicationContext(), "not connected", Toast.LENGTH_LONG).show();
                     }
-                } catch (Exception e) {
+                    }
+                 catch (Exception e) {
                     e.printStackTrace();
                 }
 

@@ -1,4 +1,4 @@
-package com.gestion.ecole.ui.menu;
+package com.gestion.ecole.ui.menu.ContactEnseignant;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -18,12 +18,16 @@ import com.gestion.ecole.R;
 import java.util.ArrayList;
 
 public class AdapterContactEns  extends RecyclerView.Adapter<AdapterContactEns.ViewHolder>{
-    ArrayList<String> list;
+    ArrayList<ItemEnseignant> list;
     Context context;
 
-    public AdapterContactEns(ArrayList<String> list, Context context) {
+    public AdapterContactEns(ArrayList<ItemEnseignant> list, Context context) {
         this.list = list;
         this.context = context;
+    }
+    public AdapterContactEns(ArrayList<ItemEnseignant> list) {
+        this.list = list;
+
     }
 
     @NonNull
@@ -36,7 +40,9 @@ public class AdapterContactEns  extends RecyclerView.Adapter<AdapterContactEns.V
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         LayoutAnimationController animation = AnimationUtils.loadLayoutAnimation(context, R.anim.layoutanim);
-        viewHolder.tvTitle.setText(list.get(i).toString());
+        viewHolder.tvNomPrenom.setText(list.get(i).getNomPrenom());
+        viewHolder.tvEmail.setText(list.get(i).getEmail());
+        viewHolder.tvNum.setText(list.get(i).getNum());
         viewHolder.rl1.setLayoutAnimation(animation);
     }
 
@@ -46,16 +52,17 @@ public class AdapterContactEns  extends RecyclerView.Adapter<AdapterContactEns.V
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView imgArticle;
-        public TextView tvTitle,tvDesc;
+        public ImageView imgEnseignant;
+        public TextView tvNomPrenom,tvEmail,tvNum;
         public RelativeLayout rl1;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imgArticle  = itemView.findViewById(R.id.imgArticle);
-            tvTitle     = itemView.findViewById(R.id.tvTitle);
-            tvDesc      = itemView.findViewById(R.id.tvDesc);
+            imgEnseignant  = itemView.findViewById(R.id.imgEnseignant);
+            tvNomPrenom     = itemView.findViewById(R.id.tvNomPrenom);
+            tvEmail      = itemView.findViewById(R.id.tvEmail);
+            tvNum      = itemView.findViewById(R.id.tvNum);
             rl1         = itemView.findViewById(R.id.rl1);
         }
     }

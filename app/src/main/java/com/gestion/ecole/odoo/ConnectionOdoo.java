@@ -1,4 +1,4 @@
-package com.gestion.ecole;
+package com.gestion.ecole.odoo;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -21,7 +21,7 @@ import static java.util.Collections.emptyList;
 import static java.util.Collections.emptyMap;
 
 
-public class ConnectionOdoo extends AsyncTask<URL,String,String>{
+public class ConnectionOdoo extends AsyncTask<URL,String,String> {
 
     static String db;
     static String username;
@@ -31,6 +31,12 @@ public class ConnectionOdoo extends AsyncTask<URL,String,String>{
     static int uid=0;
     static List Resp;
     static Context app;
+
+    public ConnectionOdoo(String db, int uid, String password){
+        this.db=db;
+        this.uid=uid;
+        this.password=password;
+    }
 
     public ConnectionOdoo(String db, String username, String password, String url, Context app){
         this.db=db;
@@ -54,27 +60,23 @@ public class ConnectionOdoo extends AsyncTask<URL,String,String>{
                  System.out.println("connection");
 
 
-                    uid = (int)client.execute(
+                  uid = (int)client.execute(
                     common_config, "authenticate", asList(
                             db, username, password, emptyMap()));
 
             System.out.println("admin : "+ uid);
 
 
-                final XmlRpcClient models = new XmlRpcClient() {{
-                    setConfig(new XmlRpcClientConfigImpl() {{
-                        setServerURL(new URL(String.format("%s/xmlrpc/2/object", url)));
-                    }});
-                }};
+
                // Toast.makeText(app, "1", Toast.LENGTH_LONG).show();
-                models.execute("execute_kw", asList(
+               /*  models.execute("execute_kw", asList(
                         db, uid, password, "res.partner", "check_access_rights", asList("read"),
                         new HashMap() {{
                             put("raise_exception", false);
                         }}
                 ));
                 //Toast.makeText(app, "2", Toast.LENGTH_LONG).show();
-              /*  Resp = asList((Object[]) models.execute("execute_kw", asList(
+               Resp = asList((Object[]) models.execute("execute_kw", asList(
                         db, uid, password, "res.partner", "search_read",
                   */      /*emptyList()*//*asList(asList(
                                 asList("is_company", "=", true),
@@ -133,23 +135,26 @@ public class ConnectionOdoo extends AsyncTask<URL,String,String>{
             //return Resp.toString();
             return "Connected";//Resp.toString();
 
-       } catch (XmlRpcException e) {
+       } catch( ClassCastException e) {
+            return e.getMessage();
+        }catch
+         (XmlRpcException e) {
             e.printStackTrace();
             return e.getMessage();
         }catch (MalformedURLException e) {
-            e.printStackTrace();
+
             return e.getMessage();
         }
     }
 
     @Override
     protected void onPostExecute(String s) {
-        super.onPostExecute(s);
-        if(s.equals("Connected")){
-          Toast.makeText(app, s, Toast.LENGTH_LONG).show();
-        }else{
-            Toast.makeText(app, "not connected", Toast.LENGTH_LONG).show();
-        }
+      //  super.onPostExecute(s);
+    //    if(s.equals("Connected")){
+      //    Toast.makeText(app, s, Toast.LENGTH_LONG).show();
+      //  }else{
+      //      Toast.makeText(app, "not connected", Toast.LENGTH_LONG).show();
+      //  }
 
 
     }
