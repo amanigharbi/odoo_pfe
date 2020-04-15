@@ -166,6 +166,8 @@ class UserWizard(models.TransientModel):
         attendance = []
         attendance.clear()
 
+
+
         for user in odoo_users:
             device_attendances = []
             device_attendances.clear()
@@ -209,6 +211,7 @@ class UserWizard(models.TransientModel):
                     if (current_time - start_time <= 0.1):
                         raise ValidationError(_('''Elève Retard!'''))
                         status = "Retard"
+
 
                     else:
                         raise ValidationError(_('''Elève Absent!'''))
@@ -280,6 +283,9 @@ class UserWizard(models.TransientModel):
                         [('table_id', '=', emploie) and ('week_day', '=', local_day)])
                     start_time = 0
                     subject_id = 0
+                    nombreAver=0
+                    nombreRetard=0
+                    nombreExclu = 0
 
                     for rec in emploie_line_object:
                         if (current_time>=rec.start_time and current_time - rec.start_time <=1 and current_time - rec.start_time >= 0):
@@ -288,15 +294,35 @@ class UserWizard(models.TransientModel):
 
                     if (current_time - start_time <= 0.10):
                         status = "Retard"
+                        nombreRetard=nombreRetard+1
+
+
                     else:
                         status = "Absent"
                     self.env['eleve.desciplines'].create(
                         {'subject_id': subject_id, 'device_datetime': last_date, 'status': status,
                          'eleve_id': student_id})
+
+                    if(nombreRetard==3):
+                            nombreAver=nombreAver+1
+                            sanction = "avertissement"
+                            self.env['eleve.sanctions'].create(
+                                {'sanction': sanction, 'nombre': nombreAver, 'eleve_id': student_id})
+
+
+                    else:
+                        if (nombreAver == 2):
+                                nombreExclu=nombreExclu+1
+                                sanction="exclu"
+                                self.env['eleve.sanctions'].create(
+                                        {'sanction': sanction, 'nombre': nombreExclu, 'eleve_id': student_id})
+
+
                 res="Succes"
                 print(res)
                 break
         else:
             res="Aucun(e) Elève Pointé"
             print(res)
+
 

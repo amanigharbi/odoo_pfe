@@ -228,7 +228,7 @@
                             </field>
                         </page>
                          <page string="Desciplines" >
-                            <field name="descplines_ids" nolabel="1" colspan="4"  attrs="{'readonly':[('state','in',['alumni','terminate'])]}"
+                            <field name="descplines_ids" nolabel="1" colspan="4"
                           >
                                 <tree string="Despline">
                                     <field name="eleve_id" invisible="1" />
@@ -240,7 +240,18 @@
                             </field>
                          </page>
 
+              <page string="Sanctions Administratifs" >
+                            <field name="sanctions_ids" nolabel="1" colspan="4"
+                          >
+                                <tree string="Sanction">
+                                      <field name="eleve_id" invisible="1" />
+                                    <field name="sanction" required="1" />
+                                    <field name="nombre" required="1"/>
 
+
+                                </tree>
+                            </field>
+                         </page>
                     </notebook>
                 </sheet>
             </form>

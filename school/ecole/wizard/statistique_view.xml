@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+       <!-- Assign Roll Number Wizard Form View  -->
+    <record id="view_statistique_eleve_form" model="ir.ui.view">
+        <field name="name">statistique_eleve.form</field>
+        <field name="model">statistique.eleve</field>
+        <field name="arch" type="xml">
+            <form string="Statistique Elève">
+                    <group>
+
+                        <field name="Academic_year"  placeholder="Select Academic Year" string="Academic Year"/>
+                        <field name="Classe" placeholder="Select Class" widget="many2many_tags"  string="Class"/>
+                    </group>
+
+                    <footer>
+                        <button class="btn btn-sm btn-default" name="button_print" type="object" string="Print"/>
+                        or
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+           </form>
+        </field>
+    </record>
+
+
+    <!-- Action Of Form & Tree Views Of Move Classes -->
+    <record id="action_statistique_eleve_form" model="ir.actions.act_window">
+        <field name="name">Statistique eleve</field>
+        <field name="res_model">statistique.eleve</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_statistique_eleve_form" />
+        <field name="target">new</field>
+    </record>
+
+    <!-- MenuItem For Configurations->Move Classes -->
+    <menuitem id="menu_statistique_eleve_form" name="Statistiques elève" parent="menu_ems" action="action_statistique_eleve_form"  />
+
+</odoo>

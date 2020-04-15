@@ -5,3 +5,4 @@ from . import move_standards
 from . import wiz_send_email
 from . import teriminate_reason
 from . import add_eleve
+from . import statistique

@@ -22,6 +22,7 @@
              'wizard/assign_roll_no_wizard.xml',
              'wizard/move_standards_view.xml',
               'wizard/Add_eleve.xml',
+            'wizard/statistique_view.xml',
              'views/rapport_view.xml',
              'views/carte_identite.xml',
              'views/template_view.xml',
