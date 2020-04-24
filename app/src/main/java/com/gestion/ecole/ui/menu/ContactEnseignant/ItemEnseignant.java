@@ -1,12 +1,13 @@
 package com.gestion.ecole.ui.menu.ContactEnseignant;
 
 public class ItemEnseignant {
-String tvNomPrenom,tvEmail,tvNum;
+String tvNomPrenom,tvEmail,tvNum,tvMatiere;
 
-public ItemEnseignant(String tvNP, String tvE,String tvN){
-    tvNomPrenom= tvNP;
-    tvEmail=tvE;
-    tvNum=tvN;
+public ItemEnseignant(String tvNP, String tvE,String tvNum,String tvMatiere){
+    this.tvNomPrenom= tvNP;
+    this.tvEmail=tvE;
+    this.tvNum=tvNum;
+    this.tvMatiere=tvMatiere;
 }
 
     public String getNomPrenom() {
@@ -19,5 +20,7 @@ public ItemEnseignant(String tvNP, String tvE,String tvN){
     }
 
     public  String getNum(){ return tvNum;}
+
+    public  String getMatiere(){ return tvMatiere;}
 
 }

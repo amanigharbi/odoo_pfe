@@ -1,5 +1,6 @@
 package com.gestion.ecole;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -12,6 +13,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -26,8 +29,8 @@ import java.util.Calendar;
 
 public class AccueilActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ImageView btFavorite,btAccount;
-    ImageButton btHome;
+    ImageView btMenu,btNotification;
+    ImageButton btAccueil;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
@@ -50,13 +53,13 @@ public class AccueilActivity extends AppCompatActivity implements View.OnClickLi
 
         loadFragment(new HomeFragment());
 
-        btHome      = findViewById(R.id.btHome);
-        btFavorite  = findViewById(R.id.btFavorite);
-        btAccount   = findViewById(R.id.btAccount);
+        btAccueil      = findViewById(R.id.btAccueil);
+        btMenu  = findViewById(R.id.btMenu);
+        btNotification   = findViewById(R.id.btNotification);
 
-        btHome.setOnClickListener(this);
-        btFavorite.setOnClickListener(this);
-        btAccount.setOnClickListener(this);
+        btAccueil.setOnClickListener(this);
+        btMenu.setOnClickListener(this);
+        btNotification.setOnClickListener(this);
     }
 
     private boolean loadFragment(Fragment fragment) {
@@ -75,17 +78,34 @@ public class AccueilActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btHome :
+            case R.id.btAccueil :
                 loadFragment(new HomeFragment());
                 break;
-            case R.id.btFavorite:
+            case R.id.btMenu:
                 loadFragment(new MenuFragment());
                 break;
-            case R.id.btAccount :
+            case R.id.btNotification :
                loadFragment(new NotifFragment());
                // Intent i = new Intent(this, NotifActivity.class);
                 //startActivity(i);
                 break;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id= item.getItemId();
+        if (id== R.id.deconnexion){
+            Intent intent = new Intent(this,com.gestion.ecole.LoginActivity.class);
+            startActivity(intent);
+        }
+        return true;
     }
 }

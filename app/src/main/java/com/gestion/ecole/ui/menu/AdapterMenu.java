@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.gestion.ecole.R;
 import com.gestion.ecole.ui.menu.ContactEnseignant.ContactEnseignant;
+import com.gestion.ecole.ui.menu.EmploisEleve.EmploisEleve;
 import com.gestion.ecole.ui.menu.InformationsEleve.InformationsEleve;
 
 import java.util.ArrayList;

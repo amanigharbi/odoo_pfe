@@ -34,7 +34,7 @@
         android:src="@drawable/footer" />
 
     <ImageButton
-        android:id="@+id/btHome"
+        android:id="@+id/btAccueil"
         android:layout_width="68dp"
         android:layout_height="68dp"
         android:layout_alignTop="@+id/footer"
@@ -44,7 +44,7 @@
         android:src="@drawable/ic_action_school_black" />
 
     <ImageView
-        android:id="@+id/btAccount"
+        android:id="@+id/btNotification"
         android:layout_width="68dp"
         android:layout_height="68dp"
         android:layout_alignTop="@+id/footer"
@@ -55,7 +55,7 @@
         android:src="@drawable/ic_action_communication" />
 
     <ImageView
-        android:id="@+id/btFavorite"
+        android:id="@+id/btMenu"
         android:layout_width="68dp"
         android:layout_height="68dp"
         android:layout_alignTop="@+id/footer"

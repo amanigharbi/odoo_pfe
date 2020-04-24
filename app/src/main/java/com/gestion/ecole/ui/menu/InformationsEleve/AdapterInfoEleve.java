@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -34,10 +36,13 @@ public class AdapterInfoEleve extends RecyclerView.Adapter<AdapterInfoEleve.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+       // LayoutAnimationController animation = AnimationUtils.loadLayoutAnimation(context, R.anim.layoutanim);
         holder.tvNom.setText(list.get(position).getNom());
-        holder.tvPrenom.setText(list.get(position).getPrenom());
         holder.tvNomParent.setText(list.get(position).getNomParent());
         holder.tvNomClasse.setText(list.get(position).getNomClasse());
+
+        holder.imgInfoEleve.setAnimation(AnimationUtils.loadAnimation(context,R.anim.layout_anim_transition));
+        holder.RlInfoEleve.setAnimation(AnimationUtils.loadAnimation(context,R.anim.layout_anim_scale));
     }
 
     @Override
@@ -48,17 +53,23 @@ public class AdapterInfoEleve extends RecyclerView.Adapter<AdapterInfoEleve.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView tvNom, tvPrenom, tvNomParent, tvNomClasse;
+        public TextView tvNom, tvNomParent,tvNomClasse;
         public RelativeLayout RlInfoEleve;
+        public RecyclerView rvInformationsEleve;
+        public ImageView imgInfoEleve;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             tvNom = itemView.findViewById(R.id.tvNom);
-            tvPrenom = itemView.findViewById(R.id.tvPrenom);
             tvNomParent = itemView.findViewById(R.id.tvNomParent);
             tvNomClasse = itemView.findViewById(R.id.tvNomClasse);
-            RlInfoEleve = itemView.findViewById(R.id.RlInfoEleve);
+
+           imgInfoEleve=itemView.findViewById(R.id.imgInfoEleve);
+
+           RlInfoEleve = itemView.findViewById(R.id.RlInfoEleve);
+            rvInformationsEleve=itemView.findViewById(R.id.rvInformationsEleve);
+
         }
     }
 }

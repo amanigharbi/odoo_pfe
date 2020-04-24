@@ -24,10 +24,11 @@
         android:textSize="18sp" />
 
 <RelativeLayout
+    android:id="@+id/rlcard"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginTop="50dp"
-    android:layout_marginBottom="100dp">
+   >
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvImage"
@@ -41,10 +42,11 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             >
 
             <pl.droidsonroids.gif.GifImageView
-                android:id="@+id/imgArticle"
+                android:id="@+id/img"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
@@ -60,16 +62,26 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvInformationsEleve"
-        android:layout_centerInParent="true"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
         app:cardCornerRadius="10dp"
         android:elevation="5dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="280dp"
-        android:layout_marginBottom="10dp"
-        android:foregroundGravity="center"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="250dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDesciplineEleve"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="50dp"
+        android:elevation="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="420dp"
+        android:layout_marginBottom="10dp"
         android:clipToPadding="false"
         android:overScrollMode="never" />
 

@@ -6,39 +6,39 @@ import org.apache.xmlrpc.XmlRpcException;
 import org.apache.xmlrpc.client.XmlRpcClient;
 import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
 
+import java.lang.reflect.Array;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.gestion.ecole.odoo.ConnectionOdoo.db;
 import static com.gestion.ecole.odoo.ConnectionOdoo.password;
-import static com.gestion.ecole.odoo.ConnectionOdoo.url;
 import static com.gestion.ecole.odoo.ConnectionOdoo.uid;
+import static com.gestion.ecole.odoo.ConnectionOdoo.url;
 import static java.util.Arrays.asList;
-import static java.util.Collections.emptyList;
 
-public class GetDataOdoo extends AsyncTask<URL,String, List> {
-    static List Resp;
+public class GetConditionData extends AsyncTask<URL,String, List>  {
+    static  List ids;
     String table;
+    String attr1,attr2;
     String[] fields;
+    String[][] condition;
 
-
-
-    public GetDataOdoo(){
+    public GetConditionData(){
         super();
-    }
-
-    public GetDataOdoo(String table,String[] fields){
+    };
+    public GetConditionData(String table, String[] fields,String attr1,String attr2){
         this.table=table;
         this.fields=fields;
-
+        this.attr1=attr1;
+        this.attr2=attr2;
     }
-
-
     @Override
-    protected List doInBackground(URL... urls) {
+    protected  List doInBackground(URL... urls) {
         try {
             final XmlRpcClient models = new XmlRpcClient() {{
                 setConfig(new XmlRpcClientConfigImpl() {{
@@ -51,20 +51,22 @@ public class GetDataOdoo extends AsyncTask<URL,String, List> {
                         put("raise_exception", false);
                     }}
             ));
-            Resp = asList((Object[]) models.execute("execute_kw", asList(
-                    db, uid, password, table, "search_read",
-                    emptyList(),
-                    new HashMap() {{
-                        put("fields", asList(fields));
-                        //put("limit", 5);
-                    }})));
+          ids=asList((Object[])models.execute("execute_kw", asList(
+                    db, uid, password, table, "search_read", asList(asList(
+                          asList(attr1, "=", attr2)))
+                  , new HashMap() {{ put("fields", asList(fields));  }}
+                    )));
+
+
+        } catch (ClassCastException e) {
+            e.printStackTrace();
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (XmlRpcException e) {
             e.printStackTrace();
         }
 
-        return Resp;
+        return ids;
     }
-
 }
+

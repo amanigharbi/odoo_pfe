@@ -35,7 +35,7 @@ public class Introduction extends AppCompatActivity {
 
         btGetStarted.setVisibility(View.GONE);
         final List<ScreenItem> arrayList = new ArrayList<>();
-        arrayList.add(new ScreenItem( "Éleve","Vous trouvez ici les informations necessaires \n de votre enfant!",R.drawable.teacher1));
+        arrayList.add(new ScreenItem( "Éleve","Vous trouvez ici les informations nécessaires \n de votre enfant!",R.drawable.teacher1));
         arrayList.add(new ScreenItem( "Enseignant","Vous trouvez ici les contacts des enseignants \n de votre enfant!",R.drawable.enseignant));
         arrayList.add(new ScreenItem("École","à tout moment vous pouvez nous contacter!", R.drawable.school));
 
