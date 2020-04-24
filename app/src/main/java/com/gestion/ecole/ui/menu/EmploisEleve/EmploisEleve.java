@@ -144,7 +144,7 @@ public class EmploisEleve extends AppCompatActivity {
         if (id== R.id.deconnexion){
             Intent intent = new Intent(this,com.gestion.ecole.LoginActivity.class);
             startActivity(intent);
-         }else{
+        }else if(id== android.R.id.home){
         this.finish();
     }
         return true;
