@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<odoo>
+         <!-- tree View Of Parent's Profiles -->
+        <record id="view_historique_notification_tree" model="ir.ui.view">
+            <field name="nom">historique_notification.tree</field>
+            <field name="model">historique.notification</field>
+            <field name="arch" type="xml">
+
+                <tree string="Historique Notification">
+                    <field name="eleve_id"/>
+                    <field name="title"/>
+                    <field name="message"/>
+                    <field name="etat_message"/>
+                    <field name="parent_id" invisible="1"/>
+
+                </tree>
+            </field>
+        </record>
+
+         <record id="action_historique_notification_tree" model="ir.actions.act_window">
+            <field name="nom">historique_notification</field>
+            <field name="res_model">historique.notification</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+             <field name="view_id" ref="view_historique_notification_tree" />
+
+        </record>
+
+            <!-- Menu Item Parent-->
+    <menuitem id="menu_notification" name="Historique Notification" parent="menu_parent_parents"  action="action_historique_notification_tree" />
+</odoo>

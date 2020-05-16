@@ -1,0 +1,317 @@
+<?xml version="1.0"?>
+
+<odoo>
+  <!--  <record id="time_table_line_kanban_view" model="ir.ui.view">
+        <field name="name">TimeTable KANBAN</field>
+        <field name="model">time.table.line</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="standard_id">
+                <templates>
+                    <t t-name="kanban-box">
+                        <t t-set="color" t-value="kanban_color(record.color.raw_value || record.name.raw_value)" />
+                        <div t-att-class="color + (record.color.raw_value == 1 ? ' oe_kanban_color_alert' : '')">
+                            <div class="oe_kanban_box oe_kanban_color_border">
+                                <div class="oe_kanban_box_header oe_kanban_color_bgdark oe_kanban_color_border oe_kanban_draghandle">
+                                    <table class="oe_kanban_table">
+                                        <tr>
+                                            <td class="oe_kanban_title1" align="left" valign="middle" style="padding-left:10px;">
+                                                <h4>
+                                                  <a type="open">
+                                                        <field name="week_day" />
+
+
+                                                    </a>
+                                                </h4>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="oe_kanban_box_content oe_kanban_color_bglight oe_kanban_box_show_onclick_trigger oe_kanban_color_border">
+                                    <table class="oe_kanban_table">
+                                        <tr width="300">
+                                            <td valign="top" width="64" align="left">
+                                                <a type="open">
+                                                    <img heigh="80" width="80" t-att-src="kanban_image('student.student', 'photo', record.id.raw_value)" alt="image"/>
+                                                </a>
+                                            </td>
+                                            <td valign="top" align="left" style="padding-left:10px;">
+                                                <table>
+                                                    <tr>
+                                                        <td>Start Time :</td>
+                                                        <td style="padding-left:10px;">
+                                                            <b>
+                                                                <field name="start_time" />
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>End Time: </td>
+                                                        <td style="padding-left:10px;">
+                                                            <b>
+                                                                <field name="end_time" />
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Subject : </td>
+                                                        <td style="padding-left:10px;">
+                                                            <b>
+                                                                <field name="subject_id" />
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                     <tr>
+                                                        <td>Teacher Name  : </td>
+                                                        <td style="padding-left:10px;">
+                                                            <b>
+                                                                <field name="teacher_id" />
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                     <tr>
+                                                        <td>Class Room  : </td>
+                                                        <td style="padding-left:10px;">
+                                                            <b>
+                                                                <field name="class_room_id" />
+                                                            </b>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                                <div class="oe_kanban_buttons_set oe_kanban_color_border oe_kanban_color_bglight oe_kanban_box_show_onclick">
+                                    <div class="oe_kanban_left">
+                                        <a role="button" string="Edit" class="btn btn-sm btn-default fa fa-pencil" type="edit" groups="school.group_school_administration"/>
+                                        <a role="button" string="Change Color" icon="color-picker" type="color" name="color" />
+                                    </div>
+                                    <br class="oe_kanban_clear" />
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>-->
+        <!-- Form View Of Time Table Information -->
+        <record id="view_time_table_form" model="ir.ui.view">
+            <field name="name">time.table.form</field>
+            <field name="model">time.table</field>
+            <field name="arch" type="xml">
+
+    <form string="TimeTable">
+                    <sheet>
+                        <group col="4" colspan="4">
+                            <field name="name" placeholder="Enter Description"/>
+                            <field name="school_id" placeholder="Select School" widget="selection"/>
+                            <field name="standard_id" placeholder="Select Standard" widget="selection"/>
+                            <field name="year_id" placeholder="Select Year" widget="selection"/>
+                            <field name="class_room_id" options="{&quot;no_create&quot;: True}" invisible="1"/>
+                            <field name="user_ids" invisible="1"/>
+                        </group>
+                      <notebook colspan="4">
+                        <!--    <page string="TimeTable">
+                                <field name="timetable_ids" nolabel="1" colspan="4">
+                                    <tree string="TimeTable" editable="top">
+                                      <field name="week_day"/>
+                                       <field name="subject_id" required="1" options='{"no_open": True, "no_create": True}'/>
+                                        <field name="start_time"/>
+                                        <field name="end_time"/>
+                                        <field name="teacher_id" options='{"no_open": True, "no_create": True}' required="1"/>
+                                        <field name="class_room_id" options='{"no_open": True, "no_create": True}'/>
+
+                                    </tree>
+                             </field>
+                            </page>-->
+                            <page string="Monday">
+                                <field name="timetable_mon" domain="[('week_day','=', 0)]"  context="{'default_week_day': '0'} ">
+                                    <tree string="Monday" editable="bottom">
+                                        <field name="period_id"/>
+                                        <field name="start_time" widget="float_time" />
+                                        <field name="end_time" widget="float_time"/>
+                                        <field name="subject_id"/>
+                                        <field name="teacher_id"/>
+                                         <field name="class_room_id"/>
+                                        <field name="week_day" invisible='1'/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Tuesday">
+                                <field name="timetable_tue" domain="[('week_day','=', 1)]"  context="{'default_week_day': '1'}">
+                                    <tree string="Tuesday" editable="bottom">
+                                              <field name="period_id"/>
+                                        <field name="start_time" widget="float_time" />
+                                        <field name="end_time" widget="float_time"/>
+                                        <field name="subject_id"/>
+                                        <field name="teacher_id"/>
+                                        <field name="class_room_id"/>
+                                        <field name="week_day" invisible='1'/>
+
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Wednesday">
+                                <field name="timetable_wed" domain="[('week_day','=', 2)]"  context="{'default_week_day': '2'}">
+                                        <tree string="Wednesday" editable="bottom">
+                                                  <field name="period_id"/>
+                                        <field name="start_time" widget="float_time" />
+                                        <field name="end_time" widget="float_time"/>
+                                        <field name="subject_id"/>
+                                        <field name="teacher_id"/>
+                                             <field name="class_room_id"/>
+                                        <field name="week_day" invisible='1'/>
+
+                                        </tree>
+                                    </field>
+                            </page>
+                            <page string="Thursday">
+                                <field name="timetable_thur" domain="[('week_day','=', 3)]"  context="{'default_week_day': '3'}">
+                                    <tree string="Thursday" editable="bottom">
+                                                <field name="period_id"/>
+                                        <field name="start_time" widget="float_time" />
+                                        <field name="end_time" widget="float_time"/>
+                                        <field name="subject_id"/>
+                                        <field name="teacher_id"/>
+                                        <field name="class_room_id"/>
+                                        <field name="week_day" invisible='1'/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Friday">
+                                <field name="timetable_fri" domain="[('week_day','=', 4)]"  context="{'default_week_day': '4'}">
+                                    <tree string="Friday" editable="bottom">
+                                                  <field name="period_id"/>
+                                        <field name="start_time" widget="float_time" />
+                                        <field name="end_time" widget="float_time"/>
+                                        <field name="subject_id"/>
+                                        <field name="teacher_id"/>
+                                        <field name="class_room_id"/>
+                                        <field name="week_day" invisible='1'/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Saturday">
+                                <field name="timetable_sat" domain="[('week_day','=', 5)]"  context="{'default_week_day': '5'}">
+                                    <tree string="Saturday" editable="bottom">
+                                                <field name="period_id"/>
+                                        <field name="start_time" widget="float_time" />
+                                        <field name="end_time" widget="float_time"/>
+                                        <field name="subject_id"/>
+                                        <field name="teacher_id"/>
+                                        <field name="class_room_id"/>
+                                        <field name="week_day" invisible='1'/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+<!--
+ <template>
+
+                                            <table width="100%" style="border: 0px;">
+                                                <tr style="border: 0px;">
+                                                    <td width="15%" align="center" style="font-family: 'Helvetica';font-size: 18px;border: 2px solid black;">
+                                                        <b>Time</b>
+                                                    </td>
+                                                    <td align="center" width="14.16%" style="font-family: 'Helvetica';font-size: 18px;border: 2px solid black;">
+                                                        <b>Monday</b>
+                                                    </td>
+                                                    <td align="center" width="14.16%" style="font-family: 'Helvetica';font-size: 18px;border: 2px solid black;">
+                                                        <b>Tuesday</b>
+                                                    </td>
+                                                    <td align="center" width="14.16%" style="font-family: 'Helvetica';font-size: 18px;border: 2px solid black;">
+                                                        <b>Wednesday</b>
+                                                    </td>
+                                                    <td align="center" width="14.16%" style="font-family: 'Helvetica';font-size: 18px;border: 2px solid black;">
+                                                        <b>Thursday</b>
+                                                    </td>
+                                                    <td align="center" width="14.16%" style="font-family: 'Helvetica';font-size: 18px;border: 2px solid black;">
+                                                        <b>Friday</b>
+                                                    </td>
+                                                    <td align="center" width="14.16%" style="font-family: 'Helvetica';font-size: 18px;border: 2px solid black;">
+                                                        <b>Saturday</b>
+                                                    </td>
+                                                </tr>
+
+                                                    <tr>
+                                                        <td align="center" width="15%" style="font-family: 'Helvetica';font-size: 16px;border: 2px solid black;">
+
+                                                          <b> <field name="start_time"/></b>
+                                                          <b> <field name="end_time"/></b>
+                                                        </td>
+                                                        <td align="center" width="14.16%" style="font-family: 'Helvetica';font-size: 16px;border: 2px solid black;">
+                                                          <b> <field name="subject_id" required="1" options='{"no_open": True, "no_create": True}'/></b>
+                                                      <b>   <field name="teacher_id" options='{"no_open": True, "no_create": True}' required="1"/></b>
+                                                       <b> <field name="class_room_id" options='{"no_open": True, "no_create": True}'/></b>
+                                                        </td>
+
+                                                    </tr>
+
+                                            </table>
+
+
+</template>
+
+-->
+
+
+
+
+        <!-- Tree View Of Time Table Information -->
+        <record id="view_time_table_tree" model="ir.ui.view">
+            <field name="name">time.table.tree</field>
+            <field name="model">time.table</field>
+            <field name="arch" type="xml">
+                <tree string="TimeTable">
+                    <field name="name"/>
+                    <field name="school_id"/>
+                    <field name="standard_id"/>
+                    <field name="year_id"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Search View Time Table Information -->
+        <record id="timetable_search" model="ir.ui.view">
+            <field name="name">time.table.search</field>
+            <field name="model">time.table</field>
+            <field name="arch" type="xml">
+                <search string="TimeTable">
+                    <field name="name"/>
+                    <field name="school_id"/>
+                    <field name="standard_id"/>
+                    <field name="year_id"/>
+                    <newline/>
+                    <group expand="1" string="Group By">
+                        <filter name="class" string="Academic Class" help="By class"
+                                context="{'group_by':'standard_id'}"/>
+                        <filter name="year" string="Year" help="By year" context="{'group_by':'year_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+      <!--  <record id="action_view_time_table_line_kanban_2" model="ir.actions.act_window.view">
+        <field name="view_mode">kanban</field>
+        <field eval="21" name="sequence" />
+        <field name="view_id" ref="time_table_line_kanban_view" />
+
+    </record>-->
+        <!-- Actions Of Form & Tree Views Of Time Table Information -->
+        <record id="action_timetable_regular" model="ir.actions.act_window">
+            <field name="name">Regular Timetable</field>
+            <field name="res_model">time.table</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('timetable_type','=','regular')]</field>
+            <field name="context">{'default_timetable_type':'regular'}</field>
+        </record>
+
+
+
+</odoo>

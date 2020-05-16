@@ -31,7 +31,7 @@ class MoveStandards(models.TransientModel):
                     search([('standard_id', '=', next_class_id),
                             ('division_id', '=', division),
                             ('school_id', '=', stud.school_id.id),
-                            ('medium_id', '=', stud.medium_id.id)])
+                            ])
                 if next_stand:
                     std_vals = {'year': academic_year.id,
                                 'standard_id': next_stand.id}

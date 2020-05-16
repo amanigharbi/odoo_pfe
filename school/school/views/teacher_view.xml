@@ -16,7 +16,6 @@
                     <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
                     <group expand="0" string="Group By">
                         <filter name="manager" string="Manager" domain="[]" context="{'group_by':'parent_id'}"/>
-                        <filter name="coach" string="Coach" domain="[]" context="{'group_by':'coach_id'}"/>
                         <filter name="department" string="Department" domain="[]" context="{'group_by':'department_id'}"/>
                         <filter name="job" string="Job" domain="[]" context="{'group_by':'job_id'}"/>
                         <filter name="company" string="Company" domain="[]" context="{'group_by':'company_id'}" groups="base.group_multi_company"/>
@@ -35,11 +34,11 @@
                     <field name="work_phone" invisible="1"/>
                     <field name="phone_numbers"/>
                     <field name="work_email"/>
-                    <field name="company_id" groups="base.group_multi_company"/>
+                    <!-- a verifier -->
+                    <field name="school_id"/>
                     <field name="department_id"/>
                     <field name="job_id"/>
                     <field name="parent_id"/>
-                    <field name="coach_id" invisible="1"/>
                     <field name="message_needaction" invisible="1"/>
                 </tree>
             </field>
@@ -80,7 +79,6 @@
                                 <group>
                                     <group string="Contact Information">
                                         <field name="address_id" context="{'show_address': 1}" options="{&quot;always_reload&quot;: True, &quot;highlight_first_line&quot;: True}" string="Work Address"/>
-                                        <field name="mobile_phone" />
                                         <field name="work_location" />
                                         <field name="work_email" widget="email" required="1"/>
                                         <field name="work_phone" invisible="1"/>
@@ -90,7 +88,7 @@
                                         <field name="department_id"/>
                                         <field name="job_id"/>
                                         <field name="parent_id"/>
-                                        <field name="coach_id"/>
+
                                     </group>
                                 </group>
                                 <field name="notes" placeholder="Other Information ..." colspan="4"/>
@@ -126,6 +124,9 @@
                                     </group>
                                 </group>
                             </page>
+                              <page  string="Students">
+                            <field name="stud_id" colspan="4"/>
+                        </page>
                         </notebook>
                     </sheet>
                     <div class="oe_chatter">
@@ -146,7 +147,7 @@
         </record>
 
         <menuitem id="teacher_profile_menu" name="Teachers" action="action_school_teacher_form" 
-                  parent="menu_students_parents" sequence="32"
+                  parent="menu_school" sequence="5"
                   groups="school.group_school_administration,school.group_school_teacher"/>
 
     </data>

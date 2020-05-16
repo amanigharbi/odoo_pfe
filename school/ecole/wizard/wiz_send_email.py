@@ -12,10 +12,10 @@ class MailTemplate(models.Model):
         ret = super(MailTemplate, self).generate_email(res_ids, fields=fields)
 
         if (self._context.get('body_html', False) or
-                self._context.get('subject', False) or
+                self._context.get('matiere', False) or
                 self._context.get('email_to', False)):
             ret['body_html'] = self._context['body_text']
-            ret['subject'] = self._context['subject']
+            ret['matiere'] = self._context['matiere']
             ret['email_to'] = self._context['email_to']
             return ret
         else:

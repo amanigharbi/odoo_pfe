@@ -32,6 +32,9 @@ class SchoolTeacher(models.Model):
                                   'students_teachers_parent_rel',
                                   'teacher_id', 'student_id',
                                   'Children')
+    stud_id = fields.Many2many('student.student', 'students_teachers_rel',
+                                  'students_teacher_id','student_id',
+                                  'Student')
     phone_numbers = fields.Char("Phone Number")
 
     @api.onchange('is_parent')

@@ -3,15 +3,15 @@
 <odoo>
     <!-- Form View 1 Of eleve's Profiles -->
     <record id="view_eleve_eleve_form_1" model="ir.ui.view">
-        <field name="name">eleve.eleve.form.1</field>
+        <field name="nom">eleve.eleve.form.1</field>
         <field name="model">eleve.eleve</field>
         <field name="arch" type="xml">
             <form string="Informations Elèves" >
                 <header>
-                    <button class="oe_highlight oe_stat_button" name="%(ecole.action_terminate_wizard)d" string="Mettre fin" type="action" icon="fa-ban" states="done" groups="ecole.group_ecole_administration" />
-                    <button class="oe_stat_button" name="set_alumni" string="Anciens" type="object" icon="fa-archive" states="done" groups="ecole.group_ecole_administration" />
-                    <button class="oe_stat_button" icon="fa-check" name="admission_done" type="object" string="Terminé" states="draft" groups="ecole.group_ecole_administration" />
-                    <field name="state" widget="statusbar" statusbar_visible="alumni,terminate" attrs="{'invisible':[('state','=','done')]}"/>
+                    <button class="oe_highlight oe_stat_button" name="%(ecole.action_mettre_fin_wizard)d" string="Mettre fin" type="action" icon="fa-ban" etats="terminé" groups="ecole.group_ecole_administration" />
+                    <button class="oe_stat_button" name="set_ancien" string="Anciens" type="object" icon="fa-archive" etats="terminé" groups="ecole.group_ecole_administration" />
+                    <button class="oe_stat_button" icon="fa-check" name="admission_terminé" type="object" string="Terminé" etats="Brouillon" groups="ecole.group_ecole_administration" />
+                    <field name="etat" widget="statusbar" statusbar_visible="ancien,mettre_fin" attrs="{'invisible':[('etat','=','terminé')]}"/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="buttons"></div>
@@ -22,14 +22,12 @@
                             <field name="reg_code" readonly="1" />
                         </b>
                         <br />
-                        <field name="photo" widget="image" attrs="{'readonly':[('state','in',['alumni','terminate'])]}" class="oe_avatar oe_left" style="max-width:100px;max-height:117px;"/>
+                        <field name="photo" widget="image" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}" class="oe_avatar oe_left" style="max-width:100px;max-height:117px;"/>
                         <div class="oe_title">
                             <group>
-                                <field name="name" placeholder="Prénom" nolabel="1" required="1" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
+                                <field name="nom" placeholder="Prénom" nolabel="1" required="1" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
                                 <br />
-                                <field name="middle" placeholder="Deuxième nom" nolabel="1" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                                <br />
-                                <field name="last" placeholder="Nom" nolabel="1" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
+                                <field name="nom_famille_eleve" placeholder="Nom Famille" nolabel="1" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
                                 <br />
                                 <field name="pid" invisible="1"/>
                             </group>
@@ -38,150 +36,122 @@
                     <group>
                         <group string="Information Elèves">
                             <field name="eleve_code" readonly="1" />
-                            <field name="roll_no" help="Numéro de rôle de l'élève" readonly="1"/>
-                            <field name="year" placeholder="Année" widget="selection" help="annee academique of eleve" attrs="{'readonly':['|',('state','in',['alumni','terminate']),('teachr_user_grp','=',True)]}"/>
-                            <field name="ecole_id" placeholder="Ecole" widget="selection" help="Ecole of eleve" attrs="{'readonly':['|',('state','in',['alumni','terminate']),('teachr_user_grp','=',True)]}"/>
+                            <field name="annee" placeholder="Année" widget="selection" help="annee academique d'eleve" attrs="{'readonly':['|',('etat','in',['ancien','mettre_fin']),('enseignant_grp','=',True)]}"/>
+                            <field name="ecole_id" placeholder="Ecole" widget="selection" help="Ecole d'eleve" attrs="{'readonly':['|',('etat','in',['ancien','mettre_fin']),('enseignant_grp','=',True)]}"/>
                         </group>
-                        <group string="Informations Standard">
-                            <field name="standard_id" placeholder="Standard" readonly="1" domain="[('ecole_id','=',ecole_id)]" widget="selection" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                            <field name="division_id" placeholder="Division" invisible="1" widget="selection" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                            <field name="medium_id" placeholder="Moyen"  readonly="1" widget="selection" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                        </group>
+                        <group string="Informations Classe">
+                            <field name="classe_id" placeholder="Classe" readonly="1" domain="[('ecole_id','=',ecole_id)]" widget="selection" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
+                            <field name="division_id" placeholder="Division" invisible="1" widget="selection" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
+                                  </group>
                     </group>
                     <group>
                         <group>
-                            <label for="street" string="Addresse" />
+                            <label for="street" string="Adresse" />
                             <div class="o_address_format">
-                                <field name="street" class="o_address_street" placeholder="Rue..." attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                                <field name="street2" class="o_address_street" placeholder="Rue2..." attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                                <field name="city" placeholder="Ville" class="o_address_city" required="1" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                                <field name="state_id" domain="[('country_id','=',country_id)]" class="o_address_state" required="1" placeholder="Etat" options="{&quot;no_open&quot;: True}" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                                <field name="zip" placeholder="ZIP" class="o_address_zip" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                                <field name="country_id" placeholder="Pays" class="o_address_country,oe_no_button" options="{&quot;no_open&quot;: True}" required="1" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
+                                <field name="street" class="o_address_street" placeholder="Rue..." attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
+                                <field name="ville" placeholder="Ville" class="o_address_city" required="1" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
+                                <field name="etat_id" domain="[('pays_id','=',pays_id)]" class="o_address_etat" required="1" placeholder="Etat" options="{&quot;no_open&quot;: True}" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
+                                <field name="pays_id" placeholder="Pays" class="o_address_country,oe_no_button" options="{&quot;no_open&quot;: True}" required="1" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
                             </div>
                         </group>
                         <group>
-                            <field name="phone" placeholder="Numéro Téléphone" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                            <field name="mobile" placeholder="Numéro de Portable" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                            <field name="email" placeholder="Addresse Email" String="Email" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                            <field name="website" widget="url" placeholder="ex www.exemple.com" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                            <field name="teachr_user_grp" invisible="1"/>
+                            <field name="telephone" string="Numéro Télételephone" placeholder="Numéro Télételephone" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
+                            <field name="mobile" string="Numéro de Portable" placeholder="Numéro de Portable" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
+                            <field name="email"  placeholder="Adresse Email" String="Email" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
+                            <field name="website" string="Site Web" widget="url" placeholder="ex www.exemple.com" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
+                            <field name="enseignant_grp" invisible="1"/>
                         </group>
                     </group>
                     <notebook>
                         <page string="Géneral" name="general">
                             <group>
                                 <group>
-                                    <field name="cast_id" attrs="{'readonly':[('state','in',['alumni','terminate'])]}" widget="selection" placeholder="Réligion/Caste"/>
-                                    <field name="date_of_birth" widget="date" placeholder="Date De Naissance" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                                    <field name="gender" attrs="{'readonly':[('state','in',['alumni','terminate'])]}" placeholder="Sexe" required="1"/>
+                                    <field name="caste_id" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}" widget="selection" placeholder="Réligion/Caste"/>
+                                    <field name="date_de_naissance" widget="date" placeholder="Date De Naissance" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
+                                    <field name="sexe" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}" placeholder="Sexe" required="1"/>
                                     <field name="age"/>
                                 </group>
                                 <group>
-                                    <field name="mother_tongue" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"  widget="selection" placeholder="Lanque Maternelle"/>
-                                    <field name="admission_date" widget="date" placeholder="Date d'admission" attrs="{'readonly':[('state','in',['alumni','terminate'])]}" readonly="1"/>
-                                    <field name="maritual_status" attrs="{'readonly':[('state','in',['alumni','terminate'])]}" placeholder="État civil"/>
+                                    <field name="langue_maternelle" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"  widget="selection" placeholder="Lanque Maternelle"/>
+                                    <field name="date_admission" widget="date" placeholder="Date d'admission" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}" readonly="1"/>
+                                    <field name="etat_civil" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}" placeholder="État civil"/>
                                 </group>
                                 <newline />
                                 <separator string="Détails des contacts d'urgence" colspan="4" />
                                 <newline />
                                 <group colspan="4" col="4">
-                                    <field name="contact_phone" attrs="{'readonly':[('state','in',['alumni','terminate'])]}" placeholder="Numéro de Téléphone"/>
-                                    <field name="contact_mobile" attrs="{'readonly':[('state','in',['alumni','terminate'])]}" placeholder="Numéro de Portable"/>
+                                    <field name="contact_telephone" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}" placeholder="Numéro de Télételephone"/>
+                                    <field name="contact_portable" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}" placeholder="Numéro de Portable"/>
                                 </group>
                                 <newline />
                             </group>
                             <newline/>
-                            <separator string="Motif de résiliation" attrs="{'invisible':[('state','in',['draft','done','alumni'])]}"/>
+                            <separator string="Motif de résiliation" attrs="{'invisible':[('etat','in',['Brouillon','terminé','ancien'])]}"/>
                             <group>
-                                    <field name="terminate_reason" attrs="{'invisible':[('state','in',['draft','done','alumni'])]}" readonly="1"/>
+                                    <field name="mettre_fin_raison" attrs="{'invisible':[('etat','in',['Brouillon','terminé','ancien'])]}" readonly="1"/>
                               </group>
                         </page>
                         <page string="Parents">
-                            <field name="parent_id" 
-                                        attrs="{'readonly':[('state','in',['alumni','terminate'])]}" 
+                            <field name="parent_id"
+                                        attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"
                                         context="{'form_view_ref':'ecole.view_parent_form','default_parent_ecole':1}"
                                         options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
                         </page>
                         <page string="Precedent Ecole">
-                            <field name="previous_ecole_ids" nolabel="1" colspan="4" attrs="{'readonly':[('state','in',['alumni','terminate'])]}">
+                            <field name="precedent_ecole_ids" nolabel="1" colspan="4" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}">
                                 <tree string="Details Precedent Ecole">
-                                    <field name="name" />
-                                    <field name="registration_no" />
-                                    <field name="admission_date" />
-                                    <field name="exit_date" />
+                                    <field name="nom" />
+                                    <field name="numero_enseignant" />
+                                    <field name="date_admission" />
+                                    <field name="date_sortie" />
                                     <field name="course_id" widget="selection" />
                                 </tree>
                                 <form string="Details Precedent Ecole">
                                     <separator string="Details Precedent Ecole" />
                                     <group col="4" colspan="4">
-                                        <field name="name" placeholder="Nom Ecole" />
-                                        <field name="registration_no" placeholder="N° d'enregistrement" />
-                                        <field name="admission_date" />
-                                        <field name="exit_date" />
+                                        <field name="nom" placeholder="Nom Ecole" />
+                                        <field name="numero_enseignant" placeholder="N° d'enregistrement" />
+                                        <field name="date_admission" />
+                                        <field name="date_sortie" />
                                         <field name="course_id" widget="selection"/>
                                         <newline />
                                         <separator string="Details Matières"/>
-                                        <field name="add_sub" nolabel="1" colspan="4" />
+                                        <field name="ajouter_mat" nolabel="1" colspan="4" />
                                     </group>
                                 </form>
                             </field>
                         </page>
-                        <page string="Informations de famille">
-                            <field name="family_con_ids" nolabel="1" colspan="4" attrs="{'readonly':[('state','in',['alumni','terminate'])]}">
-                                <form string="Coordonnées de la famille">
-                                    <group>
-                                        <group>
-                                            <field name="rel_name" />
-                                            <field name="stu_name" placeholder="Créer ou sélectionner un nom" attrs="{'invisible':[('rel_name','!=','exist')]}"
-                                                    options="{&quot;no_create&quot;: True}"/>
-                                            <field name="name" placeholder="Nom" attrs="{'invisible':[('rel_name','!=','new')]}"/>
-                                            <field name="relation" placeholder="Entrez ou sélectionnez Relation" />
-                                        </group>
-                                        <group>
-                                            <field name="phone" placeholder="Numéro Téléphone" />
-                                            <field name="email" placeholder="ID Email" />
-                                        </group>
-                                    </group>
-                                </form>
-                                <tree string="Coordonnées de la famille">
-                                    <field name="relative_name"/>
-                                    <field name="relation" />
-                                    <field name="phone" />
-                                </tree>
-                            </field>
-                        </page>
+
                         <page string="Médicale">
                             <group>
                                 <group string="Informations Sur Le Médecin">
-                                    <field name="designation" placeholder="Désignation du médecin" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                                    <field name="doctor_phone" placeholder="Contact avec le médecin Non" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
+                                    <field name="designation" placeholder="Désignation du médecin" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
+                                    <field name="medecin_telephone" placeholder="Contact avec le médecin Non" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
                                 </group>
-                                <group string="Physical Information">
-                                    <field name="blood_group" placeholder="ex.B+,Ab+" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                                    <field name="height" attrs="{'readonly':[('state','in',['alumni','terminate'])]}" placeholder="Height"/>
-                                    <field name="weight" attrs="{'readonly':[('state','in',['alumni','terminate'])]}" placeholder="Weight"/>
+                                <group string="Informations physiques">
+                                    <field name="groupe_sanguin" placeholder="ex.B+,Ab+" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
+                                    <field name="hauteur" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}" placeholder="hauteur"/>
+                                    <field name="largeur" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}" placeholder="largeur"/>
                                 </group>
                             </group>
                             <separator string="Le demandeur a-t-il des handicaps?" colspan="4" />
                             <group col="6" colspan="4">
-                                <field name="eye" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                                <field name="ear" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                                <field name="nose_throat" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                                <field name="respiratory" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                                <field name="cardiovascular" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                                <field name="neurological" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                                <field name="muskoskeletal" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                                <field name="dermatological" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
-                                <field name="blood_pressure" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
+                                <field name="yeux" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
+                                <field name="oreille" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
+                                <field name="nez_gorge" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
+                                <field name="respiratoire" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
+                                <field name="cardiovasculaire" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
+                                <field name="neurologique" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
+                                <field name="dermatologique" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
+                                <field name="pression_arterielle" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
                             </group>
                             <separator string="Notes" colspan="4" />
                             <group col="6" colspan="4">
-                                <field name="comment" placeholder="Notes sur le médical.." nolabel="1" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
+                                <field name="commentaire" placeholder="Notes sur le médical.." nolabel="1" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}"/>
                             </group>
                         </page>
                         <page string="Certifications">
-                            <field name="certificate_ids" nolabel="1" colspan="4" attrs="{'readonly':[('state','in',['alumni','terminate'])]}">
+                            <field name="certificat_ids" nolabel="1" colspan="4" attrs="{'readonly':[('etat','in',['ancien','mettre_fin'])]}">
                                 <form string="Certification">
                                     <group col="4">
                                         <field name="description" placeholder="Description du certificat" />
@@ -194,45 +164,12 @@
                                 </tree>
                             </field>
                         </page>
-                        <page string="Remarques">
-                            <field name="description" nolabel="1" colspan="4" attrs="{'readonly':[('state','in',['alumni','terminate'])]}">
-                                <form string="Détails supplémentaires">
-                                    <group col="4" colspan="2">
-                                        <field name="name" placeholder="Nom de domaine" />
-                                        <field name="description" placeholder="Déscription" />
-                                    </group>
-                                </form>
-                                <tree string="Remarques" editable="top">
-                                    <field name="name" required="1" placeholder="Entrer Nom"/>
-                                    <field name="description" placeholder="Entrer Déscription"/>
-                                </tree>
-                            </field>
-                        </page>
-                        <page string="Historique" groups="ecole.group_ecole_administration,ecole.group_ecole_enseignant,ecole.group_ecole_parent,ecole.group_ecole_eleve">
-                            <field name="history_ids" nolabel="1" colspan="4" readonly="1" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"
-                                options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}">
-                                <tree string="Historique">
-                                    <field name="academice_year_id" required="1"/>
-                                    <field name="standard_id" required="1"/>
-                                    <field name="percentage"/>
-                                    <field name="result"/>
-                                </tree>
-                                <form string="Historique">
-                                    <group col="4" colspan="4">
-                                        <field name="academice_year_id" placeholder="AnnéenAcadamique" />
-                                        <field name="standard_id" placeholder="Sélectionner ou créer un standard" />
-                                        <field name="percentage" />
-                                        <field name="result" />
-                                    </group>
-                                </form>
-                            </field>
-                        </page>
                          <page string="Desciplines" >
                             <field name="descplines_ids" nolabel="1" colspan="4"
                           >
                                 <tree string="Despline">
                                     <field name="eleve_id" invisible="1" />
-                                    <field name="subject_id" required="1"/>
+                                    <field name="matiere_id" required="1"/>
                                     <field name="device_datetime" required="1"/>
                                     <field name="status"/>
 
@@ -240,15 +177,14 @@
                             </field>
                          </page>
 
-              <page string="Sanctions Administratifs" >
-                            <field name="sanctions_ids" nolabel="1" colspan="4"
-                          >
+              <page string="Sanctions Scolaires"  name="affiche">
+                            <field name="sanctions_ids" nolabel="1" colspan="4">
+
                                 <tree string="Sanction">
                                       <field name="eleve_id" invisible="1" />
                                     <field name="sanction" required="1" />
+                                    <!--    <field name="sanction" required="1" widget="Selection"/>-->
                                     <field name="nombre" required="1"/>
-
-
                                 </tree>
                             </field>
                          </page>
@@ -259,62 +195,62 @@
     </record>
     <!-- Tree View 1 Of eleve's Profiles -->
     <record id="view_eleve_eleve_tree_1" model="ir.ui.view">
-        <field name="name">eleve.eleve.tree.1</field>
+        <field name="nom">eleve.eleve.tree.1</field>
         <field name="model">eleve.eleve</field>
         <field name="arch" type="xml">
             <tree string="Informations Elève" >
                 <field name="pid" />
-                <field name="name" />
-                <field name="eleve_name" invisible="1" />
-                <field name="year" widget="selection" />
-                <field name="admission_date" />
-                <field name="gender" />
-                <field name="state" />
+                <field name="nom" string="Nom Elève" />
+                <field name="eleve_nom" invisible="1" />
+                <field name="annee" widget="selection" />
+                <field name="date_admission" />
+                <field name="sexe" />
+                <field name="etat" invisible="1"/>
                 <field name="ecole_id" />
             </tree>
         </field>
     </record>
     <!-- Search View 1 Of eleve's Profiles -->
     <record id="view_eleve_eleve_search_1" model="ir.ui.view">
-        <field name="name">eleve.eleve.search.1</field>
+        <field name="nom">eleve.eleve.search.1</field>
         <field name="model">eleve.eleve</field>
         <field name="arch" type="xml">
             <search string="Informations Elève">
                 <group col="10" colspan="4">
                     <field name="pid" />
-                    <field name="eleve_name" invisible="1" />
-                    <field name="year" />
-                    <field name="gender" />
+                    <field name="eleve_nom" invisible="1" />
+                    <field name="annee" />
+                    <field name="sexe" />
                     <field name="ecole_id" placeholder="Ecole"/>
                 </group>
                 <newline />
                 <group expand="0" string="Par groupe..." colspan="12" col="10">
-                    <filter name="class" string="Classe" help="By Class" context="{'group_by':'standard_id'}" />
-                    <filter name="gender" string="Sexe" help="By Gender" context="{'group_by':'gender'}" />
-                    <filter name="name" string="Nom" help="By Class" context="{'group_by':'eleve_name'}" />
-                    <filter name="ecole" string="Ecole" help="By Ecole" context="{'group_by':'ecole_id'}" />
-                    <filter name="state" string="Etat" help="By State" context="{'group_by':'state'}"/>
+                    <filter name="classe" string="Classe" help="Par Classe" context="{'groupe_par':'classe_id'}" />
+                    <filter name="sexe" string="Sexe" help="Par Genre" context="{'groupe_par':'sexe'}" />
+                    <filter name="nom" string="Nom" help="Par Nom" context="{'groupe_par':'eleve_nom'}" />
+                    <filter name="ecole" string="Ecole" help="Par Ecole" context="{'groupe_par':'ecole_id'}" />
+                    <filter name="etat" string="Etat" help="Par Status" context="{'groupe_par':'etat'}"/>
                 </group>
                 <separator/>
-                <filter name="alumni" string="Ancien" domain="[('state','=', 'alumni')]" help="Admission In Confirm State"/>
-                <filter name="terminate" string="Terminé" domain="[('state','=', 'terminate')]" help="Admission In Pending State"/>
-                <filter name="done" string="Terminé" domain="[('state','=', 'done')]" help="Admission In Done State"/>
+                <filter name="ancien" string="Ancien" domain="[('etat','=', 'ancien')]" help="Admission dans l'état confirmé"/>
+                <filter name="mettre_fin" string="Terminé" domain="[('etat','=', 'mettre_fin')]" help="Admission en attente"/>
+                <filter name="terminé" string="Terminé" domain="[('etat','=', 'terminé')]" help="Admission en état terminé"/>
             </search>
         </field>
     </record>
     <!-- Kanban View Of eleve's Profiles -->
     <record id="eleve_eleve_kanban_view" model="ir.ui.view">
-        <field name="name">Elèves KANBAN</field>
+        <field name="nom">Elèves KANBAN</field>
         <field name="model">eleve.eleve</field>
         <field name="arch" type="xml">
-            <kanban default_group_by="standard_id" nocreate="1" >
+            <kanban default_group_by="classe_id" nocreate="1" >
                 <field name="color"/>
                 <field name="id"/>
-                <field name="name"/>
+                <field name="nom"/>
                 <field name="email"/>
                 <templates>
                     <t t-name="kanban-box">
-                        <t t-set="color" t-value="kanban_color(record.color.raw_value || record.name.raw_value)" />
+                        <t t-set="color" t-value="kanban_color(record.color.raw_value || record.nom.raw_value)" />
                         <div t-att-class="color + (record.color.raw_value == 1 ? ' oe_kanban_color_alert' : '')">
                             <div class="oe_kanban_box oe_kanban_color_border">
                                 <div class="oe_kanban_box_header oe_kanban_color_bgdark oe_kanban_color_border oe_kanban_draghandle">
@@ -323,14 +259,13 @@
                                             <td class="oe_kanban_title1" align="left" valign="middle" style="padding-left:10px;">
                                                 <h4>
                                                     <a type="open">
-                                                        <field name="name" />
-                                                        <field name="middle" />
-                                                        <field name="last" />
-                                                        <field name="eleve_name" invisible="1" />
-                                                        <field name="standard_id" invisible="1" />
+                                                        <field name="nom" />
+                                                        <field name="nom_famille_eleve" />
+                                                        <field name="eleve_nom" invisible="1" />
+                                                        <field name="classe_id" invisible="1" />
                                                         <field name="ecole_id" invisible="1" />
-                                                        <field name="gender" invisible="1" />
-                                                        <field name="state" invisible="1" />
+                                                        <field name="sexe" invisible="1" />
+                                                        <field name="etat" invisible="1" />
                                                     </a>
                                                 </h4>
                                             </td>
@@ -356,10 +291,10 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Standard : </td>
+                                                        <td>Classe : </td>
                                                         <td style="padding-left:10px;">
                                                             <b>
-                                                                <field name="standard_id" />
+                                                                <field name="classe_id" />
                                                             </b>
                                                         </td>
                                                     </tr>
@@ -367,7 +302,7 @@
                                                         <td>Date D'Admission : </td>
                                                         <td style="padding-left:10px;">
                                                             <b>
-                                                                <field name="admission_date" />
+                                                                <field name="date_admission" />
                                                             </b>
                                                         </td>
                                                     </tr>
@@ -378,7 +313,7 @@
                                             <td>
                                                 <center>
                                                     <b>
-                                                        <field name="gender" />
+                                                        <field name="sexe" />
                                                     </b>
                                                 </center>
                                             </td>
@@ -403,32 +338,30 @@
 
     <!-- Form View OfRegistre D'admission Information -->
     <record id="view_eleve_eleve_form_2" model="ir.ui.view">
-        <field name="name">eleve.eleve.form.2</field>
+        <field name="nom">eleve.eleve.form.2</field>
         <field name="model">eleve.eleve</field>
         <field name="arch" type="xml">
 
             <form string="Registre d'admission">
                 <header>
-                    <button class="oe_highlight oe_stat_button" name="set_terminate" string="Mettre fin" type="object" icon="fa-ban" states="done" groups="ecole.group_ecole_administration"/>
-                    <button class="oe_stat_button" name="set_alumni" string="Ancien" type="object" icon="fa-archive" states="done" groups="ecole.group_ecole_administration" />
-                    <button class="oe_stat_button" icon="fa-check" name="admission_done" type="object" string="Terminé" states="draft" groups="ecole.group_ecole_administration" />
-                    <button class="oe_stat_button" icon="fa-ban" name="cancel_admission" type="object" string="Annuler" states="draft" groups="ecole.group_ecole_administration"/>
-                    <field name="state" widget="statusbar" statusbar_visible="draft,cancel"/>
+                    <button class="oe_highlight oe_stat_button" name="set_mettre_fin" string="Mettre fin" type="object" icon="fa-ban" etats="terminé" groups="ecole.group_ecole_administration"/>
+                    <button class="oe_stat_button" name="set_ancien" string="Ancien" type="object" icon="fa-archive" etats="terminé" groups="ecole.group_ecole_administration" />
+                    <button class="oe_stat_button" icon="fa-check" name="admission_terminé" type="object" string="Terminé" etats="Brouillon" groups="ecole.group_ecole_administration" />
+                    <button class="oe_stat_button" icon="fa-ban" name="annuler_admission" type="object" string="Annuler" etats="Brouillon" groups="ecole.group_ecole_administration"/>
+                    <field name="etat" widget="statusbar" statusbar_visible="Brouillon,annuler"/>
                 </header>
                 <sheet>
                     <div class="oe_inline">
                         <newline />
-                        <separator string="Personal Information" />
+                        <separator string="Information Personalle" />
                         <field name="photo" widget="image" class="oe_avatar oe_left" style="max-width:100px;max-height:117px;" />
                         <div class="oe_title">
                             <group>
                                 <field name="pid" nolabel="1" readonly="1"/>
                                 <br />
-                                <field name="name" placeholder="Prénom" nolabel="1" required="1" attrs="{'readonly':[('state','=','alumni')]}"/>
+                                <field name="nom" placeholder="Prénom" nolabel="1" required="1" attrs="{'readonly':[('etat','=','ancien')]}"/>
                                 <br />
-                                <field name="middle" placeholder="Deuxième nom" nolabel="1" attrs="{'readonly':[('state','=','alumni')]}"/>
-                                <br />
-                                <field name="last" placeholder="Nom" nolabel="1" attrs="{'readonly':[('state','=','alumni')]}"/>
+                                <field name="nom_famille_eleve" placeholder="Nom Famille" nolabel="1" attrs="{'readonly':[('etat','=','ancien')]}"/>
                                 <br/>
                                 <field name="active" invisible="1"/>
                             </group>
@@ -437,34 +370,32 @@
                     <group>
                         <group string="Ecole Information">
                             <field name="ecole_id" placeholder="Nom Ecole" required="1"
-                                attrs="{'readonly':[('state','=','alumni')]}" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
-                            <field name="year" widget="selection" placeholder="Année Académique" readonly="1"/>
+                                attrs="{'readonly':[('etat','=','ancien')]}" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
+                            <field name="annee" widget="selection" placeholder="Année Académique" readonly="1"/>
                             <field name="company_id" invisible="1"/>
                         </group>
-                        <group string="Class Information">
-                            <field name="medium_id" placeholder="Moyen" widget="selection" attrs="{'readonly':[('state','=','alumni')]}"/>
-                            <field name="standard_id" placeholder="Classe" domain="[('ecole_id','=',ecole_id),('medium_id','=',medium_id)]" widget="selection" attrs="{'readonly':[('state','=','alumni')]}"/>
-                            <field name="division_id" placeholder="Division" widget="selection" attrs="{'readonly':[('state','=','alumni')]}" invisible="1"/>
+                        <group string="Information Classe">
+                            <field name="classe_id"  placeholder="Classe" domain="[('ecole_id','=',ecole_id)]" widget="selection" attrs="{'readonly':[('etat','=','ancien')]}"/>
+                            <field name="division_id"  placeholder="Division" widget="selection" attrs="{'readonly':[('etat','=','ancien')]}" invisible="1"/>
                             
                         </group>
                     </group>
                     <group colspan="4">
                         <group>
-                            <label for="street" string="Addresse" />
+                            <label for="street" string="Adresse" />
                             <div class="o_address_format">
-                                <field name="street" placeholder="Rue..." class="o_address_street" attrs="{'readonly':[('state','=','alumni')]}"/>
-                                <field name="street2" placeholder="Rue2..." class="o_address_street" attrs="{'readonly':[('state','=','alumni')]}"/>
-                                <field name="country_id" placeholder="Pays" class="o_address_country,oe_no_button" required="1" options="{&quot;no_open&quot;: True}" attrs="{'readonly':[('state','=','alumni')]}"/>
-                                <field name="city" placeholder="Ville" class="o_address_city" required="1" attrs="{'readonly':[('state','=','alumni')]}"/>
-                                <field name="state_id" class="o_address_state" domain="[('country_id','=',country_id)]" placeholder="Etat" options="{&quot;no_open&quot;: True}" required="1" attrs="{'readonly':[('state','=','alumni')]}"/>
-                                <field name="zip" placeholder="ZIP" class="o_address_zip" attrs="{'readonly':[('state','=','alumni')]}"/>
+                                <field name="street" placeholder="Rue..." class="o_address_street" attrs="{'readonly':[('etat','=','ancien')]}"/>
+                                <field name="pays_id" placeholder="Pays" class="o_address_country,oe_no_button" required="1" options="{&quot;no_open&quot;: True}" attrs="{'readonly':[('etat','=','ancien')]}"/>
+                                <field name="ville" placeholder="Ville" class="o_address_city" required="1" attrs="{'readonly':[('etat','=','ancien')]}"/>
+                                <field name="etat_id" class="o_address_etat" domain="[('pays_id','=',pays_id)]" placeholder="Etat" options="{&quot;no_open&quot;: True}" required="1" attrs="{'readonly':[('etat','=','ancien')]}"/>
+
                             </div>
                         </group>
                         <group>
-                            <field name="phone" placeholder="Numéro Téléphone" attrs="{'readonly':[('state','=','alumni')]}"/>
-                            <field name="mobile" placeholder="Numéro Portable" attrs="{'readonly':[('state','=','alumni')]}"/>
-                            <field name="email" placeholder="Adresse Email" String="Email" attrs="{'readonly':[('state','=','alumni')]}"/>
-                            <field name="website" widget="url" placeholder="ex www.example.com" attrs="{'readonly':[('state','=','alumni')]}"/>
+                            <field name="telephone" string="Numéro Télételephone" placeholder="Numéro Télételephone" attrs="{'readonly':[('etat','=','ancien')]}"/>
+                            <field name="mobile" string="Numéro Portable" placeholder="Numéro Portable" attrs="{'readonly':[('etat','=','ancien')]}"/>
+                            <field name="email" string="Adresse Email" placeholder="Adresse Email" String="Email" attrs="{'readonly':[('etat','=','ancien')]}"/>
+                            <field name="website" string="Site Web" widget="url" placeholder="ex www.example.com" attrs="{'readonly':[('etat','=','ancien')]}"/>
                         </group>
                     </group>
                     <notebook colspan="4">
@@ -473,106 +404,80 @@
                                 <sheet>
                                     <group string="Information Général">
                                         <group>
-                                            <field name="gender" placeholder="Sexe" attrs="{'readonly':[('state','=','alumni')]}" required="1"/>
-                                            <field name="date_of_birth" placeholder="Date De Naissance" attrs="{'readonly':[('state','=','alumni')]}"/>
+                                            <field name="sexe" placeholder="Sexe" attrs="{'readonly':[('etat','=','ancien')]}" required="1"/>
+                                            <field name="date_de_naissance" placeholder="Date De Naissance" attrs="{'readonly':[('etat','=','ancien')]}"/>
                                             <field name="age" />
                                         </group>
                                         <group>
-                                            <field name="mother_tongue" widget="selection" placeholder="Langue Maternelle" attrs="{'readonly':[('state','=','alumni')]}"/>
-                                            <field name="admission_date" placeholder="Date D'Admission" attrs="{'readonly':[('state','=','alumni')]}" readonly="1"/>
-                                            <field name="maritual_status" placeholder="Sélectionnez le statut matrimonial" attrs="{'readonly':[('state','=','alumni')]}"/>
+                                            <field name="langue_maternelle" widget="selection" placeholder="Langue Maternelle" attrs="{'readonly':[('etat','=','ancien')]}"/>
+                                            <field name="date_admission" placeholder="Date D'Admission" attrs="{'readonly':[('etat','=','ancien')]}" readonly="1"/>
+                                            <field name="etat_civil" placeholder="Sélectionnez le statut matrimonial" attrs="{'readonly':[('etat','=','ancien')]}"/>
                                         </group>
                                         <newline />
                                         <separator string="Détails des contacts d'urgence" colspan="4" />
                                         <newline />
                                         <group colspan="4" col="4">
-                                            <field name="contact_phone" attrs="{'readonly':[('state','=','alumni')]}" placeholder="Numéro de Téléphone"/>
-                                            <field name="contact_mobile" attrs="{'readonly':[('state','=','alumni')]}" placeholder="Numéro de Portable"/>
+                                            <field name="contact_telephone" attrs="{'readonly':[('etat','=','ancien')]}" placeholder="Numéro de Télételephone"/>
+                                            <field name="contact_portable" attrs="{'readonly':[('etat','=','ancien')]}" placeholder="Numéro de Portable"/>
                                         </group>
                                     </group>
                                 </sheet>
                             </form>
                         </page>
                         <page string="Parents">
-                            <field name="parent_id" attrs="{'readonly':[('state','=','alumni')]}"
+                            <field name="parent_id" attrs="{'readonly':[('etat','=','ancien')]}"
                                 context="{'form_view_ref':'ecole.view_parent_form','default_parent_ecole':1}"
                                 options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
                         </page>
-                        <page string="Réferences">
-                            <field name="reference_ids" nolabel="1" colspan="4" attrs="{'readonly':[('state','=','alumni')]}">
-                                <tree string="Réference" editable="top">
-                                    <field name="name" placeholder="Prénom"/>
-                                    <field name="middle" placeholder="Deuxième nom"/>
-                                    <field name="last" placeholder="Nom de famille"/>
-                                    <field name="designation" placeholder="Désignation"/>
-                                    <field name="phone" placeholder="Téléphone"/>
-                                    <field name="gender" placeholder="Sexe"/>
-                                </tree>
-                                <form string="Réference">
-                                    <group col="4" colspan="4">
-                                        <field name="name" placeholder="Prénom" required="True"/>
-                                        <field name="middle" placeholder="Deuxième nom" />
-                                        <field name="last" placeholder="Nom" />
-                                        <field name="designation" placeholder="Désignation" />
-                                        <field name="phone" placeholder="Numéro Téléphone" />
-                                        <field name="gender" placeholder="Sexe"/>
-                                    </group>
-                                </form>
-                            </field>
-                        </page>
+
                         <page string="Ecole précédente">
-                            <field name="previous_ecole_ids" nolabel="1" colspan="4" attrs="{'readonly':[('state','=','alumni')]}">
+                            <field name="precedent_ecole_ids" nolabel="1" colspan="4" attrs="{'readonly':[('etat','=','ancien')]}">
                                 <tree string="Details Ecole précédente">
-                                    <field name="name" />
-                                    <field name="registration_no" />
-                                    <field name="admission_date" />
-                                    <field name="exit_date" />
+                                    <field name="nom" />
+                                    <field name="numero_enseignant" />
+                                    <field name="date_admission" />
+                                    <field name="date_sortie" />
                                     <field name="course_id" widget="selection" />
                                 </tree>
                                 <form string="Details Ecole précédente">
                                     <separator string="Details Ecole précédente" />
                                     <group col="4" colspan="4">
-                                        <field name="name" placeholder="Nom Ecole" />
-                                        <field name="registration_no" placeholder="N ° d'enregistrement" />
-                                        <field name="admission_date" placeholder="Date D'Admission "/>
-                                        <field name="exit_date" placeholder="Date de sortie"/>
+                                        <field name="nom" placeholder="Nom Ecole" />
+                                        <field name="numero_enseignant" placeholder="N ° d'enregistrement" />
+                                        <field name="date_admission" placeholder="Date D'Admission "/>
+                                        <field name="date_sortie" placeholder="Date de sortie"/>
                                         <field name="course_id" placeholder="Cours" widget="selection"/>
                                         <newline />
                                         <separator string="Details Matière" />
-                                        <field name="add_sub" nolabel="1" colspan="4"/>
+                                        <field name="ajouter_mat" nolabel="1" colspan="4"/>
                                     </group>
                                 </form>
                             </field>
                         </page>
                         <page string="Détails de famille">
-                            <field name="family_con_ids" nolabel="1" colspan="4" attrs="{'readonly':[('state','=','alumni')]}">
+                            <field name="famille_con_ids" nolabel="1" colspan="4" attrs="{'readonly':[('etat','=','ancien')]}">
                                 <tree string="Coordonnées de la famille">
-                                    <field name="relative_name"/>
+                                    <field name="nom_relative"/>
                                     <field name="relation" />
-                                    <field name="phone" />
+                                    <field name="telephone" />
                                 </tree>
                                 <form string="Coordonnées de la famille">
                                     <group>
                                         <group>
-                                            <field name="rel_name" placeholder="Nom" />
-                                            <field name="stu_name" placeholder="Créez ou Selectionnez Nom" attrs="{'invisible':[('rel_name','!=','exist')]}"
+                                            <field name="nom_rel" placeholder="Nom" />
+                                            <field name="nom_ele" placeholder="Créez ou Selectionnez Nom" attrs="{'invisible':[('nom_rel','!=','exist')]}"
                                                         options="{&quot;no_create&quot;: True}"/>
-                                            <field name="name" placeholder="Nom" attrs="{'invisible':[('rel_name','!=','new')]}"/>
+                                            <field name="nom" placeholder="Nom" attrs="{'invisible':[('nom_rel','!=','new')]}"/>
                                             <field name="relation" placeholder="Entrez ou sélectionnez Relation" />
-                                            <field name="relative_name" invisible="1"/>
+                                            <field name="nom_relative" invisible="1"/>
                                         </group>
                                         <group>
-                                            <field name="phone" placeholder="Numéro De Téléphone" />
-                                            <field name="email" placeholder="Addresse Email " />
+                                            <field name="telephone" placeholder="Numéro De Télételephone" />
+                                            <field name="email" placeholder="Adresse Email " />
                                         </group>
                                     </group>
                                 </form>
                             </field>
-                        </page>
-                        <page string="Remarques">
-                            <form string="Remarques">
-                                <field name="remark" placeholder="Remarque" nolabel="1" colspan="4" attrs="{'readonly':[('state','=','alumni')]}"/>
-                            </form>
                         </page>
                     </notebook>
                 </sheet>
@@ -581,41 +486,41 @@
     </record>
     <!-- Tree View OfRegistre D'admission Information -->
     <record id="view_eleve_eleve_tree_2" model="ir.ui.view">
-        <field name="name">eleve.eleve.tree.2</field>
+        <field name="nom">eleve.eleve.tree.2</field>
         <field name="model">eleve.eleve</field>
         <field name="arch" type="xml">
             <tree string="Register D'Admission">
                 <field name="pid" />
-                <field name="eleve_name" />
-                <field name="name" invisible="1" />
-                <field name="year" widget="selection" />
-                <field name="standard_id" widget="selection" />
+                <field name="eleve_nom" />
+                <field name="nom" invisible="1" />
+                <field name="annee" widget="selection" />
+                <field name="classe_id" widget="selection" />
                 <field name="ecole_id" />
-                <field name="admission_date" />
-                <field name="gender" />
-                <field name="state" />
+                <field name="date_admission" />
+                <field name="sexe" />
+                <field name="etat" />
             </tree>
         </field>
     </record>
     <!-- Search View OfRegistre D'admission Information -->
     <record id="view_eleve_eleve_search_2" model="ir.ui.view">
-        <field name="name">eleve.eleve.search.2</field>
+        <field name="nom">eleve.eleve.search.2</field>
         <field name="model">eleve.eleve</field>
         <field name="arch" type="xml">
             <search string="Register D'Admission">
-                <filter string="Brouillon" name="state_eleve" domain="[('state','=', 'draft')]" help="Admission In Draft State" />
+                <filter string="Brouillon" name="etat_eleve" domain="[('etat','=', 'Brouillon')]" help="Admission In Brouillon etat" />
                 <separator orientation="vertical" />
-                <field name="eleve_name" invisible="1" />
-                <field name="year" />
-                <field name="standard_id" />
-                <field name="gender" />
+                <field name="eleve_nom" invisible="1" />
+                <field name="annee" />
+                <field name="classe_id" />
+                <field name="sexe" />
                 <field name="ecole_id" />
                 <newline />
                 <group expand="0" string="Groupe Par..." colspan="12" col="10">
-                    <filter name="class" string="Classe" domain="[]" help="By Class" context="{'group_by':'standard_id'}" />
-                    <filter name="gender" string="Sexe" domain="[]" help="By Gender" context="{'group_by':'gender'}" />
-                    <filter name="name" string="Nom" domain="[]" help="By Class" context="{'group_by':'eleve_name'}" />
-                    <filter name="ecole" string="Ecole" help="By Ecole" context="{'group_by':'ecole_id'}" />
+                    <filter name="class" string="Classe" domain="[]" help="par Class" context="{'groupe_par':'classe_id'}" />
+                    <filter name="sexe" string="Sexe" domain="[]" help="par sexe" context="{'groupe_par':'sexe'}" />
+                    <filter name="nom" string="Nom" domain="[]" help="par Class" context="{'groupe_par':'eleve_nom'}" />
+                    <filter name="ecole" string="Ecole" help="par Ecole" context="{'groupe_par':'ecole_id'}" />
                 </group>
             </search>
         </field>
@@ -623,9 +528,9 @@
 
     <!-- Action Of Form, Tree & Kanban View OfRegistre D'admission Information -->
     <record id="action_eleve_eleve_form_2" model="ir.actions.act_window">
-        <field name="name">Register D'Admission </field>
+        <field name="nom">Register D'Admission </field>
         <field name="res_model">eleve.eleve</field>
-        <field name="domain">['|',('state','=','draft'),('state','=','cancel')]</field>
+        <field name="domain">['|',('etat','=','Brouillon'),('etat','=','annuler')]</field>
         <field name="view_type">form</field>
         <field name="view_id" ref="view_eleve_eleve_form_2" />
         <field name="search_view_id" ref="view_eleve_eleve_search_2" />
@@ -650,9 +555,9 @@
 
     <!-- Action Of Form, Tree & Kanban Views Of eleve Information -->
     <record id="action_eleve_eleve_form_12" model="ir.actions.act_window">
-        <field name="name">Elèves</field>
-        <field name="domain">[('state', '=', 'done')]</field>
-        <field name="context">{'search_default_done_eleve':1}</field>
+        <field name="nom">Elèves</field>
+        <field name="domain">[('etat', '=', 'terminé')]</field>
+        <field name="context">{'search_default_terminé_eleve':1}</field>
         <field name="res_model">eleve.eleve</field>
         <field name="view_type">form</field>
         <field name="view_id" ref="" />
@@ -660,9 +565,9 @@
         <field name="view_mode">kanban,tree,form</field>
     </record>
 
-    <!-- Action of Alumni state -->
-    <record id="action_eleve_alumni" model="ir.actions.act_window">
-        <field name="name">Anciens Elèves</field>
+    <!-- Action of ancien etat -->
+    <record id="action_eleve_ancien" model="ir.actions.act_window">
+        <field name="nom">Anciens Elèves</field>
         <field name="domain">[('active','=',False)]</field>
         <field name="res_model">eleve.eleve</field>
         <field name="view_type">form</field>

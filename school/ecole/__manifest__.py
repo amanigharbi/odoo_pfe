@@ -12,25 +12,30 @@
     'depends': ['hr', 'crm', 'account'],
     'data': ['security/ecole_security.xml',
              'security/ir.model.access.csv',
-             'wizard/terminate_reason_view.xml',
+             'wizard/mettre_fin_raison_view.xml',
              'wizard/wiz_send_email_view.xml',
              'views/eleve_view.xml',
              'views/ecole_view.xml',
              'views/enseignant_view.xml',
              'views/parent_view.xml',
-             'data/eleve_sequence.xml',
-             'wizard/assign_roll_no_wizard.xml',
+             #'views/historique_notification_view.xml',
+
+
              'wizard/move_standards_view.xml',
-              'wizard/Add_eleve.xml',
-            'wizard/statistique_view.xml',
+
+             'wizard/statistic_view.xml',
              'views/rapport_view.xml',
              'views/carte_identite.xml',
              'views/template_view.xml',
              'views/emploie_view.xml',
              'views/emploie.xml',
+
+             'wizard/report_statistique_descipline/statistic_view.xml',
+             'wizard/report_statistique_descipline/stat_descipline.xml',
+             'wizard/report_statistique_descipline/report_stat.xml',
+
+             'data/TestPointageElève.xml'
              ],
-    'demo': ['demo/ecole_demo.xml',
-    'demo/emploie_demo.xml'],
     'installable': True,
     'application': True
 }

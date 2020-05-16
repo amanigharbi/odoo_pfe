@@ -8,7 +8,7 @@ class ParentRelation(models.Model):
     _name = "parent.relation"
     _description = "Parent-child relation information"
 
-    name = fields.Char("Relation name", required=True)
+    nom = fields.Char("Nom Du Relation", required=True)
 
 
 class EcoleParent(models.Model):
@@ -18,32 +18,34 @@ class EcoleParent(models.Model):
 
     @api.onchange('eleve_id')
     def onchange_eleve_id(self):
-        self.standard_id = [(6, 0, [])]
+        self.classe_id = [(6, 0, [])]
         self.stand_id = [(6, 0, [])]
-        standard_ids = [eleve.standard_id.id
+        classe_ids = [eleve.classe_id.id
                         for eleve in self.eleve_id]
-        if standard_ids:
-            stand_ids = [eleve.standard_id.standard_id.id
+        if classe_ids:
+            stand_ids = [eleve.classe_id.classe_id.id
                          for eleve in self.eleve_id]
-            self.standard_id = [(6, 0, standard_ids)]
+            self.classe_id = [(6, 0, classe_ids)]
             self.stand_id = [(6, 0, stand_ids)]
+    notification_ids = fields.One2many('historique.notification', 'parent_id', 'Notification')
 
     partner_id = fields.Many2one('res.partner', 'User ID', ondelete="cascade",
                                  delegate=True, required=True)
-    relation_id = fields.Many2one('parent.relation', "Relation with Child")
+    relation_id = fields.Many2one('parent.relation', "Relation Avec Enfant")
     eleve_id = fields.Many2many('eleve.eleve', 'eleves_parents_rel',
                                   'eleves_parent_id', 'eleve_id',
-                                  'Children')
-    standard_id = fields.Many2many('ecole.standard',
-                                   'ecole_standard_parent_rel',
+                                  'Fils')
+    classe_id = fields.Many2many('ecole.classe',
+                                   'ecole_classe_parent_rel',
                                    'class_parent_id', 'class_id',
-                                   'Academic Class')
-    stand_id = fields.Many2many('standard.standard',
-                                'standard_standard_parent_rel',
-                                'standard_parent_id', 'standard_id',
-                                'Academic Standard')
-    enseignant_id = fields.Many2one('ecole.enseignant', 'enseignant',
-                                 related="standard_id.user_id", store=True)
+                                   'Classe Scolaire')
+    stand_id = fields.Many2many('classe.classe',
+                                'classe_classe_parent_rel',
+                                'classe_parent_id', 'classe_id',
+                                'classe Academique')
+    enseignant_id = fields.Many2one('ecole.enseignant', 'Enseignant',
+                                 related="classe_id.user_id", store=True)
+
 
     @api.model
     def create(self, vals):
@@ -53,7 +55,7 @@ class EcoleParent(models.Model):
         parent_group_ids = [emp_grp.id, parent_grp_id.id]
         if vals.get('parent_create_mng'):
             return parent_id
-        user_vals = {'name': parent_id.name,
+        user_vals = {'nom': parent_id.nom,
                      'login': parent_id.email,
                      'email': parent_id.email,
                      'partner_id': parent_id.partner_id.id,
@@ -62,8 +64,18 @@ class EcoleParent(models.Model):
         self.env['res.users'].create(user_vals)
         return parent_id
 
-    @api.onchange('state_id')
-    def onchange_state(self):
-        self.country_id = False
-        if self.state_id:
-            self.country_id = self.state_id.country_id.id
+    @api.onchange('etat_id')
+    def onchange_etat(self):
+        self.pays_id = False
+        if self.etat_id:
+            self.pays_id = self.etat_id.pays_id.id
+
+    class historique_notification(models.Model):
+        _name = 'historique.notification'
+        _description = "historique notification"
+
+        eleve_id = fields.Many2one('eleve.eleve', 'Nom Elève')
+        titre = fields.Char("Titre")
+        message = fields.Char("Message")
+        etat_message = fields.Boolean("Status De Message")
+        parent_id = fields.Many2one('ecole.parent','Parents')

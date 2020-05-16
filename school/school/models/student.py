@@ -162,7 +162,6 @@ class StudentStudent(models.Model):
     student_code = fields.Char('Student Code')
     contact_phone = fields.Char('Phone no.')
     contact_mobile = fields.Char('Mobile no')
-    roll_no = fields.Integer('Roll No.', readonly=True)
     photo = fields.Binary('Photo', default=_default_image)
     year = fields.Many2one('academic.year', 'Academic Year', readonly=True,
                            default=check_current_year)
@@ -170,8 +169,6 @@ class StudentStudent(models.Model):
     relation = fields.Many2one('student.relation.master', 'Relation')
 
     admission_date = fields.Date('Admission Date', default=date.today())
-    middle = fields.Char('Middle Name', required=True,
-                         states={'done': [('readonly', True)]})
     last = fields.Char('Surname', required=True,
                        states={'done': [('readonly', True)]})
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')],
@@ -185,9 +182,7 @@ class StudentStudent(models.Model):
                                         ('married', 'Married')],
                                        'Marital Status',
                                        states={'done': [('readonly', True)]})
-    reference_ids = fields.One2many('student.reference', 'reference_id',
-                                    'References',
-                                    states={'done': [('readonly', True)]})
+
     previous_school_ids = fields.One2many('student.previous.school',
                                           'previous_school_id',
                                           'Previous School Detail',
@@ -208,7 +203,6 @@ class StudentStudent(models.Model):
     muskoskeletal = fields.Boolean('Musculoskeletal')
     dermatological = fields.Boolean('Dermatological')
     blood_pressure = fields.Boolean('Blood Pressure')
-    remark = fields.Text('Remark', states={'done': [('readonly', True)]})
     school_id = fields.Many2one('school.school', 'School',
                                 states={'done': [('readonly', True)]})
     state = fields.Selection([('draft', 'Draft'),
@@ -217,31 +211,28 @@ class StudentStudent(models.Model):
                               ('cancel', 'Cancel'),
                               ('alumni', 'Alumni')],
                              'Status', readonly=True, default="draft")
-    history_ids = fields.One2many('student.history', 'student_id', 'History')
     descplines_ids = fields.One2many('student.desciplines', 'student_id', 'Desciplines')
+    sanctions_ids = fields.One2many('student.sanctions', 'student_id', 'Sanctions')
 
 
 
     certificate_ids = fields.One2many('student.certificate', 'student_id',
                                       'Certificate')
-    student_discipline_line = fields.One2many('student.descipline',
-                                              'student_id', 'Descipline')
-    document = fields.One2many('student.document', 'doc_id', 'Documents')
     description = fields.One2many('student.description', 'des_id',
                                   'Description')
-    award_list = fields.One2many('student.award', 'award_list_id',
-                                 'Award List')
+
     stu_name = fields.Char('First Name', related='user_id.name',
                            readonly=True)
     Acadamic_year = fields.Char('Year', related='year.name',
                                 help='Academic Year', readonly=True)
     division_id = fields.Many2one('standard.division', 'Division')
-    medium_id = fields.Many2one('standard.medium', 'Medium')
     standard_id = fields.Many2one('school.standard', 'Class')
     parent_id = fields.Many2many('school.parent', 'students_parents_rel',
                                  'student_id',
                                  'students_parent_id', 'Parent(s)',
                                  states={'done': [('readonly', True)]})
+    teacher_id = fields.Many2many('school.teacher','students_teachers_rel','student_id','students_teacher_id', 'Teacher')
+
     terminate_reason = fields.Text('Reason')
     active = fields.Boolean(default=True)
     teachr_user_grp = fields.Boolean("Teacher Group",
@@ -307,11 +298,7 @@ class StudentStudent(models.Model):
             # Assign group to student
             rec.user_id.write({'groups_id': [(6, 0, [emp_group.id,
                                                      student_group.id])]})
-            # Assign roll no to student
-            number = 1
-            for rec_std in rec.search(domain):
-                rec_std.roll_no = number
-                number += 1
+
             # Assign registration code to student
             reg_code = ir_sequence.next_by_code('student.registration')
             registation_code = (str(rec.school_id.state_id.name) + str('/') +
@@ -331,9 +318,19 @@ class StudentDesciplines(models.Model):
     _name = 'student.desciplines'
     _description = "Student Disciplines"
 
-    subject_id = fields.Many2one('subject.subject', 'Subject Name')
-    device_datetime = fields.Datetime(string='Device Datetime')
-    status=fields.Char("status")
+    subject_id = fields.Many2one('subject.subject', 'Name subject')
+    device_datetime = fields.Datetime(string='Device Date Time')
+    #status=fields.Char("status")
+    status=fields.Selection([('Absent','Absent'),('Late','Late')])
+    student_id = fields.Many2one('student.student', 'Student')
+    @api.multi
+    def print_report(self):
 
+       return self.env.ref('school.report_ticket_qweb').report_action(self)
+class StudentSanctions(models.Model):
+    _name ='student.sanctions'
+    _description = "student Sanctions"
+    sanction = fields.Char("santion")
+    number=fields.Integer("number")
     student_id = fields.Many2one('student.student', 'Student')
 

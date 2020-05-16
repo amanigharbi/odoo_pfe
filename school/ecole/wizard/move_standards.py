@@ -3,38 +3,37 @@
 from odoo import models, fields, api
 
 
-class MoveStandards(models.TransientModel):
-    _name = 'move.standards'
-    _description = "Move Standards"
+class Moveclasses(models.TransientModel):
+    _name = 'move.classes'
+    _description = "Move classes"
 
-    academic_year_id = fields.Many2one('academic.year', 'annee academique',
+    annee_scolaire_id = fields.Many2one('annee.scolaire', 'annee academique',
                                        required=True)
 
     @api.multi
-    def move_start(self):
-        '''Code for moving eleve to next standard'''
-        academic_obj = self.env['academic.year']
-        ecole_stand_obj = self.env['ecole.standard']
-        standard_obj = self.env["standard.standard"]
+    def move_debut(self):
+        '''Code for moving eleve to next classe'''
+        scolaire_obj = self.env['annee.scolaire']
+        ecole_stand_obj = self.env['ecole.classe']
+        classe_obj = self.env["classe.classe"]
         eleve_obj = self.env['eleve.eleve']
-        for stud in eleve_obj.search([('state', '=', 'done')]):
-            year_id = academic_obj.next_year(stud.year.sequence)
-            academic_year = academic_obj.search([('id', '=', year_id)],
+        for stud in eleve_obj.search([('etat', '=', 'terminé')]):
+            annee_id = scolaire_obj.next_annee(stud.annee.sequence)
+            annee_scolaire = scolaire_obj.search([('id', '=', annee_id)],
                                                 limit=1)
-            standard_seq = stud.standard_id.standard_id.sequence
-            next_class_id = standard_obj.next_standard(standard_seq)
+            classe_seq = stud.classe_id.classe_id.sequence
+            next_class_id = classe_obj.next_classe(classe_seq)
 
             # Assign the annee academique
             if next_class_id:
-                division = (stud.standard_id.division_id.id or False)
+                division = (stud.classe_id.division_id.id or False)
                 next_stand = ecole_stand_obj.\
-                    search([('standard_id', '=', next_class_id),
+                    search([('classe_id', '=', next_class_id),
                             ('division_id', '=', division),
-                            ('ecole_id', '=', stud.ecole_id.id),
-                            ('medium_id', '=', stud.medium_id.id)])
+                            ('ecole_id', '=', stud.ecole_id.id)])
                 if next_stand:
-                    std_vals = {'year': academic_year.id,
-                                'standard_id': next_stand.id}
-                    # Move eleve to next standard
+                    std_vals = {'annee': annee_scolaire.id,
+                                'classe_id': next_stand.id}
+                    # Move eleve to next classe
                     stud.write(std_vals)
         return True

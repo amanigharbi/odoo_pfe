@@ -28,6 +28,7 @@ class SchoolParent(models.Model):
             self.standard_id = [(6, 0, standard_ids)]
             self.stand_id = [(6, 0, stand_ids)]
 
+    notification_ids = fields.One2many('history.notification', 'parent_id', 'Notification')
     partner_id = fields.Many2one('res.partner', 'User ID', ondelete="cascade",
                                  delegate=True, required=True)
     relation_id = fields.Many2one('parent.relation', "Relation with Child")
@@ -67,3 +68,13 @@ class SchoolParent(models.Model):
         self.country_id = False
         if self.state_id:
             self.country_id = self.state_id.country_id.id
+class history_notification(models.Model):
+        _name = 'history.notification'
+        _description = "history notification"
+
+        student_id = fields.Many2one('student.student', 'Name student')
+        title = fields.Char("Title")
+        message = fields.Char("Message")
+        #status_message = fields.Boolean("Status of Message")
+        status_message = fields.Selection([('en cours','en cours'),('envoyé','envoyé')],"Status of Message")
+        parent_id = fields.Many2one('school.parent','Parents')

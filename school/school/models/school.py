@@ -163,16 +163,6 @@ class AcademicMonth(models.Model):
                     overlapping months!'''))
 
 
-class StandardMedium(models.Model):
-    ''' Defining a medium(ENGLISH, HINDI, GUJARATI) related to standard'''
-    _name = "standard.medium"
-    _description = "Standard Medium"
-    _order = "sequence"
-
-    sequence = fields.Integer('Sequence', required=True)
-    name = fields.Char('Name', required=True)
-    code = fields.Char('Code', required=True)
-    description = fields.Text('Description')
 
 
 class StandardDivision(models.Model):
@@ -214,17 +204,16 @@ class SchoolStandard(models.Model):
     _description = 'School Standards'
     _rec_name = "standard_id"
 
-    @api.depends('standard_id', 'school_id', 'division_id', 'medium_id',
+    @api.depends('standard_id', 'school_id', 'division_id',
                  'school_id')
     def _compute_student(self):
         '''Compute student of done state'''
         student_obj = self.env['student.student']
         for rec in self:
-            rec.student_ids = student_obj.\
+            rec.student_ids= student_obj.\
                 search([('standard_id', '=', rec.id),
                         ('school_id', '=', rec.school_id.id),
                         ('division_id', '=', rec.division_id.id),
-                        ('medium_id', '=', rec.medium_id.id),
                         ('state', '=', 'done')])
 
     @api.onchange('standard_id', 'division_id')
@@ -253,7 +242,6 @@ class SchoolStandard(models.Model):
                                   required=True)
     division_id = fields.Many2one('standard.division', 'Division',
                                   required=True)
-    medium_id = fields.Many2one('standard.medium', 'Medium', required=True)
     subject_ids = fields.Many2many('subject.subject', 'subject_standards_rel',
                                    'subject_id', 'standard_id', 'Subject')
     user_id = fields.Many2one('school.teacher', 'Class Teacher')
@@ -264,8 +252,6 @@ class SchoolStandard(models.Model):
     color = fields.Integer('Color Index')
     cmp_id = fields.Many2one('res.company', 'Company Name',
                              related='school_id.company_id', store=True)
-    syllabus_ids = fields.One2many('subject.syllabus', 'standard_id',
-                                   'Syllabus')
     total_no_subjects = fields.Integer('Total No of Subject',
                                        compute="_compute_subject")
     name = fields.Char('Name')
@@ -366,32 +352,10 @@ class SubjectSubject(models.Model):
     standard_id = fields.Many2one('standard.standard', 'Class')
     is_practical = fields.Boolean('Is Practical',
                                   help='Check this if subject is practical.')
-    elective_id = fields.Many2one('subject.elective')
-    student_ids = fields.Many2many('student.student',
-                                   'elective_subject_student_rel',
-                                   'subject_id', 'student_id', 'Students')
 
 
-class SubjectSyllabus(models.Model):
-    '''Defining a  syllabus'''
-    _name = "subject.syllabus"
-    _description = "Syllabus"
-    _rec_name = "subject_id"
-
-    standard_id = fields.Many2one('school.standard', 'Standard')
-    subject_id = fields.Many2one('subject.subject', 'Subject')
-    syllabus_doc = fields.Binary("Syllabus Doc",
-                                 help="Attach syllabus related to Subject")
 
 
-class SubjectElective(models.Model):
-    ''' Defining Subject Elective '''
-    _name = 'subject.elective'
-    _description = "Elective Subject"
-
-    name = fields.Char("Name")
-    subject_ids = fields.One2many('subject.subject', 'elective_id',
-                                  'Elective Subjects')
 
 
 class MotherTongue(models.Model):
@@ -418,40 +382,7 @@ class AttendanceType(models.Model):
     code = fields.Char('Code', required=True)
 
 
-class StudentDocument(models.Model):
-    _name = 'student.document'
-    _description = "Student Document"
-    _rec_name = "doc_type"
 
-    doc_id = fields.Many2one('student.student', 'Student')
-    file_no = fields.Char('File No', readonly="1", default=lambda obj:
-                          obj.env['ir.sequence'].
-                          next_by_code('student.document'))
-    submited_date = fields.Date('Submitted Date')
-    doc_type = fields.Many2one('document.type', 'Document Type', required=True)
-    file_name = fields.Char('File Name',)
-    return_date = fields.Date('Return Date')
-    new_datas = fields.Binary('Attachments')
-
-
-class DocumentType(models.Model):
-    ''' Defining a Document Type(SSC,Leaving)'''
-    _name = "document.type"
-    _description = "Document Type"
-    _rec_name = "doc_type"
-    _order = "seq_no"
-
-    seq_no = fields.Char('Sequence', readonly=True,
-                         default=lambda self: _('New'))
-    doc_type = fields.Char('Document Type', required=True)
-
-    @api.model
-    def create(self, vals):
-        if vals.get('seq_no', _('New')) == _('New'):
-            vals['seq_no'] = self.env['ir.sequence'
-                                      ].next_by_code('document.type'
-                                                     ) or _('New')
-        return super(DocumentType, self).create(vals)
 
 
 class StudentDescription(models.Model):
@@ -464,16 +395,6 @@ class StudentDescription(models.Model):
     description = fields.Char('Description')
 
 
-class StudentDescipline(models.Model):
-    _name = 'student.descipline'
-    _description = "Student Discipline"
-
-    student_id = fields.Many2one('student.student', 'Student')
-    teacher_id = fields.Many2one('school.teacher', 'Teacher')
-    date = fields.Date('Date')
-    class_id = fields.Many2one('standard.standard', 'Class')
-    note = fields.Text('Note')
-    action_taken = fields.Text('Action Taken')
 
 
 class StudentHistory(models.Model):
@@ -497,19 +418,6 @@ class StudentCertificate(models.Model):
     certi = fields.Binary('Certificate', required=True)
 
 
-class StudentReference(models.Model):
-    ''' Defining a student reference information '''
-    _name = "student.reference"
-    _description = "Student Reference"
-
-    reference_id = fields.Many2one('student.student', 'Student')
-    name = fields.Char('First Name', required=True)
-    middle = fields.Char('Middle Name', required=True)
-    last = fields.Char('Surname', required=True)
-    designation = fields.Char('Designation', required=True)
-    phone = fields.Char('Phone', required=True)
-    gender = fields.Selection([('male', 'Male'), ('female', 'Female')],
-                              'Gender')
 
 
 class StudentPreviousSchool(models.Model):
@@ -696,22 +604,6 @@ class StudentNews(models.Model):
         return True
 
 
-class StudentReminder(models.Model):
-    _name = 'student.reminder'
-    _description = "Student Reminder"
-
-    @api.model
-    def check_user(self):
-        '''Method to get default value of logged in Student'''
-        return self.env['student.student'].search([('user_id', '=',
-                                                    self._uid)]).id
-
-    stu_id = fields.Many2one('student.student', 'Student Name', required=True,
-                             default=check_user)
-    name = fields.Char('Title')
-    date = fields.Date('Date')
-    description = fields.Text('Description')
-    color = fields.Integer('Color Index', default=0)
 
 
 class StudentCast(models.Model):

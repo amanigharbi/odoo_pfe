@@ -21,10 +21,8 @@ class TerminateReason(models.TransientModel):
             browse(self._context.get('active_id'))
         student_obj.standard_id._compute_total_student()
         user = self.env['res.users'].\
-            search([('id', '=', student_obj.user_id.id)])
-        student_reminder = self.env['student.reminder'].\
+            search([('id', '=', student_obj.user_id.id)]).\
             search([('stu_id', '=', student_obj.id)])
-        for rec in student_reminder:
-            rec.active = False
+
         if user:
             user.active = False

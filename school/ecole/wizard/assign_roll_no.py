@@ -9,8 +9,8 @@ class AssignRollNo(models.TransientModel):
     _name = 'assign.roll.no'
     _description = 'Assign Roll Number'
 
-    standard_id = fields.Many2one('ecole.standard', 'Class', required=True)
-    medium_id = fields.Many2one('standard.medium', 'Medium', required=True)
+    classe_id = fields.Many2one('ecole.classe', 'Class', required=True)
+
 
     @api.multi
     def assign_rollno(self):
@@ -18,10 +18,8 @@ class AssignRollNo(models.TransientModel):
         eleve_obj = self.env['eleve.eleve']
         # Search eleve
         for rec in self:
-            eleve_ids = eleve_obj.search([('standard_id', '=',
-                                               rec.standard_id.id),
-                                              ('medium_id', '=',
-                                               rec.medium_id.id)],
+            eleve_ids = eleve_obj.search([('classe_id', '=',
+                                               rec.classe_id.id)],
                                              order="name")
             # Assign roll no according to name.
             number = 1

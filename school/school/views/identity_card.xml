@@ -36,9 +36,7 @@
                                     <strong>
                                         <span t-field="student.name" />
                                     </strong>
-                                    <strong>
-                                        <span t-field="student.middle" />
-                                    </strong>
+
                                     <strong>
                                         <span t-field="student.last" />
                                     </strong>
@@ -54,9 +52,7 @@
                                             <td>
                                                 <strong>: </strong>
                                             </td>
-                                            <td>
-                                                <span t-field="student.roll_no" />
-                                            </td>
+
                                         </tr>
                                         <tr>
                                             <td style="font-family: 'Helvetica';padding-left:20px;">
@@ -87,9 +83,7 @@
                                             <td>
                                                 <strong>: </strong>
                                             </td>
-                                            <td>
-                                                <span t-field="student.medium_id.name" />
-                                            </td>
+
                                         </tr>
                                         <tr>
                                             <td style="font-family: 'Helvetica';padding-left:20px;">

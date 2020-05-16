@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!-- Menu Item Of Ecole -->
+    <menuitem id="menu_ecole" name="Ecole" web_icon="ecole,static/description/ecole.png" sequence="1"/>
+    <!-- MenuItem OfRegistre D'admission -->
+    <menuitem id="registre_admission" name="Registre d'admission" parent="menu_ecole" sequence="2" />
+    <menuitem id="menu_admission_form" name="Registre d'admission" parent="registre_admission"  sequence="21" />
+    <!-- Menu Item Of eleves & Parents -->
+    <menuitem id="menu_eleves_parents" name="Elèves" parent="menu_ecole" sequence="3"/>
+    <menuitem id="menu_eleve_profile" name="Liste élèves" parent="menu_eleves_parents"  sequence="31"/>
+    <menuitem id="menu_emploie_1" name="Emploie de temps" parent="menu_eleves_parents"     sequence="33"/>
+
+    <!-- MenuItem For Reminders
+    <menuitem id="menu_reminders" name="Reminders" parent="menu_ems" action="action_eleve_reminder" sequence="8" groups="ecole.group_ecole_administration,ecole.group_ecole_eleve,ecole.group_ecole_enseignant,ecole.group_ecole_parent"/>-->
+    <!-- MenuItem For Configurations -->
+    <menuitem id="menu_configuration" name="Configurations" parent="menu_ecole" sequence="13"  />
+    <!-- MenuItem For Configurations->Ecole Configurations -->
+    <menuitem id="menu_ecole_config_form1" name="Configurations Ecole" parent="menu_configuration" />
+    <menuitem id="menu_caste" name="Réligion/Caste" parent="menu_ecole_config_form1"  />
+    <menuitem id="menu_sub_doc_type_sub_form" name="Type Document" parent="menu_ecole_config_form1"  />
+    <menuitem id="menu_sub_mention" name="Mention" parent="menu_ecole_config_form1"  />
+    <menuitem id="menu_tableau_affichage" name="Tableau d'affichage" parent="menu_ecole_config_form1"  />
+    <menuitem id="menu_langue_maternelle" name="Langue Maternelle" parent="menu_ecole_config_form1"  />
+    <menuitem id="menu_ecole_ecole_sub_form" name="Ecole" parent="menu_ecole_config_form1"  />
+    <!-- MenuItem For Configurations->annee academiques -->
+    <menuitem id="menu_annee_scolaire_form" name="Année Scolaire" parent="menu_configuration" />
+    <menuitem id="menu_annee_scolaire_sub_form" name="Année" parent="menu_annee_scolaire_form"  />
+    <menuitem id="menu_mois_scolaire_form" name="Mois" parent="menu_annee_scolaire_form"  />
+    <!-- MenuItem For Configurations->Standards -->
+    <menuitem id="menu_ecole_classe_form" name="Informations Classes" parent="menu_configuration" />
+    <menuitem id="menu_sub_ecole_classe_form" name="Informations Classes" parent="menu_ecole_classe_form"  />
+    <menuitem id="menu_classe_classe_form" name="Classes" parent="menu_ecole_classe_form"  />
+    <menuitem id="menu_classe_division_form" name="Divisions" parent="menu_ecole_classe_form"  />
+    <menuitem id="menu_salle_classe" name="Salle Classe" parent="menu_ecole_classe_form" />
+    <!-- MenuItem For Configurations->Subject -->
+    <menuitem id="menu_matiere_matiere_form" name="Matières" parent="menu_configuration" sequence="10" />
+    <menuitem id="menu_matiere_matiere_sub_form" name="Matières" parent="menu_matiere_matiere_form"  />
+
+    <!-- Menuitem of alumni and terminate -->
+    <menuitem id="menu_eleve_ancien" name="Anciens / Terminer"  parent="registre_admission"  sequence="22"/>
+
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<odoo>
+     <record id="view_parametrage_descipline_form" model="ir.ui.view">
+        <field name="nom">parametrage_descipline.form</field>
+        <field name="model">parametrage.descipline</field>
+        <field name="arch" type="xml">
+              <form string="Paramétrage Descipline">
+                    <separator string="Paramétrage Descipline" colspan="4"/>
+                    <group colspan="4" col="6">
+                        <field name="nombre_avertissement" />
+                        <field name="nombre_exclu" />
+                    </group>
+                    <group colspan="2" col="6">
+                        <field name="max_retard"  />
+                    </group>
+                   <footer>
+                       <button class="btn btn-sm btn-default fa fa-plus" name="enregistrer_parametrage" string="Enregistrer" type="object"/>
+                       <button class="btn btn-sm btn-default fa fa-ban" special="annuler" string="Fermer"/>
+                       </footer>
+               </form>
+        </field>
+     </record>
+
+
+
+     <record id="action_parametrage_descipline_form" model="ir.actions.act_window">
+        <field name="nom">parametrage descipline</field>
+        <field name="res_model">parametrage.descipline</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_parametrage_descipline_form" />
+        <field name="target">new</field>
+    </record>
+
+     <menuitem id="menu_parametrage_form" name="Paramétrage" parent="menu_configuration" />
+     <menuitem id="menu_parametrage_descipline_form" name="Paramétrage Descipline" parent="menu_parametrage_form" action="action_parametrage_descipline_form" />
+
+
+</odoo>
