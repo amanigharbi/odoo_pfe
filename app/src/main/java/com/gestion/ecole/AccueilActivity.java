@@ -3,16 +3,21 @@ package com.gestion.ecole;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.app.AlarmManager;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,15 +45,25 @@ public class AccueilActivity extends AppCompatActivity implements View.OnClickLi
 
 
 
+
         //notification
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+       AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
         Intent notificationIntent = new Intent(this, AlarmReceiver.class);
+
         PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.SECOND, 2);
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);
+
+
+
+
+
+
+
+
 
 
         loadFragment(new HomeFragment());
@@ -85,9 +100,9 @@ public class AccueilActivity extends AppCompatActivity implements View.OnClickLi
                 loadFragment(new MenuFragment());
                 break;
             case R.id.btNotification :
-               loadFragment(new NotifFragment());
-               // Intent i = new Intent(this, NotifActivity.class);
-                //startActivity(i);
+               //loadFragment(new NotifFragment());
+                Intent i = new Intent(this, NotifActivity.class);
+                startActivity(i);
                 break;
         }
     }

@@ -19,6 +19,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.gestion.ecole.R;
 
@@ -26,7 +27,7 @@ import java.util.Calendar;
 
 public class NotifFragment extends Fragment {
 
-    private NotifViewModel mViewModel;
+
 
     public static NotifFragment newInstance() {
         return new NotifFragment();
@@ -36,13 +37,31 @@ public class NotifFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.notif_fragment, container, false);
+        View v= inflater.inflate(R.layout.notif_fragment, container, false);
+
+
+        //notification
+        //TextView text =v.findViewById(R.id.text);
+        //text.getActivity().
+
+        return v;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+       /* AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+
+        Intent notificationIntent = new Intent(getActivity(), AlarmReceiver.class);
+
+        PendingIntent broadcast = PendingIntent.getBroadcast(getActivity(), 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.SECOND, 2);
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);*/
+
 
 
 

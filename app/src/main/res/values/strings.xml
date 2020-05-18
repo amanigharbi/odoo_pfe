@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">École</string>
+
+    <string-array name="Week">
+        <item> Lundi </item>
+        <item> Mardi </item>
+        <item> Mercredi </item>
+        <item> Jeudi </item>
+        <item> Vendredi </item>
+        <item> Samedi </item>
+    </string-array>
 </resources>

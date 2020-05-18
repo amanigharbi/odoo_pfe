@@ -74,11 +74,11 @@ public class InformationsEleve extends AppCompatActivity {
        rvDesciplineEleve.setLayoutManager(layoutManager2);
 
 
-        AsyncTask<URL, String, List> InfoEleve = new GetDataOdoo("eleve.eleve", new String[]{"id","last", "eleve_name", "parent_id",
+        AsyncTask<URL, String, List> InfoEleve = new GetDataOdoo("student.student", new String[]{"id","last", "name", "parent_id",
                 "standard_id"}).execute();
 
 
-        AsyncTask<URL, String, List> InfoParent = new GetDataOdoo("ecole.parent", new String[]{"name"}).execute();
+        AsyncTask<URL, String, List> InfoParent = new GetDataOdoo("school.parent", new String[]{"name"}).execute();
 
 
 
@@ -89,8 +89,8 @@ public class InformationsEleve extends AppCompatActivity {
 
                //Information eleve
                for (Map<String, Object> item : (List<Map<String, Object>>) ListinfoEleve) {
-                   nom.add(item.get("eleve_name").toString()+" "+item.get("last").toString());
-                   //prenom.add(item.get("eleve_name").toString());
+                   nom.add(item.get("name").toString()+" "+item.get("last").toString());
+                   //prenom.add(item.get("name").toString());
 
                    //Information Parent
                    for (Map<String, Object> item2 : (List<Map<String, Object>>) listInfoParent) {
@@ -101,8 +101,8 @@ public class InformationsEleve extends AppCompatActivity {
                    nomClasse.add(standard_id[1].toString());
 
                    //Informations Descipline
-                   AsyncTask<URL, String, List> infoDescipline = new GetConditionData("eleve.desciplines", new String[]{"eleve_id","subject_id", "device_datetime", "status"},
-                           "eleve_id.id",item.get("id").toString()).execute();
+                   AsyncTask<URL, String, List> infoDescipline = new GetConditionData("student.desciplines", new String[]{"student_id","subject_id", "device_datetime", "status"},
+                           "student_id.id",item.get("id").toString()).execute();
 
                    List ListInfoDescipline = infoDescipline.get();
 

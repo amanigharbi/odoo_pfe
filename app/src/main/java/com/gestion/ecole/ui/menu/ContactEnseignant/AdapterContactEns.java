@@ -43,7 +43,7 @@ public class AdapterContactEns  extends RecyclerView.Adapter<AdapterContactEns.V
         viewHolder.tvNomPrenom.setText(list.get(i).getNomPrenom());
         viewHolder.tvEmail.setText(list.get(i).getEmail());
         viewHolder.tvNum.setText(list.get(i).getNum());
-        viewHolder.tvMatiere.setText(list.get(i).getMatiere());
+
         viewHolder.rl1.setLayoutAnimation(animation);
     }
 
@@ -54,7 +54,7 @@ public class AdapterContactEns  extends RecyclerView.Adapter<AdapterContactEns.V
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView imgEnseignant;
-        public TextView tvNomPrenom,tvEmail,tvNum,tvMatiere;
+        public TextView tvNomPrenom,tvEmail,tvNum;
         public RelativeLayout rl1;
 
         public ViewHolder(@NonNull View itemView) {
@@ -64,7 +64,7 @@ public class AdapterContactEns  extends RecyclerView.Adapter<AdapterContactEns.V
             tvNomPrenom     = itemView.findViewById(R.id.tvNomPrenom);
             tvEmail      = itemView.findViewById(R.id.tvEmail);
             tvNum      = itemView.findViewById(R.id.tvNum);
-            tvMatiere=itemView.findViewById(R.id.tvMatiere);
+
             rl1         = itemView.findViewById(R.id.rl1);
         }
     }

@@ -70,3 +70,4 @@ public class GetConditionData extends AsyncTask<URL,String, List>  {
     }
 }
 
+

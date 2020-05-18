@@ -43,7 +43,6 @@ public class ConnectionOdoo extends AsyncTask<URL,String,String> {
         this.username=username;
         this.password=password;
         this.url=url;
-        // this.txt=txt;
         this.app=app;
     }
 

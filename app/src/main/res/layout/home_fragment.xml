@@ -53,7 +53,7 @@
             android:textStyle="bold"
             android:textColor="@color/colorPurple"
             android:textSize="20dp"
-            android:text="Avec nous votre enfant va reussir \n avec le bon descpline !"></TextView>
+            android:text="Avec nous votre enfant va réussir \n avec la bonne discpline !"></TextView>
     </RelativeLayout>
 
 </RelativeLayout>

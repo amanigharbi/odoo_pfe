@@ -34,9 +34,9 @@ public class ContactEnseignant extends AppCompatActivity {
     ArrayList<String> nomPrenom=new ArrayList<>();
     ArrayList<String> email=new ArrayList<>();
     ArrayList<String> numero=new ArrayList<>();
-    ArrayList<String> matiere=new ArrayList<>();
 
-    String[] nomPrenomArray,emailArray,numeroArray,matiereArray;
+
+    String[] nomPrenomArray,emailArray,numeroArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,39 +55,26 @@ public class ContactEnseignant extends AppCompatActivity {
 
         try {
 
-        //Extraire id d'emploie du table emploie.emploie
-        AsyncTask<URL,String, List> standard_eleve = new GetDataOdoo("emploie.emploie",
-                new String[]{"id"}).execute();
-        List stan = standard_eleve.get();
+                    //Extraire id d'élève
+                    AsyncTask<URL, String, List> InfoEleve = new GetDataOdoo("student.student", new String[]{"id"}).execute();
+                    List Listinfo = InfoEleve.get();
+            for(Map<String,Object> item1: (List<Map<String,Object>>) Listinfo) {
 
-            for(Map<String,Object> item0 : (List<Map<String,Object>>) stan) {
-               //Associer id d'emploie du table emploie.emploie avec celle du table emploie.emploie.line
-                AsyncTask<URL, String, List> emploie2 = new GetConditionData("emploie.emploie.line",
-                        new String[]{"enseignant_id", "table_id","subject_id"}, "table_id.id", item0.get("id").toString()).execute();
-                List Listemploie2 = emploie2.get();
-
-
-                for(Map<String,Object> item1 : (List<Map<String,Object>>) Listemploie2) {
-                    Object[] emploie = (Object[]) item1.get("enseignant_id");
-
-                    //Associer id d'enseignant du table emploie.emploie.line avec celle du table ecole.enseignant
-                    AsyncTask<URL, String, List> InfoEnseignant = new GetConditionData("ecole.enseignant", new String[]{"name", "work_email",
-                            "phone_numbers", "id","subject_id"}, "id", emploie[0].toString()).execute();
-                    List Listinfo = InfoEnseignant.get();
+                //Assicier id élève du table student.student avec school.teacher
+            AsyncTask<URL, String, List> InfoEnseignant = new GetConditionData("school.teacher", new String[]{"name", "work_email",
+                    "phone_numbers", "id","subject_id","student_id"},"stud_id.id",item1.get("id").toString()).execute();
+            List ListinfoEnseig = InfoEnseignant.get();
 
 
-                    for(Map<String,Object> item: (List<Map<String,Object>>) Listinfo){
-                        //Utiliser subject_id du table emploie.emploie.line pour le nom mattière
-                    Object[] matt = (Object[])item1.get("subject_id");
+                    for(Map<String,Object> item: (List<Map<String,Object>>) ListinfoEnseig) {
+                        //Ajouter les attributs dans array
+                        System.out.println("name"+item.get("name").toString());
+                        nomPrenom.add(item.get("name").toString());
+                        email.add(item.get("work_email").toString());
+                        numero.add(item.get("phone_numbers").toString());
 
 
-                  //Ajouter les attributs dans array
-                nomPrenom.add(item.get("name").toString());
-                email.add(item.get("work_email").toString());
-                numero.add(item.get("phone_numbers").toString());
-                matiere.add(matt[1].toString());
-            }}}
-        } catch (ExecutionException e) {
+                    } } }catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -96,15 +83,15 @@ public class ContactEnseignant extends AppCompatActivity {
         nomPrenomArray = nomPrenom.toArray(new String[nomPrenom.size()]);
         emailArray = email.toArray(new String[email.size()]);
         numeroArray =numero.toArray(new String[numero.size()]);
-        matiereArray =matiere.toArray(new String[matiere.size()]);
+
 
         itemEnseignant=new ArrayList<>();
         for(int i=0;i<nomPrenomArray.length;i++)
         {
             itemEnseignant.add(new ItemEnseignant(nomPrenomArray[i].toString(),
                     emailArray[i].toString(),
-                    numeroArray[i].toString(),
-                    matiereArray[i].toString()));
+                    numeroArray[i].toString()
+                    ));
         }
 
         mAdapter = new AdapterContactEns(itemEnseignant,ContactEnseignant.this);

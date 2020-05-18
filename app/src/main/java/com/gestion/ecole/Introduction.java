@@ -3,7 +3,9 @@ package com.gestion.ecole;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +22,21 @@ public class Introduction extends AppCompatActivity {
     TextView btSkip,btNext;
     Button btGetStarted;
     AdapterIntroViewPager mAdapter;
+
+  /*  String prevStarted = "prevStarted";
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences sharedPrefences = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
+        if(!sharedPrefences.getBoolean(prevStarted,false)){
+            SharedPreferences.Editor editor= sharedPrefences.edit();
+            editor.putBoolean(prevStarted,Boolean.TRUE);
+            editor.apply();
+        }else{
+            finish();
+        }
+    }*/
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
