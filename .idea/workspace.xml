@@ -2,15 +2,346 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efeffaa3-b337-4c77-a402-e15acfd1ba6d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ecole/models/statistiques_descipline.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ecole/views/statistiques_descipline_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/.idea/hr_pyzk.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/__manifest__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/controllers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/controllers/controller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/data/VerificationEcole.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/data/VerificationSchool.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/data/importAttendances.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/images/CreateDevice.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/images/SecurityGroup.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/images/User-AttendanceWizard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/images/Userform.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/images/Users.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/images/main_screenshot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/images/timedifference.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/models/add_users.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/models/combined_attendances.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/models/device_attendances.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/models/device_users.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/models/devices.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/basic_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/build/lib/zk/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/build/lib/zk/attendance.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/build/lib/zk/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/build/lib/zk/const.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/build/lib/zk/exception.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/build/lib/zk/finger.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/build/lib/zk/user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/dist/pyzk-0.9-py3.6.egg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/docs/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/docs/_static/Communication_protocol_manual_CMD.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/docs/conf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/docs/index.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/docs/make.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/docs/modules.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/docs/zk.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/PKG-INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/SOURCES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/dependency_links.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/not-zip-safe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/requires.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/test_backup_restore.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/test_machine.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/test_user_enrollment.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/test_voice.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/zk/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/zk/attendance.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/zk/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/zk/const.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/zk/exception.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/zk/finger.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/zk/user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/zk6.lua" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk.egg-info/PKG-INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk.egg-info/SOURCES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk.egg-info/dependency_links.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk.egg-info/not-zip-safe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk.egg-info/requires.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk.egg-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/security/ir.model.access.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/security/pyzk_security.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/static/description/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/static/description/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/static/src/js/employee_kanban_view_handler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/static/src/js/greeting_message.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/static/src/js/kiosk_confirm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/static/src/js/kiosk_mode.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/static/src/js/my_attendances.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/static/src/js/sync.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/static/src/less/hr_attendance.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/static/src/xml/attendance.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/static/src/xml/qweb_attendance.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/static/tests/hr_attendance_tests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/views/add_users.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/views/combined_attendances_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/views/device_attendances_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/views/device_users_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/views/devices_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/views/web_asset.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/wizard/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/wizard/delete_attendance_wizard.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/wizard/delete_attendance_wizard_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/wizard/sh_message_wizard.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/wizard/sh_message_wizard.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/wizard/user_wizard.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/hr_pyzk/wizard/user_wizard.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/__manifest__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/backup/school.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/data/TestAttenanceStudent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/models/parent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/models/school.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/models/student.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/models/teacher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/models/timetable.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/report/ticket.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/report/timetable_info.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/security/ir.model.access.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/security/school_security.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/views/identity_card.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/views/parent_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/views/report_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/views/school_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/views/student_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/views/teacher_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/views/timetable.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/views/timetable_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/wizard/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/wizard/add_student.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/wizard/add_student.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/wizard/move_standards.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/report_stat.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/stat_descipline.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/stat_descipline.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/wizard/teriminate_reason.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/wizard/wizard_setting_descipline.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/wizard/wizard_settings_descipline.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/README.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/__manifest__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/i18n/da.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/i18n/de.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/i18n/es.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/i18n/hr.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/i18n/nl_NL.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/i18n/pt.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/i18n/pt_BR.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/i18n/web_notify.pot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/i18n/zh_CN.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/models/res_users.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/readme/CONTRIBUTORS.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/readme/DESCRIPTION.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/readme/INSTALL.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/readme/USAGE.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/static/description/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/static/description/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/static/description/notifications_screenshot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/static/description/test_notifications_demo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/static/src/js/web_client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/static/src/js/widgets/notification.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/static/src/scss/webclient.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/tests/test_res_users.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/views/res_users_demo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/web_notify/views/web_notify.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecole/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecole/__manifest__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecole/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecole/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecole/models/eleve.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecole/models/eleve.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecole/static/description/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/ecole/static/description/icon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ecole/views/eleve_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ecole/views/eleve_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/backup/ecole_bd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/data/eleve_sequence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/demo/ecole_demo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/demo/emploie_demo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/images/hover.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/images/hover.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/images/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/images/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/models/ecole.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/models/eleve.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/models/emploie.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/models/enseignant.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/models/parent.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/models/res_users.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/models/statistiques_descipline.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/security/ecole_security.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/security/ir.model.access.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/04_grade_system.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/04_grade_system.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/05_new_updates.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/05_new_updates.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/EMS.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/EMS.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/dashboard.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/dashboard.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/ecole.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/ecole1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/ecole_config.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/ecole_stud_info.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/eleve_info.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/ems.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/ems.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/ems_stud_reg.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/ems_stud_reg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/enseignant2.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/fb.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/fb.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/identitycard.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/identitycard.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/in.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/in.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/insta.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/insta.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/newecole.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/odooqa32.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/odooqa32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/parents.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/parents.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/serpent_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/serpent_logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/twitter.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/twitter.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/description/youtube.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/youtube.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/src/img/accommodation.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/src/img/accommodation.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/src/img/admission.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/src/img/admission.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/src/img/course.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/src/img/course.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/src/img/department.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/src/img/department.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/src/img/eleve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/src/img/lecturer.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/src/img/lecturer.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/src/img/lecturer.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/src/img/lecturer.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/src/img/parent.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/src/img/parent.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/static/src/scss/ecolecss.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/tests/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/tests/test_ecole.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/views/carte_identite.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/views/ecole_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/views/eleve_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/views/emploie.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/views/emploie_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/views/enseignant_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/views/parent_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/views/rapport_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/views/statistiques_descipline_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/views/template_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/wizard/Add_eleve.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/wizard/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/wizard/add_eleve.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/wizard/assign_roll_no.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/wizard/assign_roll_no_wizard.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/wizard/move_standards.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/wizard/move_standards_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/wizard/teriminate_reason.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/wizard/terminate_reason_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/wizard/wiz_send_email.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecole/wizard/wiz_send_email_view.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/odoo-server.conf" beforeDir="false" afterPath="$PROJECT_DIR$/odoo-server.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/README.rst" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/README.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/backup/school_database" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/backup/shool_database_2020-03-24_17-23-35.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/data/student_sequence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/demo/school_demo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/images/hover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/images/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/models/parent.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/models/res_users.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/res_users.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/models/school.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/models/student.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/models/teacher.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/security/ir.model.access.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/security/school_security.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/04_grade_system.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/05_new_updates.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/EMS.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/dashboard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/ems.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/ems_stud_reg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/fb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/identitycard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/in.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/insta.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/newschool.gif" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/newschool.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/odooqa32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/parents.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/school.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/school1.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/school1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/school_config.gif" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/school_config.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/school_stud_info.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/school_stud_info.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/serpent_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/student_info.gif" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/student_info.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/teacher2.gif" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/teacher2.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/twitter.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/description/youtube.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/src/img/accommodation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/src/img/admission.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/src/img/course.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/src/img/department.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/src/img/lecturer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/src/img/lecturer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/src/img/parent.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/src/img/student.png" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/src/img/student.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/static/src/scss/schoolcss.scss" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/src/scss/schoolcss.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/tests/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/tests/test_school.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/views/identity_card.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/views/parent_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/views/report_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/views/school_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/views/student_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/views/teacher_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/views/template_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/template_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/wizard/Add_student.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/wizard/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/wizard/add_student.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/wizard/assign_roll_no.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/wizard/assign_roll_no_wizard.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/wizard/move_standards.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/wizard/move_standards_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/move_standards_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/wizard/teriminate_reason.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/wizard/terminate_reason_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/terminate_reason_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/wizard/wiz_send_email.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/wiz_send_email.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/school/wizard/wiz_send_email_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/wiz_send_email_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/README.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/demo/timetable_demo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/models/timetable.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/report/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/report/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/report/timetable_info.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/security/ir.model.access.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/security/timetable_security.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/static/description/SchoolTimetable.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/static/description/fb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/static/description/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/static/description/in.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/static/description/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/static/description/insta.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/static/description/serpent_logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/static/description/timetable.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/static/description/timetable3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/static/description/timetable_create.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/static/description/timetablereport.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/static/description/twitter.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/static/description/youtube.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/tests/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/tests/test_timetable.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/views/report_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/views/timetable.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/school/timetable/views/timetable_view.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/src/uliweb3" beforeDir="false" afterPath="$PROJECT_DIR$/venv/src/uliweb3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,21 +376,25 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ecole/static/description" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ecole/data" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/schools/school/backup" />
+      <recent name="$PROJECT_DIR$/ecole/wizard/report_statistique_descipline" />
+      <recent name="/opt/odoo/odoo/addons/hr_pyzk/wizard" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ecole/data" />
       <recent name="$PROJECT_DIR$/ecole/static/description" />
       <recent name="$PROJECT_DIR$/school/school/wizard" />
       <recent name="$PROJECT_DIR$/school" />
       <recent name="$PROJECT_DIR$/hr_pyzk" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="/opt/odoo/odoo/addons/hr_pyzk/wizard" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager">
@@ -124,7 +459,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585871246851</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="[ADD] description">
+      <created>1586487016185</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1586487016185</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -134,6 +476,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="[ADD] description" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="583" y="211" width="251" height="266" key="#Notifications" timestamp="1586519190673">
+      <screen x="67" y="27" width="1293" height="636" />
+    </state>
+    <state x="583" y="211" width="251" height="266" key="#Notifications/67.27.1293.636@67.27.1293.636" timestamp="1586519190673" />
     <state x="143" y="27" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583972142632">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
@@ -146,54 +492,62 @@
       <screen x="67" y="27" width="1293" height="636" />
     </state>
     <state x="468" y="53" width="424" height="584" key="#com.intellij.ide.macro.MacrosDialog/67.27.1293.636@67.27.1293.636" timestamp="1583251033348" />
-    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2" timestamp="1585871222222">
+    <state x="471" y="88" key="#xdebugger.evaluate" timestamp="1586620447476">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2/67.27.1293.636@67.27.1293.636" timestamp="1585871222222" />
+    <state x="471" y="88" key="#xdebugger.evaluate/67.27.1293.636@67.27.1293.636" timestamp="1586620447476" />
+    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2" timestamp="1586486982739">
+      <screen x="67" y="27" width="1293" height="636" />
+    </state>
+    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2/67.27.1293.636@67.27.1293.636" timestamp="1586486982739" />
     <state x="468" y="103" width="424" height="484" key="FileChooserDialogImpl" timestamp="1585251947824">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
     <state x="468" y="103" width="424" height="484" key="FileChooserDialogImpl/67.27.1293.636@67.27.1293.636" timestamp="1585251947824" />
-    <state width="1270" height="203" key="GridCell.Tab.0.bottom" timestamp="1586486657471">
+    <state width="1270" height="139" key="GridCell.Tab.0.bottom" timestamp="1589824483206">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="203" key="GridCell.Tab.0.bottom/67.27.1293.636@67.27.1293.636" timestamp="1586486657471" />
-    <state width="1270" height="203" key="GridCell.Tab.0.center" timestamp="1586486657467">
+    <state width="1270" height="139" key="GridCell.Tab.0.bottom/67.27.1293.636@67.27.1293.636" timestamp="1589824483206" />
+    <state width="1270" height="139" key="GridCell.Tab.0.center" timestamp="1589824483197">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="203" key="GridCell.Tab.0.center/67.27.1293.636@67.27.1293.636" timestamp="1586486657467" />
-    <state width="1270" height="203" key="GridCell.Tab.0.left" timestamp="1586486657466">
+    <state width="1270" height="139" key="GridCell.Tab.0.center/67.27.1293.636@67.27.1293.636" timestamp="1589824483197" />
+    <state width="1270" height="139" key="GridCell.Tab.0.left" timestamp="1589824483197">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="203" key="GridCell.Tab.0.left/67.27.1293.636@67.27.1293.636" timestamp="1586486657466" />
-    <state width="1270" height="203" key="GridCell.Tab.0.right" timestamp="1586486657470">
+    <state width="1270" height="139" key="GridCell.Tab.0.left/67.27.1293.636@67.27.1293.636" timestamp="1589824483197" />
+    <state width="1270" height="139" key="GridCell.Tab.0.right" timestamp="1589824483205">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="203" key="GridCell.Tab.0.right/67.27.1293.636@67.27.1293.636" timestamp="1586486657470" />
-    <state width="1270" height="203" key="GridCell.Tab.1.bottom" timestamp="1586486656792">
+    <state width="1270" height="139" key="GridCell.Tab.0.right/67.27.1293.636@67.27.1293.636" timestamp="1589824483205" />
+    <state width="1270" height="139" key="GridCell.Tab.1.bottom" timestamp="1589824482722">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="203" key="GridCell.Tab.1.bottom/67.27.1293.636@67.27.1293.636" timestamp="1586486656792" />
-    <state width="1270" height="203" key="GridCell.Tab.1.center" timestamp="1586486656790">
+    <state width="1270" height="139" key="GridCell.Tab.1.bottom/67.27.1293.636@67.27.1293.636" timestamp="1589824482722" />
+    <state width="1270" height="139" key="GridCell.Tab.1.center" timestamp="1589824482719">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="203" key="GridCell.Tab.1.center/67.27.1293.636@67.27.1293.636" timestamp="1586486656790" />
-    <state width="1270" height="203" key="GridCell.Tab.1.left" timestamp="1586486656789">
+    <state width="1270" height="139" key="GridCell.Tab.1.center/67.27.1293.636@67.27.1293.636" timestamp="1589824482719" />
+    <state width="1270" height="139" key="GridCell.Tab.1.left" timestamp="1589824482718">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="203" key="GridCell.Tab.1.left/67.27.1293.636@67.27.1293.636" timestamp="1586486656789" />
-    <state width="1270" height="203" key="GridCell.Tab.1.right" timestamp="1586486656792">
+    <state width="1270" height="139" key="GridCell.Tab.1.left/67.27.1293.636@67.27.1293.636" timestamp="1589824482718" />
+    <state width="1270" height="139" key="GridCell.Tab.1.right" timestamp="1589824482719">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="203" key="GridCell.Tab.1.right/67.27.1293.636@67.27.1293.636" timestamp="1586486656792" />
+    <state width="1270" height="139" key="GridCell.Tab.1.right/67.27.1293.636@67.27.1293.636" timestamp="1589824482719" />
     <state x="202" y="27" width="1012" height="636" key="SettingsEditor" timestamp="1583972090460">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
     <state x="202" y="27" width="1012" height="636" key="SettingsEditor/67.27.1293.636@67.27.1293.636" timestamp="1583972090460" />
-    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1585871267593">
+    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1586487028258">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1293.636@67.27.1293.636" timestamp="1585871267593" />
+    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1293.636@67.27.1293.636" timestamp="1586487028258" />
+    <state width="646" height="319" key="XDebugger.FullValuePopup" timestamp="1587408151110">
+      <screen x="67" y="27" width="1293" height="636" />
+    </state>
+    <state width="646" height="319" key="XDebugger.FullValuePopup/67.27.1293.636@67.27.1293.636" timestamp="1587408151110" />
     <state x="369" y="171" key="com.intellij.ide.util.TipDialog" timestamp="1586464016566">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
@@ -202,14 +556,14 @@
       <screen x="67" y="27" width="1293" height="636" />
     </state>
     <state x="481" y="264" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1293.636@67.27.1293.636" timestamp="1583250036800" />
-    <state x="263" y="32" width="891" height="624" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1584093945668">
+    <state x="263" y="32" width="891" height="624" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1586619191584">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state x="263" y="32" width="891" height="624" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/67.27.1293.636@67.27.1293.636" timestamp="1584093945668" />
-    <state x="341" y="27" width="733" height="636" key="find.popup" timestamp="1585251872040">
+    <state x="263" y="32" width="891" height="624" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/67.27.1293.636@67.27.1293.636" timestamp="1586619191584" />
+    <state x="341" y="27" width="733" height="636" key="find.popup" timestamp="1588555818405">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state x="341" y="27" width="733" height="636" key="find.popup/67.27.1293.636@67.27.1293.636" timestamp="1585251872040" />
+    <state x="341" y="27" width="733" height="636" key="find.popup/67.27.1293.636@67.27.1293.636" timestamp="1588555818405" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -218,11 +572,6 @@
           <url>file://$PROJECT_DIR$/school/school/wizard/Add_student.py</url>
           <line>22</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file:///opt/odoo/odoo/addons/hr_pyzk/models/device_users.py</url>
-          <line>32</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

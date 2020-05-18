@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+       <!-- Assign Roll Number Wizard Form View  -->
+    <record id="view_add_users_form" model="ir.ui.view">
+        <field name="name">add_users.form</field>
+        <field name="model">add.users</field>
+        <field name="arch" type="xml">
+            <form string="add users">
+
+                    <footer>
+                        <button class="btn btn-sm btn-default fa fa-plus" name="button_add" type="object" string="add"/>
+                    </footer>
+
+           </form>
+        </field>
+    </record>
+ <!-- Action Of Form & Tree Views Of Move Classes -->
+    <record id="action_add_users_form" model="ir.actions.act_window">
+        <field name="name">add users</field>
+        <field name="res_model">add.users</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_add_users_form" />
+        <field name="target">new</field>
+    </record>
+
+    <!-- MenuItem For Configurations->Move Classes -->
+    <menuitem id="menu_add_users_form" name="add users" parent="users_sub_menu" action="action_add_users_form" />
+
+</odoo>

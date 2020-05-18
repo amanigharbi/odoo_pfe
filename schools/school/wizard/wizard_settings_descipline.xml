@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<odoo>
+     <record id="view_settings_descipline_form" model="ir.ui.view">
+        <field name="name">settings_descipline.form</field>
+        <field name="model">settings.descipline</field>
+        <field name="arch" type="xml">
+              <form string="Settings Descipline">
+                    <separator string="Settings Descipline" colspan="4"/>
+                    <group colspan="4" col="6">
+                        <field name="number_avertissement" />
+                        <field name="number_exclu" />
+                    </group>
+                    <group colspan="2" col="6">
+                        <field name="max_late"  />
+                    </group>
+                   <footer>
+                       <button class="btn btn-sm btn-default fa fa-plus" name="save_settings" string="Save" type="object"/>
+                       <button class="btn btn-sm btn-default fa fa-ban" special="Cancel" string="Close"/>
+                       </footer>
+               </form>
+        </field>
+     </record>
+
+
+
+     <record id="action_settings_descipline_form" model="ir.actions.act_window">
+        <field name="name">settings descipline</field>
+        <field name="res_model">settings.descipline</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_settings_descipline_form" />
+        <field name="target">new</field>
+    </record>
+
+     <menuitem id="menu_settings_form" name="Settings" parent="menu_configuration" />
+     <menuitem id="menu_settings_descipline_form" name="Settings Descipline" parent="menu_settings_form" action="action_settings_descipline_form" />
+
+
+</odoo>

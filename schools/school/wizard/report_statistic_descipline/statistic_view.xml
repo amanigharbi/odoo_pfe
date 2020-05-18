@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+       <!-- Assign Roll Number Wizard Form View  -->
+    <record id="view_statistics_descipline_form" model="ir.ui.view">
+        <field name="name">statistic_student.form</field>
+        <field name="model">statistic.student</field>
+        <field name="arch" type="xml">
+    <form string="statistic descipline">
+                    <group>
+                        <!--<field name="school_id" placeholder="Choice school .." widget="selection"/>-->
+                         <field name="standard_id" placeholder="Choice class .." widget="many2many_tags"/>
+                        <field name="date_id" placeholder="Choice date .." widget="selection"/>
+                    <!--    <field  name="academic_year" placeholder="Choisir Année scolaire..."  widget="selection" string="Année Scolaire"/> -->
+
+                    </group>
+
+                    <footer>
+                        <button class="oe_highlight" name="print_report" type="object"  string="Imprimer"/>
+                    </footer>
+           </form>
+        </field>
+    </record>
+
+
+    <!-- Action Of Form & Tree Views Of Move Classes -->
+    <record id="action_statistics_descipline_form" model="ir.actions.act_window">
+        <field name="name">statistic student</field>
+        <field name="res_model">statistic.student</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_statistics_descipline_form" />
+        <field name="target">new</field>
+    </record>
+
+    <!-- MenuItem For Configurations->Move Classes -->
+    <menuitem  id="menu_statistics" name="statistics" parent="menu_school" sequence="6" />
+<menuitem id="menu_statistics_descipline_form" name="Desciplines" parent="menu_statistics" action="action_statistics_descipline_form" sequence="61" />
+</odoo>
