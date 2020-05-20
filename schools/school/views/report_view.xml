@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+        <report id="report_student_student"
+                string="Identity Card"
+                model="student.student"
+                report_type="qweb-pdf"
+                file="school.identity_card"
+                name="school.identity_card" groups="school.group_school_administration,school.group_school_teacher,school.group_school_student"/>
+        <report id="report_time_table_qweb"
+                string="Timetable"
+                model="time.table"
+                report_type = "qweb-pdf"
+                file="school.timetable"
+                name="school.timetable" />
+         <report id="report_ticket_qweb"
+                string="Ticket entry"
+                model="student.desciplines"
+                report_type = "qweb-pdf"
+                file="school.ticket"
+                name="school.ticket" />
+
+</odoo>
