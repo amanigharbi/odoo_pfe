@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.notif.NotifFragment">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -22,5 +21,11 @@
         android:textColor="@color/colorPurpleT"
         android:textSize="18sp" />
 
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_height="wrap_content"
+        android:layout_margin="200dp"
+        android:layout_width="wrap_content"/>
 
 </RelativeLayout>

@@ -3,6 +3,7 @@
     <color name="colorPrimary">#721b65</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorACard">#D81B60</color>
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
 
@@ -14,4 +15,6 @@
 
     <color name="colorTab1">#515151</color>
     <color name="colorTab2">#E4E4E4</color>
+
+    <color name="colorTab3">#F4F1F1</color>
 </resources>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.menu.InformationsEleve">
+    tools:context=".ui.menu.InformationsEleve.InformationsEleve">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -24,10 +24,11 @@
         android:textSize="18sp" />
 
 <RelativeLayout
+    android:id="@+id/rlcard"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginTop="50dp"
-    android:layout_marginBottom="100dp">
+   >
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvImage"
@@ -41,10 +42,11 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             >
 
             <pl.droidsonroids.gif.GifImageView
-                android:id="@+id/imgArticle"
+                android:id="@+id/img"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
@@ -58,93 +60,30 @@
 
 </RelativeLayout>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvInfo"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvInformationsEleve"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
         app:cardCornerRadius="10dp"
         android:elevation="5dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="240dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="250dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDesciplineEleve"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="50dp"
+        android:elevation="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="420dp"
         android:layout_marginBottom="10dp"
-        >
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-
-            <TextView
-                android:id="@+id/NomPrenom"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:text="Nom et Prénom: "
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textAlignment="center"/>
-
-            <TextView
-                android:id="@+id/tvDesc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="20dp"
-                android:layout_below="@+id/NomPrenom"
-                android:maxLength="15"
-                android:text="soumaya Rihane"
-                android:textSize="12sp"/>
-
-            <TextView
-                android:id="@+id/NomParent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:text="Parent : "
-                android:layout_below="@+id/tvDesc"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/DescParent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="20dp"
-                android:layout_below="@+id/NomParent"
-                android:maxLength="15"
-                android:text="Selim Rihane"
-                android:textSize="12sp"/>
-
-            <TextView
-                android:id="@+id/classe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="20dp"
-                android:text="Classe : "
-                android:layout_below="@+id/DescParent"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/DescClasse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="20dp"
-                android:layout_below="@+id/classe"
-                android:maxLength="15"
-                android:text="DSI32"
-                android:textSize="12sp"/>
-
-        </RelativeLayout>
-
-    </androidx.cardview.widget.CardView>
-
+        android:clipToPadding="false"
+        android:overScrollMode="never" />
 
 
 </RelativeLayout>

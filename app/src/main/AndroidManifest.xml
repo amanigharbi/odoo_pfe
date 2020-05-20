@@ -2,26 +2,43 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gestion.ecole">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ecoleicon"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.menu.EmploisEleve.Emplois_details"
+            android:parentActivityName=".ui.menu.EmploisEleve.EmploisEleve"></activity>
         <activity android:name=".ui.menu.MenuFragment" />
-        <activity android:name=".ui.menu.EmploisEleve"
-            android:parentActivityName=".ui.menu.MenuFragment"></activity>
-        <activity android:name=".ui.menu.ContactEnseignant"
-            android:parentActivityName=".ui.menu.MenuFragment"></activity>
-        <activity android:name=".ui.menu.InformationsEleve"
-            android:parentActivityName=".ui.menu.MenuFragment"></activity>
-        <activity android:name=".NotifActivity" />
-        <receiver android:name=".ui.notif.AlarmReceiver">
+        <activity
+            android:name=".ui.menu.EmploisEleve.EmploisEleve"
+            android:parentActivityName=".ui.menu.MenuFragment" />
+        <activity
+            android:name=".ui.menu.ContactEnseignant.ContactEnseignant"
+            android:parentActivityName=".ui.menu.MenuFragment" />
+        <activity
+            android:name=".ui.menu.InformationsEleve.InformationsEleve"
+            android:parentActivityName=".ui.menu.MenuFragment" />
+        <activity android:name=".ui.notif.NotifActivity" />
+        <activity android:name=".ui.notif.NotifFragment" />
+        <activity android:name=".ui.notif.AlarmReceiver" />
+
+        <receiver
+            android:name=".ui.notif.AlarmReceiver"
+            android:enabled="true">
             <intent-filter>
-                <action android:name="com.notification.ecole"></action>
+                <action android:name="com.notification.ecole" />
             </intent-filter>
         </receiver>
+
         <activity android:name=".HomeActivity" />
         <activity android:name=".AccueilActivity" />
         <activity android:name=".LoginActivity" />
@@ -37,4 +54,5 @@
         </activity>
         <activity android:name=".ui.menu.AdapterMenu" />
     </application>
+
 </manifest>
