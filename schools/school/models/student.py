@@ -334,13 +334,9 @@ class StudentDailyDesciplines(models.Model):
     _description = "Student Daily Disciplines"
 
     date = fields.Datetime(string='Date')
-    #status=fields.Char("status")
     status=fields.Selection([('Absent For Day','Absent For Day')])
     student_id = fields.Many2one('student.student', 'Student')
 
-    @api.multi
-    def print_report(self):
-        return self.env.ref('school.report_ticket_qweb').report_action(self)
 
 
 class StudentSanctions(models.Model):

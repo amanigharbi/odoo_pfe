@@ -213,8 +213,7 @@
                                     <field name="student_id" invisible="1" />
                                     <field name="date" options="{'format': 'DD/MM/YYYY'}" required="1"/>
                                     <field name="status"/>
-                                    <button class="oe_highlight" name="print_report" type="object"  string="Imprimer"/>
-                                </tree>
+                                    </tree>
                             </field>
                          </page>
 

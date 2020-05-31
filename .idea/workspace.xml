@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efeffaa3-b337-4c77-a402-e15acfd1ba6d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/schools/school/backup/30_05_2020.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/data/attendance_student_daily.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/__manifest__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schools/school/models/student.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/student.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schools/school/views/student_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/student_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/add_student.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/add_student.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/src/uliweb3" beforeDir="false" afterPath="$PROJECT_DIR$/venv/src/uliweb3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -141,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589839995870</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="[ADD] description">
+      <created>1590915990042</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1590915990042</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -171,10 +172,10 @@
       <screen x="67" y="27" width="1293" height="636" />
     </state>
     <state x="471" y="88" key="#xdebugger.evaluate/67.27.1293.636@67.27.1293.636" timestamp="1586620447476" />
-    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2" timestamp="1589839966852">
+    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2" timestamp="1590915943296">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2/67.27.1293.636@67.27.1293.636" timestamp="1589839966852" />
+    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2/67.27.1293.636@67.27.1293.636" timestamp="1590915943296" />
     <state x="468" y="103" width="424" height="484" key="FileChooserDialogImpl" timestamp="1585251947824">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
@@ -215,10 +216,10 @@
       <screen x="67" y="27" width="1293" height="636" />
     </state>
     <state x="202" y="27" width="1012" height="636" key="SettingsEditor/67.27.1293.636@67.27.1293.636" timestamp="1583972090460" />
-    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1589840007239">
+    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1590916009748">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1293.636@67.27.1293.636" timestamp="1589840007239" />
+    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1293.636@67.27.1293.636" timestamp="1590916009748" />
     <state width="646" height="319" key="XDebugger.FullValuePopup" timestamp="1587408151110">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
