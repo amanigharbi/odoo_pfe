@@ -194,13 +194,24 @@
                             <field name="teacher_id" colspan="4"/>
                         </page>
 
-                        <page string="Desciplines" >
+                        <page string="Desciplines By Session" >
                             <field name="descplines_ids" nolabel="1" colspan="4"
                           >
                                 <tree string="Despline">
                                     <field name="student_id" invisible="1" />
                                     <field name="subject_id" required="1"/>
                                     <field name="device_datetime" required="1"/>
+                                    <field name="status"/>
+                                    <button class="oe_highlight" name="print_report" type="object"  string="Imprimer"/>
+                                </tree>
+                            </field>
+                         </page>
+                        <page string="Daily Disciplines" >
+                            <field name="daily_discplines_ids" nolabel="1" colspan="4"
+                          >
+                                <tree string="Daily Discplines">
+                                    <field name="student_id" invisible="1" />
+                                    <field name="date" options="{'format': 'DD/MM/YYYY'}" required="1"/>
                                     <field name="status"/>
                                     <button class="oe_highlight" name="print_report" type="object"  string="Imprimer"/>
                                 </tree>

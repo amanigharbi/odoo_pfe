@@ -121,7 +121,7 @@ class statistic_student(models.TransientModel):
 
                         for rec2 in descipline:
                             countAbsent=self.get_numberDesipline(rec2.id,'Absent')+countAbsent
-                            countlate = self.get_numberDesipline(rec2.id,'late')+countlate
+                            countlate = self.get_numberDesipline(rec2.id,'Late')+countlate
                         totalAbsence = countAbsent
                         totallate = countlate
 
