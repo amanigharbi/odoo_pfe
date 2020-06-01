@@ -126,7 +126,7 @@ class add_student(models.TransientModel):
                         numberlate = numberlate + 1
 
                         # notification pour le parent
-                        message_notif = ('Votre Enfant Est Retard DE : ' + str(
+                        message_notif = ('Votre Enfant '+name+' Est Retard DE : ' + str(
                             late_mn) + 'Min, Dans La Matière ' + subject_name + ' Prévu à ' + str(start_time))
                     else:
                         status = "Absent"
@@ -137,7 +137,7 @@ class add_student(models.TransientModel):
 
                         # notification pour le parent
                         message_notif = (
-                                    'Votre Enfant Est Absent(e) Dans La Matière ' + subject_name + ' Prévu à ' + str(
+                                    'Votre Enfant '+name+' Est Absent(e) Dans La Matière ' + subject_name + ' Prévu à ' + str(
                                 start_time))
 
                     # création de la discipline de l'élève necessaire
