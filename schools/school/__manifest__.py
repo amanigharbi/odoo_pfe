@@ -16,6 +16,7 @@
              'wizard/terminate_reason_view.xml',
              'wizard/wiz_send_email_view.xml',
              'data/TestAttenanceStudent.xml',
+             'data/attendance_student_daily.xml',
              'views/student_view.xml',
              'views/school_view.xml',
              'views/teacher_view.xml',

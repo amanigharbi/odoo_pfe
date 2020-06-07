@@ -1,6 +1,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import models, fields, api
+from pyfcm import  FCMNotification
 
 
 class ParentRelation(models.Model):
@@ -77,3 +78,10 @@ class history_notification(models.Model):
         message = fields.Char("Message")
         status_message = fields.Selection([('In Progress','In Progress'),('Sent','Sent'),],'Status of Message')
         parent_id = fields.Many2one('school.parent','Parents')
+        def get_notif(title,message):
+                push_service = FCMNotification(api_key="AAAAHTeART0:APA91bF8366zxEmL8KA5cwv6tDvH9mg8_iemweE_WkUDf0fvssh-4um9Cbf0o9ucINkQa2w_7LCcblAjl2rBO9d2u4Od9I5wn-7Qlb7E4nLDQ6eJvKX8CqNs8yL5jN4464CgpTYZ96of")
+                print("push",push_service)
+                result =push_service.notify_single_device(registration_id="cBDAw75AoHg:APA91bFg7zEeC0Ugdx16hpTXqBWsy-lSUVUyOnArmqc49LcfjO2R44oqJ2zS0glu34tnL87vK_2LP1c7qTzJhL-UfWHmqOJUhSfGoqsAiwT3wUPVIaRZqebpSiJDXpghJygZfY9Ij1bB",
+                                                              message_title='Notification '+title,
+                                                              message_body=message)
+                return result

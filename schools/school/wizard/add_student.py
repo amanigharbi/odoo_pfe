@@ -1,17 +1,22 @@
-
+import self
 from odoo import models, fields, api
 from addons.hr_pyzk.models import device_users
 from odoo.exceptions import except_orm
 import datetime
+import time
+
+from schools.school.models.parent import history_notification
 
 
 class add_student(models.TransientModel):
     _name = 'add.student'
     _description = "add student"
     _inherit = 'device.users'
-    student_name = fields.Many2many('student.student','add_student_student_student_rel','add_student_id','student_student_id','Name student')
+    student_name = fields.Many2many('student.student', 'add_student_student_student_rel', 'add_student_id',
+                                    'student_student_id', 'Name student')
     device_name = fields.Many2one('devices', 'Device Name')
     device_id = fields.Many2one('devices', 'devices.id')
+
     #  self._cr.execute("INSERT INTO student_student(user_id,pid,middle,last,date_de_naissance) values (100,100,'100','100','12/12/2000')")
     @api.multi
     def button_add(self, vals):
@@ -20,16 +25,17 @@ class add_student(models.TransientModel):
 
             for student in self.student_name:
                 for deivce in self.device_name:
-                    self.env['device.users'].create({'name':student.name,'device_user_id':student.id,'device_id':deivce.id})
-                    deivces = self.env['device.users'].search([('device_user_id','=',student.id)])
+                    self.env['device.users'].create(
+                        {'name': student.name, 'device_user_id': student.id, 'device_id': deivce.id})
+                    deivces = self.env['device.users'].search([('device_user_id', '=', student.id)])
                     for rec in deivces:
-                        device_users.DeviceUser.create_user(rec,rec)
-        else :
-            raise except_orm(('Warning'),('''Select student/device please!!!'''))
+                        device_users.DeviceUser.create_user(rec, rec)
+        else:
+            raise except_orm(('Warning'), ('''Select student/device please!!!'''))
 
-# action planifié du pointage d'élève
+    # action planifié du pointage d'élève
     def test_attendance_student(self):
-        #le jour d'aujourd'hui
+        # le jour d'aujourd'hui
         local_day = datetime.date.today().strftime("%A")
 
         device_user_object = self.env['device.users']
@@ -58,122 +64,129 @@ class add_student(models.TransientModel):
                 user_punches2.extend(user_punches)
                 all_attendance.extend(attendance)
 
-
                 for x in device_attendances:
                     if x.attendance_state == 0:
                         x.attendance_state = 1
 
-                #for x in device_attendances:
+                    # for x in device_attendances:
                     student_id = x.device_user_id.device_user_id
 
                     last_date = datetime.datetime.strptime(str(x.device_datetime), '%Y-%m-%d %H:%M:%S')
                     current_time = last_date.strftime("%H.%M")
                     current_time = float(current_time) + 1.0
 
-
-                    #les informations d'élève ou son id est le meme du table device_attendance
-                    student_object = self.env['student.student'].search([('id', '=', x.device_user_id.id)])
+                    # les informations d'élève ou son id est le meme du table device_attendance
+                    student_object = self.env['student.student'].search([('id', '=', student_id)])
 
                     standard = student_object.standard_id.id
-                    school=student_object.school_id.id
+                    school = student_object.school_id.id
                     name = student_object.student_name
-                    #les informations relatives au parent de l'élève pointé
+                    # les informations relatives au parent de l'élève pointé
                     parent_object = self.env['school.parent'].search([('student_id', '=', student_id)])
                     parent = parent_object.id
 
-                    #l'emploie du temps relative au classe et école de l'élève pointé
-                    timetable_object = self.env['time.table'].search([('school_id','=',school),('standard_id', '=', standard)])
+                    # l'emploie du temps relative au classe et école de l'élève pointé
+                    timetable_object = self.env['time.table'].search(
+                        [('school_id', '=', school), ('standard_id', '=', standard)])
                     timetable = timetable_object.id
 
-                    #extraire les informations nécessaires relatives au l'emploie du temps et le jour du pointage
-                    timetable_objet_line = self.env['time.table.line'].search([('table_id', '=', timetable),('week_day', '=', local_day)])
+                    # extraire les informations nécessaires relatives au l'emploie du temps et le jour du pointage
+                    timetable_objet_line = self.env['time.table.line'].search(
+                        [('table_id', '=', timetable), ('week_day', '=', local_day)])
 
-                    #initialiser les variables
+                    # initialiser les variables
                     start_time = 0
                     subject_id = 0
                     numberlate = 0
-                    subject_name =''
+                    subject_name = ''
                     late_mn = 0
 
-
                     for rec in timetable_objet_line:
-                       # if (current_time >= rec.start_time and current_time - rec.start_time <= 1 and current_time - rec.start_time >= 0):
+                        # if (current_time >= rec.start_time and current_time - rec.start_time <= 1 and current_time - rec.start_time >= 0):
 
-                           #les informations de l'emploie nécessaires
-                            start_time = rec.start_time
-                            subject_id = rec.subject_id.id
-                            subject_name = rec.subject_id.name
+                        # les informations de l'emploie nécessaires
+                        start_time = rec.start_time
+                        subject_id = rec.subject_id.id
+                        subject_name = rec.subject_id.name
 
-
-                    #extraire les attributs du table settings.descipline
+                    # extraire les attributs du table settings.descipline
                     search = self.env['settings.descipline'].search([])
                     late = search.max_late
+
                     settings_nb_avertissement = search.number_avertissement
                     settings_nb_exclu = search.number_exclu
-
-                    #tester si l'élève pointé est retard
-                    if (current_time - start_time <= late):
+                    if (current_time - start_time == 0):
+                        status = "In time"
+                        # tester si l'élève pointé est retard
+                    elif (current_time - start_time <= late):
                         status = "Late"
-                        #le retard de l'élève
-                        late_mn=round((current_time - start_time),2)
+                        # le retard de l'élève
+                        late_mn = round((current_time - start_time), 2)
 
-                        #notification pour l'admin
-                        message = ('A Student Is Pointed: \n'+name+ ' Is Late In '+subject_name+' With '+str(late_mn)+'Minutes !')
+                        # notification pour l'admin
+                        message = ('A Student Is Pointed: \n' + name + ' Is Late In ' + subject_name + ' With ' + str(
+                            late_mn) + 'Minutes !')
                         self.env.user.notify_info(message)
                         numberlate = numberlate + 1
 
-                        #notification pour le parent
-                        message_notif=('Votre Enfant Est Retard DE : '+str(late_mn)+'Min, Dans La Matière '+subject_name+' Prévu à '+str(start_time))
+                        # notification pour le parent
+                        message_notif = ('Votre Enfant '+name+' Est Retard DE : ' + str(
+                            late_mn) + 'Min, Dans La Matière ' + subject_name + ' Prévu à ' + str(start_time))
                     else:
                         status = "Absent"
 
                         # notification pour l'admin
-                        message = ('A Student Is Pointed: \n'+name+ ' is Absent In '+subject_name+'!')
+                        message = ('A Student Is Pointed: \n' + name + ' is Absent In ' + subject_name + '!')
                         self.env.user.notify_info(message)
 
                         # notification pour le parent
-                        message_notif=('Votre Enfant Est Absent(e) Dans La Matière '+subject_name+' Prévu à '+str(start_time))
+                        message_notif = (
+                                    'Votre Enfant '+name+' Est Absent(e) Dans La Matière ' + subject_name + ' Prévu à ' + str(
+                                start_time))
 
-                    #création de la discipline de l'élève necessaire
+                    # création de la discipline de l'élève necessaire
                     self.env['student.desciplines'].create(
                         {'subject_id': subject_id, 'device_datetime': last_date, 'status': status,
                          'student_id': student_id})
 
-                    #création de la notification pour le parent avec le discipline nécessaire
-                    self.env['history.notification'].create(
-                        {'student_id': student_id, 'title': status, 'message': message_notif, 'status_message': 'In Progress','parent_id':parent})
+                    # création de la notification pour le parent avec le discipline nécessaire
+                    #self.env['history.notification'].create(
+                        #{'student_id': student_id, 'title': status, 'message': message_notif,
+                         #'status_message': 'In Progress', 'parent_id': parent})
+                    history_notification.get_notif(status,message_notif)
+                    print("aaa",history_notification.get_notif(status,message_notif))
 
-                    #conter le nombre totales des retard
+
+                    # conter le nombre totales des retard
                     nombreTotaleRetard = self.env['student.desciplines'].search_count(
                         [('status', '=', 'Late'), ('student_id.id', '=', student_id)])
 
-                    #extraire le nombre des avertissements
+                    # extraire le nombre des avertissements
                     nombreTotaleAvert = self.env['student.sanctions'].search(
                         [('sanction', '=', 'avertissement') and ('student_id.id', '=', student_id)])
 
-                    #extraire le nombre des exclus
+                    # extraire le nombre des exclus
                     nombreTotaleExclu = self.env['student.sanctions'].search(
                         [('sanction', '=', 'exclu') and ('student_id.id', '=', student_id)])
 
                     for nbAvert in nombreTotaleAvert:
-                        #supprimer la ligne du table
+                        # supprimer la ligne du table
                         nbAvert.unlink()
 
-                    #calculer le nombre des avertissements totales
+                    # calculer le nombre des avertissements totales
                     numberAver = int(nombreTotaleRetard / settings_nb_avertissement)
-
 
                     sanction = "avertissement"
 
-                    #creer la ligne avertissement dans la table
+                    # creer la ligne avertissement dans la table
                     self.env['student.sanctions'].create(
                         {'sanction': sanction, 'number': numberAver, 'student_id': student_id})
 
                     for nb in nombreTotaleExclu:
-                        #supprimer la ligne de la table
+                        # supprimer la ligne de la table
                         nb.unlink()
 
-                    #calculer le nombre totale des avertissements
+                    # calculer le nombre totale des avertissements
                     numberExclu = int(numberAver / settings_nb_exclu)
                     sanction = "exclu"
 
@@ -184,3 +197,49 @@ class add_student(models.TransientModel):
         else:
             # notification pour l'admin
             self.env.user.notify_info(message='None Pointed Student')
+            print('None Pointed Student')
+
+    def count_discipline_absent(self, id, date_actuelle):
+        count = 0
+
+        discipline_student = self.env['student.desciplines'].search([
+            ('student_id', '=', id)])
+        for c in discipline_student:
+            device = c.device_datetime
+            date = device.strftime("%Y-%m-%d")
+
+            if date_actuelle == date:
+                count = count + 1
+        return count
+
+    # action planifié d'absence des élèves
+    def attendance_student_daily(self):
+
+        # le jour d'aujourd'hui
+        date_actuelle = datetime.date.today().strftime("%Y-%m-%d")
+
+        student_object = self.env['student.student'].search([])
+        for i in student_object:
+            id = i.id
+            name=i.student_name
+
+            if self.count_discipline_absent(id,date_actuelle) == 0:
+
+                self.env['student.daily.disciplines'].create(
+                    {'date': date_actuelle, 'status': 'Absent For Day',
+                     'student_id': id})
+
+                # les informations relatives au parent de l'élève
+                parent_object = self.env['school.parent'].search([('student_id', '=', id)])
+                parent = parent_object.id
+                # création de la notification pour le parent avec l'absence nécessaire
+                message_notif=('Votre Enfant '+name+' Est Absent(e) Le '+date_actuelle)
+                self.env['history.notification'].create(
+                    {'student_id': id, 'title': 'Absent(e) Une Journée', 'message': message_notif,
+                     'status_message': 'In Progress', 'parent_id': parent})
+
+
+#print("Printed immediately.")
+#add_student.test_attendance_student(self)
+#time.sleep(2.4)
+#print("Printed after 2.4 seconds.")

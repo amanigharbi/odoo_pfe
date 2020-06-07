@@ -212,6 +212,7 @@ class StudentStudent(models.Model):
                               ('alumni', 'Alumni')],
                              'Status', readonly=True, default="draft")
     descplines_ids = fields.One2many('student.desciplines', 'student_id', 'Desciplines')
+    daily_discplines_ids = fields.One2many('student.daily.disciplines', 'student_id', 'Daily Disciplines')
     sanctions_ids = fields.One2many('student.sanctions', 'student_id', 'Sanctions')
 
 
@@ -321,7 +322,20 @@ class StudentDesciplines(models.Model):
     subject_id = fields.Many2one('subject.subject', 'Name subject')
     device_datetime = fields.Datetime(string='Device Date Time')
     #status=fields.Char("status")
-    status=fields.Selection([('Absent','Absent'),('Late','Late')])
+    status=fields.Selection([('Absent','Absent'),('Late','Late'),('In Time','In Time')])
+    student_id = fields.Many2one('student.student', 'Student')
+
+    @api.multi
+    def print_report(self):
+        return self.env.ref('school.report_ticket_qweb').report_action(self)
+
+class StudentDailyDesciplines(models.Model):
+    _name = 'student.daily.disciplines'
+    _description = "Student Daily Disciplines"
+
+    date = fields.Datetime(string='Date')
+    #status=fields.Char("status")
+    status=fields.Selection([('Absent For Day','Absent For Day')])
     student_id = fields.Many2one('student.student', 'Student')
 
     @api.multi

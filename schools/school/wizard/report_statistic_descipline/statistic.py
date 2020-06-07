@@ -7,7 +7,28 @@ from datetime import datetime
 class statistic_student(models.TransientModel):
     _name = 'statistic.student'
     _description = "statistic student"
+
+    @api.multi
+    def onchange_school_id(self):
+        for rec in self:
+            print('aaa ', rec.school_id)
+            school = self.env['school.school'].search([('com_name', '=', rec.school_id)])
+            print('bb ', school.id)
+            if rec.school_id:
+                standard = self.env['school.standard'].search([('school_id', '=', school.id)])
+
+                for stand in standard:
+                    print('standard', stand.name)
+                    standard_id=stand.id
+        self.standard_id= self._cr.execute("Select standard_id from school_standard where school_id='Bach Hamba Bizerte'")
+
+
+
+
     standard_id = fields.Many2many('school.standard','standard_stat_rel','standard_id','stat_id','standard')
+    #standard_id = fields.Selection('standard')
+    #school_id=fields.Many2one('school.school')
+    school_id=fields.Selection([('Bach Hamba Bizerte','Bach Hamba Bizerte'),('Jeune Fille Bizerte','Jeune Fille Bizerte')])
     #academic_year = fields.Many2one('academic.year', 'academic_year.name')
 
     # mois = datetime.date.today().strftime("%m")
@@ -27,6 +48,18 @@ class statistic_student(models.TransientModel):
                                  ('Annee', 'Annee'),
                                  ]
                              )
+
+    #@api.onchange('school_id')
+    #def _onchange_school_id(self):
+        #if self.school_id == 'Bach Hamba Bizerte':
+            #self.standard_id=self.env['school.standard'].search[('school_id',self.school_id.id)]
+            #self.date_id=True
+        #else:
+            #self.standard_id = False
+            #self.date_id = False
+
+
+
 
     @api.multi
     def print_report(self):
@@ -121,9 +154,11 @@ class statistic_student(models.TransientModel):
 
                         for rec2 in descipline:
                             countAbsent=self.get_numberDesipline(rec2.id,'Absent')+countAbsent
-                            countlate = self.get_numberDesipline(rec2.id,'late')+countlate
+                            countlate = self.get_numberDesipline(rec2.id,'Late')+countlate
+
                         totalAbsence = countAbsent
                         totallate = countlate
+
 
 
                         percentageAbsence = self.calcul_percentage(nb,totalAbsence,id)

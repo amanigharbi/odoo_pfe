@@ -7,16 +7,27 @@
         <field name="model">statistic.student</field>
         <field name="arch" type="xml">
     <form string="statistic descipline">
-                    <group>
-                        <!--<field name="school_id" placeholder="Choice school .." widget="selection"/>-->
-                         <field name="standard_id" placeholder="Choice class .." widget="many2many_tags"/>
+ <group>
+   <!--   <t t-foreach="docs.school_id" t-as="doc">
+                        <field name="school_id" placeholder="Choice school .." widget="selection"/>
+                       <t t-if="doc.school_id">
+                        <t t-if="doc.school_id.name=='Bach Hamba Bizerte'">
+                         <field name="standard_id" placeholder="Choice class .." />
                         <field name="date_id" placeholder="Choice date .." widget="selection"/>
-                    <!--    <field  name="academic_year" placeholder="Choisir Année scolaire..."  widget="selection" string="Année Scolaire"/> -->
+                    <field  name="academic_year" placeholder="Choisir Année scolaire..."  widget="selection" string="Année Scolaire"/>
+                        </t></t>
+    </t> -->
+      <field name="school_id" placeholder="Choice school .." widget="selection"/>
 
-                    </group>
+       <field name="standard_id" widget="many2many_tags" attrs="{'invisible': [('school_id','!=', 'Bach Hamba Bizerte'),('school_id','!=', 'Jeune Fille Bizerte')]}"
+                                   options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+            <field name="date_id" placeholder="Choice date .." widget="selection" attrs="{'invisible': [('school_id','!=', 'Bach Hamba Bizerte'),('school_id','!=', 'Jeune Fille Bizerte')]}"
+                                   options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+            </group>
+
 
                     <footer>
-                        <button class="oe_highlight" name="print_report" type="object"  string="Imprimer"/>
+                        <button class="oe_highlight" name="print_report" type="object"  string="print"/>
                     </footer>
            </form>
         </field>
