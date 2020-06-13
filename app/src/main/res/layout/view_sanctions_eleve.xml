@@ -9,7 +9,7 @@ android:layout_marginTop="8dp">
 
 <RelativeLayout
     android:paddingBottom="16dp"
-    android:id="@+id/RlInfoEleve"
+    android:id="@+id/RlSanctionsEleve"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginStart="24dp"
@@ -20,7 +20,7 @@ android:layout_marginTop="8dp">
     app:layout_constraintStart_toStartOf="parent">
 
     <TextView
-        android:id="@+id/Nom"
+        android:id="@+id/Status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -29,12 +29,12 @@ android:layout_marginTop="8dp">
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="20dp"
-        android:text="Nom  "
+        android:text="Status  "
         android:textColor="@color/colorPurpleT"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tvNom"
+        android:id="@+id/tvStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -46,7 +46,7 @@ android:layout_marginTop="8dp">
         />
 
     <TextView
-        android:id="@+id/NomParent"
+        android:id="@+id/Nombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -55,12 +55,12 @@ android:layout_marginTop="8dp">
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="60dp"
-        android:text="Nom parent  "
+        android:text="Nombre  "
         android:textColor="@color/colorPurpleT"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tvNomParent"
+        android:id="@+id/tvNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -69,33 +69,6 @@ android:layout_marginTop="8dp">
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:textColor="@color/colorBlack"
-        />
-
-    <TextView
-        android:id="@+id/classe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="100dp"
-        android:text="Classe  "
-        android:textColor="@color/colorPurpleT"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/tvNomClasse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:textColor="@color/colorBlack"
-
         />
 </RelativeLayout>
 

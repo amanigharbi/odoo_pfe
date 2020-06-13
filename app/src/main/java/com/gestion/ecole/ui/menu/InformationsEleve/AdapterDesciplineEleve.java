@@ -37,8 +37,8 @@ public class AdapterDesciplineEleve extends RecyclerView.Adapter<AdapterDescipli
         holder.tvNomMatiere.setText(list.get(position).getNomMatiere());
         holder.tvDateHeure.setText(list.get(position).getDateHeure());
         holder.tvStatus.setText(list.get(position).getSatus());
-        holder.RlDescEleve.setAnimation(AnimationUtils.loadAnimation(context,R.anim.layout_anim_scale));
-        holder.imgInfoDescipline.setAnimation(AnimationUtils.loadAnimation(context,R.anim.layout_anim_transition));
+        holder.RlDescEleve.setAnimation(AnimationUtils.loadAnimation(context, R.anim.layout_anim_scale));
+        holder.imgInfoDescipline.setAnimation(AnimationUtils.loadAnimation(context, R.anim.layout_anim_transition));
     }
 
 

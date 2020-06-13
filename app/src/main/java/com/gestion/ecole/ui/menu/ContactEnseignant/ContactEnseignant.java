@@ -12,9 +12,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 
+
 import com.gestion.ecole.R;
+import com.gestion.ecole.login.SessionManagement;
+import com.gestion.ecole.login.LoginActivity;
 import com.gestion.ecole.odoo.GetConditionData;
-import com.gestion.ecole.odoo.GetDataOdoo;
+
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -54,27 +57,23 @@ public class ContactEnseignant extends AppCompatActivity {
 
 
         try {
-
-                    //Extraire id d'élève
-                    AsyncTask<URL, String, List> InfoEleve = new GetDataOdoo("student.student", new String[]{"id"}).execute();
-                    List Listinfo = InfoEleve.get();
-            for(Map<String,Object> item1: (List<Map<String,Object>>) Listinfo) {
-
-                //Assicier id élève du table student.student avec school.teacher
+            Intent intent=getIntent();
+            String intentId=intent.getStringExtra("id");
+            //Assicier id élève du table student.student avec school.teacher
             AsyncTask<URL, String, List> InfoEnseignant = new GetConditionData("school.teacher", new String[]{"name", "work_email",
-                    "phone_numbers", "id","subject_id","student_id"},"stud_id.id",item1.get("id").toString()).execute();
+                    "phone_numbers", "id","subject_id","student_id"},"stud_id.id",intentId).execute();
             List ListinfoEnseig = InfoEnseignant.get();
 
 
-                    for(Map<String,Object> item: (List<Map<String,Object>>) ListinfoEnseig) {
-                        //Ajouter les attributs dans array
-                        System.out.println("name"+item.get("name").toString());
-                        nomPrenom.add(item.get("name").toString());
-                        email.add(item.get("work_email").toString());
-                        numero.add(item.get("phone_numbers").toString());
+            for(Map<String,Object> item: (List<Map<String,Object>>) ListinfoEnseig) {
+                //Ajouter les attributs dans array
+                System.out.println("name"+item.get("name").toString());
+                nomPrenom.add(item.get("name").toString());
+                email.add(item.get("work_email").toString());
+                numero.add(item.get("phone_numbers").toString());
 
 
-                    } } }catch (ExecutionException e) {
+            } }catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -91,7 +90,7 @@ public class ContactEnseignant extends AppCompatActivity {
             itemEnseignant.add(new ItemEnseignant(nomPrenomArray[i].toString(),
                     emailArray[i].toString(),
                     numeroArray[i].toString()
-                    ));
+            ));
         }
 
         mAdapter = new AdapterContactEns(itemEnseignant,ContactEnseignant.this);
@@ -102,7 +101,7 @@ public class ContactEnseignant extends AppCompatActivity {
 
     }
 
-//POur tolbar , menu,back button
+    //POur tolbar , menu,back button
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -114,7 +113,9 @@ public class ContactEnseignant extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id= item.getItemId();
         if (id== R.id.deconnexion){
-            Intent intent = new Intent(this,com.gestion.ecole.LoginActivity.class);
+            SessionManagement sessionManagement = new SessionManagement(ContactEnseignant.this);
+            sessionManagement.removeSession();
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }else if(id== android.R.id.home){
             this.finish();

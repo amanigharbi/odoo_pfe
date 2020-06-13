@@ -12,7 +12,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 
+import com.gestion.ecole.AccueilActivity;
 import com.gestion.ecole.R;
+import com.gestion.ecole.login.SessionManagement;
+import com.gestion.ecole.login.LoginActivity;
 
 
 import android.widget.ListView;
@@ -51,32 +54,61 @@ public class EmploisEleve extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch(position){
                     case 0: {
-                        startActivity(new Intent(EmploisEleve.this, Emplois_details.class));
+                        Intent i =new Intent(EmploisEleve.this, Emplois_details.class);
+                        Intent intent=getIntent();
+                        String intentId=intent.getStringExtra("id");
+                        i.putExtra("idEnfant",intentId);
+                        startActivity(i);
                         sharedPreferences.edit().putString(SEL_DAY, "Monday").apply();
                         break;
                     }
                     case 1: {
-                        startActivity(new Intent(EmploisEleve.this, Emplois_details.class));
+                        Intent i =new Intent(EmploisEleve.this, Emplois_details.class);
+                        Intent intent=getIntent();
+                        String intentId=intent.getStringExtra("id");
+                        i.putExtra("idEnfant",intentId);
+                        startActivity(i);
+
                         sharedPreferences.edit().putString(SEL_DAY, "Tuesday").apply();
                         break;
                     }
                     case 2: {
-                        startActivity(new Intent(EmploisEleve.this, Emplois_details.class));
+                        Intent i =new Intent(EmploisEleve.this, Emplois_details.class);
+                        Intent intent=getIntent();
+                        String intentId=intent.getStringExtra("id");
+                        i.putExtra("idEnfant",intentId);
+                        startActivity(i);
+
                         sharedPreferences.edit().putString(SEL_DAY, "Wednesday").apply();
                         break;
                     }
                     case 3: {
-                        startActivity(new Intent(EmploisEleve.this, Emplois_details.class));
+                        Intent i =new Intent(EmploisEleve.this, Emplois_details.class);
+                        Intent intent=getIntent();
+                        String intentId=intent.getStringExtra("id");
+                        i.putExtra("idEnfant",intentId);
+                        startActivity(i);
+
                         sharedPreferences.edit().putString(SEL_DAY, "Thursday").apply();
                         break;
                     }
                     case 4: {
-                        startActivity(new Intent(EmploisEleve.this, Emplois_details.class));
+                        Intent i =new Intent(EmploisEleve.this, Emplois_details.class);
+                        Intent intent=getIntent();
+                        String intentId=intent.getStringExtra("id");
+                        i.putExtra("idEnfant",intentId);
+                        startActivity(i);
+
                         sharedPreferences.edit().putString(SEL_DAY, "Friday").apply();
                         break;
                     }
                     case 5: {
-                        startActivity(new Intent(EmploisEleve.this, Emplois_details.class));
+                        Intent i =new Intent(EmploisEleve.this, Emplois_details.class);
+                        Intent intent=getIntent();
+                        String intentId=intent.getStringExtra("id");
+                        i.putExtra("idEnfant",intentId);
+                        startActivity(i);
+
                         sharedPreferences.edit().putString(SEL_DAY, "Saturday").apply();
                         break;
                     }
@@ -98,13 +130,15 @@ public class EmploisEleve extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id= item.getItemId();
         if (id== R.id.deconnexion){
-            Intent intent = new Intent(this,com.gestion.ecole.LoginActivity.class);
+            SessionManagement sessionManagement = new SessionManagement(EmploisEleve.this);
+            sessionManagement.removeSession();
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }else if(id== android.R.id.home){
-        this.finish();
-    }
+            this.finish();
+        }
         return true;
     }
 
-    }
+}
 

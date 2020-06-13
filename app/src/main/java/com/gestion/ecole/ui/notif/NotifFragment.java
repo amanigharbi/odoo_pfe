@@ -1,9 +1,6 @@
 package com.gestion.ecole.ui.notif;
 
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,11 +16,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.gestion.ecole.R;
-
-import java.util.Calendar;
+import com.gestion.ecole.login.LoginActivity;
 
 public class NotifFragment extends Fragment {
 
@@ -78,7 +73,7 @@ public class NotifFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id= item.getItemId();
         if (id== R.id.deconnexion){
-            Intent intent = new Intent(getActivity(),com.gestion.ecole.LoginActivity.class);
+            Intent intent = new Intent(getActivity(), LoginActivity.class);
             startActivity(intent);
         }
         return true;

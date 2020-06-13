@@ -3,34 +3,25 @@ package com.gestion.ecole;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.app.AlarmManager;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.app.TaskStackBuilder;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.gestion.ecole.login.LoginActivity;
+import com.gestion.ecole.login.SessionManagement;
 import com.gestion.ecole.ui.home.HomeFragment;
 import com.gestion.ecole.ui.menu.MenuFragment;
-import com.gestion.ecole.ui.notif.AlarmReceiver;
 import com.gestion.ecole.ui.notif.NotifActivity;
-import com.gestion.ecole.ui.notif.NotifFragment;
-
-import java.util.Calendar;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 public class AccueilActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -43,11 +34,11 @@ public class AccueilActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
-
+        System.out.println("mainactivitys : " + FirebaseInstanceId.getInstance().getToken());
 
 
         //notification
-       AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+      /* AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
         Intent notificationIntent = new Intent(this, AlarmReceiver.class);
 
@@ -55,7 +46,7 @@ public class AccueilActivity extends AppCompatActivity implements View.OnClickLi
 
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.SECOND, 2);
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);*/
 
 
 
@@ -118,7 +109,12 @@ public class AccueilActivity extends AppCompatActivity implements View.OnClickLi
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id= item.getItemId();
         if (id== R.id.deconnexion){
-            Intent intent = new Intent(this,com.gestion.ecole.LoginActivity.class);
+            // Clear the User session data
+            // and redirect user to LoginActivity
+            SessionManagement sessionManagement = new SessionManagement(AccueilActivity.this);
+            sessionManagement.removeSession();
+
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }
         return true;

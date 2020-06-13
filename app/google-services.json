@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "698066961184",
+    "firebase_url": "https://school-59dc1.firebaseio.com",
+    "project_id": "school-59dc1",
+    "storage_bucket": "school-59dc1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:698066961184:android:c7a0394857a387b5930d45",
+        "android_client_info": {
+          "package_name": "com.gestion.ecole"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "698066961184-aqegih20b93g5gb3a4qmllhp9jlcqv31.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gestion.ecole",
+            "certificate_hash": "d524bed6a06236d0d0412579a34308ca22b5557f"
+          }
+        },
+        {
+          "client_id": "698066961184-am0bhbeuls1iaqoad0bsh7qb8trer7ia.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXkv2GxF7pk9cOKrqq7r6H40FdhMdhZX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "698066961184-am0bhbeuls1iaqoad0bsh7qb8trer7ia.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

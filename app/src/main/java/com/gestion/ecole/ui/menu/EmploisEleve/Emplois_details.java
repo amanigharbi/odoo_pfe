@@ -11,7 +11,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.gestion.ecole.AccueilActivity;
 import com.gestion.ecole.R;
+import com.gestion.ecole.login.SessionManagement;
+import com.gestion.ecole.login.LoginActivity;
 import com.gestion.ecole.odoo.Get2ConditionData;
 import com.gestion.ecole.odoo.GetConditionData;
 import com.gestion.ecole.odoo.GetDataOdoo;
@@ -51,9 +54,11 @@ public class Emplois_details extends AppCompatActivity {
         rvDayDetails.setLayoutManager(layoutManager);
 
         try {
+            Intent intent=getIntent();
+            String intentId=intent.getStringExtra("idEnfant");
             //Extraire id du classe du table student.student
-            AsyncTask<URL, String, List> standard_eleve = new GetDataOdoo("student.student",
-                    new String[]{"standard_id", "school_id"}).execute();
+            AsyncTask<URL, String, List> standard_eleve = new GetConditionData("student.student",
+                    new String[]{"id","standard_id", "school_id"},"id",intentId).execute();
             List stan = standard_eleve.get();
 
 
@@ -201,7 +206,9 @@ public class Emplois_details extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id= item.getItemId();
         if (id== R.id.deconnexion){
-            Intent intent = new Intent(this,com.gestion.ecole.LoginActivity.class);
+            SessionManagement sessionManagement = new SessionManagement(Emplois_details.this);
+            sessionManagement.removeSession();
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }else if(id== android.R.id.home){
             this.finish();

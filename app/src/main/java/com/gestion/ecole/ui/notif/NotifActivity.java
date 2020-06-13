@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.gestion.ecole.R;
+import com.gestion.ecole.login.LoginActivity;
+import com.gestion.ecole.login.SessionManagement;
 import com.gestion.ecole.odoo.GetConditionData;
 import com.gestion.ecole.odoo.GetDataOdoo;
 import com.gestion.ecole.odoo.SetDataOdoo;
@@ -100,7 +102,6 @@ RecyclerView rvNotification;
 
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -112,7 +113,9 @@ RecyclerView rvNotification;
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id= item.getItemId();
         if (id== R.id.deconnexion){
-            Intent intent = new Intent(this,com.gestion.ecole.LoginActivity.class);
+            SessionManagement sessionManagement = new SessionManagement(NotifActivity.this);
+            sessionManagement.removeSession();
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }else if(id== android.R.id.home){
             this.finish();

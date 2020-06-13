@@ -1,11 +1,5 @@
 package com.gestion.ecole.ui.menu.InformationsEleve;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,10 +8,16 @@ import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import com.gestion.ecole.R;
-import com.gestion.ecole.odoo.GetConditionData;
-import com.gestion.ecole.odoo.GetDataOdoo;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.gestion.ecole.R;
+import com.gestion.ecole.login.LoginActivity;
+import com.gestion.ecole.login.SessionManagement;
+import com.gestion.ecole.odoo.GetConditionData;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -30,22 +30,21 @@ public class InformationsEleve extends AppCompatActivity {
     ImageButton btHome;
     CardView cvImage,cvInfo;
 
-    RecyclerView rvInformationsEleve,rvDesciplineEleve;
-    AdapterInfoEleve mAdapter;
+    RecyclerView rvSanctionsEleve,rvDesciplineEleve;
+    AdapterSanctionsEleve mAdapter;
     AdapterDesciplineEleve DescAdapter;
 
-    ArrayList<ItemInfoEleve> itemInfoEleve;
+    ArrayList<ItemSanctionsEleve> itemSanctionsEleve;
     ArrayList<ItemDesciplineEleve> itemDesciplineEleve;
 
-    ArrayList<String> nom=new ArrayList<>();
-    ArrayList<String> prenom=new ArrayList<>();
-    ArrayList<String> nomParent=new ArrayList<>();
-    ArrayList<String> nomClasse=new ArrayList<>();
+    ArrayList<String> sanctions=new ArrayList<>();
+    ArrayList<String> nombre=new ArrayList<>();
+
     ArrayList<String> nomMatiere=new ArrayList<>();
     ArrayList<String> dateHeure=new ArrayList<>();
     ArrayList<String> status=new ArrayList<>();
 
-    String[] nomArray,prenomArray,nomParentArray,nomClasseArray,nomMatiereArray,dateHeureArray,statusArray;
+    String[] sanctionArray,nombreArray,nomMatiereArray,dateHeureArray,statusArray;
 
 
     @Override
@@ -58,8 +57,8 @@ public class InformationsEleve extends AppCompatActivity {
 
         cvImage= findViewById(R.id.cvImage);
 
-        rvInformationsEleve=findViewById(R.id.rvInformationsEleve);
-        rvInformationsEleve.setHasFixedSize(true);
+        rvSanctionsEleve=findViewById(R.id.rvSanctionsEleve);
+        rvSanctionsEleve.setHasFixedSize(true);
 
         rvDesciplineEleve=findViewById(R.id.rvDesciplineEleve);
         rvDesciplineEleve.setHasFixedSize(true);
@@ -70,41 +69,25 @@ public class InformationsEleve extends AppCompatActivity {
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(InformationsEleve.this);
         RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(InformationsEleve.this);
-        rvInformationsEleve.setLayoutManager(layoutManager);
+        rvSanctionsEleve.setLayoutManager(layoutManager);
        rvDesciplineEleve.setLayoutManager(layoutManager2);
-
-
-        AsyncTask<URL, String, List> InfoEleve = new GetDataOdoo("student.student", new String[]{"id","last", "name", "parent_id",
-                "standard_id"}).execute();
-
-
-        AsyncTask<URL, String, List> InfoParent = new GetDataOdoo("school.parent", new String[]{"name"}).execute();
 
 
 
         try {
 
-               List ListinfoEleve = InfoEleve.get();
-               List listInfoParent = InfoParent.get();
 
-               //Information eleve
-               for (Map<String, Object> item : (List<Map<String, Object>>) ListinfoEleve) {
-                   nom.add(item.get("name").toString()+" "+item.get("last").toString());
-                   //prenom.add(item.get("name").toString());
-
-                   //Information Parent
-                   for (Map<String, Object> item2 : (List<Map<String, Object>>) listInfoParent) {
-                       nomParent.add((item2.get("name").toString())); }
-
-                   //Nom du claase
-                   Object[] standard_id=(Object[]) item.get("standard_id");
-                   nomClasse.add(standard_id[1].toString());
-
+                   Intent intent=getIntent();
+                   String intentId=intent.getStringExtra("id");
                    //Informations Descipline
                    AsyncTask<URL, String, List> infoDescipline = new GetConditionData("student.desciplines", new String[]{"student_id","subject_id", "device_datetime", "status"},
-                           "student_id.id",item.get("id").toString()).execute();
+                           "student_id.id",intentId).execute();
+
+            AsyncTask<URL, String, List> infoSanctions = new GetConditionData("student.sanctions", new String[]{"student_id","sanction", "number"},
+                    "student_id.id",intentId).execute();
 
                    List ListInfoDescipline = infoDescipline.get();
+                   List ListInfoSanctions = infoSanctions.get();
 
                    for (Map<String, Object> item5 : (List<Map<String, Object>>) ListInfoDescipline) {
 
@@ -114,9 +97,14 @@ public class InformationsEleve extends AppCompatActivity {
                        dateHeure.add(item5.get("device_datetime").toString());
                        status.add(item5.get("status").toString());
                    }
+            for (Map<String, Object> item : (List<Map<String, Object>>) ListInfoSanctions) {
+
+                sanctions.add(item.get("sanction").toString());
+                nombre.add(item.get("number").toString());
+            }
                }
 
-        }
+
         catch (ClassCastException e) {
             e.printStackTrace();
         }
@@ -127,26 +115,17 @@ public class InformationsEleve extends AppCompatActivity {
         }
 
         //Ajouyer les informations aux array
-        nomArray = nom.toArray(new String[nom.size()]);
-      //  prenomArray = prenom.toArray(new String[prenom.size()]);
-        nomParentArray =nomParent.toArray(new String[nomParent.size()]);
-        nomClasseArray =nomClasse.toArray(new String[nomClasse.size()]);
+
+        sanctionArray =sanctions.toArray(new String[sanctions.size()]);
+        nombreArray =nombre.toArray(new String[nombre.size()]);
 
         nomMatiereArray = nomMatiere.toArray(new String[nomMatiere.size()]);
         dateHeureArray =dateHeure.toArray(new String[dateHeure.size()]);
         statusArray =status.toArray(new String[status.size()]);
 
 
-        itemInfoEleve=new ArrayList<>();
+        itemSanctionsEleve =new ArrayList<>();
         itemDesciplineEleve=new ArrayList<>();
-        for(int i=0;i<nomArray.length;i++) {
-
-
-                itemInfoEleve.add(new ItemInfoEleve(nomArray[i].toString(),
-                      //  prenomArray[i].toString(),
-                        nomParentArray[i].toString(),
-                        nomClasseArray[i].toString()));}
-
 
             for (int j = 0; j < nomMatiereArray.length; j++) {
                 itemDesciplineEleve.add(new ItemDesciplineEleve(
@@ -154,12 +133,17 @@ public class InformationsEleve extends AppCompatActivity {
                         dateHeureArray[j].toString(),
                         statusArray[j].toString())); }
 
-        mAdapter = new AdapterInfoEleve(itemInfoEleve,InformationsEleve.this);
-        rvInformationsEleve.setAdapter(mAdapter);
-        rvInformationsEleve.getAdapter().notifyDataSetChanged();
-        rvInformationsEleve.scheduleLayoutAnimation();
+        for(int i=0;i<sanctionArray.length;i++) {
+            itemSanctionsEleve.add(new ItemSanctionsEleve(
+                    sanctionArray[i].toString(),
+                    nombreArray[i].toString()));}
 
-        DescAdapter = new AdapterDesciplineEleve(itemDesciplineEleve,InformationsEleve.this);
+        mAdapter = new AdapterSanctionsEleve(itemSanctionsEleve, InformationsEleve.this);
+        rvSanctionsEleve.setAdapter(mAdapter);
+        rvSanctionsEleve.getAdapter().notifyDataSetChanged();
+        rvSanctionsEleve.scheduleLayoutAnimation();
+
+        DescAdapter = new AdapterDesciplineEleve(itemDesciplineEleve, InformationsEleve.this);
         rvDesciplineEleve.setAdapter( DescAdapter);
         rvDesciplineEleve.getAdapter().notifyDataSetChanged();
         rvDesciplineEleve.scheduleLayoutAnimation();
@@ -177,7 +161,9 @@ public class InformationsEleve extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id= item.getItemId();
         if (id== R.id.deconnexion){
-            Intent intent = new Intent(this,com.gestion.ecole.LoginActivity.class);
+            SessionManagement sessionManagement = new SessionManagement(InformationsEleve.this);
+            sessionManagement.removeSession();
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }else if(id== android.R.id.home){
             this.finish();

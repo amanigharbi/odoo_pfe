@@ -21,6 +21,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.RelativeLayout;
 
 import com.gestion.ecole.R;
+import com.gestion.ecole.login.LoginActivity;
 
 import java.util.ArrayList;
 
@@ -48,7 +49,7 @@ public class MenuFragment extends Fragment {
         rvArticles.setLayoutManager(layoutManager);
 
         ArrayList<ItemMenu> dataArticles = new ArrayList<>();
-        dataArticles.add(new ItemMenu("Informations", "Voir l'état de votre enfant", R.drawable.infor));
+        dataArticles.add(new ItemMenu("Disciplines", "Voir l'état de votre enfant", R.drawable.infor));
         dataArticles.add(new ItemMenu("Emplois", "Voir l'emplois de votre enfant!",R.drawable.time4));
         dataArticles.add(new ItemMenu("Contacts", "Voir les contacts des enseignants",R.drawable.contactenseignant));
 
@@ -102,7 +103,7 @@ public class MenuFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id= item.getItemId();
         if (id== R.id.deconnexion){
-            Intent intent = new Intent(getActivity(),com.gestion.ecole.LoginActivity.class);
+            Intent intent = new Intent(getActivity(), LoginActivity.class);
             startActivity(intent);
         }
         return true;

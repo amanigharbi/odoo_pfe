@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gestion.ecole.R;
+import com.gestion.ecole.ui.enfant.enfant;
 import com.gestion.ecole.ui.menu.ContactEnseignant.ContactEnseignant;
 import com.gestion.ecole.ui.menu.EmploisEleve.EmploisEleve;
 import com.gestion.ecole.ui.menu.InformationsEleve.InformationsEleve;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 public class AdapterMenu  extends RecyclerView.Adapter<AdapterMenu.ViewHolder>{
     ArrayList<ItemMenu> list;
     Context context;
+    String variable="";
 
     public AdapterMenu(ArrayList<ItemMenu> list, Context context) {
         this.list = list;
@@ -44,14 +46,21 @@ public class AdapterMenu  extends RecyclerView.Adapter<AdapterMenu.ViewHolder>{
         viewHolder.btReadMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i1=new Intent(v.getContext(), enfant.class);
+                if(list.get(i).getTitle() == "Disciplines")
+                {
+                    i1.putExtra("1",list.get(i).getTitle());
+                    v.getContext().startActivity(i1);}
 
-                if(list.get(i).getTitle() == "Informations")
-                { v.getContext().startActivity(new Intent(v.getContext(), InformationsEleve.class));}
-                   else if (list.get(i).getTitle() == "Contacts")
-                    v.getContext().startActivity(new Intent(v.getContext(), ContactEnseignant.class));
-                   else if (list.get(i).getTitle() == "Emplois"){
-                    v.getContext().startActivity(new Intent(v.getContext(), EmploisEleve.class));
-
+                else if (list.get(i).getTitle() == "Contacts") {
+                    i1.putExtra("1",list.get(i).getTitle());
+                    v.getContext().startActivity(i1);
+                    // v.getContext().startActivity(new Intent(v.getContext(), ContactEnseignant.class));
+                }
+                else if (list.get(i).getTitle() == "Emplois"){
+                    //v.getContext().startActivity(new Intent(v.getContext(), EmploisEleve.class));
+                    i1.putExtra("1",list.get(i).getTitle());
+                    v.getContext().startActivity(i1);
                 }
             }
         });

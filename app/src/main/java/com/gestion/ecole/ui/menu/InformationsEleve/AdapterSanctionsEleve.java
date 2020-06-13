@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
-import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -17,12 +16,12 @@ import com.gestion.ecole.R;
 
 import java.util.ArrayList;
 
-public class AdapterInfoEleve extends RecyclerView.Adapter<AdapterInfoEleve.ViewHolder> {
+public class AdapterSanctionsEleve extends RecyclerView.Adapter<AdapterSanctionsEleve.ViewHolder> {
 
-    ArrayList<ItemInfoEleve> list;
+    ArrayList<ItemSanctionsEleve> list;
     Context context;
 
-    public AdapterInfoEleve(ArrayList<ItemInfoEleve> list, Context context) {
+    public AdapterSanctionsEleve(ArrayList<ItemSanctionsEleve> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -30,19 +29,19 @@ public class AdapterInfoEleve extends RecyclerView.Adapter<AdapterInfoEleve.View
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(context).inflate(R.layout.view_informations_eleve, parent, false);
+        View v = LayoutInflater.from(context).inflate(R.layout.view_sanctions_eleve, parent, false);
         return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
        // LayoutAnimationController animation = AnimationUtils.loadLayoutAnimation(context, R.anim.layoutanim);
-        holder.tvNom.setText(list.get(position).getNom());
-        holder.tvNomParent.setText(list.get(position).getNomParent());
-        holder.tvNomClasse.setText(list.get(position).getNomClasse());
+        holder.tvStatus.setText(list.get(position).getTvStatus());
+        holder.tvNombre.setText(list.get(position).getTvNombre());
 
-        holder.imgInfoEleve.setAnimation(AnimationUtils.loadAnimation(context,R.anim.layout_anim_transition));
-        holder.RlInfoEleve.setAnimation(AnimationUtils.loadAnimation(context,R.anim.layout_anim_scale));
+
+        holder.imgInfoEleve.setAnimation(AnimationUtils.loadAnimation(context, R.anim.layout_anim_transition));
+        holder.RlSanctionsEleve.setAnimation(AnimationUtils.loadAnimation(context, R.anim.layout_anim_scale));
     }
 
     @Override
@@ -53,22 +52,21 @@ public class AdapterInfoEleve extends RecyclerView.Adapter<AdapterInfoEleve.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView tvNom, tvNomParent,tvNomClasse;
-        public RelativeLayout RlInfoEleve;
-        public RecyclerView rvInformationsEleve;
+        public TextView tvStatus, tvNombre;
+        public RelativeLayout RlSanctionsEleve;
         public ImageView imgInfoEleve;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            tvNom = itemView.findViewById(R.id.tvNom);
-            tvNomParent = itemView.findViewById(R.id.tvNomParent);
-            tvNomClasse = itemView.findViewById(R.id.tvNomClasse);
+            tvStatus = itemView.findViewById(R.id.tvStatus);
+            tvNombre = itemView.findViewById(R.id.tvNombre);
+
 
            imgInfoEleve=itemView.findViewById(R.id.imgInfoEleve);
 
-           RlInfoEleve = itemView.findViewById(R.id.RlInfoEleve);
-            rvInformationsEleve=itemView.findViewById(R.id.rvInformationsEleve);
+            RlSanctionsEleve = itemView.findViewById(R.id.RlSanctionsEleve);
+
 
         }
     }
