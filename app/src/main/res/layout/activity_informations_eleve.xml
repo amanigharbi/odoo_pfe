@@ -19,49 +19,49 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:fontFamily="@font/nexabold"
-        android:text="Informations enfant"
+        android:text="Discipline/Sanction Enfant"
         android:textColor="@color/colorPurpleT"
         android:textSize="18sp" />
 
-<RelativeLayout
-    android:id="@+id/rlcard"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="50dp"
-   >
+    <RelativeLayout
+        android:id="@+id/rlcard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        >
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvImage"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="120dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="3dp">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="120dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="3dp">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-            >
+                >
 
-            <pl.droidsonroids.gif.GifImageView
-                android:id="@+id/img"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/giphy1"/>
+                <pl.droidsonroids.gif.GifImageView
+                    android:id="@+id/img"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/giphy1"/>
 
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
-
-
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
 
 
-</RelativeLayout>
+
+
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvInformationsEleve"
+        android:id="@+id/rvSanctionsEleve"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         app:cardCornerRadius="10dp"

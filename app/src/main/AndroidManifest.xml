@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.gestion.ecole">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,6 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.enfant.enfant"></activity>
         <activity android:name=".ui.menu.EmploisEleve.Emplois_details"
             android:parentActivityName=".ui.menu.EmploisEleve.EmploisEleve"></activity>
         <activity android:name=".ui.menu.MenuFragment" />
@@ -41,7 +43,7 @@
 
         <activity android:name=".HomeActivity" />
         <activity android:name=".AccueilActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".login.LoginActivity" />
         <activity
             android:name=".Introduction"
             android:theme="@style/AppTheme.FullScreen" />
@@ -53,6 +55,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.menu.AdapterMenu" />
+
+        <!-- Firebase Notifications -->
+        <service android:name=".service.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>
