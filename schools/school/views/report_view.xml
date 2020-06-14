@@ -7,9 +7,9 @@
                 report_type="qweb-pdf"
                 file="school.identity_card"
                 name="school.identity_card" groups="school.group_school_administration,school.group_school_teacher,school.group_school_student"/>
-        <report id="report_time_table_qweb"
-                string="Timetable"
-                model="time.table"
+        <report id="report_timetable_qweb"
+                string="timetable"
+                model="timetable"
                 report_type = "qweb-pdf"
                 file="school.timetable"
                 name="school.timetable" />

@@ -97,12 +97,12 @@ class StudentStudent(models.Model):
         # Assign group to student based on condition
         emp_grp = self.env.ref('base.group_user')
         if res.state == 'draft':
-            admission_group = self.env.ref('school.group_is_admission')
-            new_grp_list = [admission_group.id, emp_grp.id]
+            assign_group = self.env.ref('school.group_is_assign')
+            new_grp_list = [assign_group.id, emp_grp.id]
             res.user_id.write({'groups_id': [(6, 0, new_grp_list)]})
-        elif res.state == 'done':
-            done_student = self.env.ref('school.group_school_student')
-            group_list = [done_student.id, emp_grp.id]
+        elif res.state == 'registered':
+            registered_student = self.env.ref('school.group_school_student')
+            group_list = [registered_student.id, emp_grp.id]
             res.user_id.write({'groups_id': [(6, 0, group_list)]})
         return res
 
@@ -129,7 +129,7 @@ class StudentStudent(models.Model):
     @api.depends('state')
     def _compute_teacher_user(self):
         for rec in self:
-            if rec.state == 'done':
+            if rec.state == 'registered':
                 teacher = self.env.user.has_group("school.group_school_teacher"
                                                   )
                 if teacher:
@@ -149,7 +149,7 @@ class StudentStudent(models.Model):
     family_con_ids = fields.One2many('student.family.contact',
                                      'family_contact_id',
                                      'Family Contact Detail',
-                                     states={'done': [('readonly', True)]})
+                                     states={'registered': [('readonly', True)]})
     user_id = fields.Many2one('res.users', 'User ID', ondelete="cascade",
                               required=True, delegate=True)
     student_name = fields.Char('Student Name', related='user_id.name',
@@ -160,35 +160,33 @@ class StudentStudent(models.Model):
     reg_code = fields.Char('Registration Code',
                            help='Student Registration Code')
     student_code = fields.Char('Student Code')
-    contact_phone = fields.Char('Phone no.')
-    contact_mobile = fields.Char('Mobile no')
     photo = fields.Binary('Photo', default=_default_image)
     year = fields.Many2one('academic.year', 'Academic Year', readonly=True,
                            default=check_current_year)
     cast_id = fields.Many2one('student.cast', 'Religion/Caste')
     relation = fields.Many2one('student.relation.master', 'Relation')
 
-    admission_date = fields.Date('Admission Date', default=date.today())
+    assign_date = fields.Date('Assign Date', default=date.today())
     last = fields.Char('Surname', required=True,
-                       states={'done': [('readonly', True)]})
+                       states={'registered': [('readonly', True)]})
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')],
-                              'Gender', states={'done': [('readonly', True)]})
+                              'Gender', states={'registered': [('readonly', True)]})
     date_of_birth = fields.Date('BirthDate', required=True,
-                                states={'done': [('readonly', True)]})
+                                states={'registered': [('readonly', True)]})
     mother_tongue = fields.Many2one('mother.toungue', "Mother Tongue")
     age = fields.Integer(compute='_compute_student_age', string='Age',
                          readonly=True)
     maritual_status = fields.Selection([('unmarried', 'Unmarried'),
                                         ('married', 'Married')],
                                        'Marital Status',
-                                       states={'done': [('readonly', True)]})
+                                       states={'registered': [('readonly', True)]})
 
     previous_school_ids = fields.One2many('student.previous.school',
                                           'previous_school_id',
                                           'Previous School Detail',
-                                          states={'done': [('readonly',
+                                          states={'registered': [('readonly',
                                                             True)]})
-    doctor = fields.Char('Doctor Name', states={'done': [('readonly', True)]})
+    doctor = fields.Char('Doctor Name', states={'registered': [('readonly', True)]})
     designation = fields.Char('Designation')
     doctor_phone = fields.Char('Contact No.')
     blood_group = fields.Char('Blood Group')
@@ -204,12 +202,12 @@ class StudentStudent(models.Model):
     dermatological = fields.Boolean('Dermatological')
     blood_pressure = fields.Boolean('Blood Pressure')
     school_id = fields.Many2one('school.school', 'School',
-                                states={'done': [('readonly', True)]})
+                                states={'registered': [('readonly', True)]})
     state = fields.Selection([('draft', 'Draft'),
-                              ('done', 'Done'),
+                              ('registered', 'registered'),
                               ('terminate', 'Terminate'),
                               ('cancel', 'Cancel'),
-                              ('alumni', 'Alumni')],
+                              ('ancient', 'ancient')],
                              'Status', readonly=True, default="draft")
     descplines_ids = fields.One2many('student.desciplines', 'student_id', 'Desciplines')
     daily_discplines_ids = fields.One2many('student.daily.disciplines', 'student_id', 'Daily Disciplines')
@@ -231,7 +229,7 @@ class StudentStudent(models.Model):
     parent_id = fields.Many2many('school.parent', 'students_parents_rel',
                                  'student_id',
                                  'students_parent_id', 'Parent(s)',
-                                 states={'done': [('readonly', True)]})
+                                 states={'registered': [('readonly', True)]})
     teacher_id = fields.Many2many('school.teacher','students_teachers_rel','student_id','students_teacher_id', 'Teacher')
 
     terminate_reason = fields.Text('Reason')
@@ -247,11 +245,11 @@ class StudentStudent(models.Model):
         self.state = 'draft'
 
     @api.multi
-    def set_alumni(self):
-        '''Method to change state to alumni'''
+    def set_ancient(self):
+        '''Method to change state to ancient'''
         student_user = self.env['res.users']
         for rec in self:
-            rec.state = 'alumni'
+            rec.state = 'ancient'
             rec.standard_id._compute_total_student()
             user = student_user.search([('id', '=',
                                          rec.user_id.id)])
@@ -260,12 +258,12 @@ class StudentStudent(models.Model):
                 user.active = False
 
     @api.multi
-    def set_done(self):
-        '''Method to change state to done'''
-        self.state = 'done'
+    def set_registered(self):
+        '''Method to change state to registered'''
+        self.state = 'registered'
 
     @api.multi
-    def admission_draft(self):
+    def assign_draft(self):
         '''Set the state to draft'''
         self.state = 'draft'
 
@@ -274,12 +272,12 @@ class StudentStudent(models.Model):
         self.state = 'terminate'
 
     @api.multi
-    def cancel_admission(self):
+    def cancel_assign(self):
         self.state = 'cancel'
 
     @api.multi
-    def admission_done(self):
-        '''Method to confirm admission'''
+    def assign_registered(self):
+        '''Method to confirm assign'''
         school_standard_obj = self.env['school.standard']
         ir_sequence = self.env['ir.sequence']
         student_group = self.env.ref('school.group_school_student')
@@ -310,8 +308,8 @@ class StudentStudent(models.Model):
             student_code = (str(rec.school_id.code) + str('/') +
                             str(rec.year.code) + str('/') +
                             str(stu_code))
-            rec.write({'state': 'done',
-                       'admission_date': time.strftime('%Y-%m-%d'),
+            rec.write({'state': 'registered',
+                       'assign_date': time.strftime('%Y-%m-%d'),
                        'student_code': student_code,
                        'reg_code': registation_code})
         return True

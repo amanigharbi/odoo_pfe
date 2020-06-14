@@ -42,8 +42,7 @@
     <t t-name="HrAttendanceKioskConfirm">
         <div class="o_hr_attendance_kiosk_mode_container o_app_switcher_background">
             <div class="o_hr_attendance_kiosk_mode">
-                <t t-if="widget.employee_id">
-                    <h1>Welcome <t t-esc="widget.employee_name"/></h1>
+
                     <t t-if="!widget.use_pin">
                         <t t-if="widget.employee_state=='checked_in'">
                             <h2>Check out</h2>

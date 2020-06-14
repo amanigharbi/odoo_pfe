@@ -8,7 +8,6 @@
                    <!-- <field name="device_uid"/> -->
                     <field name="device_user_id"/>
                     <field name="name"/>
-                    <field name="employee_id"/>
                 </tree>
             </field>
         </record>
@@ -21,7 +20,6 @@
                     <group>
                         <field name="device_user_id" required="True"/>
                          <field name="name" required="True"/>
-                        <field name="employee_id"/>
                         <field name="device_id"/>
                     </group>
                     <footer>
@@ -63,7 +61,7 @@
                 <search string="Device users Search View">
                     <!-- <field name="device_uid"/> -->
                     <field name="device_user_id"/>
-                    <field name="employee_id"/>
+
                     <field name="name"/>
                 </search>
             </field>

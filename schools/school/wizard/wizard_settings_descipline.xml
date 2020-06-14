@@ -13,7 +13,7 @@
                     </group>
                     <group colspan="2" col="6">
                         <field name="max_late"  />
-                        <field name="max_time_study" />
+
                     </group>
                    <footer>
                        <button class="btn btn-sm btn-default fa fa-plus" name="save_settings" string="Save" type="object"/>

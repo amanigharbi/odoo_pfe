@@ -17,7 +17,7 @@ class MoveStandards(models.TransientModel):
         school_stand_obj = self.env['school.standard']
         standard_obj = self.env["standard.standard"]
         student_obj = self.env['student.student']
-        for stud in student_obj.search([('state', '=', 'done')]):
+        for stud in student_obj.search([('state', '=', 'registered')]):
             year_id = academic_obj.next_year(stud.year.sequence)
             academic_year = academic_obj.search([('id', '=', year_id)],
                                                 limit=1)

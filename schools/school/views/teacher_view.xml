@@ -114,7 +114,7 @@
                                 </group>
                             </page>
                             <page string="Children" attrs="{'invisible': [('is_parent','=', False)]}">
-                                 <field name="student_id" domain="[('state', '=', 'done')]"/>
+                                 <field name="student_id" domain="[('state', '=', 'registered')]"/>
                             </page>
                             <page string="HR Settings" groups="hr.group_hr_user" invisible="1">
                                 <group>

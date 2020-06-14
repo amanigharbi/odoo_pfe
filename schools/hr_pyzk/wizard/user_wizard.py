@@ -1,17 +1,10 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
-# For copyright and license notices, see __openerp__.py file in root directory
-##############################################################################
-
-#from datetime import datetime
-import this
 
 from odoo import models, fields, api, exceptions, _
 import datetime
 import pytz
 from addons.hr_pyzk.controllers import controller as c
-from odoo.exceptions import ValidationError
-
 
 
 class UserWizard(models.TransientModel):
@@ -32,9 +25,7 @@ class UserWizard(models.TransientModel):
                     'device_uid': user.uid,
                     'name': user.name,
                 })
-
-
-    def import_attendance(self): # Import Attendance Wizard
+    def test_search_attendance(self,times,attendances):
         all_attendances = []
         all_attendances.clear()
         all_clocks = []
@@ -42,39 +33,81 @@ class UserWizard(models.TransientModel):
         device_user_object = self.env['device.users']
         device_users = device_user_object.search([])
         attendance_object = self.env['device.attendances']
+
+
+
+        all_attendances = [[y.id, x[1].astimezone(pytz.utc), x[2], x[3]]
+                           for x in attendances for y in device_users if
+                           int(x[0]) == y.device_user_id]
+
+        all_clocks.extend(all_attendances)
+        print('aaaaaaaaaaaaaaa', all_clocks)
+        for cl in all_clocks:
+            attendance_object.create({
+                'device_user_id': cl[0],
+                'device_datetime': times,
+                'device_punch': cl[2],
+                'attendance_state': 0,
+                'device_id': cl[3],
+            })
+    def test_attendance_odoo(self,a,time_attendance_device):
+        all_attendances = []
+        all_attendances.clear()
+        all_clocks = []
+        all_clocks.clear()
+        device_user_object = self.env['device.users']
+        device_users = device_user_object.search([])
+        attendance_object = self.env['device.attendances']
+
+
+
+        all_attendances = [[y.id, a[1].astimezone(pytz.utc), a[2], a[3]]
+                           for y in device_users if
+                           int(a[0]) == y.device_user_id]
+
+        all_clocks.extend((all_attendances))
+        print("nooo", all_clocks)
+
+        for all in all_clocks:
+            attendance_object.create({
+                'device_user_id': int(all[0]),
+                'device_datetime': time_attendance_device,
+                'device_punch': all[2],
+                'attendance_state': 0,
+                'device_id': all[3],
+            })
+    def get_time(self,a):
+        time_attendance_device = a[1] + datetime.timedelta(hours=-1)
+        return time_attendance_device
+    def import_attendance(self): # Import Attendance Wizard
+        attendance_object = self.env['device.attendances']
         devices_object = self.env['devices']
         devices = devices_object.search([('state', '=', 0)])
-        # user_tz = self.env.user.tz
-        # local = pytz.timezone(user_tz)
-        # local_time = datetime.datetime.now()
-        # difference = (pytz.timezone('UTC').localize(local_time) - local.localize(local_time))
+
         for device in devices:
             attendances = c.DeviceUsers.get_attendance(device)
-            latest_rec = attendance_object.search([('device_id', '=', device.id)], limit=1)
-            if latest_rec:
-                latest_datetime = str(latest_rec.device_datetime)
-                latest_datetime = datetime.datetime.strptime(latest_datetime, '%Y-%m-%d %H:%M:%S')
-                latest_datetime = latest_datetime + datetime.timedelta(hours=device.difference)
 
-                all_attendances = [[y.id, x[1].astimezone(pytz.utc), x[2], x[3]]
-                                   for x in attendances for y in device_users if
-                                   int(x[0]) == y.device_user_id and x[2] <= 1 and x[1] > latest_datetime]
-            else:
+            for a in attendances:
+                attendance_odoo_search = attendance_object.search([])
+                #methode pour obtenir l'heure
+                times = self.get_time(a)
 
-                all_attendances = [[y.id, x[1].astimezone(pytz.utc), x[2], x[3]]
-                                   for x in attendances for y in device_users if
-                                   int(x[0]) == y.device_user_id and x[2] <= 1]
-            all_clocks.extend((all_attendances))
+                attendance_odoo = attendance_object.search_count([
+                    ('device_id', '=', device.id),('device_user_id.device_user_id', '=', a[0]),
+                    ('device_datetime', '=', times)])
 
-        for a in all_clocks:
-            attendance_object.create({
-                'device_user_id': int(a[0]),
-                'device_datetime': a[1]+ datetime.timedelta(hours=device.difference),
-                'device_punch': a[2],
-                #'repeat': a[4],
-                'attendance_state': 0,
-                'device_id': a[3],
-            })
+                #s'il n'existe pas un attendance comme celui çi dans la pointage ,il va l'ajouter
+                if attendance_odoo == 0:
+                    self.test_attendance_odoo(a,times)
+
+                elif not attendance_odoo_search:
+                    # chercher s'il n'y a aucune attendance dans device_attendance
+                    self.test_search_attendance(times, attendances)
+
+
+
+
+
 
     def employee_attendance(self): # combining employee attendances
         device_user_object  = self.env['device.users']
@@ -112,37 +145,6 @@ class UserWizard(models.TransientModel):
                     if record.attendance_state == 0:
                         record.attendance_state = 1
         return all_attendance
-
-    @api.multi
-    def combine_attendance(self):
-        combined_attendances_object= self.env['combined.attendances']
-        valid_attendances = []
-        valid_attendances.clear()
-        valid_attendances = self.employee_attendance()
-        for attendance in valid_attendances:
-            combined_attendances_object.create({
-                'device_user_id': int(attendance[0]),
-                'device_date': attendance[1].date(),
-                'device_clockin': attendance[1],
-                'device_clockout': attendance[2],
-            })
-
-    def transfer_attendance(self):
-        combined_attendance_object = self.env['combined.attendances']
-        hr_attendance_object = self.env['hr.attendance']
-        all_data = combined_attendance_object.search([('state', '=', 'Not Transferred'), ('employee_id', '!=', False)])
-
-        for attendance in all_data:
-            # if attendance.employee_id:
-            hr_attendance_object.create({
-                'employee_id': attendance.employee_id.id,
-                'check_in': attendance.device_clockin,
-                'check_out': attendance.device_clockout,
-            })
-
-            attendance.state = 'Transferred'
-
-
 
 
 

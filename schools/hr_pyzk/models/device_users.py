@@ -10,18 +10,13 @@ class DeviceUser(models.Model):
 
 
     device_user_id = fields.Integer('Device User ID')
-    # device_user_id = fields.Many2one('student_student','student.user_id')
     device_uid = fields.Integer('Device UID') # uid in the device. Important to delete user in the future
     name = fields.Char('Device User Name')
     #  name = fields.Many2one('student_student', 'student.name')
-    employee_id = fields.Many2one('hr.employee', 'Related employee')
+
     device_id = fields.Many2one('devices', 'Fingerprint Device')
 
-    _sql_constraints = [
-        ('employee_id_uniq', 'unique (employee_id)',
-         'It is not possible to relate an employee with a pyzk user '
-         'more than once!'),
-    ]
+
 
     _sql_constraints = [
         ('device_user_id_uniq', 'unique (device_user_id)',
