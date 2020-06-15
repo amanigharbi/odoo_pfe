@@ -26,12 +26,8 @@ class parametrage_descipline(models.TransientModel):
             new_nb_exclu=data['form']['number_exclu']
             new_max_late=data['form']['max_late']
 
-            print('n',new_nb_avert)
             for a in search:
                 a.unlink()
-
-
-
         self.env['settings.descipline'].create({'number_avertissement':new_nb_avert,
                     'number_exclu': new_nb_exclu,
                     'max_late':new_max_late,
