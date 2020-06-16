@@ -672,15 +672,13 @@
 
     <!-- Menu Item Of EMS -->
     <menuitem id="menu_school" name="School" web_icon="school,static/description/icon.png" sequence="1"/>
-    <!-- MenuItem Of Admission Register -->
-    <menuitem id="admission_register" name="Admission Register" parent="menu_school" sequence="2" groups="school.group_school_administration,school.group_is_admission"/>
-    <menuitem id="menu_admission_form" name="Admission Register" parent="admission_register" action="action_student_student_form_2" sequence="21" groups="school.group_school_administration,school.group_is_admission"/>
+    <!-- MenuItem Of Assign class -->
+    <menuitem id="assign_class" name="Assign class" parent="menu_school" sequence="2" groups="school.group_school_administration,school.group_is_assign"/>
+    <menuitem id="menu_assign_form" name="Assign class" parent="assign_class" action="action_student_student_form_2" sequence="21" groups="school.group_school_administration,school.group_is_assign"/>
     <!-- Menu Item Of Students & Parents -->
     <menuitem id="menu_students_parents" name="Student" parent="menu_school" sequence="3"/>
     <menuitem id="menu_student_profile" name="Student List" parent="menu_students_parents" action="action_student_student_form_12" groups="school.group_school_administration,school.group_school_student,school.group_school_teacher,school.group_school_parent" sequence="31"/>
-        <!-- Menu items of Timetable -->
- <menuitem id="menu_timetable_regular" name="Timetable" parent="menu_students_parents" action="action_timetable_regular" groups="school.group_school_administration,school.group_school_teacher,school.group_school_student,school.group_school_parent"/>
-     <!-- <menuitem id="menu_time_table" name="TimeTable" parent="menu_students_parents"  action="action_timetable"  groups="school.group_school_administration,school.group_school_teacher,school.group_school_eleve,school.group_school_parent" sequence="33"/> -->
+
    <!-- menu config -->
     <menuitem id="menu_configuration" name="Configurations" parent="menu_school" sequence="7" groups="group_school_administration" />
     <!-- MenuItem For Configurations->School Configurations -->
@@ -704,8 +702,8 @@
     <!-- MenuItem For Configurations->Subject -->
     <menuitem id="menu_subject_subject_form" name="Subjects" parent="menu_configuration" sequence="10" />
     <menuitem id="menu_subject_subject_sub_form" name="Subjects" parent="menu_subject_subject_form" action="action_subject_subject_form" />
-    <!-- Menuitem of alumni and terminate -->
-    <menuitem id="menu_student_alumni" name="Alumni/Terminate" action="action_student_alumni" parent="admission_register" groups="school.group_school_administration,school.group_school_teacher" sequence="22"/>
+    <!-- Menuitem of ancient and terminate -->
+    <menuitem id="menu_student_ancient" name="ancient/Terminate" action="action_student_ancient" parent="assign_class" groups="school.group_school_administration,school.group_school_teacher" sequence="22"/>
     <menuitem
         id="hr.menu_hr_root"
         name="Employees"

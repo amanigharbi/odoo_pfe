@@ -32,6 +32,6 @@
     </record>
 
     <!-- MenuItem For Configurations->Move Classes -->
-    <menuitem id="menu_add_student_form" name="Save Student" parent="menu_students_parents" action="action_add_student_form"  sequence="32"/>
+    <menuitem id="menu_add_student_form" name="Add Student In Device" parent="menu_students_parents" action="action_add_student_form"  sequence="32"/>
 
 </odoo>

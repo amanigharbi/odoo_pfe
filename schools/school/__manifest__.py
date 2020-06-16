@@ -10,7 +10,7 @@
     'complexity': 'easy',
     'Summary': 'A Module For School Management',
     'images': ['static/description/EMS.jpg'],
-    'depends': ['hr', 'crm', 'account'],
+    'depends': ['hr', 'account'],
     'data': ['security/school_security.xml',
              'security/ir.model.access.csv',
              'wizard/terminate_reason_view.xml',

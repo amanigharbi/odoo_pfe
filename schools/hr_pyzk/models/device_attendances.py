@@ -10,14 +10,9 @@ class DeviceAttendances(models.Model):
     _order = "device_datetime desc"
 
 
-    @api.one
-    @api.depends('device_id')
-    def _compute_get_employee_id(self):
-        if self.device_user_id.employee_id:
-            self.employee_id = self.device_user_id.employee_id
+
 
     device_user_id = fields.Many2one('device.users','Name')
-    employee_id = fields.Many2one('hr.employee', 'Related employee', compute=_compute_get_employee_id, store=True )
     device_datetime = fields.Datetime(string="Device Datetime")
     device_punch = fields.Selection([(0, 'Check In'), (1, 'Check Out')], string='Device Punch')
     attendance_state = fields.Selection([(0, 'Not Logged'), (1, 'Logged')], string='Status', default = 0)

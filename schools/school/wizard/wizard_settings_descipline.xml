@@ -9,9 +9,11 @@
                     <group colspan="4" col="6">
                         <field name="number_avertissement" />
                         <field name="number_exclu" />
+
                     </group>
                     <group colspan="2" col="6">
                         <field name="max_late"  />
+
                     </group>
                    <footer>
                        <button class="btn btn-sm btn-default fa fa-plus" name="save_settings" string="Save" type="object"/>

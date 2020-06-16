@@ -207,14 +207,14 @@ class SchoolStandard(models.Model):
     @api.depends('standard_id', 'school_id', 'division_id',
                  'school_id')
     def _compute_student(self):
-        '''Compute student of done state'''
+        '''Compute student of registered state'''
         student_obj = self.env['student.student']
         for rec in self:
             rec.student_ids= student_obj.\
                 search([('standard_id', '=', rec.id),
                         ('school_id', '=', rec.school_id.id),
                         ('division_id', '=', rec.division_id.id),
-                        ('state', '=', 'done')])
+                        ('state', '=', 'registered')])
 
     @api.onchange('standard_id', 'division_id')
     def onchange_combine(self):
@@ -428,21 +428,21 @@ class StudentPreviousSchool(models.Model):
     previous_school_id = fields.Many2one('student.student', 'Student')
     name = fields.Char('Name', required=True)
     registration_no = fields.Char('Registration No.', required=True)
-    admission_date = fields.Date('Admission Date')
+    assign_date = fields.Date('Assign Date')
     exit_date = fields.Date('Exit Date')
     course_id = fields.Many2one('standard.standard', 'Course', required=True)
     add_sub = fields.One2many('academic.subject', 'add_sub_id', 'Add Subjects')
 
-    @api.constrains('admission_date', 'exit_date')
+    @api.constrains('assign_date', 'exit_date')
     def check_date(self):
         curr_dt = datetime.now()
         new_dt = datetime.strftime(curr_dt,
                                    DEFAULT_SERVER_DATE_FORMAT)
-        if self.admission_date >= new_dt or self.exit_date >= new_dt:
-            raise ValidationError(_('''Your admission date and exit date
+        if self.assign_date >= new_dt or self.exit_date >= new_dt:
+            raise ValidationError(_('''Your assign date and exit date
             should be less than current date in previous school details!'''))
-        if self.admission_date > self.exit_date:
-            raise ValidationError(_(''' Admission date should be less than
+        if self.assign_date > self.exit_date:
+            raise ValidationError(_(''' assign date should be less than
             exit date in previous school!'''))
 
 

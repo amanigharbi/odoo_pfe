@@ -2,8 +2,160 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efeffaa3-b337-4c77-a402-e15acfd1ba6d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/schools/school/backup_database/odoo_database/school_2020-06-15_10-05-26.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/backup_database/pgAdmin_database/school.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/public-2019.4.13-py3.6.egg-info/PKG-INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/public-2019.4.13-py3.6.egg-info/SOURCES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/public-2019.4.13-py3.6.egg-info/installed-files.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/public-2019.4.13-py3.6.egg-info/requires.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/public-2019.4.13-py3.6.egg-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/public/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pyfcm-1.4.7-py3.6.egg-info/PKG-INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pyfcm-1.4.7-py3.6.egg-info/SOURCES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pyfcm-1.4.7-py3.6.egg-info/installed-files.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pyfcm-1.4.7-py3.6.egg-info/requires.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pyfcm-1.4.7-py3.6.egg-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pyfcm/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pyfcm/__meta__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pyfcm/baseapi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pyfcm/errors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pyfcm/fcm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/self-2019.4.13-py3.6.egg-info/PKG-INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/self-2019.4.13-py3.6.egg-info/SOURCES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/self-2019.4.13-py3.6.egg-info/installed-files.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/self-2019.4.13-py3.6.egg-info/requires.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/self-2019.4.13-py3.6.egg-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/self/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/odoo-server.conf" beforeDir="false" afterPath="$PROJECT_DIR$/odoo-server.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/.idea/hr_pyzk.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/controllers/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/controllers/controller.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/data/VerificationEcole.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/data/VerificationSchool.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/data/importAttendances.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/images/CreateDevice.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/images/SecurityGroup.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/images/User-AttendanceWizard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/images/Userform.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/images/Users.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/images/main_screenshot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/images/timedifference.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/models/add_users.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/models/combined_attendances.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/models/device_attendances.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/models/device_users.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/models/devices.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/basic_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/build/lib/zk/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/build/lib/zk/attendance.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/build/lib/zk/base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/build/lib/zk/const.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/build/lib/zk/exception.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/build/lib/zk/finger.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/build/lib/zk/user.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/dist/pyzk-0.9-py3.6.egg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/docs/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/docs/_static/Communication_protocol_manual_CMD.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/docs/conf.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/docs/index.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/docs/make.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/docs/modules.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/docs/zk.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/PKG-INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/SOURCES.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/dependency_links.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/public-2019.4.13-py3.6.egg-info/dependency_links.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/not-zip-safe" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/self-2019.4.13-py3.6.egg-info/dependency_links.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/requires.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/setup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/test_backup_restore.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/test_machine.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/test_user_enrollment.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/test_voice.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/zk/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/zk/attendance.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/zk/base.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/zk/const.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/zk/exception.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/zk/finger.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/zk/user.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/zk6.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk.egg-info/PKG-INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk.egg-info/SOURCES.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk.egg-info/dependency_links.txt" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pyfcm-1.4.7-py3.6.egg-info/dependency_links.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk.egg-info/not-zip-safe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk.egg-info/requires.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk.egg-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/security/ir.model.access.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/security/pyzk_security.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/static/description/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/static/description/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/static/src/js/employee_kanban_view_handler.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/static/src/js/greeting_message.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/static/src/js/kiosk_confirm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/static/src/js/kiosk_mode.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/static/src/js/my_attendances.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/static/src/js/sync.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/static/src/less/hr_attendance.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/static/src/xml/attendance.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/static/src/xml/qweb_attendance.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/static/tests/hr_attendance_tests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/views/add_users.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/views/combined_attendances_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/views/device_attendances_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/views/device_users_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/views/devices_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/views/web_asset.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/wizard/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/wizard/delete_attendance_wizard.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/wizard/delete_attendance_wizard_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/wizard/sh_message_wizard.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/wizard/sh_message_wizard.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/wizard/user_wizard.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/wizard/user_wizard.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/backup/30_05_2020.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/backup/school.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/data/TestAttenanceStudent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/data/TestAttenanceStudent.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/models/parent.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/parent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/models/school.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/school.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/models/student.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/student.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/report/timetable_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/report/timetable_info.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/security/ir.model.access.csv" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/security/ir.model.access.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/security/school_security.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/security/school_security.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/views/identity_card.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/identity_card.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/views/parent_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/parent_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/views/report_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/report_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/views/school_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/school_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/views/student_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/student_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/views/teacher_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/teacher_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/views/timetable.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/timetable.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/views/timetable_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/timetable_view.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schools/school/wizard/add_student.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/add_student.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/wizard/add_student.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/add_student.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/wizard/move_standards.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/move_standards.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/report_stat.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/report_stat.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/stat_descipline.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/stat_descipline.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/wizard/wizard_setting_descipline.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/wizard_setting_descipline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/wizard/wizard_settings_descipline.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/wizard_settings_descipline.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/src/uliweb3" beforeDir="false" afterPath="$PROJECT_DIR$/venv/src/uliweb3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,23 +192,23 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ecole/data" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/schools" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/schools" />
+      <recent name="$PROJECT_DIR$/ecole/data" />
+      <recent name="$PROJECT_DIR$/ecole/static/description" />
+      <recent name="$PROJECT_DIR$/school/school/wizard" />
+      <recent name="$PROJECT_DIR$/school" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/schools/school/backup" />
       <recent name="$PROJECT_DIR$/ecole/wizard/report_statistique_descipline" />
       <recent name="/opt/odoo/odoo/addons/hr_pyzk/wizard" />
       <recent name="$PROJECT_DIR$" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/ecole/data" />
-      <recent name="$PROJECT_DIR$/ecole/static/description" />
-      <recent name="$PROJECT_DIR$/school/school/wizard" />
-      <recent name="$PROJECT_DIR$/school" />
-      <recent name="$PROJECT_DIR$/hr_pyzk" />
     </key>
   </component>
   <component name="RunManager">
@@ -149,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590916507217</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="[ADD] description">
+      <created>1591042540913</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1591042540913</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -171,62 +330,58 @@
       <screen x="67" y="27" width="1293" height="636" />
     </state>
     <state x="413" y="149" width="591" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1293.636@67.27.1293.636" timestamp="1585250604059" />
-    <state x="468" y="53" width="424" height="584" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1583251033348">
-      <screen x="67" y="27" width="1293" height="636" />
-    </state>
-    <state x="468" y="53" width="424" height="584" key="#com.intellij.ide.macro.MacrosDialog/67.27.1293.636@67.27.1293.636" timestamp="1583251033348" />
     <state x="471" y="88" key="#xdebugger.evaluate" timestamp="1586620447476">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
     <state x="471" y="88" key="#xdebugger.evaluate/67.27.1293.636@67.27.1293.636" timestamp="1586620447476" />
-    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2" timestamp="1590916459293">
+    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2" timestamp="1591042515485">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2/67.27.1293.636@67.27.1293.636" timestamp="1590916459293" />
-    <state x="468" y="103" width="424" height="484" key="FileChooserDialogImpl" timestamp="1585251947824">
+    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2/67.27.1293.636@67.27.1293.636" timestamp="1591042515485" />
+    <state x="468" y="103" width="424" height="484" key="FileChooserDialogImpl" timestamp="1591111207956">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state x="468" y="103" width="424" height="484" key="FileChooserDialogImpl/67.27.1293.636@67.27.1293.636" timestamp="1585251947824" />
-    <state width="1270" height="86" key="GridCell.Tab.0.bottom" timestamp="1591013317198">
+    <state x="468" y="103" width="424" height="484" key="FileChooserDialogImpl/67.27.1293.636@67.27.1293.636" timestamp="1591111207956" />
+    <state width="1270" height="93" key="GridCell.Tab.0.bottom" timestamp="1592339663699">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="86" key="GridCell.Tab.0.bottom/67.27.1293.636@67.27.1293.636" timestamp="1591013317197" />
-    <state width="1270" height="86" key="GridCell.Tab.0.center" timestamp="1591013317195">
+    <state width="1270" height="93" key="GridCell.Tab.0.bottom/67.27.1293.636@67.27.1293.636" timestamp="1592339663699" />
+    <state width="1270" height="93" key="GridCell.Tab.0.center" timestamp="1592339663698">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="86" key="GridCell.Tab.0.center/67.27.1293.636@67.27.1293.636" timestamp="1591013317195" />
-    <state width="1270" height="86" key="GridCell.Tab.0.left" timestamp="1591013317190">
+    <state width="1270" height="93" key="GridCell.Tab.0.center/67.27.1293.636@67.27.1293.636" timestamp="1592339663698" />
+    <state width="1270" height="93" key="GridCell.Tab.0.left" timestamp="1592339663698">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="86" key="GridCell.Tab.0.left/67.27.1293.636@67.27.1293.636" timestamp="1591013317190" />
-    <state width="1270" height="86" key="GridCell.Tab.0.right" timestamp="1591013317196">
+    <state width="1270" height="93" key="GridCell.Tab.0.left/67.27.1293.636@67.27.1293.636" timestamp="1592339663698" />
+    <state width="1270" height="93" key="GridCell.Tab.0.right" timestamp="1592339663699">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="86" key="GridCell.Tab.0.right/67.27.1293.636@67.27.1293.636" timestamp="1591013317196" />
-    <state width="1270" height="63" key="GridCell.Tab.1.bottom" timestamp="1590916212118">
+    <state width="1270" height="93" key="GridCell.Tab.0.right/67.27.1293.636@67.27.1293.636" timestamp="1592339663699" />
+    <state width="1270" height="93" key="GridCell.Tab.1.bottom" timestamp="1592339662705">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="63" key="GridCell.Tab.1.bottom/67.27.1293.636@67.27.1293.636" timestamp="1590916212118" />
-    <state width="1270" height="63" key="GridCell.Tab.1.center" timestamp="1590916212118">
+    <state width="1270" height="93" key="GridCell.Tab.1.bottom/67.27.1293.636@67.27.1293.636" timestamp="1592339662705" />
+    <state width="1270" height="93" key="GridCell.Tab.1.center" timestamp="1592339662704">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="63" key="GridCell.Tab.1.center/67.27.1293.636@67.27.1293.636" timestamp="1590916212118" />
-    <state width="1270" height="63" key="GridCell.Tab.1.left" timestamp="1590916212117">
+    <state width="1270" height="93" key="GridCell.Tab.1.center/67.27.1293.636@67.27.1293.636" timestamp="1592339662704" />
+    <state width="1270" height="93" key="GridCell.Tab.1.left" timestamp="1592339662704">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="63" key="GridCell.Tab.1.left/67.27.1293.636@67.27.1293.636" timestamp="1590916212117" />
-    <state width="1270" height="63" key="GridCell.Tab.1.right" timestamp="1590916212118">
+    <state width="1270" height="93" key="GridCell.Tab.1.left/67.27.1293.636@67.27.1293.636" timestamp="1592339662704" />
+    <state width="1270" height="93" key="GridCell.Tab.1.right" timestamp="1592339662705">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="63" key="GridCell.Tab.1.right/67.27.1293.636@67.27.1293.636" timestamp="1590916212118" />
+    <state width="1270" height="93" key="GridCell.Tab.1.right/67.27.1293.636@67.27.1293.636" timestamp="1592339662705" />
     <state x="202" y="27" width="1012" height="636" key="SettingsEditor" timestamp="1583972090460">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
     <state x="202" y="27" width="1012" height="636" key="SettingsEditor/67.27.1293.636@67.27.1293.636" timestamp="1583972090460" />
-    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1590916516099">
+    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1591042550347">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1293.636@67.27.1293.636" timestamp="1590916516099" />
+    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1293.636@67.27.1293.636" timestamp="1591042550347" />
     <state width="646" height="319" key="XDebugger.FullValuePopup" timestamp="1587408151110">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
@@ -235,18 +390,18 @@
       <screen x="67" y="27" width="1293" height="636" />
     </state>
     <state x="369" y="171" key="com.intellij.ide.util.TipDialog/67.27.1293.636@67.27.1293.636" timestamp="1586464016566" />
-    <state x="481" y="264" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583250036800">
-      <screen x="67" y="27" width="1293" height="636" />
-    </state>
-    <state x="481" y="264" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1293.636@67.27.1293.636" timestamp="1583250036800" />
     <state x="263" y="32" width="891" height="624" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1586619191584">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
     <state x="263" y="32" width="891" height="624" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/67.27.1293.636@67.27.1293.636" timestamp="1586619191584" />
-    <state x="341" y="27" width="733" height="636" key="find.popup" timestamp="1590159118479">
+    <state x="341" y="27" width="733" height="636" key="find.popup" timestamp="1591111163775">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state x="341" y="27" width="733" height="636" key="find.popup/67.27.1293.636@67.27.1293.636" timestamp="1590159118479" />
+    <state x="341" y="27" width="733" height="636" key="find.popup/67.27.1293.636@67.27.1293.636" timestamp="1591111163775" />
+    <state x="376" y="26" width="672" height="678" key="search.everywhere.popup" timestamp="1591567744971">
+      <screen x="67" y="27" width="1293" height="636" />
+    </state>
+    <state x="376" y="26" width="672" height="678" key="search.everywhere.popup/67.27.1293.636@67.27.1293.636" timestamp="1591567744971" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

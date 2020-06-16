@@ -11,6 +11,7 @@ class parametrage_descipline(models.TransientModel):
 
     max_late=fields.Float("Maximum late for a student")
 
+
     def save_settings(self):
         if self.env['settings.descipline'].search_count([]) > 0:
             search = self.env['settings.descipline'].search([])
@@ -24,14 +25,12 @@ class parametrage_descipline(models.TransientModel):
             new_nb_avert=data['form']['number_avertissement']
             new_nb_exclu=data['form']['number_exclu']
             new_max_late=data['form']['max_late']
-            print('n',new_nb_avert)
+
             for a in search:
                 a.unlink()
-
-
-
         self.env['settings.descipline'].create({'number_avertissement':new_nb_avert,
                     'number_exclu': new_nb_exclu,
-                    'max_late':new_max_late  })
+                    'max_late':new_max_late,
+                     })
 
 

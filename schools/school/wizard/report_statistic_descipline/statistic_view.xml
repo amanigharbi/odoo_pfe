@@ -7,16 +7,26 @@
         <field name="model">statistic.student</field>
         <field name="arch" type="xml">
     <form string="statistic descipline">
-                    <group>
-                        <!--<field name="school_id" placeholder="Choice school .." widget="selection"/>-->
-                         <field name="standard_id" placeholder="Choice class .." widget="many2many_tags"/>
-                        <field name="date_id" placeholder="Choice date .." widget="selection"/>
-                    <!--    <field  name="academic_year" placeholder="Choisir Année scolaire..."  widget="selection" string="Année Scolaire"/> -->
+ <group>
 
-                    </group>
+      <field name="choix" placeholder="Statistic By" widget="selection"/>
+
+       <field name="standard_id" widget="many2many_tags"
+              attrs="{'invisible': [('choix','!=', 'By Subject'),('choix','!=', 'By Day')]}"
+                                   options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+            <field name="date_id" placeholder="Choice date .." widget="selection" attrs="{'invisible': [('choix','!=', 'By Subject'),('choix','!=', 'By Day')]}"
+                                   options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+
+
+   <field name="academic_year" widget="selection" string="Academic Year" attrs="{'invisible': [('choix','!=', 'By Academic Year')]}"
+     options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+
+          <!--  <field name="date_id" placeholder="Choice date .." widget="selection" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>-->
+            </group>
+
 
                     <footer>
-                        <button class="oe_highlight" name="print_report" type="object"  string="Imprimer"/>
+                        <button class="oe_highlight" name="print_report" type="object"  string="print"/>
                     </footer>
            </form>
         </field>
