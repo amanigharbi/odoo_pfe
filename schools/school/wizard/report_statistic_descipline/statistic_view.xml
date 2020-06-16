@@ -9,14 +9,19 @@
     <form string="statistic descipline">
  <group>
 
-     <!-- <field name="school_id" placeholder="Choice school .." widget="selection"/>
+      <field name="choix" placeholder="Statistic By" widget="selection"/>
 
-       <field name="standard_id" widget="many2many_tags" attrs="{'invisible': [('school_id','!=', 'Bach Hamba Bizerte'),('school_id','!=', 'Jeune Fille Bizerte')]}"
+       <field name="standard_id" widget="many2many_tags"
+              attrs="{'invisible': [('choix','!=', 'By Subject'),('choix','!=', 'By Day')]}"
                                    options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
-            <field name="date_id" placeholder="Choice date .." widget="selection" attrs="{'invisible': [('school_id','!=', 'Bach Hamba Bizerte'),('school_id','!=', 'Jeune Fille Bizerte')]}"
-                                   options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>-->
-     <field name="standard_id" widget="many2many_tags" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
-            <field name="date_id" placeholder="Choice date .." widget="selection" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+            <field name="date_id" placeholder="Choice date .." widget="selection" attrs="{'invisible': [('choix','!=', 'By Subject'),('choix','!=', 'By Day')]}"
+                                   options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+
+
+   <field name="academic_year" widget="selection" string="Academic Year" attrs="{'invisible': [('choix','!=', 'By Academic Year')]}"
+     options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>
+
+          <!--  <field name="date_id" placeholder="Choice date .." widget="selection" options="{'no_create_edit': True, 'no_create': True, 'no_open': True}"/>-->
             </group>
 
 

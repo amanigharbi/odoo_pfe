@@ -4,7 +4,42 @@
     <template id="report_stat_descipline"  priority="17">
         <t t-call="web.html_container">
          <t t-call="web.external_layout">
+<t t-if="choix=='By Day'">
+        <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <table class="table table-condensed">
+                            <thead>
+                        <tr>
+                                    <th style="text-align:left;"><strong>Class </strong></th>
+                                   <th style="text-align:left;"><strong>Percentage of daily Absences</strong></th>
+                                    <th style="text-align:left;"><strong>By </strong></th>
 
+                                </tr>
+                            </thead>
+
+                              <tbody>
+ <t t-foreach="docs_day" t-as="doc_day">
+                                    <tr>
+
+                                        <td style="text-align:left;">
+                                            <t t-esc="doc_day['name']"/>
+                                        </td>
+                                      <td style="text-align:left;">
+                                            <t t-esc="doc_day['percentageDailyAbs']"/> %
+                                        </td>
+                                             <td style="text-align:left;">
+                                            <t t-esc="doc_day['by']"/>
+                                        </td>
+                                    </tr>
+  </t>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+</t>
+<t t-if="choix=='By Subject'">
                 <div class="page">
                     <div class="oe_structure"/>
                     <div class="row">
@@ -50,7 +85,55 @@
                         </table>
                     </div>
 
-                </div>
+                </div></t>
+            <t t-if="choix=='By Academic Year'">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <table class="table table-condensed">
+                            <thead>
+                        <tr>
+                                    <th style="text-align:left;"><strong>Academic Year </strong></th>
+                                   <th style="text-align:left;"><strong>Percentage of Absences</strong></th>
+                                 <th style="text-align:left;"><strong>Percentage of Daily Absences</strong></th>
+                                   <th style="text-align:left;"><strong>Percentage of Late </strong></th>
+                                     <th style="text-align:left;"><strong>Percentage of Avertissement</strong></th>
+                                   <th style="text-align:left;"><strong>Percentage of Excluded</strong></th>
+
+                                </tr>
+                            </thead>
+
+                              <tbody>
+ <t t-foreach="doc_academic_year" t-as="doc_year">
+                                    <tr>
+
+                                        <td style="text-align:left;">
+                                            <t t-esc="doc_year['name_year']"/>
+                                        </td>
+                                      <td style="text-align:left;">
+                                            <t t-esc="doc_year['percentageAbsent']"/> %
+                                        </td>
+                                         <td style="text-align:left;">
+                                            <t t-esc="doc_year['percentageDailyAbs']"/> %
+                                        </td>
+                                         <td style="text-align:left;">
+                                            <t t-esc="doc_year['percentagelate']"/> %
+                                        </td>
+                                            <td style="text-align:left;">
+                                            <t t-esc="doc_year['percentageAvert']"/> %
+                                        </td>
+                                         <td style="text-align:left;">
+                                            <t t-esc="doc_year['percentageExclu']"/> %
+                                        </td>
+
+
+                                    </tr>
+  </t>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div></t>
 </t> </t>
 
     </template>

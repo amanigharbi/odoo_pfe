@@ -7,6 +7,5 @@
                 report_type="qweb-pdf"
                 file="school.report_stat_descipline"
                 name="school.report_stat_descipline"
-      />
-
+  />
 </odoo>
