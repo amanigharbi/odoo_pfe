@@ -11,23 +11,23 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 
-import static com.gestion.ecole.odoo.ConnectionOdoo.db;
-import static com.gestion.ecole.odoo.ConnectionOdoo.password;
-import static com.gestion.ecole.odoo.ConnectionOdoo.uid;
-import static com.gestion.ecole.odoo.ConnectionOdoo.url;
 import static java.util.Arrays.asList;
 
 public class Get2ConditionData extends AsyncTask<URL,String, List> {
     static  List ids;
     String table;
-    String attr1,attr2,attr3,attr4;
+    String attr1,attr2,attr3,attr4,db,url,uid,password;
     String[] fields;
     String[][] condition;
 
     public Get2ConditionData(){
         super();
     };
-    public Get2ConditionData(String table, String[] fields,String attr1,String attr2,String attr3,String attr4){
+    public Get2ConditionData(String db, String url, String password, String uid,String table, String[] fields,String attr1,String attr2,String attr3,String attr4){
+        this.db=db;
+        this.url=url;
+        this.password=password;
+        this.uid=uid;
         this.table=table;
         this.fields=fields;
         this.attr1=attr1;

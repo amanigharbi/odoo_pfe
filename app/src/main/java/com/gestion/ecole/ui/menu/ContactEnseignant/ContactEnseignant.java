@@ -17,6 +17,8 @@ import com.gestion.ecole.R;
 import com.gestion.ecole.login.SessionManagement;
 import com.gestion.ecole.login.LoginActivity;
 import com.gestion.ecole.odoo.GetConditionData;
+import com.gestion.ecole.odoo.GetConnectionData;
+import com.gestion.ecole.ui.enfant.enfant;
 
 
 import java.net.URL;
@@ -57,10 +59,16 @@ public class ContactEnseignant extends AppCompatActivity {
 
 
         try {
+            SessionManagement sessionManagement = new SessionManagement(ContactEnseignant.this);
+            String db=sessionManagement.getSESSION_DB();
+            String url=sessionManagement.getSESSION_URL();
+            String mdp=sessionManagement.getMdp();
+            String res_users=sessionManagement.getSESSION_RES_USERS();
+
             Intent intent=getIntent();
             String intentId=intent.getStringExtra("id");
             //Assicier id élève du table student.student avec school.teacher
-            AsyncTask<URL, String, List> InfoEnseignant = new GetConditionData("school.teacher", new String[]{"name", "work_email",
+            AsyncTask<URL, String, List> InfoEnseignant = new GetConditionData(db,url,mdp,res_users,"school.teacher", new String[]{"name", "work_email",
                     "phone_numbers", "id","subject_id","student_id"},"stud_id.id",intentId).execute();
             List ListinfoEnseig = InfoEnseignant.get();
 

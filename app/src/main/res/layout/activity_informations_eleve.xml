@@ -33,7 +33,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cvImage"
             android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_height="120dp"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="120dp"
             app:cardCornerRadius="10dp"
@@ -63,27 +63,37 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvSanctionsEleve"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         app:cardCornerRadius="10dp"
         android:elevation="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="200dp"
         android:clipToPadding="false"
         android:overScrollMode="never" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvDesciplineEleve"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="160dp"
         app:cardCornerRadius="50dp"
         android:elevation="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="410dp"
         android:layout_marginBottom="10dp"
         android:clipToPadding="false"
         android:overScrollMode="never" />
 
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAbscenceJournaliaireEleve"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:cardCornerRadius="10dp"
+        android:elevation="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="580dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never" />
 </RelativeLayout>

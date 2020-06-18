@@ -1,41 +1,48 @@
 package com.gestion.ecole.odoo;
 
+
 import android.os.AsyncTask;
+
+import com.gestion.ecole.login.SessionManagement;
+
 
 import org.apache.xmlrpc.XmlRpcException;
 import org.apache.xmlrpc.client.XmlRpcClient;
 import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
+
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 
-
+import static com.gestion.ecole.odoo.ConnectionOdoo.uid;
 import static java.util.Arrays.asList;
 
-public class GetConditionData extends AsyncTask<URL,String, List>  {
+public class GetConnectionData extends AsyncTask<URL,String, List>  {
     static  List ids;
     String table;
-    String attr1,attr2,db,url,uid,password;
+    String attr1,attr2,db,url,password;
     String[] fields;
     String[][] condition;
 
-    public GetConditionData(){
+    public GetConnectionData(){
         super();
     };
-    public GetConditionData(String db, String url, String password, String uid,String table, String[] fields, String attr1, String attr2){
+    public GetConnectionData(String db, String url, String password, String table, String[] fields, String attr1, String attr2){
         this.db=db;
         this.url=url;
-        this.uid=uid;
+
         this.password=password;
         this.table=table;
         this.fields=fields;
         this.attr1=attr1;
         this.attr2=attr2;
     }
+
     @Override
     protected  List doInBackground(URL... urls) {
+
         try {
             final XmlRpcClient models = new XmlRpcClient() {{
                 setConfig(new XmlRpcClientConfigImpl() {{

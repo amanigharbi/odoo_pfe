@@ -11,13 +11,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.gestion.ecole.AccueilActivity;
 import com.gestion.ecole.R;
 import com.gestion.ecole.login.SessionManagement;
 import com.gestion.ecole.login.LoginActivity;
 import com.gestion.ecole.odoo.Get2ConditionData;
 import com.gestion.ecole.odoo.GetConditionData;
-import com.gestion.ecole.odoo.GetDataOdoo;
+import com.gestion.ecole.odoo.GetConnectionData;
+import com.gestion.ecole.ui.menu.InformationsEleve.InformationsEleve;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -53,11 +53,17 @@ public class Emplois_details extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(Emplois_details.this);
         rvDayDetails.setLayoutManager(layoutManager);
 
+        SessionManagement sessionManagement = new SessionManagement(Emplois_details.this);
+        String res_users=sessionManagement.getSESSION_RES_USERS();
+        String db=sessionManagement.getSESSION_DB();
+        String url=sessionManagement.getSESSION_URL();
+        String mdp=sessionManagement.getMdp();
+
         try {
             Intent intent=getIntent();
             String intentId=intent.getStringExtra("idEnfant");
             //Extraire id du classe du table student.student
-            AsyncTask<URL, String, List> standard_eleve = new GetConditionData("student.student",
+            AsyncTask<URL, String, List> standard_eleve = new GetConditionData(db,url,mdp,res_users,"student.student",
                     new String[]{"id","standard_id", "school_id"},"id",intentId).execute();
             List stan = standard_eleve.get();
 
@@ -67,34 +73,34 @@ public class Emplois_details extends AppCompatActivity {
                 Object[] school = (Object[]) item0.get("school_id");
 
                 //Asocier id du classe du table  student.student avec table time.table
-                AsyncTask<URL, String, List> emploie = new Get2ConditionData("time.table", new String[]{"id", "standard_id", "school_id"},
+                AsyncTask<URL, String, List> emploie = new Get2ConditionData(db,url,mdp,res_users,"time.table", new String[]{"id", "standard_id", "school_id"},
                         "standard_id.id", standard[0].toString(), "school_id.id", school[0].toString()).execute();
 
                 List emploie_id = emploie.get();
 
                 //Associer id d'emploie du table time.table avec table time.table.line
                 for (Map<String, Object> item1 : (List<Map<String, Object>>) emploie_id) {
-                    monday = new Get2ConditionData("time.table.line", new String[]{"start_time", "end_time", "subject_id", "week_day", "table_id","teacher_id"},
+                    monday = new Get2ConditionData(db,url,mdp,res_users,"time.table.line", new String[]{"start_time", "end_time", "subject_id", "week_day", "table_id","teacher_id"},
                             "table_id.id", item1.get("id").toString(), "week_day", "Monday").execute();
                     listmonday = monday.get();
 
-                    tuesday = new Get2ConditionData("time.table.line", new String[]{"start_time", "end_time", "subject_id", "week_day", "table_id","teacher_id"},
+                    tuesday = new Get2ConditionData(db,url,mdp,res_users,"time.table.line", new String[]{"start_time", "end_time", "subject_id", "week_day", "table_id","teacher_id"},
                             "table_id.id", item1.get("id").toString(), "week_day", "Tuesday").execute();
                     listtuesday = tuesday.get();
 
-                    wednesday = new Get2ConditionData("time.table.line", new String[]{"start_time", "end_time", "subject_id", "week_day", "table_id","teacher_id"},
+                    wednesday = new Get2ConditionData(db,url,mdp,res_users,"time.table.line", new String[]{"start_time", "end_time", "subject_id", "week_day", "table_id","teacher_id"},
                             "table_id.id", item1.get("id").toString(), "week_day", "Wednesday").execute();
                     listwednesday = wednesday.get();
 
-                    thursday = new Get2ConditionData("time.table.line", new String[]{"start_time", "end_time", "subject_id", "week_day", "table_id","teacher_id"},
+                    thursday = new Get2ConditionData(db,url,mdp,res_users,"time.table.line", new String[]{"start_time", "end_time", "subject_id", "week_day", "table_id","teacher_id"},
                             "table_id.id", item1.get("id").toString(), "week_day", "Thursday").execute();
                     listthursday = thursday.get();
 
-                    friday = new Get2ConditionData("time.table.line", new String[]{"start_time", "end_time", "subject_id", "week_day", "table_id","teacher_id"},
+                    friday = new Get2ConditionData(db,url,mdp,res_users,"time.table.line", new String[]{"start_time", "end_time", "subject_id", "week_day", "table_id","teacher_id"},
                             "table_id.id", item1.get("id").toString(), "week_day", "Friday").execute();
                     listfriday = friday.get();
 
-                    saturday = new Get2ConditionData("time.table.line", new String[]{"start_time", "end_time", "subject_id", "week_day", "table_id","teacher_id"},
+                    saturday = new Get2ConditionData(db,url,mdp,res_users,"time.table.line", new String[]{"start_time", "end_time", "subject_id", "week_day", "table_id","teacher_id"},
                             "table_id.id", item1.get("id").toString(), "week_day", "Saturday").execute();
                     listsaturday = saturday.get();
 

@@ -15,7 +15,7 @@ import com.gestion.ecole.R;
 import com.gestion.ecole.login.LoginActivity;
 import com.gestion.ecole.login.SessionManagement;
 import com.gestion.ecole.odoo.GetConditionData;
-import com.gestion.ecole.odoo.GetDataOdoo;
+import com.gestion.ecole.odoo.GetConnectionData;
 import com.gestion.ecole.odoo.SetDataOdoo;
 
 import java.net.URL;
@@ -35,7 +35,7 @@ RecyclerView rvNotification;
     String[] titreArray,notifMessageArray;
 
     AdapterNotification NotifAdapter;
-
+    String parentID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,15 +50,23 @@ RecyclerView rvNotification;
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(NotifActivity.this);
         rvNotification.setLayoutManager(layoutManager);
 
+        SessionManagement sessionManagement = new SessionManagement(NotifActivity.this);
+        parentID = sessionManagement.getId();
+        String db=sessionManagement.getSESSION_DB();
+        String url=sessionManagement.getSESSION_URL();
+        String mdp=sessionManagement.getMdp();
+        String res_users=sessionManagement.getSESSION_RES_USERS();
 
         try {
+
             // id eleve du table student.student
-            AsyncTask<URL, String, List> InfoEleve = new GetDataOdoo("student.student", new String[]{"id"}).execute();
+            AsyncTask<URL, String, List> InfoEleve = new GetConditionData(db,url,mdp,res_users,"student.student", new String[]{"id", "last", "name", "parent_id",
+                    "standard_id", "parent_id"}, "parent_id.id", parentID).execute();
             List ListInfoEleve = InfoEleve.get();
             for (Map<String, Object> item1 : (List<Map<String, Object>>) ListInfoEleve) {
 
                 //Associer l'id de l'élève avec id_eleve du table history.notification avec tous les etat du message
-                AsyncTask<URL, String, List> notif = new GetConditionData("history.notification",
+                AsyncTask<URL, String, List> notif = new GetConditionData(db,url,mdp,res_users,"history.notification",
                         new String[]{"title", "message", "status_message", "student_id", "id"}, "student_id.id", item1.get("id").toString()).execute();
 
 

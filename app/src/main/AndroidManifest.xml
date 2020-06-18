@@ -33,14 +33,6 @@
         <activity android:name=".ui.notif.NotifFragment" />
         <activity android:name=".ui.notif.AlarmReceiver" />
 
-        <receiver
-            android:name=".ui.notif.AlarmReceiver"
-            android:enabled="true">
-            <intent-filter>
-                <action android:name="com.notification.ecole" />
-            </intent-filter>
-        </receiver>
-
         <activity android:name=".HomeActivity" />
         <activity android:name=".AccueilActivity" />
         <activity android:name=".login.LoginActivity" />

@@ -15,7 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.gestion.ecole.R;
 import com.gestion.ecole.login.LoginActivity;
 import com.gestion.ecole.login.SessionManagement;
-import com.gestion.ecole.odoo.GetDataOdoo;
+import com.gestion.ecole.odoo.GetConditionData;
+import com.gestion.ecole.odoo.GetConnectionData;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -62,36 +63,33 @@ public class enfant extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(enfant.this);
         rvEnfantConsulter.setLayoutManager(layoutManager);
 
+        SessionManagement sessionManagement = new SessionManagement(enfant.this);
+        String  parentID = sessionManagement.getId();
+       String db=sessionManagement.getSESSION_DB();
+       String url=sessionManagement.getSESSION_URL();
+       String mdp=sessionManagement.getMdp();
+        String  NameParent = sessionManagement.getNameParent();
+        String res_users=sessionManagement.getSESSION_RES_USERS();
 
 
-        AsyncTask<URL, String, List> InfoEleve = new GetDataOdoo("student.student", new String[]{"id","last", "name", "parent_id",
-                "standard_id"}).execute();
-
-
-        AsyncTask<URL, String, List> InfoParent = new GetDataOdoo("school.parent", new String[]{"name"}).execute();
-
-
-
+        AsyncTask<URL, String, List> InfoEleve = new GetConditionData(db,url,mdp,res_users,"student.student", new String[]{"id", "last", "name", "parent_id",
+                "standard_id", "parent_id"}, "parent_id.id", parentID).execute();
         try {
 
-            List ListinfoEleve = InfoEleve.get();
-            List listInfoParent = InfoParent.get();
+                List ListinfoEleve = InfoEleve.get();
+                System.out.println("enfant 2 :" + ListinfoEleve);
 
-            //Information eleve
-            for (Map<String, Object> item : (List<Map<String, Object>>) ListinfoEleve) {
-                nom.add(item.get("name").toString()+" "+item.get("last").toString());
+                //Information eleve
+                for (Map<String, Object> item : (List<Map<String, Object>>) ListinfoEleve) {
+                    nom.add(item.get("name").toString() + " " + item.get("last").toString());
+                    nomParent.add(NameParent);
 
-                //Information Parent
-                for (Map<String, Object> item2 : (List<Map<String, Object>>) listInfoParent) {
-                    nomParent.add((item2.get("name").toString())); }
+                    //Nom du claase
+                    Object[] standard_id = (Object[]) item.get("standard_id");
+                    nomClasse.add(standard_id[1].toString());
 
-                //Nom du claase
-                Object[] standard_id=(Object[]) item.get("standard_id");
-                nomClasse.add(standard_id[1].toString());
-
-                id.add((item.get("id").toString()));
-                System.out.println("ideleve"+item.get("id").toString());
-            }
+                    id.add((item.get("id").toString()));
+                }
 
         }
         catch (ClassCastException e) {

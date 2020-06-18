@@ -19,6 +19,7 @@ import com.gestion.ecole.login.LoginActivity;
 import com.gestion.ecole.login.SessionManagement;
 import com.gestion.ecole.odoo.GetConditionData;
 
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,16 +27,17 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 public class InformationsEleve extends AppCompatActivity {
-    ImageView btFavorite,btAccount;
-    ImageButton btHome;
-    CardView cvImage,cvInfo;
 
-    RecyclerView rvSanctionsEleve,rvDesciplineEleve;
+    CardView cvImage;
+
+    RecyclerView rvSanctionsEleve,rvDesciplineEleve,rvAbscenceJournaliaireEleve;
     AdapterSanctionsEleve mAdapter;
     AdapterDesciplineEleve DescAdapter;
+    AdapterDiscJourEleve discJourAdapter;
 
     ArrayList<ItemSanctionsEleve> itemSanctionsEleve;
     ArrayList<ItemDesciplineEleve> itemDesciplineEleve;
+    ArrayList<ItemDiscJourEleve>itemDiscJourEleves;
 
     ArrayList<String> sanctions=new ArrayList<>();
     ArrayList<String> nombre=new ArrayList<>();
@@ -44,9 +46,12 @@ public class InformationsEleve extends AppCompatActivity {
     ArrayList<String> dateHeure=new ArrayList<>();
     ArrayList<String> status=new ArrayList<>();
 
-    String[] sanctionArray,nombreArray,nomMatiereArray,dateHeureArray,statusArray;
+    ArrayList<String> statusDisc=new ArrayList<>();
+    ArrayList<String> date=new ArrayList<>();
 
+    String[] sanctionArray,nombreArray,nomMatiereArray,dateHeureArray,statusArray,statusDiscArray,dateArray;
 
+    String id,parentID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,48 +68,67 @@ public class InformationsEleve extends AppCompatActivity {
         rvDesciplineEleve=findViewById(R.id.rvDesciplineEleve);
         rvDesciplineEleve.setHasFixedSize(true);
 
+        rvAbscenceJournaliaireEleve=findViewById(R.id.rvAbscenceJournaliaireEleve);
+        rvAbscenceJournaliaireEleve.setHasFixedSize(true);
+
 
         cvImage.scheduleLayoutAnimation();
       //  cvInfo.scheduleLayoutAnimation();
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(InformationsEleve.this);
         RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(InformationsEleve.this);
+        RecyclerView.LayoutManager layoutManager3 = new LinearLayoutManager(InformationsEleve.this);
         rvSanctionsEleve.setLayoutManager(layoutManager);
        rvDesciplineEleve.setLayoutManager(layoutManager2);
+        rvAbscenceJournaliaireEleve.setLayoutManager(layoutManager3);
 
-
+        SessionManagement sessionManagement = new SessionManagement(InformationsEleve.this);
+        String res_users=sessionManagement.getSESSION_RES_USERS();
+        String db=sessionManagement.getSESSION_DB();
+        String url=sessionManagement.getSESSION_URL();
+        String mdp=sessionManagement.getMdp();
 
         try {
 
+            Intent intent=getIntent();
+            String intentId=intent.getStringExtra("id");
 
-                   Intent intent=getIntent();
-                   String intentId=intent.getStringExtra("id");
-                   //Informations Descipline
-                   AsyncTask<URL, String, List> infoDescipline = new GetConditionData("student.desciplines", new String[]{"student_id","subject_id", "device_datetime", "status"},
-                           "student_id.id",intentId).execute();
+                //Informations Discipline
+                AsyncTask<URL, String, List> infoDescipline = new GetConditionData(db,url,mdp,res_users,"student.desciplines", new String[]{"student_id", "subject_id", "device_datetime", "status"},
+                        "student_id.id", intentId).execute();
 
-            AsyncTask<URL, String, List> infoSanctions = new GetConditionData("student.sanctions", new String[]{"student_id","sanction", "number"},
-                    "student_id.id",intentId).execute();
+                AsyncTask<URL, String, List> infoSanctions = new GetConditionData(db,url,mdp,res_users,"student.sanctions", new String[]{"student_id", "sanction", "number"},
+                        "student_id.id", intentId).execute();
 
-                   List ListInfoDescipline = infoDescipline.get();
-                   List ListInfoSanctions = infoSanctions.get();
+            AsyncTask<URL, String, List> infoDiscJour = new GetConditionData(db,url,mdp,res_users,"student.daily.disciplines", new String[]{"student_id", "status", "date"},
+                    "student_id.id", intentId).execute();
 
-                   for (Map<String, Object> item5 : (List<Map<String, Object>>) ListInfoDescipline) {
+                List ListInfoDescipline = infoDescipline.get();
+                List ListInfoSanctions = infoSanctions.get();
+                List ListInfoDiscJour = infoDiscJour.get();
 
-                       Object[] mat = (Object[]) item5.get("subject_id");
-                       nomMatiere.add(mat[1].toString());
 
-                       dateHeure.add(item5.get("device_datetime").toString());
-                       status.add(item5.get("status").toString());
-                   }
-            for (Map<String, Object> item : (List<Map<String, Object>>) ListInfoSanctions) {
+                for (Map<String, Object> item5 : (List<Map<String, Object>>) ListInfoDescipline) {
 
-                sanctions.add(item.get("sanction").toString());
-                nombre.add(item.get("number").toString());
+                    Object[] mat = (Object[]) item5.get("subject_id");
+                    nomMatiere.add(mat[1].toString());
+
+                    dateHeure.add(item5.get("device_datetime").toString());
+                    status.add(item5.get("status").toString());
+                }
+                for (Map<String, Object> item : (List<Map<String, Object>>) ListInfoSanctions) {
+
+                    sanctions.add(item.get("sanction").toString());
+                    nombre.add(item.get("number").toString());
+                }
+            for (Map<String, Object> item0 : (List<Map<String, Object>>) ListInfoDiscJour) {
+
+                statusDisc.add(item0.get("status").toString());
+                date.add(item0.get("date").toString());
             }
-               }
 
 
+        }
         catch (ClassCastException e) {
             e.printStackTrace();
         }
@@ -123,9 +147,12 @@ public class InformationsEleve extends AppCompatActivity {
         dateHeureArray =dateHeure.toArray(new String[dateHeure.size()]);
         statusArray =status.toArray(new String[status.size()]);
 
+        statusDiscArray =statusDisc.toArray(new String[statusDisc.size()]);
+        dateArray =date.toArray(new String[date.size()]);
 
         itemSanctionsEleve =new ArrayList<>();
         itemDesciplineEleve=new ArrayList<>();
+        itemDiscJourEleves=new ArrayList<>();
 
             for (int j = 0; j < nomMatiereArray.length; j++) {
                 itemDesciplineEleve.add(new ItemDesciplineEleve(
@@ -138,6 +165,11 @@ public class InformationsEleve extends AppCompatActivity {
                     sanctionArray[i].toString(),
                     nombreArray[i].toString()));}
 
+        for(int i=0;i<statusDiscArray.length;i++) {
+            itemDiscJourEleves.add(new ItemDiscJourEleve(
+                    statusDiscArray[i].toString(),
+                    dateArray[i].toString()));}
+
         mAdapter = new AdapterSanctionsEleve(itemSanctionsEleve, InformationsEleve.this);
         rvSanctionsEleve.setAdapter(mAdapter);
         rvSanctionsEleve.getAdapter().notifyDataSetChanged();
@@ -147,6 +179,11 @@ public class InformationsEleve extends AppCompatActivity {
         rvDesciplineEleve.setAdapter( DescAdapter);
         rvDesciplineEleve.getAdapter().notifyDataSetChanged();
         rvDesciplineEleve.scheduleLayoutAnimation();
+
+        discJourAdapter = new AdapterDiscJourEleve(itemDiscJourEleves, InformationsEleve.this);
+        rvAbscenceJournaliaireEleve.setAdapter( discJourAdapter);
+        rvAbscenceJournaliaireEleve.getAdapter().notifyDataSetChanged();
+        rvAbscenceJournaliaireEleve.scheduleLayoutAnimation();
 
     }
 

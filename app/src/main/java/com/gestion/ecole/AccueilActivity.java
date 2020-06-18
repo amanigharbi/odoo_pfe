@@ -18,6 +18,7 @@ import android.widget.ImageView;
 
 import com.gestion.ecole.login.LoginActivity;
 import com.gestion.ecole.login.SessionManagement;
+import com.gestion.ecole.ui.enfant.enfant;
 import com.gestion.ecole.ui.home.HomeFragment;
 import com.gestion.ecole.ui.menu.MenuFragment;
 import com.gestion.ecole.ui.notif.NotifActivity;
@@ -35,7 +36,11 @@ public class AccueilActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_accueil);
 
         System.out.println("mainactivitys : " + FirebaseInstanceId.getInstance().getToken());
+        SessionManagement sessionManagement = new SessionManagement(AccueilActivity.this);
+        String  parentID = sessionManagement.getId();
 
+        String  NameParent = sessionManagement.getNameParent();
+        System.out.println("accueil : "+ parentID+NameParent);
 
         //notification
       /* AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
