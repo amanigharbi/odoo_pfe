@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,44 +23,26 @@ public class Introduction extends AppCompatActivity {
     Button btGetStarted;
     AdapterIntroViewPager mAdapter;
 
-  /*  String prevStarted = "prevStarted";
-    @Override
-    protected void onResume() {
-        super.onResume();
-        SharedPreferences sharedPrefences = getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE);
-        if(!sharedPrefences.getBoolean(prevStarted,false)){
-            SharedPreferences.Editor editor= sharedPrefences.edit();
-            editor.putBoolean(prevStarted,Boolean.TRUE);
-            editor.apply();
-        }else{
-            finish();
-        }
-    }*/
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_introduction);
 
-
-         /* SharedPreferences settings=getSharedPreferences("prefs",0);
+        //runing for first time
+        /*  SharedPreferences settings=getSharedPreferences("prefs",0);
         boolean firstRun=settings.getBoolean("firstRun",false);
-        if(firstRun==false)//if running for first time
-        //Splash will load for first time
+        if(firstRun==false)
+
         {
             SharedPreferences.Editor editor=settings.edit();
             editor.putBoolean("firstRun",true);
             editor.commit();
-           // Intent i=new Intent(Introduction.this, LoginActivity.class);
-            //startActivity(i);
-            //finish();
         }
         else
         {
-
             Intent a=new Intent(Introduction.this,LoginActivity.class);
-            startActivity(a);  // Launch next activity
+            startActivity(a);
             finish();
         }*/
 

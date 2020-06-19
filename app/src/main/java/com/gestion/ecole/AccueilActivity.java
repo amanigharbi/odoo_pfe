@@ -35,31 +35,7 @@ public class AccueilActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
-        System.out.println("mainactivitys : " + FirebaseInstanceId.getInstance().getToken());
-        SessionManagement sessionManagement = new SessionManagement(AccueilActivity.this);
-        String  parentID = sessionManagement.getId();
-
-        String  NameParent = sessionManagement.getNameParent();
-        System.out.println("accueil : "+ parentID+NameParent);
-
-        //notification
-      /* AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
-        Intent notificationIntent = new Intent(this, AlarmReceiver.class);
-
-        PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-        Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.SECOND, 2);
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), broadcast);*/
-
-
-
-
-
-
-
-
+        System.out.println("registration id : " + FirebaseInstanceId.getInstance().getToken());
 
 
         loadFragment(new HomeFragment());

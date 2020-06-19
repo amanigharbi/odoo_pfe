@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.gestion.ecole.R;
 import com.gestion.ecole.ui.menu.ContactEnseignant.ContactEnseignant;
 import com.gestion.ecole.ui.menu.EmploisEleve.EmploisEleve;
-import com.gestion.ecole.ui.menu.InformationsEleve.InformationsEleve;
+import com.gestion.ecole.ui.menu.InformationsEleve.InfoEleve;
 
 import java.util.ArrayList;
 
@@ -63,7 +63,7 @@ public class AdapterEnfant extends RecyclerView.Adapter<AdapterEnfant.ViewHolder
                 String id=holder.idEnfant.getText().toString();
                 System.out.println("no "+id);
                 if(var .equals("Disciplines")){
-                    i1=new Intent(v.getContext(), InformationsEleve.class);
+                    i1=new Intent(v.getContext(), InfoEleve.class);
                     i1.putExtra("id",id);
                     v.getContext().startActivity(i1);
                }

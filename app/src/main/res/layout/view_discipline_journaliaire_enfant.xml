@@ -30,7 +30,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginTop="20dp"
             android:text="Date  "
-            android:textColor="@color/colorPurpleT"
+            android:textColor="@color/colorPurple"
             android:textStyle="bold" />
 
         <TextView
@@ -56,7 +56,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginTop="60dp"
             android:text="Status  "
-            android:textColor="@color/colorPurpleT"
+            android:textColor="@color/colorPurple"
             android:textStyle="bold" />
 
         <TextView

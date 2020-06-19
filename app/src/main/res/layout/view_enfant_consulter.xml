@@ -146,7 +146,7 @@
         app:layout_constraintEnd_toStartOf="@+id/RlInfoEleve"
         app:layout_constraintStart_toStartOf="@+id/RlInfoEleve"
         app:layout_constraintTop_toTopOf="@+id/RlInfoEleve"
-        app:srcCompat="@drawable/infoeleves" />
+        app:srcCompat="@drawable/infoeleve" />
 
 
     </androidx.cardview.widget.CardView>

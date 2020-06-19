@@ -16,8 +16,6 @@ import com.gestion.ecole.login.SessionManagement;
 import com.gestion.ecole.login.LoginActivity;
 import com.gestion.ecole.odoo.Get2ConditionData;
 import com.gestion.ecole.odoo.GetConditionData;
-import com.gestion.ecole.odoo.GetConnectionData;
-import com.gestion.ecole.ui.menu.InformationsEleve.InformationsEleve;
 
 import java.net.URL;
 import java.util.ArrayList;
