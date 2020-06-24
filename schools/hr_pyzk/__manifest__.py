@@ -17,7 +17,7 @@ It works on zkteco machines using pyzk library( version 1.9)
     'website': 'https://github.com/smsalah/hr_pyzk',
 	'author': 'Sheikh M. Salahuddin <smsalah@gmail.com>',
     'license': 'AGPL-3',
-    'depends': ['hr', 'hr_attendance'],
+    'depends': ['hr'],
     'data': [
         'views/device_users_view.xml',
         'views/devices_view.xml',
