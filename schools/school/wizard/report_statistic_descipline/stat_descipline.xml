@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_stat_descipline"  priority="17">
+        <t t-call="web.html_container">
+         <t t-call="web.external_layout">
+<t t-if="choix=='By Day'">
+        <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <table class="table table-condensed">
+                            <thead>
+                        <tr>
+                                    <th style="text-align:left;"><strong>Class </strong></th>
+                                   <th style="text-align:left;"><strong>Percentage of daily Absences</strong></th>
+                                    <th style="text-align:left;"><strong>By </strong></th>
+
+                                </tr>
+                            </thead>
+
+                              <tbody>
+ <t t-foreach="docs_day" t-as="doc_day">
+                                    <tr>
+
+                                        <td style="text-align:left;">
+                                            <t t-esc="doc_day['name']"/>
+                                        </td>
+                                      <td style="text-align:left;">
+                                            <t t-esc="doc_day['percentageDailyAbs']"/> %
+                                        </td>
+                                             <td style="text-align:left;">
+                                            <t t-esc="doc_day['by']"/>
+                                        </td>
+                                    </tr>
+  </t>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+</t>
+<t t-if="choix=='By Subject'">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                            <t t-foreach="docs" t-as="doc">
+                        <table class="table table-condensed">
+                            <thead>
+                        <tr>
+                                    <th style="text-align:left;"><strong>Class </strong></th>
+                                   <th style="text-align:left;"><strong>Percentage of Absences</strong></th>
+                                   <th style="text-align:left;"><strong>Percentage of Late </strong></th>
+                                     <th style="text-align:left;"><strong>Percentage of Avertissement</strong></th>
+                                   <th style="text-align:left;"><strong>Percentage of Excluded</strong></th>
+                                    <th style="text-align:left;"><strong>By </strong></th>
+                             <!-- <th style="text-align:left;"><strong>Total </strong></th>-->
+
+                                </tr>
+                            </thead>
+
+                              <tbody>
+
+                                    <tr>
+
+                                        <td style="text-align:left;">
+                                            <t t-esc="doc['name']"/>
+                                        </td>
+                                      <td style="text-align:left;">
+                                            <t t-esc="doc['percentageAbsent']"/> %
+                                        </td>
+                                         <td style="text-align:left;">
+                                            <t t-esc="doc['percentagelate']"/> %
+                                        </td>
+                                            <td style="text-align:left;">
+                                            <t t-esc="doc['percentageAvert']"/> %
+                                        </td>
+                                         <td style="text-align:left;">
+                                            <t t-esc="doc['percentageExclu']"/> %
+                                        </td>
+
+                                             <td style="text-align:left;">
+                                            <t t-esc="doc['by']"/>
+                                        </td>
+                                            <!--  <td style="text-align:left;">
+                                          <t t-esc="doc['total_percentage']"/>%
+                                        </td>-->
+                                    </tr>
+
+                              </tbody>
+
+                        </table></t>
+                          <!--      <t t-if="doc['count_standard'] != 0 and doc['count_standard'] !=1">
+<table>
+    <tr>
+        <td>hello</td>
+    </tr>
+</table>
+                        </t>-->
+
+                            <!--    <tfoot class="col-xs-8 text-right">
+                                 <tr  t-att-colspan="5">
+                                     <td align="right"  class="border-black" t-att-colspan="5" >Total</td>
+                                     <td align="right" ><t t-esc="doc['total_percentage']"/>%</td>
+                                 </tr>
+                               </tfoot>-->
+
+                     <!--   <div class="clearfix" >
+                            <div class="row" >
+                                <div t-attf-class="#('col-4' if report_type != 'html'  else 'col-sm-7 col-md-5') ml-auto">
+                                <table class="table table-sm" >
+
+                                     <t t-foreach="docs" t-as="doc">
+                                        <tr class="border-black">
+                                            <td><strong>Total</strong></td>
+                                            <td class="text-right"><span><t t-esc="doc['total_percentage']"/>%</span></td>
+                                        </tr>
+                                     </t>
+                                </table>
+                                </div></div>
+                        </div>-->
+                    </div>
+
+
+
+
+                </div></t>
+            <t t-if="choix=='By Academic Year'">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <table class="table table-condensed">
+                            <thead>
+                        <tr>
+                                    <th style="text-align:left;"><strong>Academic Year </strong></th>
+                                   <th style="text-align:left;"><strong>Percentage of Absences</strong></th>
+                                 <th style="text-align:left;"><strong>Percentage of Daily Absences</strong></th>
+                                   <th style="text-align:left;"><strong>Percentage of Late </strong></th>
+                                     <th style="text-align:left;"><strong>Percentage of Avertissement</strong></th>
+                                   <th style="text-align:left;"><strong>Percentage of Excluded</strong></th>
+
+                                </tr>
+                            </thead>
+ <t t-foreach="doc_academic_year" t-as="doc_year">
+                              <tbody>
+
+                                    <tr>
+
+                                        <td style="text-align:left;">
+                                            <t t-esc="doc_year['name_year']"/>
+                                        </td>
+                                      <td style="text-align:left;">
+                                            <t t-esc="doc_year['percentageAbsentAY']"/> %
+                                        </td>
+                                         <td style="text-align:left;">
+                                            <t t-esc="doc_year['percentageDailyAbsAY']"/> %
+                                        </td>
+                                         <td style="text-align:left;">
+                                            <t t-esc="doc_year['percentagelateAY']"/> %
+                                        </td>
+                                            <td style="text-align:left;">
+                                            <t t-esc="doc_year['percentageAvertAY']"/> %
+                                        </td>
+                                         <td style="text-align:left;">
+                                            <t t-esc="doc_year['percentageExcluAY']"/> %
+                                        </td>
+
+
+                                    </tr>
+
+                            </tbody>
+                           <!--       <tfoot class="col-xs-8 text-right">
+                                 <tr  t-att-colspan="5">
+                                     <td align="right"  class="border-black" t-att-colspan="5" >Total</td>
+                                     <td align="right" ><t t-esc="doc_year['total_percentage_ay']"/>%</td>
+                                 </tr>
+                               </tfoot>-->
+                            </t>
+                        </table>
+                    </div>
+
+                </div></t>
+</t> </t>
+
+    </template>
+
+</odoo>
+
+
+
+

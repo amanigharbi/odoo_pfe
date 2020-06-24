@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+
+<odoo>
+
+        <!-- Form View Of Time Table Information -->
+        <record id="view_time_table_form" model="ir.ui.view">
+            <field name="name">time.table.form</field>
+            <field name="model">time.table</field>
+            <field name="arch" type="xml">
+
+    <form string="TimeTable">
+                    <sheet>
+                        <group col="4" colspan="4">
+                            <field name="name" placeholder="Enter Description"/>
+                           <field name="school_id" placeholder="Select School" string="School Name"/>
+                            <field name="standard_id" placeholder="Select Standard" widget="selection"/>
+                            <field name="year_id" placeholder="Select Year" widget="selection"/>
+                            <field name="class_room_id" options="{&quot;no_create&quot;: True}" invisible="1"/>
+
+
+                        </group>
+                      <notebook colspan="4">
+
+                            <page string="Monday">
+                                <field name="timetable_mon" domain="[('week_day','=', 'Monday')]"  context="{'default_week_day': 'Monday'} ">
+                                    <tree string="Monday" editable="bottom">
+                                        <field name="period_id"/>
+                                        <field name="start_time" widget="float_time" />
+                                        <field name="end_time" widget="float_time"/>
+                                        <field name="subject_id"/>
+                                        <field name="teacher_id"/>
+                                         <field name="class_room_id"/>
+                                        <field name="week_day" invisible='1'/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Tuesday">
+                                <field name="timetable_tue" domain="[('week_day','=', 'Tuesday')]"  context="{'default_week_day': 'Tuesday'}">
+                                    <tree string="Tuesday" editable="bottom">
+                                              <field name="period_id"/>
+                                        <field name="start_time" widget="float_time" />
+                                        <field name="end_time" widget="float_time"/>
+                                        <field name="subject_id"/>
+                                        <field name="teacher_id"/>
+                                        <field name="class_room_id"/>
+                                        <field name="week_day" invisible='1'/>
+
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Wednesday">
+                                <field name="timetable_wed" domain="[('week_day','=', 'Wednesday')]"  context="{'default_week_day': 'Wednesday'}">
+                                        <tree string="Wednesday" editable="bottom">
+                                                  <field name="period_id"/>
+                                        <field name="start_time" widget="float_time" />
+                                        <field name="end_time" widget="float_time"/>
+                                        <field name="subject_id"/>
+                                        <field name="teacher_id"/>
+                                             <field name="class_room_id"/>
+                                        <field name="week_day" invisible='1'/>
+
+                                        </tree>
+                                    </field>
+                            </page>
+                            <page string="Thursday">
+                                <field name="timetable_thur" domain="[('week_day','=', 'Thursday')]"  context="{'default_week_day': 'Thursday'}">
+                                    <tree string="Thursday" editable="bottom">
+                                                <field name="period_id"/>
+                                        <field name="start_time" widget="float_time" />
+                                        <field name="end_time" widget="float_time"/>
+                                        <field name="subject_id"/>
+                                        <field name="teacher_id"/>
+                                        <field name="class_room_id"/>
+                                        <field name="week_day" invisible='1'/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Friday">
+                                <field name="timetable_fri" domain="[('week_day','=', 'Friday')]"  context="{'default_week_day': 'Friday'}">
+                                    <tree string="Friday" editable="bottom">
+                                                  <field name="period_id"/>
+                                        <field name="start_time" widget="float_time" />
+                                        <field name="end_time" widget="float_time"/>
+                                        <field name="subject_id"/>
+                                        <field name="teacher_id"/>
+                                        <field name="class_room_id"/>
+                                        <field name="week_day" invisible='1'/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Saturday">
+                                <field name="timetable_sat" domain="[('week_day','=', 'Saturday')]"  context="{'default_week_day': 'Saturday'}">
+                                    <tree string="Saturday" editable="bottom">
+                                                <field name="period_id"/>
+                                        <field name="start_time" widget="float_time" />
+                                        <field name="end_time" widget="float_time"/>
+                                        <field name="subject_id"/>
+                                        <field name="teacher_id"/>
+                                        <field name="class_room_id"/>
+                                        <field name="week_day" invisible='1'/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Tree View Of Time Table Information -->
+        <record id="view_time_table_tree" model="ir.ui.view">
+            <field name="name">time.table.tree</field>
+            <field name="model">time.table</field>
+            <field name="arch" type="xml">
+                <tree string="TimeTable">
+                    <field name="name"/>
+                    <field name="school_id"/>
+                    <field name="standard_id"/>
+                    <field name="year_id"/>
+
+                </tree>
+            </field>
+        </record>
+        <!-- Search View Time Table Information -->
+        <record id="timetable_search" model="ir.ui.view">
+            <field name="name">time.table.search</field>
+            <field name="model">time.table</field>
+            <field name="arch" type="xml">
+                <search string="TimeTable">
+                    <field name="name"/>
+                    <field name="school_id"/>
+                    <field name="standard_id"/>
+                    <field name="year_id"/>
+                    <newline/>
+                    <group expand="1" string="Group By">
+                        <filter name="class" string="Academic Class" help="By class"
+                                context="{'group_by':'standard_id'}"/>
+                        <filter name="year" string="Year" help="By year" context="{'group_by':'year_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+      <!--  <record id="action_view_time_table_line_kanban_2" model="ir.actions.act_window.view">
+        <field name="view_mode">kanban</field>
+        <field eval="21" name="sequence" />
+        <field name="view_id" ref="time_table_line_kanban_view" />
+
+    </record>-->
+        <!-- Actions Of Form & Tree Views Of Time Table Information -->
+        <record id="action_timetable_regular" model="ir.actions.act_window">
+            <field name="name">Timetable</field>
+            <field name="res_model">time.table</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('timetable_type','=','regular')]</field>
+            <field name="context">{'default_timetable_type':'regular'}</field>
+        </record>
+  <!-- Menu items of Timetable -->
+ <menuitem id="menu_timetable_regular" name="Timetable" parent="menu_students_parents" action="action_timetable_regular" sequence="33" groups="school.group_school_administration,school.group_school_teacher,school.group_school_student,school.group_school_parent"/>
+
+
+</odoo>
