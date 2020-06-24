@@ -224,7 +224,7 @@ class StudentStudent(models.Model):
                            readonly=True)
     Acadamic_year = fields.Char('Year', related='year.name',
                                 help='Academic Year', readonly=True)
-
+    division_id = fields.Many2one('standard.division', 'Division')
     standard_id = fields.Many2one('school.standard', 'Class')
     parent_id = fields.Many2many('school.parent', 'students_parents_rel',
                                  'student_id',
@@ -336,9 +336,6 @@ class StudentDailyDesciplines(models.Model):
     status=fields.Selection([('Absent For Day','Absent For Day')])
     student_id = fields.Many2one('student.student', 'Student')
 
-    @api.multi
-    def print_report(self):
-        return self.env.ref('school.report_ticket_qweb').report_action(self)
 
 
 class StudentSanctions(models.Model):

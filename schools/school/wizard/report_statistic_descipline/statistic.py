@@ -12,21 +12,21 @@ class statistic_student(models.TransientModel):
     # school_id=fields.Selection([('Bach Hamba Bizerte','Bach Hamba Bizerte'),('Jeune Fille Bizerte','Jeune Fille Bizerte')])
     academic_year = fields.Many2one('academic.year', 'academic_year.name')
 
-    # mois = datetime.date.today().strftime("%m")
-    # print('mois',mois)
-    # annee = datetime.date.today().strftime("%y")
-    # print('mois', annee)
+    # Month = datetime.date.today().strftime("%m")
+    # print('Month',Month)
+    # Year = datetime.date.today().strftime("%y")
+    # print('Month', Year)
     # jour=datetime.date.today().strftime("%d")
     # week=int(jour).weekday()
-    # print('mois', week)
-    # date=datetime.date(annee,mois,jour)
+    # print('Month', week)
+    # date=datetime.date(Year,Month,jour)
     # print('day',date)
     # dat=datetime.now()
     # print("date",dat)
     date_id = fields.Selection([
-        ('Semaine', 'Semaine'),
-        ('Mois', 'Mois'),
-        ('Annee', 'Annee'),
+        ('Week', 'Week'),
+        ('Month', 'Month'),
+        ('Year', 'Year'),
     ]
     )
 
@@ -45,22 +45,22 @@ class statistic_student(models.TransientModel):
 
         _name = 'report.school.report_stat_descipline'
 
-        def nbjoursmois(self, m, a):
-            """Donne le number de jours du mois m de l'année a"""
+        def nbjoursMonth(self, m, a):
+            """Donne le number de jours du Month m de l'année a"""
             nj = (0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)[m]
             if m == 2 and ((a % 4 == 0 and a % 100 != 0) or a % 400 == 0):  # m=février et a=bissextile?
                 return nj + 1
             return nj
 
         def get_numberDate(self, date):
-            mois = datetime.now().month
-            annee = datetime.now().year
+            Month = datetime.now().month
+            Year = datetime.now().year
             nb = 0
-            if date == "Semaine":
+            if date == "Week":
                 nb = nb + 6
-            if date == "Mois":
+            if date == "Month":
                 nb = nb + 24
-            if date == "Annee":
+            if date == "Year":
                 nb = nb + 360
             return nb
 
@@ -106,13 +106,68 @@ class statistic_student(models.TransientModel):
 
         @api.model
         def _get_report_values(self, docids, data=None):
-            academic_year= data['form']['academic_year'][0]
+            #academic_year= data['form']['academic_year'][0]
 
             docs = []
+            #doc_total = []
             docs_day = []
             doc_academic_year = []
             standard = data['form'].get('standard_id')
-            #academic_year = data['form'].get('academic_year')
+            academic_year = data['form'].get('academic_year')
+
+            if academic_year:
+                nb = 360
+                # info of academic year selected
+                year = self.env['academic.year'].search([('id', '=', academic_year[0])])
+                countAbsentAY = 0
+                countlateAY = 0
+                countDayAbsAY = 0
+                countAverAY = 0
+                countExcluAY = 0
+                for y in year:
+                    name_year = y.name
+                    id_year = y.id
+                    # info et number of student academic year selected
+                    student_AY = self.env['student.student'].search([('year','=',id_year)])
+                    for ele in student_AY:
+                        desciplineAY = ele.descplines_ids
+                        sanctionAY = ele.sanctions_ids
+                        daily_absAY = ele.daily_discplines_ids
+                        for rec2 in desciplineAY:
+                            countAbsentAY = self.get_numberDesipline(rec2.id, 'Absent') + countAbsentAY
+                            countlateAY = self.get_numberDesipline(rec2.id, 'Late') + countlateAY
+
+                        totalAbsenceAY = countAbsentAY
+
+                        totallateAY = countlateAY
+
+                        percentageAbsence_y = self.calcul_percentage_year(nb, totalAbsenceAY, id_year)
+                        percentagelate_y = self.calcul_percentage_year(nb, totallateAY, id_year)
+
+                        for sanc in sanctionAY:
+                            countAverAY = self.get_numberSanction(sanc.id, 'avertissement') + countAverAY
+                            countExcluAY = self.get_numberSanction(sanc.id, 'exclu') + countExcluAY
+
+                        totalAverAY = countAverAY
+                        totalExcluAY = countExcluAY
+                        percentageAvert_y = self.calcul_percentage_year(nb, totalAverAY, id_year)
+                        percentageExclu_y = self.calcul_percentage_year(nb, totalExcluAY, id_year)
+
+                        for day_abs in daily_absAY:
+                            countDayAbsAY = self.get_numberDailyAbs(day_abs.id) + countDayAbsAY
+                        totalDayAbsAY = countDayAbsAY
+
+                        percentageDayAbs_y = self.calcul_percentage_year(nb, totalDayAbsAY, id_year)
+                        total_percentage_ay = percentageAbsence_y+percentageAvert_y+percentageDayAbs_y+percentageExclu_y+percentagelate_y
+                    doc_academic_year.append({
+                        'name_year': name_year,
+                        'percentageAbsentAY': percentageAbsence_y,
+                        'percentageDailyAbsAY': percentageDayAbs_y,
+                        'percentagelateAY': percentagelate_y,
+                        'percentageAvertAY': percentageAvert_y,
+                        'percentageExcluAY': percentageExclu_y,
+                        'percentageDailyAbsAY': percentageDayAbs_y,
+                        'total_percentage_ay':total_percentage_ay})
             if standard:
                 for a in standard:
                     # date from form
@@ -122,12 +177,19 @@ class statistic_student(models.TransientModel):
 
                     # info of standard selected
                     standard = self.env['school.standard'].search([('id', '=', a)])
+                    #count_standard =self.env['school.standard'].search_count([('id', '=', a)])
+
+
 
                     countAbsent = 0
                     countlate = 0
                     countDayAbs = 0
                     countAver = 0
                     countExclu = 0
+                    #var_total_abs = 0
+                    #var_total_late = 0
+                    #var_total_aver = 0
+                    #var_total_exclu = 0
                     for rec in standard:
                         name = rec.name
                         id = rec.id
@@ -147,7 +209,9 @@ class statistic_student(models.TransientModel):
                             totallate = countlate
 
                             percentageAbsence = self.calcul_percentage(nb, totalAbsence, id)
+                            var_total_abs = var_total_abs+percentageAbsence
                             percentagelate = self.calcul_percentage(nb, totallate, id)
+                            var_total_late = var_total_late+percentagelate
                             for sanc in sanction:
                                 countAver = self.get_numberSanction(sanc.id, 'avertissement') + countAver
                                 countExclu = self.get_numberSanction(sanc.id, 'exclu') + countExclu
@@ -155,76 +219,41 @@ class statistic_student(models.TransientModel):
                             totalAver = countAver
                             totalExclu = countExclu
                             percentageAvert = self.calcul_percentage(nb, totalAver, id)
+                            var_total_aver=var_total_aver+percentageAvert
                             percentageExclu = self.calcul_percentage(nb, totalExclu, id)
+                            var_total_exclu=var_total_exclu+percentageExclu
+
 
                             for day_abs in daily_abs:
                                 countDayAbs = self.get_numberDailyAbs(day_abs.id) + countDayAbs
                             totalDayAbs = countDayAbs
 
                             percentageDayAbs = self.calcul_percentage(nb, totalDayAbs, id)
+                        #total_abs=var_total_abs
+                        #total_late = var_total_late
+                        #total_aver = var_total_aver
+                        #total_exclu = var_total_exclu
 
+                        #doc_total.append({
+                         #   'total_abs': total_abs,
+                            # 'total_late': total_late,
+                          #  'total_aver': total_aver,
+                            #'total_exclu': total_exclu
+                        # })
+                        #print('count_standard',count_standard)
                         docs.append({
                             'name': name,
                             'percentageAbsent': percentageAbsence,
                             'percentagelate': percentagelate,
                             'percentageAvert': percentageAvert,
                             'percentageExclu': percentageExclu,
-                            'by': date})
+                            'by': date
+                            #'count_standard':count_standard
+                             })
                         docs_day.append({
                             'name': name,
                             'percentageDailyAbs': percentageDayAbs,
                             'by': date})
-            else:
-                nb = 360
-                # info of academic year selected
-                year = self.env['academic.year'].search([('id', '=', academic_year)])
-                countAbsent = 0
-                countlate = 0
-                countDayAbs = 0
-                countAver = 0
-                countExclu = 0
-                for y in year:
-                    name_year = y.name
-                    id_year = y.id
-                    # info et number of student academic year selected
-                    student = self.env['student.student'].search([('year','=',id_year)])
-                    for ele in student:
-                        descipline = ele.descplines_ids
-                        sanction = ele.sanctions_ids
-                        daily_abs = ele.daily_discplines_ids
-                        for rec2 in descipline:
-                            countAbsent = self.get_numberDesipline(rec2.id, 'Absent') + countAbsent
-                            countlate = self.get_numberDesipline(rec2.id, 'Late') + countlate
-
-                        totalAbsence = countAbsent
-
-                        totallate = countlate
-
-                        percentageAbsence_y = self.calcul_percentage_year(nb, totalAbsence, id_year)
-                        percentagelate_y = self.calcul_percentage_year(nb, totallate, id_year)
-
-                        for sanc in sanction:
-                            countAver = self.get_numberSanction(sanc.id, 'avertissement') + countAver
-                            countExclu = self.get_numberSanction(sanc.id, 'exclu') + countExclu
-
-                        totalAver = countAver
-                        totalExclu = countExclu
-                        percentageAvert_y = self.calcul_percentage_year(nb, totalAver, id_year)
-                        percentageExclu_y = self.calcul_percentage_year(nb, totalExclu, id_year)
-
-                        for day_abs in daily_abs:
-                            countDayAbs = self.get_numberDailyAbs(day_abs.id) + countDayAbs
-                        totalDayAbs = countDayAbs
-
-                        percentageDayAbs_y = self.calcul_percentage_year(nb, totalDayAbs, id_year)
-                    doc_academic_year.append({
-                        'name_year': name_year,
-                        'percentageAbsent': percentageAbsence_y,
-                        'percentageDailyAbs': percentageDayAbs_y,
-                        'percentagelate': percentagelate_y,
-                        'percentageAvert': percentageAvert_y,
-                        'percentageExclu': percentageExclu_y,
-                        'percentageDailyAbs': percentageDayAbs_y})
 
             return {
                 'doc_ids': data['ids'],
@@ -234,4 +263,3 @@ class statistic_student(models.TransientModel):
                 'doc_academic_year':doc_academic_year,
 
             }
-
