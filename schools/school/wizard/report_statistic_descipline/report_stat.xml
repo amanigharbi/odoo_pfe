@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+        <report id="report_statistic"
+                string="statistic Descipline"
+                model="statistic.student"
+                report_type="qweb-pdf"
+                file="school.report_stat_descipline"
+                name="school.report_stat_descipline"
+  />
+</odoo>
