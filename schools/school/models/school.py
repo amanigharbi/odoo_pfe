@@ -208,10 +208,12 @@ class SchoolStandard(models.Model):
                  'school_id')
     def _compute_student(self):
         '''Compute student of registered state'''
+
         student_obj = self.env['student.student']
         for rec in self:
+
             rec.student_ids= student_obj.\
-                search([('standard_id', '=', rec.id),
+               search([('standard_id', '=', rec.id),
                         ('school_id', '=', rec.school_id.id),
                         ('division_id', '=', rec.division_id.id),
                         ('state', '=', 'registered')])
@@ -316,8 +318,9 @@ class SchoolSchool(models.Model):
                                  ondelete="cascade",
                                  required=True,
                                  delegate=True)
-    com_name = fields.Char('School Name', related='company_id.name',
-                           store=True)
+    com_name = fields.Char('School Name',related='company_id.name',
+                          store=True)
+    #name = fields.Many2one('res.company','School')
     code = fields.Char('Code', required=True)
     standards = fields.One2many('school.standard', 'school_id',
                                 'Standards')

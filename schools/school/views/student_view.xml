@@ -19,7 +19,7 @@
                         <newline />
                         <separator string="Personal Information" />
                         <b>
-                            <field name="reg_code" readonly="1" />
+                            <field name="reg_code" readonly="1" invisible="1"/>
                         </b>
                         <br />
                         <field name="photo" widget="image" attrs="{'readonly':[('state','in',['ancient','terminate'])]}" class="oe_avatar oe_left" style="max-width:100px;max-height:117px;"/>
@@ -35,7 +35,7 @@
                     </div>
                     <group>
                         <group string="Student Information">
-                            <field name="student_code" readonly="1" />
+                            <field name="student_code" readonly="1" invisible="1"/>
                             <field name="year" placeholder="Year" widget="selection" help="Academic year of Student" attrs="{'readonly':['|',('state','in',['ancient','terminate']),('teachr_user_grp','=',True)]}"/>
                             <field name="school_id" placeholder="School" widget="selection" help="School of Student" attrs="{'readonly':['|',('state','in',['ancient','terminate']),('teachr_user_grp','=',True)]}"/>
                         </group>
@@ -48,15 +48,15 @@
                             <label for="street" string="Address" />
                             <div class="o_address_format">
                                 <field name="street" class="o_address_street" placeholder="Street..." attrs="{'readonly':[('state','in',['ancient','terminate'])]}"/>
+                                <field name="country_id" placeholder="Country" class="o_address_country,oe_no_button" options="{&quot;no_open&quot;: True}" required="1" attrs="{'readonly':[('state','in',['ancient','terminate'])]}"/>
                                 <field name="city" placeholder="City" class="o_address_city" required="1" attrs="{'readonly':[('state','in',['ancient','terminate'])]}"/>
                                 <field name="state_id" domain="[('country_id','=',country_id)]" class="o_address_state" required="1" placeholder="State" options="{&quot;no_open&quot;: True}" attrs="{'readonly':[('state','in',['ancient','terminate'])]}"/>
-                                <field name="country_id" placeholder="Country" class="o_address_country,oe_no_button" options="{&quot;no_open&quot;: True}" required="1" attrs="{'readonly':[('state','in',['ancient','terminate'])]}"/>
-                            </div>
+                               </div>
                         </group>
                         <group>
 
                             <field name="mobile" placeholder="Mobile Number" attrs="{'readonly':[('state','in',['ancient','terminate'])]}"/>
-                            <field name="email" placeholder="Email Address" String="Email" attrs="{'readonly':[('state','in',['ancient','terminate'])]}"/>
+                            <field name="email" required="1" placeholder="Email Address" String="Email" attrs="{'readonly':[('state','in',['ancient','terminate'])]}"/>
 
                             <field name="teachr_user_grp" invisible="1"/>
                         </group>
@@ -190,8 +190,7 @@
                         </page>
 
                       <page string="Desciplines By Session" >
-                            <field name="descplines_ids" nolabel="1" colspan="4"
-                          >
+                            <field name="descplines_ids" nolabel="1" colspan="4">
                                 <tree string="Despline">
                                     <field name="student_id" invisible="1" />
                                     <field name="subject_id" required="1"/>
@@ -208,7 +207,6 @@
                                     <field name="student_id" invisible="1" />
                                     <field name="date" options="{'format': 'DD/MM/YYYY'}" required="1"/>
                                     <field name="status"/>
-                                    <button class="oe_highlight" name="print_report" type="object"  string="Imprimer"/>
                                 </tree>
                             </field>
                          </page>
@@ -235,7 +233,7 @@
         <field name="model">student.student</field>
         <field name="arch" type="xml">
             <tree string="Student Information" >
-                <field name="pid" />
+                <field name="pid" invisible="1"/>
                 <field name="name" />
                 <field name="student_name" invisible="1" />
                 <field name="year" widget="selection" />
@@ -253,8 +251,8 @@
         <field name="arch" type="xml">
             <search string="Student Information">
                 <group col="10" colspan="4">
-                    <field name="pid" />
-                    <field name="student_name" invisible="1" />
+                    <field name="pid" invisible="1"/>
+                    <field name="student_name" />
                     <field name="year" />
                     <field name="gender" />
                     <field name="school_id" placeholder="School"/>
@@ -279,7 +277,7 @@
         <field name="name">Student KANBAN</field>
         <field name="model">student.student</field>
         <field name="arch" type="xml">
-            <kanban default_group_by="school_id">
+            <kanban default_group_by="standard_id">
                 <field name="color"/>
                 <field name="id"/>
                 <field name="name"/>
@@ -319,14 +317,7 @@
                                             </td>
                                             <td valign="top" align="left" style="padding-left:10px;">
                                                 <table>
-                                                    <tr>
-                                                        <td>Student ID </td>
-                                                        <td style="padding-left:10px;">
-                                                            <b>
-                                                                <field name="pid" />
-                                                            </b>
-                                                        </td>
-                                                    </tr>
+
                                                     <tr>
                                                         <td>Standard </td>
                                                         <td style="padding-left:10px;">
@@ -407,7 +398,7 @@
                         <field name="photo" widget="image" class="oe_avatar oe_left" style="max-width:100px;max-height:117px;" />
                         <div class="oe_title">
                             <group>
-                                <field name="pid" nolabel="1" readonly="1"/>
+                                <field name="pid" nolabel="1" readonly="1" invisible="1"/>
                                 <br />
                                 <field name="name" placeholder="First Name" nolabel="1" required="1" attrs="{'readonly':[('state','=','ancient')]}"/>
                                 <br />
@@ -426,6 +417,7 @@
                             <field name="company_id" invisible="1"/>
                         </group>
                         <group string="Class Information">
+                                 <field name="division_id" placeholder="Division" invisible="1" widget="selection" attrs="{'readonly':[('state','in',['alumni','terminate'])]}"/>
                             <field name="standard_id" placeholder="Class" domain="[('school_id','=',school_id)]" widget="selection" attrs="{'readonly':[('state','=','ancient')]}"/>
 
 
@@ -444,7 +436,7 @@
                         <group>
 
                             <field name="mobile" placeholder="Mobile Number" attrs="{'readonly':[('state','=','ancient')]}"/>
-                            <field name="email" placeholder="Email Address" String="Email" attrs="{'readonly':[('state','=','ancient')]}"/>
+                            <field name="email" required="1" placeholder="Email Address" String="Email" attrs="{'readonly':[('state','=','ancient')]}"/>
 
                         </group>
                     </group>
@@ -537,7 +529,7 @@
         <field name="model">student.student</field>
         <field name="arch" type="xml">
             <tree string="Assign class">
-                <field name="pid" />
+                <field name="pid" invisible="1"/>
                 <field name="name" />
                 <field name="student_name" invisible="1" />
                 <field name="year" widget="selection" />

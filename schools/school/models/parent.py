@@ -33,9 +33,13 @@ class SchoolParent(models.Model):
     partner_id = fields.Many2one('res.partner', 'User ID', ondelete="cascade",
                                  delegate=True, required=True)
     relation_id = fields.Many2one('parent.relation', "Relation with Child")
+
+
+
     student_id = fields.Many2many('student.student', 'students_parents_rel',
                                   'students_parent_id', 'student_id',
                                   'Children')
+    relation_school_id = fields.Many2one('school.school', "In", related="student_id.school_id", )
     standard_id = fields.Many2many('school.standard',
                                    'school_standard_parent_rel',
                                    'class_parent_id', 'class_id',

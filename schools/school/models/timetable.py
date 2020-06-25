@@ -22,7 +22,7 @@ class TimeTable(models.Model):
                                   required=True,
                                   help="Select Standard")
     school_id = fields.Many2one('school.school', 'School',
-                                  required=True,
+                                 required=True,
                                   help="Select School")
     year_id = fields.Many2one('academic.year', 'Year', required=True,
                               help="select academic year")
