@@ -2,50 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efeffaa3-b337-4c77-a402-e15acfd1ba6d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/schools/school/static/description/device_attendances.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/static/description/parent.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/static/description/report_statistic.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/static/description/school.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/static/description/settings.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/static/description/student.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/static/description/teacher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/static/description/ticket_entry.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/static/description/timetable.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/backup/odoo/project_pfe_2020-06-27_10-54-12.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/backup/pgadmin/project_pfe.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/__manifest__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/backup_database/odoo_database/project_pfe_2020-06-25_23-33-56.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/backup_database/pgAdmin_database/project_pfe.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/data/attendance_student_daily.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/data/attendance_student_daily.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/models/parent.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/parent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/04_grade_system.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/05_new_updates.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/EMS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/dashboard.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/ems.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/ems_stud_reg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/fb.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/identitycard.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/in.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/insta.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/newschool.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/odooqa32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/parents.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/school1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/school_config.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/school_stud_info.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/serpent_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/student_info.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/teacher2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/twitter.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/youtube.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/views/parent_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/parent_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/views/school_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/school_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/views/template_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/template_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/add_student.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/add_student.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/stat_descipline.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/stat_descipline.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic_view.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/src/uliweb3" beforeDir="false" afterPath="$PROJECT_DIR$/venv/src/uliweb3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +42,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/schools" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/schools/school/backup/odoo" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -213,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593128296284</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="[ADD] description">
+      <created>1593254863965</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1593254863965</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -235,10 +201,10 @@
       <screen x="67" y="27" width="1293" height="636" />
     </state>
     <state x="471" y="88" key="#xdebugger.evaluate/67.27.1293.636@67.27.1293.636" timestamp="1586620447476" />
-    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2" timestamp="1593128269260">
+    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2" timestamp="1593254831463">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2/67.27.1293.636@67.27.1293.636" timestamp="1593128269260" />
+    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2/67.27.1293.636@67.27.1293.636" timestamp="1593254831463" />
     <state x="468" y="103" width="424" height="484" key="FileChooserDialogImpl" timestamp="1591111207956">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
@@ -279,10 +245,10 @@
       <screen x="67" y="27" width="1293" height="636" />
     </state>
     <state width="577" height="446" key="SwitcherDM/67.27.1293.636@67.27.1293.636" timestamp="1592935232370" />
-    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1593128309686">
+    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1593254872756">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1293.636@67.27.1293.636" timestamp="1593128309686" />
+    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1293.636@67.27.1293.636" timestamp="1593254872756" />
     <state width="646" height="319" key="XDebugger.FullValuePopup" timestamp="1587408151110">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
