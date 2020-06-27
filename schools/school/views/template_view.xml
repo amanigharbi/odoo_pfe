@@ -6,6 +6,10 @@
             <xpath expr="." position="inside">
                 <link rel="stylesheet" href="/school/static/src/scss/schoolcss.scss"/>
             </xpath>
+                    <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/report_pdf_options/static/src/js/qwebactionmanager.js"/>
+            <script type="text/javascript" src="/report_pdf_options/static/src/js/pdf_options.js"/>
+        </xpath>
         </template>
     </data>
 </odoo>

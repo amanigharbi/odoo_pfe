@@ -142,7 +142,7 @@ class add_student(models.TransientModel):
                     settings_nb_avertissement = search.number_avertissement
                     settings_nb_exclu = search.number_exclu
                     settings_discipline_selected=search.status_discipline
-                    print('settings_discipline_selected',settings_discipline_selected)
+                    print('settings_discipline_selected',settings_discipline_selected,late)
 
                         # tester si l'élève pointé est retard
                     if (current_time - start_time <= late):
@@ -162,9 +162,10 @@ class add_student(models.TransientModel):
                             late_mn) + 'Min, Dans La Matière ' + subject_name + ' Prévu à ' + str(start_time))
                     else:
                         status = "Absent"
-
+                        print('subject', subject_name, name)
                         # notification pour l'admin
                         message = ('A Student Is Pointed: \n' + name + ' is Absent In ' + subject_name + '!')
+
                         self.env.user.notify_info(message)
 
                         # notification pour le parent

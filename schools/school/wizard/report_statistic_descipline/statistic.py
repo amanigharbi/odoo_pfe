@@ -8,21 +8,11 @@ class statistic_student(models.TransientModel):
 
     standard_id = fields.Many2many('school.standard', 'standard_stat_rel', 'standard_id', 'stat_id', 'Class')
     choix = fields.Selection(
-        [('By Subject', 'By Subject'), ('By Day', 'By Day'), ('By Academic Year', 'By Academic Year')],'Statistic By :')
-    # school_id=fields.Selection([('Bach Hamba Bizerte','Bach Hamba Bizerte'),('Jeune Fille Bizerte','Jeune Fille Bizerte')])
+        [('Subject', 'Subject'), ('Day', 'Day'), ('Academic Year', 'Academic Year')],'Statistic By :')
+
     academic_year = fields.Many2one('academic.year', 'academic_year.name')
 
-    # Month = datetime.date.today().strftime("%m")
-    # print('Month',Month)
-    # Year = datetime.date.today().strftime("%y")
-    # print('Month', Year)
-    # jour=datetime.date.today().strftime("%d")
-    # week=int(jour).weekday()
-    # print('Month', week)
-    # date=datetime.date(Year,Month,jour)
-    # print('day',date)
-    # dat=datetime.now()
-    # print("date",dat)
+
     date_id = fields.Selection([
         ('Week', 'Week'),
         ('Month', 'Month'),
@@ -109,7 +99,7 @@ class statistic_student(models.TransientModel):
             #academic_year= data['form']['academic_year'][0]
 
             docs = []
-            #doc_total = []
+
             docs_day = []
             doc_academic_year = []
             standard = data['form'].get('standard_id')
@@ -158,7 +148,7 @@ class statistic_student(models.TransientModel):
                         totalDayAbsAY = countDayAbsAY
 
                         percentageDayAbs_y = self.calcul_percentage_year(nb, totalDayAbsAY, id_year)
-                        total_percentage_ay = percentageAbsence_y+percentageAvert_y+percentageDayAbs_y+percentageExclu_y+percentagelate_y
+
                     doc_academic_year.append({
                         'name_year': name_year,
                         'percentageAbsentAY': percentageAbsence_y,
@@ -166,8 +156,7 @@ class statistic_student(models.TransientModel):
                         'percentagelateAY': percentagelate_y,
                         'percentageAvertAY': percentageAvert_y,
                         'percentageExcluAY': percentageExclu_y,
-                        'percentageDailyAbsAY': percentageDayAbs_y,
-                        'total_percentage_ay':total_percentage_ay})
+                        'percentageDailyAbsAY': percentageDayAbs_y})
             if standard:
                 for a in standard:
                     # date from form
@@ -186,10 +175,7 @@ class statistic_student(models.TransientModel):
                     countDayAbs = 0
                     countAver = 0
                     countExclu = 0
-                    #var_total_abs = 0
-                    #var_total_late = 0
-                    #var_total_aver = 0
-                    #var_total_exclu = 0
+
                     for rec in standard:
                         name = rec.name
                         id = rec.id
@@ -209,9 +195,9 @@ class statistic_student(models.TransientModel):
                             totallate = countlate
 
                             percentageAbsence = self.calcul_percentage(nb, totalAbsence, id)
-                            var_total_abs = var_total_abs+percentageAbsence
+
                             percentagelate = self.calcul_percentage(nb, totallate, id)
-                            var_total_late = var_total_late+percentagelate
+
                             for sanc in sanction:
                                 countAver = self.get_numberSanction(sanc.id, 'avertissement') + countAver
                                 countExclu = self.get_numberSanction(sanc.id, 'exclu') + countExclu
@@ -219,9 +205,9 @@ class statistic_student(models.TransientModel):
                             totalAver = countAver
                             totalExclu = countExclu
                             percentageAvert = self.calcul_percentage(nb, totalAver, id)
-                            var_total_aver=var_total_aver+percentageAvert
+
                             percentageExclu = self.calcul_percentage(nb, totalExclu, id)
-                            var_total_exclu=var_total_exclu+percentageExclu
+
 
 
                             for day_abs in daily_abs:
@@ -229,18 +215,9 @@ class statistic_student(models.TransientModel):
                             totalDayAbs = countDayAbs
 
                             percentageDayAbs = self.calcul_percentage(nb, totalDayAbs, id)
-                        #total_abs=var_total_abs
-                        #total_late = var_total_late
-                        #total_aver = var_total_aver
-                        #total_exclu = var_total_exclu
 
-                        #doc_total.append({
-                         #   'total_abs': total_abs,
-                            # 'total_late': total_late,
-                          #  'total_aver': total_aver,
-                            #'total_exclu': total_exclu
-                        # })
-                        #print('count_standard',count_standard)
+
+
                         docs.append({
                             'name': name,
                             'percentageAbsent': percentageAbsence,

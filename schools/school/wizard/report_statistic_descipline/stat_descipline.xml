@@ -4,7 +4,7 @@
     <template id="report_stat_descipline"  priority="17">
         <t t-call="web.html_container">
          <t t-call="web.external_layout">
-<t t-if="choix=='By Day'">
+<t t-if="choix=='Day'">
         <div class="page">
                     <div class="oe_structure"/>
                     <div class="row">
@@ -39,7 +39,7 @@
 
                 </div>
 </t>
-<t t-if="choix=='By Subject'">
+<t t-if="choix=='Subject'">
                 <div class="page">
                     <div class="oe_structure"/>
                     <div class="row">
@@ -53,7 +53,7 @@
                                      <th style="text-align:left;"><strong>Percentage of Avertissement</strong></th>
                                    <th style="text-align:left;"><strong>Percentage of Excluded</strong></th>
                                     <th style="text-align:left;"><strong>By </strong></th>
-                             <!-- <th style="text-align:left;"><strong>Total </strong></th>-->
+
 
                                 </tr>
                             </thead>
@@ -81,50 +81,20 @@
                                              <td style="text-align:left;">
                                             <t t-esc="doc['by']"/>
                                         </td>
-                                            <!--  <td style="text-align:left;">
-                                          <t t-esc="doc['total_percentage']"/>%
-                                        </td>-->
+
                                     </tr>
 
                               </tbody>
 
                         </table></t>
-                          <!--      <t t-if="doc['count_standard'] != 0 and doc['count_standard'] !=1">
-<table>
-    <tr>
-        <td>hello</td>
-    </tr>
-</table>
-                        </t>-->
 
-                            <!--    <tfoot class="col-xs-8 text-right">
-                                 <tr  t-att-colspan="5">
-                                     <td align="right"  class="border-black" t-att-colspan="5" >Total</td>
-                                     <td align="right" ><t t-esc="doc['total_percentage']"/>%</td>
-                                 </tr>
-                               </tfoot>-->
-
-                     <!--   <div class="clearfix" >
-                            <div class="row" >
-                                <div t-attf-class="#('col-4' if report_type != 'html'  else 'col-sm-7 col-md-5') ml-auto">
-                                <table class="table table-sm" >
-
-                                     <t t-foreach="docs" t-as="doc">
-                                        <tr class="border-black">
-                                            <td><strong>Total</strong></td>
-                                            <td class="text-right"><span><t t-esc="doc['total_percentage']"/>%</span></td>
-                                        </tr>
-                                     </t>
-                                </table>
-                                </div></div>
-                        </div>-->
                     </div>
 
 
 
 
                 </div></t>
-            <t t-if="choix=='By Academic Year'">
+            <t t-if="choix=='Academic Year'">
                 <div class="page">
                     <div class="oe_structure"/>
                     <div class="row">
@@ -168,12 +138,7 @@
                                     </tr>
 
                             </tbody>
-                           <!--       <tfoot class="col-xs-8 text-right">
-                                 <tr  t-att-colspan="5">
-                                     <td align="right"  class="border-black" t-att-colspan="5" >Total</td>
-                                     <td align="right" ><t t-esc="doc_year['total_percentage_ay']"/>%</td>
-                                 </tr>
-                               </tfoot>-->
+
                             </t>
                         </table>
                     </div>
