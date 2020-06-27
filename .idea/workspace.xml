@@ -2,38 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48887eca-9025-43fa-ab67-720817bf3bb5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/schools/report_pdf_options/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/report_pdf_options/__manifest__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/report_pdf_options/controllers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/report_pdf_options/controllers/controllers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/report_pdf_options/i18n/es_PE.po" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/report_pdf_options/images/main_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/report_pdf_options/images/main_screenshot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/report_pdf_options/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/report_pdf_options/models/ir_actions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/report_pdf_options/static/description/defaultoption.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/report_pdf_options/static/description/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/report_pdf_options/static/description/printoptions.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/report_pdf_options/static/description/printoptions2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/report_pdf_options/static/description/setupoptions.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/report_pdf_options/static/src/js/pdf_options.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/report_pdf_options/static/src/js/qwebactionmanager.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/report_pdf_options/static/src/xml/report_pdf_options.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/report_pdf_options/views/ir_actions_report.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/report_pdf_options/views/templates.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/static/description/device_attendances.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/static/description/parent.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/static/description/report_statistic.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/static/description/school.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/static/description/settings.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/static/description/student.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/static/description/teacher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/static/description/ticket_entry.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/static/description/timetable.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/static/src/js/pdf_options.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/static/src/js/qwebactionmanager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pfe_gestion_de_pointage_scolaires.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pfe_gestion_de_pointage_scolaires.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/backup/odoo/project_pfe_2020-06-27_10-54-12.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/backup/pgadmin/project_pfe.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/controllers/controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/controllers/controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/models/device_users.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/models/device_users.py" afterDir="false" />
@@ -62,43 +32,8 @@
       <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/wizard/delete_attendance_wizard.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/wizard/delete_attendance_wizard.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/wizard/user_wizard.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/wizard/user_wizard.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/wizard/user_wizard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/wizard/user_wizard.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/__manifest__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/backup_database/odoo_database/school_2020-06-15_10-05-26.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/backup_database/pgAdmin_database/school.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/models/parent.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/parent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/models/student.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/student.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/04_grade_system.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/05_new_updates.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/EMS.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/dashboard.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/ems.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/ems_stud_reg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/fb.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/identitycard.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/in.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/static/description/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/insta.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/newschool.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/odooqa32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/parents.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/school1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/school_config.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/school_stud_info.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/serpent_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/student_info.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/teacher2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/twitter.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/static/description/youtube.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/views/parent_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/parent_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/data/attendance_student_daily.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/data/attendance_student_daily.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schools/school/views/school_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/school_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/views/student_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/student_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/views/template_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/template_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/add_student.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/add_student.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/stat_descipline.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/stat_descipline.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/wizard_setting_descipline.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/wizard_setting_descipline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/wizard_settings_descipline.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/wizard_settings_descipline.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -368,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593003320021</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="[12.0][MOD][Description]">
+      <created>1593185090602</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1593185090603</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -389,10 +331,10 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="815" y="176" width="864" height="695" key="#xdebugger.evaluate/67.27.1853.923@67.27.1853.923" timestamp="1584720517521" />
-    <state x="534" y="31" width="912" height="912" key="CommitChangelistDialog2" timestamp="1593003314022">
+    <state x="534" y="31" width="912" height="912" key="CommitChangelistDialog2" timestamp="1593185063737">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="534" y="31" width="912" height="912" key="CommitChangelistDialog2/67.27.1853.923@67.27.1853.923" timestamp="1593003314022" />
+    <state x="534" y="31" width="912" height="912" key="CommitChangelistDialog2/67.27.1853.923@67.27.1853.923" timestamp="1593185063737" />
     <state x="1129" y="208" width="424" height="484" key="FileChooserDialogImpl" timestamp="1593104168692">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
@@ -437,10 +379,10 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state width="498" height="446" key="SwitcherDM/67.27.1853.923@67.27.1853.923" timestamp="1592749284400" />
-    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1593003329840">
+    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1593185100421">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1853.923@67.27.1853.923" timestamp="1593003329840" />
+    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1853.923@67.27.1853.923" timestamp="1593185100421" />
     <state x="647" y="310" key="com.intellij.ide.util.TipDialog" timestamp="1586944304497">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
