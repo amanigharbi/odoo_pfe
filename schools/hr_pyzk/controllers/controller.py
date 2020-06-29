@@ -1,4 +1,4 @@
-from zk import ZK, const
+from ..pyzk_master.zk import ZK, const
 from odoo import models, fields, api, exceptions, _
 
 class DeviceUsers():
