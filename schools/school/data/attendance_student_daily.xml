@@ -5,7 +5,7 @@
           <field name="name">Attendance Student Daily</field>
             <field name="model_id" ref="model_add_student"></field>
           <field name="interval_number">1</field>
-          <field name="interval_type">minutes</field>
+          <field name="interval_type">days</field>
           <field name="numbercall">-1</field>
           <field name="doall" eval="False"/>
           <field name="code">model.attendance_student_daily()</field>

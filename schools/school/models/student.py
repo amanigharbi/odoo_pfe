@@ -71,17 +71,8 @@ class StudentStudent(models.Model):
     @api.model
     def create(self, vals):
         '''Method to create user when student is created'''
-        if vals.get('pid', _('New')) == _('New'):
-            vals['pid'] = self.env['ir.sequence'
-                                   ].next_by_code('student.student'
-                                                  ) or _('New')
-        if vals.get('pid', False):
-            vals['login'] = vals['pid']
-            vals['password'] = vals['pid']
-        else:
-            raise except_orm(_('Error!'),
-                             _('''PID not valid
-                                 so record will not be saved.'''))
+        vals['login'] = vals['email']
+        vals['password'] = vals['email']
         if vals.get('company_id', False):
             company_vals = {'company_ids': [(4, vals.get('company_id'))]}
             vals.update(company_vals)
@@ -155,7 +146,7 @@ class StudentStudent(models.Model):
     student_name = fields.Char('Student Name', related='user_id.name',
                                store=True, readonly=True)
     pid = fields.Char('Student ID', required=True,
-                      default=lambda self: _('New'),
+                      related='email',
                       help='Personal IDentification Number')
     reg_code = fields.Char('Registration Code',
                            help='Student Registration Code')

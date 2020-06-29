@@ -141,6 +141,8 @@ class add_student(models.TransientModel):
 
                     settings_nb_avertissement = search.number_avertissement
                     settings_nb_exclu = search.number_exclu
+                    settings_discipline_selected=search.status_discipline
+                    print('settings_discipline_selected',settings_discipline_selected,late)
 
                         # tester si l'élève pointé est retard
                     if (current_time - start_time <= late):
@@ -160,9 +162,10 @@ class add_student(models.TransientModel):
                             late_mn) + 'Min, Dans La Matière ' + subject_name + ' Prévu à ' + str(start_time))
                     else:
                         status = "Absent"
-
+                        print('subject', subject_name, name)
                         # notification pour l'admin
                         message = ('A Student Is Pointed: \n' + name + ' is Absent In ' + subject_name + '!')
+
                         self.env.user.notify_info(message)
 
                         # notification pour le parent
@@ -192,7 +195,11 @@ class add_student(models.TransientModel):
                     # conter le nombre totales des retard
                     nombreTotaleRetard = self.env['student.desciplines'].search_count(
                         [('status', '=', 'Late'), ('student_id.id', '=', student_id)])
-
+                    print('nombreTotaleRetard',nombreTotaleRetard)
+                    # conter le nombre totales des abcences
+                    nombreTotaleAbsence = self.env['student.desciplines'].search_count(
+                        [('status', '=', 'Absent'), ('student_id.id', '=', student_id)])
+                    print('nombreTotaleAbsence', nombreTotaleAbsence)
                     # extraire le nombre des avertissements
                     nombreTotaleAvert = self.env['student.sanctions'].search(
                         [('sanction', '=', 'avertissement') and ('student_id.id', '=', student_id)])
@@ -203,11 +210,15 @@ class add_student(models.TransientModel):
 
                     for nbAvert in nombreTotaleAvert:
                         # supprimer la ligne du table
+
                         nbAvert.unlink()
-
-                    # calculer le nombre des avertissements totales
-                    numberAver = int(nombreTotaleRetard / settings_nb_avertissement)
-
+                    if settings_discipline_selected=="Late":
+                        # calculer le nombre des avertissements totales
+                        numberAver = int(nombreTotaleRetard / settings_nb_avertissement)
+                        print('numberAver',numberAver)
+                    else:
+                        numberAver = int(nombreTotaleAbsence / settings_nb_avertissement)
+                        print('numberAver1', numberAver)
                     sanction = "avertissement"
 
                     # creer la ligne avertissement dans la table
@@ -217,6 +228,7 @@ class add_student(models.TransientModel):
                     for nb in nombreTotaleExclu:
                         # supprimer la ligne de la table
                         nb.unlink()
+
 
                     # calculer le nombre totale des avertissements
                     numberExclu = int(numberAver / settings_nb_exclu)
