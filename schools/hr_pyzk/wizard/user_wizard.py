@@ -4,7 +4,7 @@
 from odoo import models, fields, api, exceptions, _
 import datetime
 import pytz
-from addons.hr_pyzk.controllers import controller as c
+from ..controllers import controller as c
 
 
 class UserWizard(models.TransientModel):

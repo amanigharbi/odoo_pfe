@@ -1,6 +1,6 @@
 from odoo import models, fields, api, exceptions, _
 
-from addons.hr_pyzk.controllers import controller as c
+from ..controllers import controller as c
 
 
 

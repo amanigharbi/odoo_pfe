@@ -7,6 +7,7 @@
               <form string="Settings Descipline">
                     <separator string="Settings Descipline" colspan="4"/>
                     <group colspan="4" col="6">
+                        <field name="status_discipline" />
                         <field name="number_avertissement" />
                         <field name="number_exclu" />
 

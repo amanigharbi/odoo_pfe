@@ -7,6 +7,5 @@
     <orderEntry type="jdk" jdkName="Python 3.6 (pfe_gestion_de_pointage_scolaires)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="hr_pyzk" />
-    <orderEntry type="module" module-name="crm" />
   </component>
 </module>
