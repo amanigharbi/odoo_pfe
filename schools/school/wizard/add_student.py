@@ -1,5 +1,5 @@
 from odoo import models, fields, api
-from addons.hr_pyzk.models import device_users
+from ...hr_pyzk.models import device_users
 from odoo.exceptions import except_orm
 import datetime
 import subprocess, sys

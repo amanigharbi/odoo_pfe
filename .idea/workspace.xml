@@ -2,38 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48887eca-9025-43fa-ab67-720817bf3bb5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/schools/school/backup/odoo/project_pfe_2020-06-27_10-54-12.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/backup/pgadmin/project_pfe.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/controllers/controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/controllers/controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/models/device_users.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/models/device_users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/models/devices.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/models/devices.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/docs/make.bat" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/docs/make.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/not-zip-safe" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/not-zip-safe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/security/ir.model.access.csv" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/security/ir.model.access.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/static/description/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/static/description/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/static/src/js/sync.js" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/static/src/js/sync.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/static/src/xml/qweb_attendance.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/static/src/xml/qweb_attendance.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/bin/python" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/bin/python3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/bin/python3.6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/alert-0.0.2.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/alert-0.0.2.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/pip-20.0.2.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/pip-20.0.2.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/pkg_resources-0.0.0.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/pkg_resources-0.0.0.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/setuptools-46.1.3.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/setuptools-46.1.3.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/setuptools/_vendor/pyparsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/setuptools/_vendor/pyparsing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/views/device_attendances_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/views/device_attendances_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/views/device_users_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/views/device_users_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/views/devices_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/views/devices_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/views/web_asset.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/views/web_asset.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/wizard/delete_attendance_wizard.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/wizard/delete_attendance_wizard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/wizard/user_wizard.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/wizard/user_wizard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/wizard/user_wizard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/wizard/user_wizard.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/data/attendance_student_daily.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/data/attendance_student_daily.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/views/school_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/school_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/data/TestAttenanceStudent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/data/TestAttenanceStudent.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/models/parent.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/parent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/wizard/add_student.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/add_student.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,11 +22,10 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="New_ameni" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1YcZNjzdpyYBGcYddlc693XN26w" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -69,7 +40,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/schools/school/static/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../odoo/odoo-bin" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -138,13 +109,13 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="SDK_HOME" value="/usr/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../odoo" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="/opt/odoo/odoo/odoo-bin" />
-      <option name="PARAMETERS" value="--conf $PROJECT_DIR$/odoo-server.conf" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../odoo/odoo-bin" />
+      <option name="PARAMETERS" value="--config=&quot;$PROJECT_DIR$/../config-files/pfe_gestion_de_pointage_scolaires&quot;" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -152,6 +123,11 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.gestion pointage" />
+      <item itemvalue="Python.add_users" />
+      <item itemvalue="Python.device_users" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.device_users" />
@@ -319,41 +295,43 @@
     <option name="LAST_COMMIT_MESSAGE" value="[12.0][MOD][Description]" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="542" y="232" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586960168704">
-      <screen x="67" y="27" width="1853" height="923" />
+    <state x="542" y="261" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594021969405">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
+    <state x="542" y="261" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1594021969405" />
     <state x="542" y="232" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.923@67.27.1853.923" timestamp="1586960168704" />
     <state x="726" y="236" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592072485546">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="726" y="236" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.923@67.27.1853.923" timestamp="1592072485546" />
-    <state x="815" y="176" width="864" height="695" key="#xdebugger.evaluate" timestamp="1584720517521">
-      <screen x="67" y="27" width="1853" height="923" />
-    </state>
-    <state x="815" y="176" width="864" height="695" key="#xdebugger.evaluate/67.27.1853.923@67.27.1853.923" timestamp="1584720517521" />
     <state x="534" y="31" width="912" height="912" key="CommitChangelistDialog2" timestamp="1593185063737">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="534" y="31" width="912" height="912" key="CommitChangelistDialog2/67.27.1853.923@67.27.1853.923" timestamp="1593185063737" />
-    <state x="1129" y="208" width="424" height="484" key="FileChooserDialogImpl" timestamp="1593104168692">
-      <screen x="67" y="27" width="1853" height="923" />
+    <state x="1129" y="233" width="424" height="484" key="FileChooserDialogImpl" timestamp="1594021757132">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
+    <state x="1129" y="233" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1594021757132" />
     <state x="1129" y="208" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.923@67.27.1853.923" timestamp="1593104168692" />
-    <state width="1807" height="240" key="GridCell.Tab.0.bottom" timestamp="1593182829528">
-      <screen x="67" y="27" width="1853" height="923" />
+    <state width="1830" height="278" key="GridCell.Tab.0.bottom" timestamp="1594022661459">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
+    <state width="1830" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1594022661459" />
     <state width="1807" height="240" key="GridCell.Tab.0.bottom/67.27.1853.923@67.27.1853.923" timestamp="1593182829528" />
-    <state width="1807" height="240" key="GridCell.Tab.0.center" timestamp="1593182829528">
-      <screen x="67" y="27" width="1853" height="923" />
+    <state width="1830" height="278" key="GridCell.Tab.0.center" timestamp="1594022661459">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
+    <state width="1830" height="278" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1594022661459" />
     <state width="1807" height="240" key="GridCell.Tab.0.center/67.27.1853.923@67.27.1853.923" timestamp="1593182829528" />
-    <state width="1807" height="240" key="GridCell.Tab.0.left" timestamp="1593182829527">
-      <screen x="67" y="27" width="1853" height="923" />
+    <state width="1830" height="278" key="GridCell.Tab.0.left" timestamp="1594022661458">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
+    <state width="1830" height="278" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1594022661458" />
     <state width="1807" height="240" key="GridCell.Tab.0.left/67.27.1853.923@67.27.1853.923" timestamp="1593182829527" />
-    <state width="1807" height="240" key="GridCell.Tab.0.right" timestamp="1593182829528">
-      <screen x="67" y="27" width="1853" height="923" />
+    <state width="1830" height="278" key="GridCell.Tab.0.right" timestamp="1594022661459">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
+    <state width="1830" height="278" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1594022661459" />
     <state width="1807" height="240" key="GridCell.Tab.0.right/67.27.1853.923@67.27.1853.923" timestamp="1593182829528" />
     <state width="1807" height="240" key="GridCell.Tab.1.bottom" timestamp="1593182829258">
       <screen x="67" y="27" width="1853" height="923" />
@@ -388,14 +366,6 @@
     </state>
     <state x="647" y="310" key="com.intellij.ide.util.TipDialog/67.27.1853.923@67.27.1853.923" timestamp="1586944304497" />
     <state x="272" y="304" key="com.intellij.ide.util.TipDialog/67.27.893.902@67.27.893.902" timestamp="1586259640362" />
-    <state x="761" y="407" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585230918753">
-      <screen x="67" y="27" width="1853" height="923" />
-    </state>
-    <state x="761" y="407" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.923@67.27.1853.923" timestamp="1585230918753" />
-    <state x="543" y="175" width="891" height="624" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1584550226454">
-      <screen x="67" y="27" width="1853" height="923" />
-    </state>
-    <state x="543" y="175" width="891" height="624" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/67.27.1853.923@67.27.1853.923" timestamp="1584550226454" />
     <state x="382" y="100" width="1062" height="850" key="find.popup" timestamp="1593098703519">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
