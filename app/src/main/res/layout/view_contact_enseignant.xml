@@ -28,7 +28,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="500dp"
         app:cardCornerRadius="10dp"
         android:elevation="5dp"
@@ -61,7 +61,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
                 android:layout_below="@+id/tvNomPrenom"
-                android:maxLength="15"
+                android:maxLength="40"
                 android:text="email"
                 android:textSize="14sp"/>
 
@@ -76,6 +76,19 @@
                 android:text="num"
                 android:textSize="14sp"/>
 
+            <Button
+                android:id="@+id/btnContact"
+                android:layout_width="wrap_content"
+                android:layout_height="29dp"
+                android:layout_alignBottom="@+id/tvNum"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="-38dp"
+                android:background="@drawable/bt_ui_intro"
+                android:text="Contacter!"
+                android:textColor="@color/colorWhite" />
 
 
         </RelativeLayout>
