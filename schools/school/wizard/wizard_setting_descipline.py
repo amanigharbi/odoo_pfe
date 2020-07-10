@@ -14,25 +14,31 @@ class parametrage_descipline(models.TransientModel):
 
 
     def save_settings(self):
+        data = {
+            'ids': self.ids,
+            'model': self._name,
+            'form': self.read()[0]
+        }
+
+        new_nb_avert = data['form']['number_avertissement']
+        new_nb_exclu = data['form']['number_exclu']
+        new_max_late = data['form']['max_late']
+        new_status_discipline = data['form']['status_discipline']
         if self.env['settings.descipline'].search_count([]) > 0:
             search = self.env['settings.descipline'].search([])
 
-            data = {
-                'ids': self.ids,
-                'model': self._name,
-                'form': self.read()[0]
-                }
-
-            new_nb_avert=data['form']['number_avertissement']
-            new_nb_exclu=data['form']['number_exclu']
-            new_max_late=data['form']['max_late']
-            new_status_discipline = data['form']['status_discipline']
-
             for a in search:
                 a.unlink()
+
             self.env['settings.descipline'].create({'number_avertissement':new_nb_avert,
                     'number_exclu': new_nb_exclu,
                     'max_late':new_max_late,'status_discipline':new_status_discipline,
                      })
+        else:
+            self.env['settings.descipline'].create({'number_avertissement': new_nb_avert,
+                                                    'number_exclu': new_nb_exclu,
+                                                    'max_late': new_max_late,
+                                                    'status_discipline': new_status_discipline,
+                                                    })
 
 

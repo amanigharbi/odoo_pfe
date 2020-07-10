@@ -2,38 +2,157 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48887eca-9025-43fa-ab67-720817bf3bb5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/schools/school/backup/odoo/project_pfe_2020-06-27_10-54-12.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/backup/pgadmin/project_pfe.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/README.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/__manifest__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/data/printing_data.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/am.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/base_report_to_printer.pot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/bg.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/ca.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/de.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/el_GR.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/es.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/es_ES.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/fi.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/fr.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/gl.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/hr.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/hr_HR.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/it.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/nl.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/nl_NL.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/pt.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/pt_BR.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/pt_PT.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/sl.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/tr.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/i18n/zh_CN.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/models/ir_actions_report.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/models/printing_action.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/models/printing_job.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/models/printing_printer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/models/printing_report_xml_action.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/models/printing_server.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/models/printing_tray.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/models/res_users.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/readme/CONFIGURE.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/readme/CONTRIBUTORS.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/readme/DESCRIPTION.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/readme/HISTORY.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/readme/INSTALL.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/readme/USAGE.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/security/security.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/static/description/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/static/description/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/static/src/js/qweb_action_manager.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/tests/test_ir_actions_report.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/tests/test_printing_job.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/tests/test_printing_printer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/tests/test_printing_printer_tray.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/tests/test_printing_printer_wizard.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/tests/test_printing_report_xml_action.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/tests/test_printing_server.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/tests/test_printing_tray.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/tests/test_report.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/tests/test_res_users.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/views/assets.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/views/ir_actions_report.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/views/printing_job.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/views/printing_printer.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/views/printing_report.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/views/printing_server.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/views/res_users.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/wizards/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/wizards/printing_printer_update_wizard.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/base_report_to_printer/wizards/printing_printer_update_wizard_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/cups-0.0.6.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/cups-0.0.6.dist-info/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/cups-0.0.6.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/cups-0.0.6.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/cups-0.0.6.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/cups-0.0.6.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/cups.cpython-36m-x86_64-linux-gnu.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/cups/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/dom-0.9-py3.6.egg-info/PKG-INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/dom-0.9-py3.6.egg-info/SOURCES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/dom-0.9-py3.6.egg-info/dependency_links.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/dom-0.9-py3.6.egg-info/installed-files.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/dom-0.9-py3.6.egg-info/requires.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/dom-0.9-py3.6.egg-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/domainr/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/domainr/core.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pycups-2.0.1.dist-info/DESCRIPTION.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pycups-2.0.1.dist-info/INSTALLER" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pycups-2.0.1.dist-info/METADATA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pycups-2.0.1.dist-info/RECORD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pycups-2.0.1.dist-info/WHEEL" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pycups-2.0.1.dist-info/metadata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pycups-2.0.1.dist-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson-3.17.0-py3.6.egg-info/PKG-INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson-3.17.0-py3.6.egg-info/SOURCES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson-3.17.0-py3.6.egg-info/dependency_links.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson-3.17.0-py3.6.egg-info/installed-files.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson-3.17.0-py3.6.egg-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/_speedups.cpython-36m-x86_64-linux-gnu.so" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/compat.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/decoder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/encoder.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/errors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/ordered_dict.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/raw_json.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/scanner.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_bigint_as_string.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_bitsize_int_as_string.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_check_circular.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_decimal.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_decode.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_default.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_dump.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_encode_basestring_ascii.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_encode_for_html.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_errors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_fail.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_float.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_for_json.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_indent.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_item_sort_key.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_iterable.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_namedtuple.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_pass1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_pass2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_pass3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_raw_json.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_recursion.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_scanstring.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_separators.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_speedups.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_str_subclass.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_subclass.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_tool.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_tuple.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tests/test_unicode.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/simplejson/tool.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/termcolor-1.1.0-py3.6.egg-info/PKG-INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/termcolor-1.1.0-py3.6.egg-info/SOURCES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/termcolor-1.1.0-py3.6.egg-info/dependency_links.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/termcolor-1.1.0-py3.6.egg-info/installed-files.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/termcolor-1.1.0-py3.6.egg-info/top_level.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/termcolor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/controllers/controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/controllers/controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/models/device_users.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/models/device_users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/models/devices.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/models/devices.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/docs/make.bat" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/docs/make.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/not-zip-safe" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/pyzk-master/pyzk.egg-info/not-zip-safe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/security/ir.model.access.csv" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/security/ir.model.access.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/static/description/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/static/description/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/static/src/js/sync.js" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/static/src/js/sync.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/static/src/xml/qweb_attendance.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/static/src/xml/qweb_attendance.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/bin/python" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/bin/python3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/bin/python3.6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/alert-0.0.2.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/alert-0.0.2.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/pip-20.0.2.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/pip-20.0.2.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/pkg_resources-0.0.0.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/pkg_resources-0.0.0.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/setuptools-46.1.3.dist-info/RECORD" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/setuptools-46.1.3.dist-info/RECORD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/setuptools/_vendor/pyparsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib/python3.6/site-packages/setuptools/_vendor/pyparsing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/venv/lib64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/views/device_attendances_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/views/device_attendances_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/views/device_users_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/views/device_users_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/views/devices_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/views/devices_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/views/web_asset.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/views/web_asset.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/wizard/delete_attendance_wizard.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/wizard/delete_attendance_wizard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/wizard/user_wizard.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/wizard/user_wizard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/wizard/user_wizard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/wizard/user_wizard.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/data/attendance_student_daily.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/data/attendance_student_daily.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/views/school_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/school_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/odoo-server.conf" beforeDir="false" afterPath="$PROJECT_DIR$/odoo-server.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/models/parent.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/parent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/models/student.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/student.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/report/ticket.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/report/ticket.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/views/parent_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/parent_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/views/template_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/template_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/wizard/add_student.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/add_student.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/wizard/wizard_setting_descipline.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/wizard_setting_descipline.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +188,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/schools/school/static/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/venv" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -313,6 +432,9 @@
     <option name="localTasksCounter" value="21" />
     <servers />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="[12.0][MOD][Description]" />
@@ -323,62 +445,62 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="542" y="232" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.923@67.27.1853.923" timestamp="1586960168704" />
+    <state x="695" y="289" width="587" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593715870354">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="695" y="289" width="587" height="396" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.923@67.27.1853.923" timestamp="1593715870354" />
     <state x="726" y="236" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592072485546">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="726" y="236" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.923@67.27.1853.923" timestamp="1592072485546" />
-    <state x="815" y="176" width="864" height="695" key="#xdebugger.evaluate" timestamp="1584720517521">
-      <screen x="67" y="27" width="1853" height="923" />
-    </state>
-    <state x="815" y="176" width="864" height="695" key="#xdebugger.evaluate/67.27.1853.923@67.27.1853.923" timestamp="1584720517521" />
     <state x="534" y="31" width="912" height="912" key="CommitChangelistDialog2" timestamp="1593185063737">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="534" y="31" width="912" height="912" key="CommitChangelistDialog2/67.27.1853.923@67.27.1853.923" timestamp="1593185063737" />
-    <state x="1129" y="208" width="424" height="484" key="FileChooserDialogImpl" timestamp="1593104168692">
+    <state x="1129" y="208" width="424" height="484" key="FileChooserDialogImpl" timestamp="1593715765014">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="1129" y="208" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.923@67.27.1853.923" timestamp="1593104168692" />
-    <state width="1807" height="240" key="GridCell.Tab.0.bottom" timestamp="1593182829528">
+    <state x="1129" y="208" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.923@67.27.1853.923" timestamp="1593715765014" />
+    <state width="1830" height="312" key="GridCell.Tab.0.bottom" timestamp="1594409149516">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.0.bottom/67.27.1853.923@67.27.1853.923" timestamp="1593182829528" />
-    <state width="1807" height="240" key="GridCell.Tab.0.center" timestamp="1593182829528">
+    <state width="1830" height="312" key="GridCell.Tab.0.bottom/67.27.1853.923@67.27.1853.923" timestamp="1594409149516" />
+    <state width="1830" height="312" key="GridCell.Tab.0.center" timestamp="1594409149514">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.0.center/67.27.1853.923@67.27.1853.923" timestamp="1593182829528" />
-    <state width="1807" height="240" key="GridCell.Tab.0.left" timestamp="1593182829527">
+    <state width="1830" height="312" key="GridCell.Tab.0.center/67.27.1853.923@67.27.1853.923" timestamp="1594409149514" />
+    <state width="1830" height="312" key="GridCell.Tab.0.left" timestamp="1594409149513">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.0.left/67.27.1853.923@67.27.1853.923" timestamp="1593182829527" />
-    <state width="1807" height="240" key="GridCell.Tab.0.right" timestamp="1593182829528">
+    <state width="1830" height="312" key="GridCell.Tab.0.left/67.27.1853.923@67.27.1853.923" timestamp="1594409149513" />
+    <state width="1830" height="312" key="GridCell.Tab.0.right" timestamp="1594409149515">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.0.right/67.27.1853.923@67.27.1853.923" timestamp="1593182829528" />
-    <state width="1807" height="240" key="GridCell.Tab.1.bottom" timestamp="1593182829258">
+    <state width="1830" height="312" key="GridCell.Tab.0.right/67.27.1853.923@67.27.1853.923" timestamp="1594409149515" />
+    <state width="1830" height="312" key="GridCell.Tab.1.bottom" timestamp="1594409148506">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.1.bottom/67.27.1853.923@67.27.1853.923" timestamp="1593182829258" />
-    <state width="1807" height="240" key="GridCell.Tab.1.center" timestamp="1593182829257">
+    <state width="1830" height="312" key="GridCell.Tab.1.bottom/67.27.1853.923@67.27.1853.923" timestamp="1594409148506" />
+    <state width="1830" height="312" key="GridCell.Tab.1.center" timestamp="1594409148505">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.1.center/67.27.1853.923@67.27.1853.923" timestamp="1593182829257" />
-    <state width="1807" height="240" key="GridCell.Tab.1.left" timestamp="1593182829257">
+    <state width="1830" height="312" key="GridCell.Tab.1.center/67.27.1853.923@67.27.1853.923" timestamp="1594409148505" />
+    <state width="1830" height="312" key="GridCell.Tab.1.left" timestamp="1594409148502">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.1.left/67.27.1853.923@67.27.1853.923" timestamp="1593182829257" />
-    <state width="1807" height="240" key="GridCell.Tab.1.right" timestamp="1593182829257">
+    <state width="1830" height="312" key="GridCell.Tab.1.left/67.27.1853.923@67.27.1853.923" timestamp="1594409148502" />
+    <state width="1830" height="312" key="GridCell.Tab.1.right" timestamp="1594409148505">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1807" height="240" key="GridCell.Tab.1.right/67.27.1853.923@67.27.1853.923" timestamp="1593182829257" />
-    <state x="482" y="122" key="SettingsEditor" timestamp="1585561585164">
+    <state width="1830" height="312" key="GridCell.Tab.1.right/67.27.1853.923@67.27.1853.923" timestamp="1594409148505" />
+    <state x="482" y="122" key="SettingsEditor" timestamp="1593775487789">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="482" y="122" key="SettingsEditor/67.27.1853.923@67.27.1853.923" timestamp="1585561585164" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1592749284400">
+    <state x="482" y="122" key="SettingsEditor/67.27.1853.923@67.27.1853.923" timestamp="1593775487789" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1593342223818">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="498" height="446" key="SwitcherDM/67.27.1853.923@67.27.1853.923" timestamp="1592749284400" />
+    <state width="498" height="446" key="SwitcherDM/67.27.1853.923@67.27.1853.923" timestamp="1593342223818" />
     <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1593185100421">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
@@ -388,18 +510,10 @@
     </state>
     <state x="647" y="310" key="com.intellij.ide.util.TipDialog/67.27.1853.923@67.27.1853.923" timestamp="1586944304497" />
     <state x="272" y="304" key="com.intellij.ide.util.TipDialog/67.27.893.902@67.27.893.902" timestamp="1586259640362" />
-    <state x="761" y="407" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585230918753">
+    <state x="382" y="100" width="1062" height="850" key="find.popup" timestamp="1593715784330">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="761" y="407" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.923@67.27.1853.923" timestamp="1585230918753" />
-    <state x="543" y="175" width="891" height="624" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1584550226454">
-      <screen x="67" y="27" width="1853" height="923" />
-    </state>
-    <state x="543" y="175" width="891" height="624" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/67.27.1853.923@67.27.1853.923" timestamp="1584550226454" />
-    <state x="382" y="100" width="1062" height="850" key="find.popup" timestamp="1593098703519">
-      <screen x="67" y="27" width="1853" height="923" />
-    </state>
-    <state x="382" y="100" width="1062" height="850" key="find.popup/67.27.1853.923@67.27.1853.923" timestamp="1593098703519" />
+    <state x="382" y="100" width="1062" height="850" key="find.popup/67.27.1853.923@67.27.1853.923" timestamp="1593715784330" />
     <state x="656" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1592249308710">
       <screen x="67" y="27" width="1853" height="923" />
     </state>

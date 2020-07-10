@@ -1,3 +1,5 @@
+
+
 from odoo import models, fields, api
 from addons.hr_pyzk.models import device_users
 from odoo.exceptions import except_orm
@@ -6,8 +8,12 @@ import subprocess, sys
 import os
 import functools
 import operator
+import time
 
 from schools.school.models.parent import history_notification
+from schools.school.models.student import StudentDesciplines
+
+
 
 
 
@@ -40,6 +46,8 @@ class add_student(models.TransientModel):
         f.write("___________________________________")
         f.close()
         os.system('lpr test')
+
+        
 
     @api.multi
     def button_add(self, vals):
@@ -109,7 +117,10 @@ class add_student(models.TransientModel):
                     # les informations relatives au parent de l'élève pointé
                     parent_object = self.env['school.parent'].search([('student_id', '=', student_id)])
                     parent = parent_object.id
-                    reg_id = parent_object.registration_id_mobile
+                    name_parent=parent_object.name
+                    reg_object = self.env['parent.registration'].search([('parent_id', '=', parent)])
+                    print("parent", reg_object)
+
 
                     # l'emploie du temps relative au classe et école de l'élève pointé
                     timetable_object = self.env['time.table'].search(
@@ -177,11 +188,9 @@ class add_student(models.TransientModel):
                     self.env['student.desciplines'].create(
                         {'subject_id': subject_id, 'device_datetime': last_date, 'status': status,
                          'student_id': student_id})
-
-                    self.ticket(name,last,status,standard_name,str(last_date),subject_name)
-
-
-
+                    #impression de billet
+                    #self.ticket(name,last,status,standard_name,str(last_date),subject_name)
+                    print('aaa',StudentDesciplines.print_report(self))
 
 
                     # création de la notification pour le parent avec le discipline nécessaire
@@ -189,7 +198,14 @@ class add_student(models.TransientModel):
                         {'student_id': student_id, 'title': status, 'message': message_notif,
                          'status_message': 'In Progress', 'parent_id': parent})
                     titre = (name + " Est : " + status)
-                    history_notification.get_notif(titre, message_notif, reg_id)
+                    if reg_object:
+                        for a in reg_object:
+                            reg_id = a.reg_id
+                            print('reg id2', reg_id)
+                            history_notification.get_notif(titre, message_notif, reg_id)
+                    else:
+                        message = ('Demandez au parent '+name_parent+' d '+' installer l '+' application pour recevoir ses notifications !')
+                        self.env.user.notify_danger(message)
                     # history_notification.get_notification(self,titre,message_notif)
 
                     # conter le nombre totales des retard
@@ -241,6 +257,7 @@ class add_student(models.TransientModel):
         else:
             # notification pour l'admin
             self.env.user.notify_info(message='None Pointed Student')
+
 
 
     def count_discipline_absent(self, id, date_actuelle):

@@ -22,10 +22,10 @@
              'views/parent_view.xml',
              'wizard/move_standards_view.xml',
              'wizard/add_student.xml',
-             'views/report_view.xml',
              'views/identity_card.xml',
              'views/template_view.xml',
             'views/timetable_view.xml',
+             'views/report_view.xml',
             'views/timetable.xml',
             'wizard/report_statistic_descipline/statistic_view.xml',
              'wizard/report_statistic_descipline/stat_descipline.xml',
@@ -33,6 +33,7 @@
              'wizard/wizard_settings_descipline.xml',
              'report/ticket.xml',
              ],
+
     'installable': True,
     'application': True
 }

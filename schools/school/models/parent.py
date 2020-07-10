@@ -49,7 +49,7 @@ class SchoolParent(models.Model):
                                 'Academic Standard')
     teacher_id = fields.Many2one('school.teacher', 'Teacher',
                                  related="standard_id.user_id", store=True)
-    registration_id_mobile= fields.Char('Registration mobile')
+    registration_id_mobile=fields.One2many('parent.registration', 'parent_id', 'Registration ID')
 
     @api.model
     def create(self, vals):
@@ -73,6 +73,11 @@ class SchoolParent(models.Model):
         self.country_id = False
         if self.state_id:
             self.country_id = self.state_id.country_id.id
+class PrentRegistration(models.Model):
+    _name = 'parent.registration'
+    _description = 'Parent Registration ID'
+    reg_id = fields.Char('Registration mobile')
+    parent_id=fields.Many2one('school.parent', 'Parent')
 class history_notification(models.Model):
         _name = 'history.notification'
         _description = "history notification"
@@ -84,8 +89,8 @@ class history_notification(models.Model):
         parent_id = fields.Many2one('school.parent','Parents')
         def get_notif(title,message,reg_id):
                 push_service = FCMNotification(api_key="AAAAHTeART0:APA91bF8366zxEmL8KA5cwv6tDvH9mg8_iemweE_WkUDf0fvssh-4um9Cbf0o9ucINkQa2w_7LCcblAjl2rBO9d2u4Od9I5wn-7Qlb7E4nLDQ6eJvKX8CqNs8yL5jN4464CgpTYZ96of")
-                print("push",push_service)
-                result =push_service.notify_single_device(registration_id=reg_id,
+                print("push",reg_id)
+                result =push_service.notify_multiple_devices(registration_ids=[reg_id],
                                                               message_title='Notification '+title,
                                                               message_body=message)
                 

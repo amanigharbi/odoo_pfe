@@ -314,9 +314,17 @@ class StudentDesciplines(models.Model):
     status=fields.Selection([('Absent','Absent'),('Late','Late'),('In Time','In Time')])
     student_id = fields.Many2one('student.student', 'Student')
 
+
+
+
+
+
+
     @api.multi
     def print_report(self):
         return self.env.ref('school.report_ticket_qweb').report_action(self)
+
+
 
 class StudentDailyDesciplines(models.Model):
     _name = 'student.daily.disciplines'
