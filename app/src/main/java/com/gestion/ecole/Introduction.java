@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.gestion.ecole.login.LoginActivity;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -21,10 +23,30 @@ public class Introduction extends AppCompatActivity {
     Button btGetStarted;
     AdapterIntroViewPager mAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_introduction);
+
+        //runing for first time
+        /*  SharedPreferences settings=getSharedPreferences("prefs",0);
+        boolean firstRun=settings.getBoolean("firstRun",false);
+        if(firstRun==false)
+
+        {
+            SharedPreferences.Editor editor=settings.edit();
+            editor.putBoolean("firstRun",true);
+            editor.commit();
+        }
+        else
+        {
+            Intent a=new Intent(Introduction.this,LoginActivity.class);
+            startActivity(a);
+            finish();
+        }*/
+
+
 
         viewPager       = findViewById(R.id.viewpager);
         tabLayout       = findViewById(R.id.tablayout);
@@ -35,7 +57,7 @@ public class Introduction extends AppCompatActivity {
 
         btGetStarted.setVisibility(View.GONE);
         final List<ScreenItem> arrayList = new ArrayList<>();
-        arrayList.add(new ScreenItem( "Éleve","Vous trouvez ici les informations necessaires \n de votre enfant!",R.drawable.teacher1));
+        arrayList.add(new ScreenItem( "Éleve","Vous trouvez ici les informations nécessaires \n de votre enfant!",R.drawable.teacher1));
         arrayList.add(new ScreenItem( "Enseignant","Vous trouvez ici les contacts des enseignants \n de votre enfant!",R.drawable.enseignant));
         arrayList.add(new ScreenItem("École","à tout moment vous pouvez nous contacter!", R.drawable.school));
 

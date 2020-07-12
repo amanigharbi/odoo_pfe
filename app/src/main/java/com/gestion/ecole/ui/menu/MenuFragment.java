@@ -1,5 +1,6 @@
 package com.gestion.ecole.ui.menu;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,12 +12,16 @@ import androidx.recyclerview.widget.SnapHelper;
 
 import android.os.Handler;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.RelativeLayout;
 
 import com.gestion.ecole.R;
+import com.gestion.ecole.login.LoginActivity;
 
 import java.util.ArrayList;
 
@@ -44,7 +49,7 @@ public class MenuFragment extends Fragment {
         rvArticles.setLayoutManager(layoutManager);
 
         ArrayList<ItemMenu> dataArticles = new ArrayList<>();
-        dataArticles.add(new ItemMenu("Informations", "Voir l'état de votre enfant", R.drawable.infor));
+        dataArticles.add(new ItemMenu("Disciplines", "Voir l'état de votre enfant", R.drawable.infor));
         dataArticles.add(new ItemMenu("Emplois", "Voir l'emplois de votre enfant!",R.drawable.time4));
         dataArticles.add(new ItemMenu("Contacts", "Voir les contacts des enseignants",R.drawable.contactenseignant));
 
@@ -90,5 +95,17 @@ public class MenuFragment extends Fragment {
         });
         return v;
     }
-
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu, menu) ;
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id= item.getItemId();
+        if (id== R.id.deconnexion){
+            Intent intent = new Intent(getActivity(), LoginActivity.class);
+            startActivity(intent);
+        }
+        return true;
+    }
 }

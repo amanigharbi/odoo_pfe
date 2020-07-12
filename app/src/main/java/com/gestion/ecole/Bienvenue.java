@@ -2,7 +2,9 @@ package com.gestion.ecole;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.Animation;
@@ -14,6 +16,9 @@ public class Bienvenue extends AppCompatActivity {
     ImageView logo;
     TextView tvAppName;
     Animation leftoright,righttoleft;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,4 +42,5 @@ public class Bienvenue extends AppCompatActivity {
             }
         },1500);
     }
+
     }

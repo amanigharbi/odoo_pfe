@@ -11,7 +11,57 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="afb092e4-03ad-4163-8ae0-635170c95318" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/login/LoginActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/login/SessionManagement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/login/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/odoo/ConnectionOdoo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/odoo/CreateRegId.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/odoo/DeleteRegIdOdoo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/odoo/Get2ConditionData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/odoo/GetConditionData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/odoo/GetConnectionData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/odoo/GetDataOdoo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/odoo/SetDataOdoo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/service/MyFirebaseMessagingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/enfant/AdapterEnfant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/enfant/ItemEnfant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/enfant/enfant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/ContactEnseignant/AdapterContactEns.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/ContactEnseignant/ContactEnseignant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/ContactEnseignant/ItemEnseignant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/EmploisEleve/AdapterDay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/EmploisEleve/AdapterDayDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/EmploisEleve/EmploisEleve.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/EmploisEleve/Emplois_details.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/EmploisEleve/ItemDay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/EmploisEleve/ItemDayDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/InformationsEleve/AdapterDesciplineEleve.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/InformationsEleve/AdapterDiscJourEleve.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/InformationsEleve/AdapterSanctionsEleve.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/InformationsEleve/InfoEleve.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/InformationsEleve/ItemDesciplineEleve.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/InformationsEleve/ItemDiscJourEleve.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/InformationsEleve/ItemSanctionsEleve.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/notif/AdapterNotification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/notif/ItemNotification.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/AccueilActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/AccueilActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/Bienvenue.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/Bienvenue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/Introduction.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/Introduction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/LoginActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/NotifActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/AdapterContactEns.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/AdapterMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/AdapterMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/ContactEnseignant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/EmploisEleve.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/InformationsEleve.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/MenuFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/menu/MenuFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/notif/AlarmReceiver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/notif/NotifActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/notif/NotifActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/notif/NotifFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/notif/NotifFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole/ui/notif/NotifViewModel.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +277,28 @@
       <option name="project" value="LOCAL" />
       <updated>1594562059563</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="mobile">
+      <created>1594562358802</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1594562358802</updated>
+    </task>
+    <task id="LOCAL-00009" summary="mobile">
+      <created>1594562382601</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1594562382601</updated>
+    </task>
+    <task id="LOCAL-00010" summary="mobile">
+      <created>1594562399229</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1594562399229</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,7 +314,14 @@
       </map>
     </option>
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myShow1" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
+    <option name="SHOW_DIRTY_RECURSIVELY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole" />
+    </ignored-roots>
     <MESSAGE value="mobile" />
     <option name="LAST_COMMIT_MESSAGE" value="mobile" />
   </component>
@@ -288,10 +366,10 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="576" y="245" width="824" height="484" key="AndroidCreateResourceFileDialog/67.27.1853.923@67.27.1853.923" timestamp="1592511679865" />
-    <state x="464" y="64" width="1049" height="847" key="CommitChangelistDialog2" timestamp="1594562382082">
+    <state x="464" y="64" width="1049" height="847" key="CommitChangelistDialog2" timestamp="1594562398642">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="464" y="64" width="1049" height="847" key="CommitChangelistDialog2/67.27.1853.923@67.27.1853.923" timestamp="1594562382082" />
+    <state x="464" y="64" width="1049" height="847" key="CommitChangelistDialog2/67.27.1853.923@67.27.1853.923" timestamp="1594562398642" />
     <state x="167" y="125" width="1653" height="725" key="DiffContextDialog" timestamp="1594558409345">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
@@ -316,14 +394,14 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state width="1807" height="263" key="GridCell.Tab.0.right/67.27.1853.923@67.27.1853.923" timestamp="1594412844697" />
-    <state x="482" y="122" key="SettingsEditor" timestamp="1594562002911">
+    <state x="482" y="122" key="SettingsEditor" timestamp="1594562615085">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="482" y="122" key="SettingsEditor/67.27.1853.923@67.27.1853.923" timestamp="1594562002911" />
-    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1594562362089">
+    <state x="482" y="122" key="SettingsEditor/67.27.1853.923@67.27.1853.923" timestamp="1594562615085" />
+    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1594562405818">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1853.923@67.27.1853.923" timestamp="1594562362089" />
+    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1853.923@67.27.1853.923" timestamp="1594562405818" />
     <state x="675" y="204" width="627" height="566" key="VcsDiffUtil.ChangesDialog" timestamp="1594559470280">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
@@ -353,6 +431,10 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="645" y="227" width="696" height="520" key="find.popup/67.27.1853.923@67.27.1853.923" timestamp="1594558906624" />
+    <state x="661" y="354" key="git4idea.rebase.GitRebaseDialog" timestamp="1594562664795">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="661" y="354" key="git4idea.rebase.GitRebaseDialog/67.27.1853.923@67.27.1853.923" timestamp="1594562664795" />
     <state x="657" y="221" key="run.anything.popup" timestamp="1591607283412">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
