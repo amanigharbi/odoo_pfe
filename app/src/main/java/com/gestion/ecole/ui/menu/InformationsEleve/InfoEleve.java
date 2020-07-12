@@ -49,8 +49,9 @@ public class InfoEleve extends AppCompatActivity {
         cardDiscJour = (CardView) findViewById(R.id.cardDiscJour);
         cardSanction = (CardView) findViewById(R.id.cardSanction);
         myDialog = new Dialog(this);
-        parentID = sessionManagement.getId();
+
       sessionManagement = new SessionManagement(InfoEleve.this);
+        parentID = sessionManagement.getId();
          res_users=sessionManagement.getSESSION_RES_USERS();
          db=sessionManagement.getSESSION_DB();
        url=sessionManagement.getSESSION_URL();
