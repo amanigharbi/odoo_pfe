@@ -14,8 +14,10 @@ import android.view.MenuItem;
 import com.gestion.ecole.R;
 import com.gestion.ecole.login.SessionManagement;
 import com.gestion.ecole.login.LoginActivity;
+import com.gestion.ecole.odoo.DeleteRegIdOdoo;
 import com.gestion.ecole.odoo.Get2ConditionData;
 import com.gestion.ecole.odoo.GetConditionData;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -33,7 +35,7 @@ public class Emplois_details extends AppCompatActivity {
     ArrayList<String> subject = new ArrayList<>();
     ArrayList<String> time = new ArrayList<>();
     ArrayList<String> teacher = new ArrayList<>();
-
+    String res_users,db,url,mdp,intentId, parentID,id_reg;
     String[] subjectArray, timeArray,teacherArray;
 
     AsyncTask<URL, String, List> monday, tuesday, wednesday, thursday, friday, saturday;
@@ -52,10 +54,10 @@ public class Emplois_details extends AppCompatActivity {
         rvDayDetails.setLayoutManager(layoutManager);
 
         SessionManagement sessionManagement = new SessionManagement(Emplois_details.this);
-        String res_users=sessionManagement.getSESSION_RES_USERS();
-        String db=sessionManagement.getSESSION_DB();
-        String url=sessionManagement.getSESSION_URL();
-        String mdp=sessionManagement.getMdp();
+         res_users=sessionManagement.getSESSION_RES_USERS();
+         db=sessionManagement.getSESSION_DB();
+        url=sessionManagement.getSESSION_URL();
+        mdp=sessionManagement.getMdp();
 
         try {
             Intent intent=getIntent();
@@ -210,6 +212,26 @@ public class Emplois_details extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id= item.getItemId();
         if (id== R.id.deconnexion){
+            String registration_id = FirebaseInstanceId.getInstance().getToken();
+            AsyncTask<URL, String, List> regMobile  = new Get2ConditionData(db,url,mdp,res_users,"parent.registration", new String[]{"id","reg_id", "parent_id"},
+                    "parent_id.id", parentID,"reg_id",registration_id).execute();
+
+            try {
+
+                List regMobileList=regMobile.get();
+                for (Map<String, Object> item5 : (List<Map<String, Object>>) regMobileList) {
+                    id_reg=item5.get("id").toString();
+                    System.out.println("aaa : " + id_reg);
+
+
+                }
+                AsyncTask<URL, String, Boolean> delete  = new DeleteRegIdOdoo(db,url,mdp,res_users,"parent.registration", id_reg).execute();
+                System.out.println("delete"+delete.get());
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             SessionManagement sessionManagement = new SessionManagement(Emplois_details.this);
             sessionManagement.removeSession();
             Intent intent = new Intent(this, LoginActivity.class);

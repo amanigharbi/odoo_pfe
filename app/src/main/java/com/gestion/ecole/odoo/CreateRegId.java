@@ -9,7 +9,6 @@ import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 
 import static com.gestion.ecole.odoo.ConnectionOdoo.db;
 import static com.gestion.ecole.odoo.ConnectionOdoo.password;
@@ -17,22 +16,22 @@ import static com.gestion.ecole.odoo.ConnectionOdoo.uid;
 import static com.gestion.ecole.odoo.ConnectionOdoo.url;
 import static java.util.Arrays.asList;
 
-public class SetDataOdoo extends AsyncTask<URL,String, Boolean> {
-    static Boolean ids;
+public class CreateRegId extends AsyncTask<URL,String,Boolean> {
     String table;
-    String[] fields;
-    String attr1,attr2,id,db,url,uid,password;
-
-    public SetDataOdoo(String db, String url, String password, String uid,String table,String id,String attr1,String attr2){
+    String db,url,uid,password;
+    String field1,field2,val1,val2;
+    public CreateRegId(String db, String url, String password, String uid,String table,String field1,String val1,String field2,String val2){
         this.db=db;
         this.url=url;
         this.uid=uid;
         this.password=password;
         this.table=table;
-        this.fields=fields;
-        this.id=id;
-        this.attr1=attr1;
-        this.attr2=attr2;
+        this.field1=field1;
+        this.val1=val1;
+        this.field2=field2;
+        this.val2=val2;
+
+
     }
     @Override
     protected Boolean doInBackground(URL... urls) {
@@ -48,16 +47,13 @@ public class SetDataOdoo extends AsyncTask<URL,String, Boolean> {
                         put("raise_exception", false);
                     }}
             ));
-            models.execute("execute_kw", asList(
-                    db, uid, password, table, "write", asList(
-                            asList(id)
-                            , new HashMap() {{
-                                put(attr1, attr2);
-                            }}
-                    )));
-
-            return true;
-
+             models.execute("execute_kw", asList(
+                    db, uid, password,
+                    table, "create",
+                    asList(new HashMap() {{ put(field1,val1);
+                                            put(field2,val2);}})
+            ));
+        return true;
         } catch (ClassCastException e) {
             e.printStackTrace();
             return false;
@@ -70,5 +66,5 @@ public class SetDataOdoo extends AsyncTask<URL,String, Boolean> {
             return false;
 
         }
-
-    }}
+    }
+}

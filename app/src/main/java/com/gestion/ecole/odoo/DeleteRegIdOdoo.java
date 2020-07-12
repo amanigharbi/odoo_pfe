@@ -9,7 +9,6 @@ import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 
 import static com.gestion.ecole.odoo.ConnectionOdoo.db;
 import static com.gestion.ecole.odoo.ConnectionOdoo.password;
@@ -17,22 +16,22 @@ import static com.gestion.ecole.odoo.ConnectionOdoo.uid;
 import static com.gestion.ecole.odoo.ConnectionOdoo.url;
 import static java.util.Arrays.asList;
 
-public class SetDataOdoo extends AsyncTask<URL,String, Boolean> {
-    static Boolean ids;
-    String table;
-    String[] fields;
-    String attr1,attr2,id,db,url,uid,password;
+public class DeleteRegIdOdoo  extends AsyncTask<URL,String,Boolean> {
+    String table,db,url,uid,password;
+    String id;
 
-    public SetDataOdoo(String db, String url, String password, String uid,String table,String id,String attr1,String attr2){
+    String field1,field2,val1,val2;
+    public DeleteRegIdOdoo(String db, String url, String password, String uid,String table,String id){
         this.db=db;
         this.url=url;
         this.uid=uid;
         this.password=password;
+
+
         this.table=table;
-        this.fields=fields;
         this.id=id;
-        this.attr1=attr1;
-        this.attr2=attr2;
+
+
     }
     @Override
     protected Boolean doInBackground(URL... urls) {
@@ -49,15 +48,16 @@ public class SetDataOdoo extends AsyncTask<URL,String, Boolean> {
                     }}
             ));
             models.execute("execute_kw", asList(
-                    db, uid, password, table, "write", asList(
-                            asList(id)
-                            , new HashMap() {{
-                                put(attr1, attr2);
-                            }}
-                    )));
-
+                    db, uid, password,
+                    table, "unlink",
+                    asList(asList(id))));
+// check if the deleted record is still in the database
+            asList((Object[])models.execute("execute_kw", asList(
+                    db, uid, password,
+                    table, "search",
+                    asList(asList(asList("id", "=", id)))
+            )));
             return true;
-
         } catch (ClassCastException e) {
             e.printStackTrace();
             return false;
@@ -70,5 +70,5 @@ public class SetDataOdoo extends AsyncTask<URL,String, Boolean> {
             return false;
 
         }
-
-    }}
+    }
+}

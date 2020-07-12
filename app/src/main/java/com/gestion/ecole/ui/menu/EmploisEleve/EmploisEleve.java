@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +17,9 @@ import com.gestion.ecole.AccueilActivity;
 import com.gestion.ecole.R;
 import com.gestion.ecole.login.SessionManagement;
 import com.gestion.ecole.login.LoginActivity;
+import com.gestion.ecole.odoo.DeleteRegIdOdoo;
+import com.gestion.ecole.odoo.Get2ConditionData;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 
 import android.widget.ListView;
@@ -24,13 +28,18 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 public class EmploisEleve extends AppCompatActivity {
     private ListView lvday;
 
     public static SharedPreferences sharedPreferences;
     public static String SEL_DAY;
+    String res_users,db,url,mdp,intentId, parentID,id_reg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +47,11 @@ public class EmploisEleve extends AppCompatActivity {
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        SessionManagement sessionManagement = new SessionManagement(EmploisEleve.this);
+        res_users=sessionManagement.getSESSION_RES_USERS();
+        db=sessionManagement.getSESSION_DB();
+        url=sessionManagement.getSESSION_URL();
+        mdp=sessionManagement.getMdp();
         lvday = (ListView) findViewById(R.id.rvDay);
         sharedPreferences = getSharedPreferences("MY_DAY", MODE_PRIVATE);
 
@@ -130,6 +143,26 @@ public class EmploisEleve extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id= item.getItemId();
         if (id== R.id.deconnexion){
+            String registration_id = FirebaseInstanceId.getInstance().getToken();
+            AsyncTask<URL, String, List> regMobile  = new Get2ConditionData(db,url,mdp,res_users,"parent.registration", new String[]{"id","reg_id", "parent_id"},
+                    "parent_id.id", parentID,"reg_id",registration_id).execute();
+
+            try {
+
+                List regMobileList=regMobile.get();
+                for (Map<String, Object> item5 : (List<Map<String, Object>>) regMobileList) {
+                    id_reg=item5.get("id").toString();
+                    System.out.println("aaa : " + id_reg);
+
+
+                }
+                AsyncTask<URL, String, Boolean> delete  = new DeleteRegIdOdoo(db,url,mdp,res_users,"parent.registration", id_reg).execute();
+                System.out.println("delete"+delete.get());
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             SessionManagement sessionManagement = new SessionManagement(EmploisEleve.this);
             sessionManagement.removeSession();
             Intent intent = new Intent(this, LoginActivity.class);

@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,24 +19,64 @@ import android.widget.ImageView;
 
 import com.gestion.ecole.login.LoginActivity;
 import com.gestion.ecole.login.SessionManagement;
+import com.gestion.ecole.odoo.CreateRegId;
+import com.gestion.ecole.odoo.DeleteRegIdOdoo;
+import com.gestion.ecole.odoo.Get2ConditionData;
+import com.gestion.ecole.odoo.GetConditionData;
 import com.gestion.ecole.ui.enfant.enfant;
 import com.gestion.ecole.ui.home.HomeFragment;
 import com.gestion.ecole.ui.menu.MenuFragment;
 import com.gestion.ecole.ui.notif.NotifActivity;
 import com.google.firebase.iid.FirebaseInstanceId;
 
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
+
 public class AccueilActivity extends AppCompatActivity implements View.OnClickListener {
 
     ImageView btMenu,btNotification;
     ImageButton btAccueil;
-
+    AsyncTask<URL, String,Boolean> createRegId;
+    String parentID, res_users,db,url,mdp,reg;
+    String registration_id,id_reg;
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
-
+        SessionManagement sessionManagement = new SessionManagement(AccueilActivity.this);
+        parentID = sessionManagement.getId();
+        res_users=sessionManagement.getSESSION_RES_USERS();
+        db=sessionManagement.getSESSION_DB();
+        url=sessionManagement.getSESSION_URL();
+        mdp=sessionManagement.getMdp();
         System.out.println("registration id : " + FirebaseInstanceId.getInstance().getToken());
+        registration_id =FirebaseInstanceId.getInstance().getToken();
+
+        AsyncTask<URL, String, List> regMobile  = new GetConditionData(db,url,mdp,res_users,"parent.registration", new String[]{"reg_id", "parent_id"},
+                "parent_id.id", parentID).execute();
+
+        try {
+
+            List regMobileList=regMobile.get();
+            for (Map<String, Object> item5 : (List<Map<String, Object>>) regMobileList) {
+                reg=item5.get("reg_id").toString();
+                System.out.println("red reg : " + reg);
+
+
+            }
+            if(!(registration_id.equals(reg))) {
+                createRegId = new CreateRegId (db,url,mdp,res_users,"parent.registration","reg_id",registration_id,"parent_id",parentID).execute();
+                System.out.println("createRegId"+createRegId.get());
+
+            }
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
 
         loadFragment(new HomeFragment());
@@ -72,7 +113,7 @@ public class AccueilActivity extends AppCompatActivity implements View.OnClickLi
                 loadFragment(new MenuFragment());
                 break;
             case R.id.btNotification :
-               //loadFragment(new NotifFragment());
+                //loadFragment(new NotifFragment());
                 Intent i = new Intent(this, NotifActivity.class);
                 startActivity(i);
                 break;
@@ -90,6 +131,26 @@ public class AccueilActivity extends AppCompatActivity implements View.OnClickLi
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id= item.getItemId();
         if (id== R.id.deconnexion){
+            AsyncTask<URL, String, List> regMobile  = new Get2ConditionData(db,url,mdp,res_users,"parent.registration", new String[]{"id","reg_id", "parent_id"},
+                    "parent_id.id", parentID,"reg_id",registration_id).execute();
+
+            try {
+
+                List regMobileList=regMobile.get();
+                for (Map<String, Object> item5 : (List<Map<String, Object>>) regMobileList) {
+                    id_reg=item5.get("id").toString();
+                    System.out.println("aaa : " + id_reg);
+
+
+                }
+                AsyncTask<URL, String, Boolean> delete  = new DeleteRegIdOdoo(db,url,mdp,res_users,"parent.registration", id_reg).execute();
+                System.out.println("delete"+delete.get());
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             // Clear the User session data
             // and redirect user to LoginActivity
             SessionManagement sessionManagement = new SessionManagement(AccueilActivity.this);

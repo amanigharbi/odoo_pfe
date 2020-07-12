@@ -15,8 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.gestion.ecole.R;
 import com.gestion.ecole.login.LoginActivity;
 import com.gestion.ecole.login.SessionManagement;
+import com.gestion.ecole.odoo.DeleteRegIdOdoo;
+import com.gestion.ecole.odoo.Get2ConditionData;
 import com.gestion.ecole.odoo.GetConditionData;
 import com.gestion.ecole.odoo.GetConnectionData;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -42,7 +45,7 @@ public class enfant extends AppCompatActivity {
 
 
     String[] idArray,nomArray,nomParentArray,nomClasseArray;
-
+    String NameParent,res_users,db,url,mdp,intentId, parentID,id_reg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,12 +67,12 @@ public class enfant extends AppCompatActivity {
         rvEnfantConsulter.setLayoutManager(layoutManager);
 
         SessionManagement sessionManagement = new SessionManagement(enfant.this);
-        String  parentID = sessionManagement.getId();
-       String db=sessionManagement.getSESSION_DB();
-       String url=sessionManagement.getSESSION_URL();
-       String mdp=sessionManagement.getMdp();
-        String  NameParent = sessionManagement.getNameParent();
-        String res_users=sessionManagement.getSESSION_RES_USERS();
+       parentID = sessionManagement.getId();
+        db=sessionManagement.getSESSION_DB();
+        url=sessionManagement.getSESSION_URL();
+       mdp=sessionManagement.getMdp();
+         NameParent = sessionManagement.getNameParent();
+         res_users=sessionManagement.getSESSION_RES_USERS();
 
 
         AsyncTask<URL, String, List> InfoEleve = new GetConditionData(db,url,mdp,res_users,"student.student", new String[]{"id", "last", "name", "parent_id",
@@ -144,6 +147,26 @@ public class enfant extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id= item.getItemId();
         if (id== R.id.deconnexion){
+            String registration_id = FirebaseInstanceId.getInstance().getToken();
+            AsyncTask<URL, String, List> regMobile  = new Get2ConditionData(db,url,mdp,res_users,"parent.registration", new String[]{"id","reg_id", "parent_id"},
+                    "parent_id.id", parentID,"reg_id",registration_id).execute();
+
+            try {
+
+                List regMobileList=regMobile.get();
+                for (Map<String, Object> item5 : (List<Map<String, Object>>) regMobileList) {
+                    id_reg=item5.get("id").toString();
+                    System.out.println("aaa : " + id_reg);
+
+
+                }
+                AsyncTask<URL, String, Boolean> delete  = new DeleteRegIdOdoo(db,url,mdp,res_users,"parent.registration", id_reg).execute();
+                System.out.println("delete"+delete.get());
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             SessionManagement sessionManagement = new SessionManagement(enfant
                     .this);
             sessionManagement.removeSession();

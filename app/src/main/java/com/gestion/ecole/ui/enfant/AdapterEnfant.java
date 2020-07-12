@@ -61,7 +61,7 @@ public class AdapterEnfant extends RecyclerView.Adapter<AdapterEnfant.ViewHolder
                 Intent i1,i2,i3;
                 String var =intent.getStringExtra("1");
                 String id=holder.idEnfant.getText().toString();
-                System.out.println("no "+id);
+
                 if(var .equals("Disciplines")){
                     i1=new Intent(v.getContext(), InfoEleve.class);
                     i1.putExtra("id",id);
@@ -71,13 +71,13 @@ public class AdapterEnfant extends RecyclerView.Adapter<AdapterEnfant.ViewHolder
                     i2=new Intent(v.getContext(), EmploisEleve.class);
                     i2.putExtra("id",id);
                     v.getContext().startActivity(i2);
-                    //v.getContext().startActivity(new Intent(v.getContext(), EmploisEleve.class));
+
                 }
                 else if(var .equals("Contacts")){
                     i3=new Intent(v.getContext(), ContactEnseignant.class);
                     i3.putExtra("id",id);
                     v.getContext().startActivity(i3);
-                    //v.getContext().startActivity(new Intent(v.getContext(), ContactEnseignant.class));
+
                 }
 
             }

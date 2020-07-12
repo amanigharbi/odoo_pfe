@@ -22,7 +22,10 @@ import android.widget.TextView;
 import com.gestion.ecole.R;
 import com.gestion.ecole.login.LoginActivity;
 import com.gestion.ecole.login.SessionManagement;
+import com.gestion.ecole.odoo.DeleteRegIdOdoo;
+import com.gestion.ecole.odoo.Get2ConditionData;
 import com.gestion.ecole.odoo.GetConditionData;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -34,7 +37,7 @@ public class InfoEleve extends AppCompatActivity {
     CardView cardSanction,cardDiscMatiere,cardDiscJour ;
     Dialog myDialog;
     LinearLayout ll;
-    String res_users,db,url,mdp,intentId;
+    String res_users,db,url,mdp,intentId, parentID,id_reg;
     SessionManagement sessionManagement;
     Intent intent;
     @Override
@@ -47,7 +50,9 @@ public class InfoEleve extends AppCompatActivity {
         cardSanction = (CardView) findViewById(R.id.cardSanction);
         myDialog = new Dialog(this);
 
+
       sessionManagement = new SessionManagement(InfoEleve.this);
+        parentID = sessionManagement.getId();
          res_users=sessionManagement.getSESSION_RES_USERS();
          db=sessionManagement.getSESSION_DB();
        url=sessionManagement.getSESSION_URL();
@@ -315,6 +320,26 @@ public class InfoEleve extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id= item.getItemId();
         if (id== R.id.deconnexion){
+            String registration_id = FirebaseInstanceId.getInstance().getToken();
+            AsyncTask<URL, String, List> regMobile  = new Get2ConditionData(db,url,mdp,res_users,"parent.registration", new String[]{"id","reg_id", "parent_id"},
+                    "parent_id.id", parentID,"reg_id",registration_id).execute();
+
+            try {
+
+                List regMobileList=regMobile.get();
+                for (Map<String, Object> item5 : (List<Map<String, Object>>) regMobileList) {
+                    id_reg=item5.get("id").toString();
+                    System.out.println("aaa : " + id_reg);
+
+
+                }
+                AsyncTask<URL, String, Boolean> delete  = new DeleteRegIdOdoo(db,url,mdp,res_users,"parent.registration", id_reg).execute();
+                System.out.println("delete"+delete.get());
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             SessionManagement sessionManagement = new SessionManagement(InfoEleve.this);
             sessionManagement.removeSession();
             Intent intent = new Intent(this, LoginActivity.class);

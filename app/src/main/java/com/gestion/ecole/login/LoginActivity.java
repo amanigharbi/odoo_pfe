@@ -49,10 +49,10 @@ public class LoginActivity extends AppCompatActivity {
             @Override
 
             public void onClick(View v) {
-                        String db = "school",
+                String db = "project_pfe",
                         username = email.getText().toString(),
                         pass = mdp.getText().toString(),
-                        url = "http://192.168.1.8:8069";
+                        url = "http://192.168.1.14:8069";
 
                 AsyncTask<URL, String, String> verif = new ConnectionOdoo(db, username, pass, url, getApplicationContext()).execute();
                 AsyncTask<URL, String, List> InfoParent = new GetConnectionData(db,url,pass,"school.parent",
@@ -75,15 +75,15 @@ public class LoginActivity extends AppCompatActivity {
                                 String idREsUsers=item.get("id").toString();
 
 
-                            User user = new User(username, pass,idREsUsers,id,name_parent,db,url);
+                                User user = new User(username, pass,idREsUsers,id,name_parent,db,url);
 
-                            SessionManagement sessionManagement = new SessionManagement(LoginActivity.this);
-                            sessionManagement.saveSession(user);
+                                SessionManagement sessionManagement = new SessionManagement(LoginActivity.this);
+                                sessionManagement.saveSession(user);
 
-                            Intent intent = new Intent(LoginActivity.this, AccueilActivity.class);
-                            startActivity(intent);
-                        }}  } else {
-                        Toast.makeText(getApplicationContext(), "not connected", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(LoginActivity.this, AccueilActivity.class);
+                                startActivity(intent);
+                            }}  } else {
+                        Toast.makeText(getApplicationContext(), "Vérifiez vos informations SVP!!", Toast.LENGTH_LONG).show();
                     }
 
                 }
@@ -119,4 +119,3 @@ public class LoginActivity extends AppCompatActivity {
 
 
 }
-
