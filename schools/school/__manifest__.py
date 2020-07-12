@@ -16,6 +16,7 @@
              'wizard/wiz_send_email_view.xml',
              'data/TestAttenanceStudent.xml',
              'data/attendance_student_daily.xml',
+                'data/print_report.xml',
              'views/student_view.xml',
              'views/school_view.xml',
              'views/teacher_view.xml',
@@ -33,6 +34,9 @@
              'wizard/wizard_settings_descipline.xml',
              'report/ticket.xml',
              ],
+    'js': [
+        'static/src/js/print_ticket.js',
+    ],
     'installable': True,
     'application': True
 }

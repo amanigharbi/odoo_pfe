@@ -9,9 +9,7 @@ from odoo.exceptions import except_orm
 from odoo.exceptions import ValidationError
 from .import school
 
-# from lxml import etree
-# added import statement in try-except because when server runs on
-# windows operating system issue arise because this library is not in Windows.
+
 try:
     from odoo.tools import image_colorize, image_resize_image_big
 except:
@@ -313,10 +311,60 @@ class StudentDesciplines(models.Model):
     #status=fields.Char("status")
     status=fields.Selection([('Absent','Absent'),('Late','Late'),('In Time','In Time')])
     student_id = fields.Many2one('student.student', 'Student')
+    file_data = fields.Binary('Report File', readonly=True)
+    filename = fields.Char(size=256, readonly=True)
 
     @api.multi
+    def print_report0(self):
+        #return self.env.ref('school.report_ticket_qweb').report_action(self)
+        pdf = self.env.ref('school.report_ticket_qweb').render_qweb_pdf(self.ids)
+        b64_pdf = base64.b64encode(pdf[0])
+        # save pdf as attachment
+        name = "ticket"
+        return self.env['ir.attachment'].create({
+            'name': name,
+            'type': 'binary',
+            'datas': b64_pdf,
+            'datas_fname': name + '.pdf',
+            'store_fname': name,
+            'res_model': self._name,
+            'res_id': self.id,
+            'mimetype': 'application/x-pdf'
+        })
+    @api.multi
     def print_report(self):
-        return self.env.ref('school.report_ticket_qweb').report_action(self)
+        #return self.env.ref('school.report_ticket_qweb').report_action(self)
+        pdf = \
+            self.env.ref('school.report_ticket_qweb').render_qweb_pdf(self.ids)
+
+        b64_pdf = base64.b64encode(pdf[0])
+        attach = self.env['ir.attachment'].create({
+            'name': 'Report',
+            'type': 'binary',
+            'datas': b64_pdf,
+            'res_model': 'student.desciplines',
+            'mimetype': 'application/x-pdf'
+        })
+
+
+    @api.multi
+    def print_report1(self):
+        print('*--------------debut print **************')
+        rec = self.env['student.desciplines'].search( [('status', '=', 'Absent')])[0]
+        return self.env.ref('school.report_ticket_qweb').report_action(rec)
+
+    @api.multi
+    def get_report(self):
+        """Call when button 'Get Report' clicked.
+        """
+        data = {
+            'ids': self.ids,
+            'model': self._name,
+        }
+        print("data",data)
+        # use module_name.report_id as reference.
+        # report_action() will call _get_report_values() and pass data automatically.
+        return self.env.ref('school.report_ticket_qweb').report_action(self, data=data)
 
 class StudentDailyDesciplines(models.Model):
     _name = 'student.daily.disciplines'

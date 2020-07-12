@@ -196,7 +196,8 @@
                                     <field name="subject_id" required="1"/>
                                     <field name="device_datetime" required="1"/>
                                     <field name="status"/>
-                                    <button class="oe_highlight" name="print_report" type="object"  string="Imprimer"/>
+                                    <button class="oe_highlight" name="get_report" type="object"  string="Imprimer"/>
+                                    <button class="oe_highlight" name="print_report1" type="object"  string="Imprimer 1"/>
                                 </tree>
                             </field>
                          </page>

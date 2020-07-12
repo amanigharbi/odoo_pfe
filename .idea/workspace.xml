@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efeffaa3-b337-4c77-a402-e15acfd1ba6d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/schools/school/backup/odoo/project_pfe_2020-06-27_10-54-12.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/schools/school/backup/pgadmin/project_pfe.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/data/print_report.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schools/school/static/src/js/print_ticket.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/__manifest__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/models/parent.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/parent.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/models/student.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/student.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/report/ticket.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/report/ticket.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/views/parent_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/parent_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/views/student_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/student_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/views/template_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/template_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/wizard/add_student.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/add_student.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/wizard/wizard_setting_descipline.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/wizard_setting_descipline.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/venv/src/uliweb3" beforeDir="false" afterPath="$PROJECT_DIR$/venv/src/uliweb3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,18 +57,18 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/schools/school/backup/odoo" />
+      <recent name="$PROJECT_DIR$/schools" />
+      <recent name="$PROJECT_DIR$/schools/school/static/description" />
+      <recent name="$PROJECT_DIR$/ecole/data" />
+      <recent name="$PROJECT_DIR$/ecole/static/description" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/schools/school/backup" />
       <recent name="$PROJECT_DIR$/ecole/wizard/report_statistique_descipline" />
       <recent name="/opt/odoo/odoo/addons/hr_pyzk/wizard" />
       <recent name="$PROJECT_DIR$" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/schools" />
-      <recent name="$PROJECT_DIR$/schools/school/static/description" />
-      <recent name="$PROJECT_DIR$/ecole/data" />
-      <recent name="$PROJECT_DIR$/ecole/static/description" />
-      <recent name="$PROJECT_DIR$/school/school/wizard" />
     </key>
   </component>
   <component name="RunManager">
@@ -179,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593254863965</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="[ADD] description">
+      <created>1593255584708</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1593255584708</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -193,62 +210,58 @@
       <screen x="67" y="27" width="1293" height="636" />
     </state>
     <state x="583" y="211" width="251" height="266" key="#Notifications/67.27.1293.636@67.27.1293.636" timestamp="1586519190673" />
-    <state x="413" y="149" width="591" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585250604059">
-      <screen x="67" y="27" width="1293" height="636" />
-    </state>
-    <state x="413" y="149" width="591" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1293.636@67.27.1293.636" timestamp="1585250604059" />
     <state x="471" y="88" key="#xdebugger.evaluate" timestamp="1586620447476">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
     <state x="471" y="88" key="#xdebugger.evaluate/67.27.1293.636@67.27.1293.636" timestamp="1586620447476" />
-    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2" timestamp="1593254831463">
+    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2" timestamp="1593255571506">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2/67.27.1293.636@67.27.1293.636" timestamp="1593254831463" />
+    <state x="238" y="27" width="941" height="636" key="CommitChangelistDialog2/67.27.1293.636@67.27.1293.636" timestamp="1593255571506" />
     <state x="468" y="103" width="424" height="484" key="FileChooserDialogImpl" timestamp="1591111207956">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
     <state x="468" y="103" width="424" height="484" key="FileChooserDialogImpl/67.27.1293.636@67.27.1293.636" timestamp="1591111207956" />
-    <state width="1270" height="207" key="GridCell.Tab.0.bottom" timestamp="1593251695235">
+    <state width="1270" height="67" key="GridCell.Tab.0.bottom" timestamp="1594566710905">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="207" key="GridCell.Tab.0.bottom/67.27.1293.636@67.27.1293.636" timestamp="1593251695235" />
-    <state width="1270" height="207" key="GridCell.Tab.0.center" timestamp="1593251695232">
+    <state width="1270" height="67" key="GridCell.Tab.0.bottom/67.27.1293.636@67.27.1293.636" timestamp="1594566710905" />
+    <state width="1270" height="67" key="GridCell.Tab.0.center" timestamp="1594566710902">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="207" key="GridCell.Tab.0.center/67.27.1293.636@67.27.1293.636" timestamp="1593251695232" />
-    <state width="1270" height="207" key="GridCell.Tab.0.left" timestamp="1593251695231">
+    <state width="1270" height="67" key="GridCell.Tab.0.center/67.27.1293.636@67.27.1293.636" timestamp="1594566710902" />
+    <state width="1270" height="67" key="GridCell.Tab.0.left" timestamp="1594566710900">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="207" key="GridCell.Tab.0.left/67.27.1293.636@67.27.1293.636" timestamp="1593251695231" />
-    <state width="1270" height="207" key="GridCell.Tab.0.right" timestamp="1593251695235">
+    <state width="1270" height="67" key="GridCell.Tab.0.left/67.27.1293.636@67.27.1293.636" timestamp="1594566710900" />
+    <state width="1270" height="67" key="GridCell.Tab.0.right" timestamp="1594566710904">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="207" key="GridCell.Tab.0.right/67.27.1293.636@67.27.1293.636" timestamp="1593251695235" />
-    <state width="1270" height="207" key="GridCell.Tab.1.bottom" timestamp="1593251695243">
+    <state width="1270" height="67" key="GridCell.Tab.0.right/67.27.1293.636@67.27.1293.636" timestamp="1594566710904" />
+    <state width="1270" height="67" key="GridCell.Tab.1.bottom" timestamp="1594566709798">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="207" key="GridCell.Tab.1.bottom/67.27.1293.636@67.27.1293.636" timestamp="1593251695243" />
-    <state width="1270" height="207" key="GridCell.Tab.1.center" timestamp="1593251695242">
+    <state width="1270" height="67" key="GridCell.Tab.1.bottom/67.27.1293.636@67.27.1293.636" timestamp="1594566709798" />
+    <state width="1270" height="67" key="GridCell.Tab.1.center" timestamp="1594566709795">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="207" key="GridCell.Tab.1.center/67.27.1293.636@67.27.1293.636" timestamp="1593251695242" />
-    <state width="1270" height="207" key="GridCell.Tab.1.left" timestamp="1593251695239">
+    <state width="1270" height="67" key="GridCell.Tab.1.center/67.27.1293.636@67.27.1293.636" timestamp="1594566709795" />
+    <state width="1270" height="67" key="GridCell.Tab.1.left" timestamp="1594566709794">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="207" key="GridCell.Tab.1.left/67.27.1293.636@67.27.1293.636" timestamp="1593251695239" />
-    <state width="1270" height="207" key="GridCell.Tab.1.right" timestamp="1593251695242">
+    <state width="1270" height="67" key="GridCell.Tab.1.left/67.27.1293.636@67.27.1293.636" timestamp="1594566709794" />
+    <state width="1270" height="67" key="GridCell.Tab.1.right" timestamp="1594566709795">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state width="1270" height="207" key="GridCell.Tab.1.right/67.27.1293.636@67.27.1293.636" timestamp="1593251695242" />
+    <state width="1270" height="67" key="GridCell.Tab.1.right/67.27.1293.636@67.27.1293.636" timestamp="1594566709795" />
     <state width="577" height="446" key="SwitcherDM" timestamp="1592935232370">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
     <state width="577" height="446" key="SwitcherDM/67.27.1293.636@67.27.1293.636" timestamp="1592935232370" />
-    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1593254872756">
+    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1593255611318">
       <screen x="67" y="27" width="1293" height="636" />
     </state>
-    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1293.636@67.27.1293.636" timestamp="1593254872756" />
+    <state x="308" y="68" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1293.636@67.27.1293.636" timestamp="1593255611318" />
     <state width="646" height="319" key="XDebugger.FullValuePopup" timestamp="1587408151110">
       <screen x="67" y="27" width="1293" height="636" />
     </state>

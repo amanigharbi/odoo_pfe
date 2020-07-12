@@ -1,3 +1,4 @@
+
 from odoo import models, fields, api
 from addons.hr_pyzk.models import device_users
 from odoo.exceptions import except_orm
@@ -6,8 +7,12 @@ import subprocess, sys
 import os
 import functools
 import operator
+import time
 
 from schools.school.models.parent import history_notification
+from schools.school.models.student import StudentDesciplines
+
+
 
 
 
@@ -40,6 +45,8 @@ class add_student(models.TransientModel):
         f.write("___________________________________")
         f.close()
         os.system('lpr test')
+
+
 
     @api.multi
     def button_add(self, vals):
@@ -109,7 +116,9 @@ class add_student(models.TransientModel):
                     # les informations relatives au parent de l'élève pointé
                     parent_object = self.env['school.parent'].search([('student_id', '=', student_id)])
                     parent = parent_object.id
-                    reg_id = parent_object.registration_id_mobile
+                    name_parent =parent_object.name
+                    reg_object = self.env['parent.registration'].search([('parent_id', '=', parent)])
+
 
                     # l'emploie du temps relative au classe et école de l'élève pointé
                     timetable_object = self.env['time.table'].search(
@@ -141,10 +150,9 @@ class add_student(models.TransientModel):
 
                     settings_nb_avertissement = search.number_avertissement
                     settings_nb_exclu = search.number_exclu
-                    settings_discipline_selected=search.status_discipline
-                    print('settings_discipline_selected',settings_discipline_selected,late)
+                    settings_discipline_selected =search.status_discipline
 
-                        # tester si l'élève pointé est retard
+                    # tester si l'élève pointé est retard
                     if (current_time - start_time <= late):
                         status = "Late"
                         # le retard de l'élève
@@ -177,11 +185,9 @@ class add_student(models.TransientModel):
                     self.env['student.desciplines'].create(
                         {'subject_id': subject_id, 'device_datetime': last_date, 'status': status,
                          'student_id': student_id})
-
-                    self.ticket(name,last,status,standard_name,str(last_date),subject_name)
-
-
-
+                    # impression de billet
+                    # self.ticket(name,last,status,standard_name,str(last_date),subject_name)
+                    print('aaa' ,StudentDesciplines.print_report(self))
 
 
                     # création de la notification pour le parent avec le discipline nécessaire
@@ -189,17 +195,25 @@ class add_student(models.TransientModel):
                         {'student_id': student_id, 'title': status, 'message': message_notif,
                          'status_message': 'In Progress', 'parent_id': parent})
                     titre = (name + " Est : " + status)
-                    history_notification.get_notif(titre, message_notif, reg_id)
+                    if reg_object:
+                        for a in reg_object:
+                            reg_id = a.reg_id
+                            print('reg id2', reg_id)
+                            history_notification.get_notif(titre, message_notif, reg_id)
+                    else:
+                        message = \
+                                    ('Demandez au parent ' + name_parent + ' d ' + ' installer l ' + ' application pour recevoir ses notifications !')
+                        self.env.user.notify_danger(message)
                     # history_notification.get_notification(self,titre,message_notif)
 
                     # conter le nombre totales des retard
                     nombreTotaleRetard = self.env['student.desciplines'].search_count(
                         [('status', '=', 'Late'), ('student_id.id', '=', student_id)])
-                    print('nombreTotaleRetard',nombreTotaleRetard)
+
                     # conter le nombre totales des abcences
                     nombreTotaleAbsence = self.env['student.desciplines'].search_count(
                         [('status', '=', 'Absent'), ('student_id.id', '=', student_id)])
-                    print('nombreTotaleAbsence', nombreTotaleAbsence)
+
                     # extraire le nombre des avertissements
                     nombreTotaleAvert = self.env['student.sanctions'].search(
                         [('sanction', '=', 'avertissement') and ('student_id.id', '=', student_id)])
@@ -212,13 +226,13 @@ class add_student(models.TransientModel):
                         # supprimer la ligne du table
 
                         nbAvert.unlink()
-                    if settings_discipline_selected=="Late":
+                    if settings_discipline_selected == "Late":
                         # calculer le nombre des avertissements totales
                         numberAver = int(nombreTotaleRetard / settings_nb_avertissement)
-                        print('numberAver',numberAver)
+
                     else:
                         numberAver = int(nombreTotaleAbsence / settings_nb_avertissement)
-                        print('numberAver1', numberAver)
+
                     sanction = "avertissement"
 
                     # creer la ligne avertissement dans la table
@@ -228,7 +242,6 @@ class add_student(models.TransientModel):
                     for nb in nombreTotaleExclu:
                         # supprimer la ligne de la table
                         nb.unlink()
-
 
                     # calculer le nombre totale des avertissements
                     numberExclu = int(numberAver / settings_nb_exclu)
@@ -241,7 +254,6 @@ class add_student(models.TransientModel):
         else:
             # notification pour l'admin
             self.env.user.notify_info(message='None Pointed Student')
-
 
     def count_discipline_absent(self, id, date_actuelle):
         count = 0
@@ -279,4 +291,3 @@ class add_student(models.TransientModel):
                 self.env['history.notification'].create(
                     {'student_id': id, 'title': "Absence D'Une Journée", 'message': message_notif,
                      'status_message': 'In Progress', 'parent_id': parent})
-

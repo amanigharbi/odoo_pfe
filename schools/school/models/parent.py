@@ -1,7 +1,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import models, fields, api
-from pyfcm import  FCMNotification
+from pyfcm import FCMNotification
 
 
 class ParentRelation(models.Model):
@@ -34,8 +34,6 @@ class SchoolParent(models.Model):
                                  delegate=True, required=True)
     relation_id = fields.Many2one('parent.relation', "Relation with Child")
 
-
-
     student_id = fields.Many2many('student.student', 'students_parents_rel',
                                   'students_parent_id', 'student_id',
                                   'Children')
@@ -49,7 +47,7 @@ class SchoolParent(models.Model):
                                 'Academic Standard')
     teacher_id = fields.Many2one('school.teacher', 'Teacher',
                                  related="standard_id.user_id", store=True)
-    registration_id_mobile= fields.Char('Registration mobile')
+    registration_id_mobile = fields.One2many('parent.registration', 'parent_id', 'Registration ID')
 
     @api.model
     def create(self, vals):
@@ -73,20 +71,31 @@ class SchoolParent(models.Model):
         self.country_id = False
         if self.state_id:
             self.country_id = self.state_id.country_id.id
-class history_notification(models.Model):
-        _name = 'history.notification'
-        _description = "history notification"
 
-        student_id = fields.Many2one('student.student', 'Name student')
-        title = fields.Char("Title")
-        message = fields.Char("Message")
-        status_message = fields.Selection([('In Progress','In Progress'),('Sent','Sent'),],'Status of Message')
-        parent_id = fields.Many2one('school.parent','Parents')
-        def get_notif(title,message,reg_id):
-                push_service = FCMNotification(api_key="AAAAHTeART0:APA91bF8366zxEmL8KA5cwv6tDvH9mg8_iemweE_WkUDf0fvssh-4um9Cbf0o9ucINkQa2w_7LCcblAjl2rBO9d2u4Od9I5wn-7Qlb7E4nLDQ6eJvKX8CqNs8yL5jN4464CgpTYZ96of")
-                print("push",push_service)
-                result =push_service.notify_single_device(registration_id=reg_id,
-                                                              message_title='Notification '+title,
-                                                              message_body=message)
-                
-                return result
+
+class PrentRegistration(models.Model):
+    _name = 'parent.registration'
+    _description = 'Parent Registration ID'
+    reg_id = fields.Char('Registration mobile')
+    parent_id = fields.Many2one('school.parent', 'Parent')
+
+
+class history_notification(models.Model):
+    _name = 'history.notification'
+    _description = "history notification"
+
+    student_id = fields.Many2one('student.student', 'Name student')
+    title = fields.Char("Title")
+    message = fields.Char("Message")
+    status_message = fields.Selection([('In Progress', 'In Progress'), ('Sent', 'Sent'), ], 'Status of Message')
+    parent_id = fields.Many2one('school.parent', 'Parents')
+
+    def get_notif(title, message, reg_id):
+        push_service = FCMNotification(
+            api_key="AAAAoogIgyA:APA91bGnzBGnG0tSLE5rwyC7M87AyJy2U7tNfFRPLfKeTZvt0uhwF-tIbxfTgSJTSSSCpV42bu_AHdqB-xyuUla0kTL6j-rMcsUdr3IlhSdI5_D29E_J2pQ-uryw49wGidj4_t1wdddU")
+        print("push", reg_id)
+        result = push_service.notify_multiple_devices(registration_ids=[reg_id],
+                                                      message_title='Notification ' + title,
+                                                      message_body=message)
+
+        return result

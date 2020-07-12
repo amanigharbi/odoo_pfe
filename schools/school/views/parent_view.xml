@@ -71,9 +71,9 @@
                                        options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
                             </div>
                         </group>
-                             <group string="Registration" >
+                          <!--   <group string="Registration" >
                                 <field name="registration_id_mobile" placeholder="aBCD45.........." />
-                        </group>
+                        </group>-->
                         <group string="Communication" name="communication">
                             <field name="phone" widget="phone"/>
                             <field name="user_ids" invisible="1"/>
@@ -99,6 +99,15 @@
                                 </tree>
                             </field>
                          </page>
+                        <page  string="Registration Mobile">
+
+                                 <field name="registration_id_mobile" >
+                            <tree>
+                                <field name="reg_id" />
+                                        <field name="parent_id" invisible="1"/>
+                             </tree>
+                                 </field>
+                        </page>
                     </notebook>
                 </sheet>
                 </form>

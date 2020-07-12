@@ -25,7 +25,7 @@
 
 
                     <footer>
-                        <button class="oe_highlight" name="print_report" type="object"  string="print"/>
+                        <button class="oe_highlight"   name="print_report" type="object"  string="print"/>
                     </footer>
            </form>
         </field>
