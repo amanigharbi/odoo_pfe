@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="afb092e4-03ad-4163-8ae0-635170c95318" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="resourceFile" />
+        <option value="layoutResourceFile_vertical" />
+        <option value="layoutResourceFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/ameni_mobile" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="mobile_ameni" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="ProjectId" id="1YcZNjzdpyYBGcYddlc693XN26w" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Nexus_6_API_22" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-03-31T20:44:36.101Z" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.gestion.ecole.service" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.gestion.ecole" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/gestion/ecole" />
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$/app/src/main/res" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.gestion.ecole.ui.menu.EmploisEleve" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value=".Bienvenue" />
+      <option name="ACTIVITY_CLASS" value="com.gestion.ecole.Bienvenue" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="afb092e4-03ad-4163-8ae0-635170c95318" name="Default Changelist" comment="" />
+      <created>1585417403782</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585417403782</updated>
+    </task>
+    <task id="LOCAL-00001" summary="mobile">
+      <created>1585417576088</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585417576088</updated>
+    </task>
+    <task id="LOCAL-00002" summary="mobile">
+      <created>1589974363997</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1589974363997</updated>
+    </task>
+    <task id="LOCAL-00003" summary="mobile">
+      <created>1594413531141</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1594413531141</updated>
+    </task>
+    <task id="LOCAL-00004" summary="mobile">
+      <created>1594557161915</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1594557161915</updated>
+    </task>
+    <task id="LOCAL-00005" summary="mobile">
+      <created>1594557535303</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1594557535303</updated>
+    </task>
+    <task id="LOCAL-00006" summary="mobile">
+      <created>1594558740026</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1594558740026</updated>
+    </task>
+    <task id="LOCAL-00007" summary="mobile">
+      <created>1594562059563</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1594562059563</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="mobile" />
+    <option name="LAST_COMMIT_MESSAGE" value="mobile" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="588" y="149" width="800" height="677" key="#Console" timestamp="1591460104051">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="588" y="149" width="800" height="677" key="#Console/67.27.1853.923@67.27.1853.923" timestamp="1591460104051" />
+    <state x="588" y="149" width="800" height="677" key="#XML" timestamp="1594559778754">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="588" y="149" width="800" height="677" key="#XML/67.27.1853.923@67.27.1853.923" timestamp="1594559778754" />
+    <state x="667" y="131" width="642" height="712" key="#app" timestamp="1591903606355">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="667" y="131" width="642" height="712" key="#app/67.27.1853.923@67.27.1853.923" timestamp="1591903606355" />
+    <state x="451" y="145" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591526675334">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="451" y="145" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.923@67.27.1853.923" timestamp="1591526675334" />
+    <state x="638" y="292" width="701" height="390" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591462498412">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="638" y="292" width="701" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.923@67.27.1853.923" timestamp="1591462498412" />
+    <state x="801" y="199" width="374" height="577" key="#com.intellij.ide.util.MemberChooser" timestamp="1594390353614">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="801" y="199" width="374" height="577" key="#com.intellij.ide.util.MemberChooser/67.27.1853.923@67.27.1853.923" timestamp="1594390353614" />
+    <state x="725" y="273" width="525" height="428" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1591359109204">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="725" y="273" width="525" height="428" key="#com.intellij.ide.util.TreeClassChooserDialog/67.27.1853.923@67.27.1853.923" timestamp="1591359109204" />
+    <state x="479" y="415" width="1019" height="145" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1591442152892">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="479" y="415" width="1019" height="145" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/67.27.1853.923@67.27.1853.923" timestamp="1591442152892" />
+    <state x="746" y="368" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1591442163782">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="746" y="368" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/67.27.1853.923@67.27.1853.923" timestamp="1591442163782" />
+    <state x="576" y="245" width="824" height="484" key="AndroidCreateResourceFileDialog" timestamp="1592511679865">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="576" y="245" width="824" height="484" key="AndroidCreateResourceFileDialog/67.27.1853.923@67.27.1853.923" timestamp="1592511679865" />
+    <state x="464" y="64" width="1049" height="847" key="CommitChangelistDialog2" timestamp="1594562358264">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="464" y="64" width="1049" height="847" key="CommitChangelistDialog2/67.27.1853.923@67.27.1853.923" timestamp="1594562358264" />
+    <state x="167" y="125" width="1653" height="725" key="DiffContextDialog" timestamp="1594558409345">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="167" y="125" width="1653" height="725" key="DiffContextDialog/67.27.1853.923@67.27.1853.923" timestamp="1594558409345" />
+    <state x="776" y="245" width="424" height="484" key="FileChooserDialogImpl" timestamp="1594560040273">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="776" y="245" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.923@67.27.1853.923" timestamp="1594560040273" />
+    <state width="1807" height="263" key="GridCell.Tab.0.bottom" timestamp="1594412844698">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state width="1807" height="263" key="GridCell.Tab.0.bottom/67.27.1853.923@67.27.1853.923" timestamp="1594412844698" />
+    <state width="1807" height="263" key="GridCell.Tab.0.center" timestamp="1594412844697">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state width="1807" height="263" key="GridCell.Tab.0.center/67.27.1853.923@67.27.1853.923" timestamp="1594412844697" />
+    <state width="1807" height="263" key="GridCell.Tab.0.left" timestamp="1594412844695">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state width="1807" height="263" key="GridCell.Tab.0.left/67.27.1853.923@67.27.1853.923" timestamp="1594412844695" />
+    <state width="1807" height="263" key="GridCell.Tab.0.right" timestamp="1594412844697">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state width="1807" height="263" key="GridCell.Tab.0.right/67.27.1853.923@67.27.1853.923" timestamp="1594412844697" />
+    <state x="482" y="122" key="SettingsEditor" timestamp="1594562002911">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="482" y="122" key="SettingsEditor/67.27.1853.923@67.27.1853.923" timestamp="1594562002911" />
+    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1594562362089">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1853.923@67.27.1853.923" timestamp="1594562362089" />
+    <state x="675" y="204" width="627" height="566" key="VcsDiffUtil.ChangesDialog" timestamp="1594559470280">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="675" y="204" width="627" height="566" key="VcsDiffUtil.ChangesDialog/67.27.1853.923@67.27.1853.923" timestamp="1594559470280" />
+    <state x="765" y="267" width="446" height="440" key="chooseDestDirectoryDialog" timestamp="1591442066806">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="765" y="267" width="446" height="440" key="chooseDestDirectoryDialog/67.27.1853.923@67.27.1853.923" timestamp="1591442066806" />
+    <state x="167" y="125" width="1653" height="725" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1594558069734">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="167" y="125" width="1653" height="725" key="com.intellij.dvcs.ui.CompareBranchesDialog/67.27.1853.923@67.27.1853.923" timestamp="1594558069734" />
+    <state x="649" y="315" key="com.intellij.ide.util.TipDialog" timestamp="1594556805755">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="649" y="315" key="com.intellij.ide.util.TipDialog/67.27.1853.923@67.27.1853.923" timestamp="1594556805755" />
+    <state x="67" y="135" key="com.intellij.ide.util.TipDialog/67.27.573.453@67.27.573.453" timestamp="1592564343699" />
+    <state x="761" y="407" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594560839340">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="761" y="407" width="464" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.923@67.27.1853.923" timestamp="1594560839340" />
+    <state x="337" y="198" width="1488" height="590" key="dock-window-1" timestamp="1594407361622">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="337" y="198" width="1488" height="590" key="dock-window-1/67.27.1853.923@67.27.1853.923" timestamp="1594407361622" />
+    <state x="645" y="227" width="696" height="520" key="find.popup" timestamp="1594558906624">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="645" y="227" width="696" height="520" key="find.popup/67.27.1853.923@67.27.1853.923" timestamp="1594558906624" />
+    <state x="657" y="221" key="run.anything.popup" timestamp="1591607283412">
+      <screen x="67" y="27" width="1853" height="923" />
+    </state>
+    <state x="657" y="221" key="run.anything.popup/67.27.1853.923@67.27.1853.923" timestamp="1591607283412" />
+  </component>
+</project>
