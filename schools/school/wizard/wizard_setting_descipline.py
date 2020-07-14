@@ -41,3 +41,4 @@ class parametrage_descipline(models.TransientModel):
                                                     'status_discipline': new_status_discipline,
                                                     })
 
+

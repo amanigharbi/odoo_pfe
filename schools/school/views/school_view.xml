@@ -7,7 +7,7 @@
         <field name="name">school.school.form</field>
         <field name="model">school.school</field>
         <field name="arch" type="xml">
-            <form string="School Information">
+            <form string="School Information" create="false">
                 <sheet>
                     <separator string="School Configuration" />
                     <group col="4" colspan="4">
@@ -41,7 +41,7 @@
         <field name="name">school.school.tree</field>
         <field name="model">school.school</field>
         <field name="arch" type="xml">
-            <tree string="School Information">
+            <tree string="School Information" create="false">
                 <field name="name" string="School Name" />
                 <field name="code" />
             </tree>
@@ -444,8 +444,6 @@
                     <group col="4" colspan="4">
                         <field name="name" placeholder="Name" />
                         <field name="code" placeholder="Code" />
-                        <field name="maximum_marks" placeholder="Maximum Marks"/>
-                        <field name="minimum_marks" placeholder="Minimum Marks"/>
                         <field name="is_practical" />
 
                     </group>
@@ -483,8 +481,6 @@
             <tree string="Subjects">
                 <field name="name" />
                 <field name="code" />
-                <field name="maximum_marks" />
-                <field name="minimum_marks" />
             </tree>
         </field>
     </record>

@@ -9,7 +9,9 @@ from odoo.exceptions import except_orm
 from odoo.exceptions import ValidationError
 from .import school
 
-
+# from lxml import etree
+# added import statement in try-except because when server runs on
+# windows operating system issue arise because this library is not in Windows.
 try:
     from odoo.tools import image_colorize, image_resize_image_big
 except:
@@ -69,13 +71,34 @@ class StudentStudent(models.Model):
     @api.model
     def create(self, vals):
         '''Method to create user when student is created'''
-        vals['login'] = vals['email']
-        vals['password'] = vals['email']
+        if vals.get('pid', _('New')) == _('New'):
+            vals['pid'] = self.env['ir.sequence'
+                          ].next_by_code('student.student'
+                                         ) or _('New')
+        if vals.get('pid', False):
+            vals['login'] = vals['pid']
+            vals['password'] = vals['pid']
+        else:
+            raise except_orm(_('Error!'),
+                             _('''PID not valid
+                                    so record will not be saved.'''))
         if vals.get('company_id', False):
             company_vals = {'company_ids': [(4, vals.get('company_id'))]}
             vals.update(company_vals)
         if vals.get('email'):
             school.emailvalidation(vals.get('email'))
+       #test student name/last existe in parent
+        parent=vals.get('parent_id')
+        for par in parent:
+            id_parent=par[2]
+        enfant=self.env['student.student'].search([('parent_id','=',id_parent)])
+
+        for enf in enfant:
+            if enf.name==vals['name']:
+                if enf.last == vals['last']:
+                    raise except_orm(_('Error!'),
+                                     _(''' Student Already exist with same Parent and information'''))
+
         res = super(StudentStudent, self).create(vals)
         teacher = self.env['school.teacher']
         for data in res.parent_id:
@@ -86,12 +109,12 @@ class StudentStudent(models.Model):
         # Assign group to student based on condition
         emp_grp = self.env.ref('base.group_user')
         if res.state == 'draft':
-            assign_group = self.env.ref('school.group_is_assign')
-            new_grp_list = [assign_group.id, emp_grp.id]
+            admission_group = self.env.ref('school.group_is_assign')
+            new_grp_list = [admission_group.id, emp_grp.id]
             res.user_id.write({'groups_id': [(6, 0, new_grp_list)]})
-        elif res.state == 'registered':
-            registered_student = self.env.ref('school.group_school_student')
-            group_list = [registered_student.id, emp_grp.id]
+        elif res.state == 'registred':
+            done_student = self.env.ref('school.group_school_student')
+            group_list = [done_student.id, emp_grp.id]
             res.user_id.write({'groups_id': [(6, 0, group_list)]})
         return res
 
@@ -144,7 +167,7 @@ class StudentStudent(models.Model):
     student_name = fields.Char('Student Name', related='user_id.name',
                                store=True, readonly=True)
     pid = fields.Char('Student ID', required=True,
-                      related='email',
+                      default=lambda self: _('New'),
                       help='Personal IDentification Number')
     reg_code = fields.Char('Registration Code',
                            help='Student Registration Code')
@@ -199,7 +222,7 @@ class StudentStudent(models.Model):
                               ('ancient', 'ancient')],
                              'Status', readonly=True, default="draft")
     descplines_ids = fields.One2many('student.desciplines', 'student_id', 'Desciplines')
-    daily_discplines_ids = fields.One2many('student.daily.disciplines', 'student_id', 'Daily Disciplines')
+    daily_discplines_ids = fields.One2many('absence.daily', 'student_id', 'Daily Disciplines')
     sanctions_ids = fields.One2many('student.sanctions', 'student_id', 'Sanctions')
 
 
@@ -297,6 +320,7 @@ class StudentStudent(models.Model):
             student_code = (str(rec.school_id.code) + str('/') +
                             str(rec.year.code) + str('/') +
                             str(stu_code))
+
             rec.write({'state': 'registered',
                        'assign_date': time.strftime('%Y-%m-%d'),
                        'student_code': student_code,
@@ -308,70 +332,21 @@ class StudentDesciplines(models.Model):
 
     subject_id = fields.Many2one('subject.subject', 'Name subject')
     device_datetime = fields.Datetime(string='Device Date Time')
-    #status=fields.Char("status")
     status=fields.Selection([('Absent','Absent'),('Late','Late'),('In Time','In Time')])
     student_id = fields.Many2one('student.student', 'Student')
-    file_data = fields.Binary('Report File', readonly=True)
-    filename = fields.Char(size=256, readonly=True)
 
-    @api.multi
-    def print_report0(self):
-        #return self.env.ref('school.report_ticket_qweb').report_action(self)
-        pdf = self.env.ref('school.report_ticket_qweb').render_qweb_pdf(self.ids)
-        b64_pdf = base64.b64encode(pdf[0])
-        # save pdf as attachment
-        name = "ticket"
-        return self.env['ir.attachment'].create({
-            'name': name,
-            'type': 'binary',
-            'datas': b64_pdf,
-            'datas_fname': name + '.pdf',
-            'store_fname': name,
-            'res_model': self._name,
-            'res_id': self.id,
-            'mimetype': 'application/x-pdf'
-        })
+
     @api.multi
     def print_report(self):
-        #return self.env.ref('school.report_ticket_qweb').report_action(self)
-        pdf = \
-            self.env.ref('school.report_ticket_qweb').render_qweb_pdf(self.ids)
-
-        b64_pdf = base64.b64encode(pdf[0])
-        attach = self.env['ir.attachment'].create({
-            'name': 'Report',
-            'type': 'binary',
-            'datas': b64_pdf,
-            'res_model': 'student.desciplines',
-            'mimetype': 'application/x-pdf'
-        })
+        return self.env.ref('school.report_ticket_qweb').report_action(self)
 
 
-    @api.multi
-    def print_report1(self):
-        print('*--------------debut print **************')
-        rec = self.env['student.desciplines'].search( [('status', '=', 'Absent')])[0]
-        return self.env.ref('school.report_ticket_qweb').report_action(rec)
-
-    @api.multi
-    def get_report(self):
-        """Call when button 'Get Report' clicked.
-        """
-        data = {
-            'ids': self.ids,
-            'model': self._name,
-        }
-        print("data",data)
-        # use module_name.report_id as reference.
-        # report_action() will call _get_report_values() and pass data automatically.
-        return self.env.ref('school.report_ticket_qweb').report_action(self, data=data)
 
 class StudentDailyDesciplines(models.Model):
-    _name = 'student.daily.disciplines'
-    _description = "Student Daily Disciplines"
+    _name = 'absence.daily'
+    _description = "Student Daily Absence"
 
     date = fields.Datetime(string='Date')
-    #status=fields.Char("status")
     status=fields.Selection([('Absent For Day','Absent For Day')])
     student_id = fields.Many2one('student.student', 'Student')
 

@@ -25,6 +25,7 @@
                     <field name="relation_id"/>
                     <field name="student_id" invisible="1" />
                     <field name="phone"/>
+                    <field name="cin" />
                     <field name="email"/>
                     <field name="city"/>
                     <field name="country_id"/>
@@ -71,11 +72,10 @@
                                        options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
                             </div>
                         </group>
-                          <!--   <group string="Registration" >
-                                <field name="registration_id_mobile" placeholder="aBCD45.........." />
-                        </group>-->
+
                         <group string="Communication" name="communication">
                             <field name="phone" widget="phone"/>
+                            <field name="cin" />
                             <field name="user_ids" invisible="1"/>
                             <field name="email" widget="email" required="1"/>
                             <field name="title" options="{&quot;no_open&quot;: True}"/>
