@@ -66,7 +66,7 @@ class statistic_student(models.TransientModel):
         @api.multi
         def get_numberDailyAbs(self, id):
             count = 0
-            stat = (self.env['student.daily.disciplines'].search_count(
+            stat = (self.env['absence.daily'].search_count(
                 [('id', '=', id)]) > 0)
             if stat:
                 count = count + 1

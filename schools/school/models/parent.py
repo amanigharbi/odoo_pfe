@@ -28,7 +28,7 @@ class SchoolParent(models.Model):
                          for student in self.student_id]
             self.standard_id = [(6, 0, standard_ids)]
             self.stand_id = [(6, 0, stand_ids)]
-
+    cin = fields.Char('Identity Card Paren')
     notification_ids = fields.One2many('history.notification', 'parent_id', 'Notification')
     partner_id = fields.Many2one('res.partner', 'User ID', ondelete="cascade",
                                  delegate=True, required=True)

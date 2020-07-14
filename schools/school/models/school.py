@@ -457,8 +457,7 @@ class AcademicSubject(models.Model):
     add_sub_id = fields.Many2one('student.previous.school', 'Add Subjects',
                                  invisible=True)
     name = fields.Char('Name', required=True)
-    maximum_marks = fields.Integer("Maximum marks")
-    minimum_marks = fields.Integer("Minimum marks")
+
 
 
 class StudentFamilyContact(models.Model):

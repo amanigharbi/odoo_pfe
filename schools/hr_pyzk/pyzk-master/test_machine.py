@@ -136,7 +136,6 @@ try:
             if args.adduser and user.uid == args.adduser:
                 prev = user
     print ('    took {:.3f}[s]'.format(final - inicio))
-
     if args.adduser:
         uid = int(args.adduser)
         if prev:

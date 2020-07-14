@@ -74,7 +74,6 @@ class TimeTable(models.Model):
                                             24 hours!'''))
             return True
 
-
 class TimeTableLine(models.Model):
     _description = 'Time Table Line'
     _name = 'time.table.line'
