@@ -20,6 +20,7 @@ class UserWizard(models.TransientModel):
 
         for user in unique_data:
             if int(user.user_id) not in odoo_users_id:
+
                 users_object.create({
                     'device_user_id': int(user.user_id),
                     'device_uid': user.uid,
@@ -41,7 +42,7 @@ class UserWizard(models.TransientModel):
                            int(x[0]) == y.device_user_id]
 
         all_clocks.extend(all_attendances)
-        print('aaaaaaaaaaaaaaa', all_clocks)
+
         for cl in all_clocks:
             attendance_object.create({
                 'device_user_id': cl[0],
@@ -66,7 +67,7 @@ class UserWizard(models.TransientModel):
                            int(a[0]) == y.device_user_id]
 
         all_clocks.extend((all_attendances))
-        print("nooo", all_clocks)
+
 
         for all in all_clocks:
             attendance_object.create({

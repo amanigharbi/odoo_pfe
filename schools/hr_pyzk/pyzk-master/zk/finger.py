@@ -3,6 +3,7 @@ from struct import pack #, unpack
 import codecs
 class Finger(object):
     def __init__(self, uid, fid, valid, template):
+
         self.size = len(template) # template only
         self.uid = int(uid)
         self.fid = int(fid)
@@ -18,6 +19,7 @@ class Finger(object):
         return pack("H%is" % (self.size), self.size, self.template)
     @staticmethod
     def json_unpack(json):
+
         return Finger(
             uid=json['uid'],
             fid=json['fid'],
@@ -25,6 +27,7 @@ class Finger(object):
             template=codecs.decode(json['template'],'hex')
         )
     def json_pack(self): #packs for json
+
         return {
             "size": self.size,
             "uid": self.uid,

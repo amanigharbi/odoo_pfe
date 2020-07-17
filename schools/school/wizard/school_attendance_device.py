@@ -19,14 +19,14 @@ class school_attendance_device(models.TransientModel):
     device_id = fields.Many2one('devices', 'devices.id')
 
     @api.multi
-    def ticket(self, name, last, status, classe, datetime, subject):
-        f = open("test", "w")
+    def ticket(self, name, last, status, classe, time,date, subject):
+        f = open("billet", "w")
 
         name = functools.reduce(operator.add, ("          ", name, " ", last, "\n"))
         # status = functools.reduce(operator.add, ("  Status: ", status, "\n"))
         classe = functools.reduce(operator.add, ("  Class: ", classe, "\n"))
         subject = functools.reduce(operator.add, ("  Subject: ", subject, "\n"))
-        datetime = functools.reduce(operator.add, ("  DateTime  : ", datetime, "\n"))
+        datetime = functools.reduce(operator.add, ("  DateTime  : ", date," ",time, "\n"))
 
         f.write("___________________________________\n")
         f.write("          Ticket " + status + "          \n\n")
@@ -35,8 +35,10 @@ class school_attendance_device(models.TransientModel):
         f.write(datetime)
         f.write(subject)
         f.write("___________________________________")
-        f.close()
-        os.system('lpr test')
+        #f.close()
+
+        os.system('lpr billet')
+
 
         
 
@@ -94,7 +96,9 @@ class school_attendance_device(models.TransientModel):
 
                     last_date = datetime.datetime.strptime(str(x.device_datetime), '%Y-%m-%d %H:%M:%S')
                     current_time = last_date.strftime("%H.%M")
-                    current_time = float(current_time) + 1.0
+                    current_t = float(current_time) + 1.0
+                    current_time=round((current_t),2)
+                    current_date=last_date.strftime("%Y-%m-%d")
 
                     # les informations d'élève ou son id est le meme du table device_attendance
                     student_object = self.env['student.student'].search([('id', '=', student_id)])
@@ -150,6 +154,9 @@ class school_attendance_device(models.TransientModel):
                         status = "Late"
                         # le retard de l'élève
                         late_mn = round((current_time - start_time), 2)
+                        # impression de billet
+                        self.ticket(name, last, status, standard_name, str(current_time), str(current_date),
+                                    subject_name)
 
                         # notification pour l'admin
                         message = (
@@ -179,10 +186,7 @@ class school_attendance_device(models.TransientModel):
                         {'subject_id': subject_id, 'device_datetime': last_date, 'status': status,
                          'student_id': student_id})
 
-                    #impression de billet
-                    #self.ticket(name,last,status,standard_name,str(last_date),subject_name)
-
-                    # création de la notification pour le parent avec le discipline nécessaire
+                                        # création de la notification pour le parent avec le discipline nécessaire
                     self.env['history.notification'].create(
                         {'student_id': student_id, 'title': status, 'message': message_notif,
                          'status_message': 'In Progress', 'parent_id': parent})
