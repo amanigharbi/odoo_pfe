@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="48887eca-9025-43fa-ab67-720817bf3bb5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/README.rst" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/README.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/__manifest__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/models/parent.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/parent.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/models/res_users.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/res_users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/models/school.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/school.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/models/student.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/student.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/models/teacher.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/teacher.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/odoo-server.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/report/report_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/report/report_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/report/ticket.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/report/ticket.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/views/school_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/school_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/views/student_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/student_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/views/timetable_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/timetable_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_discipline/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/report_stat.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_discipline/report_stat.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/stat_descipline.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_discipline/stat_discipline.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_discipline/statistic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_descipline/statistic_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_discipline/statistic_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/school_attendance_device.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/school_attendance_device.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/school_attendance_device.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/school_attendance_device.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/wiz_send_email.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/wiz_send_email.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/wizard_setting_descipline.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/wizard_setting_discipline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schools/school/wizard/wizard_settings_descipline.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/wizard_settings_discipline.xml" afterDir="false" />
-    </list>
+    <list default="true" id="48887eca-9025-43fa-ab67-720817bf3bb5" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -304,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1593185090603</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="[12.0][MOD][Description]">
+      <created>1595105837468</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1595105837468</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -328,46 +309,46 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="726" y="236" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1853.923@67.27.1853.923" timestamp="1594755863489" />
-    <state x="534" y="31" width="912" height="912" key="CommitChangelistDialog2" timestamp="1594756695455">
+    <state x="534" y="31" width="912" height="912" key="CommitChangelistDialog2" timestamp="1595105819914">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="534" y="31" width="912" height="912" key="CommitChangelistDialog2/67.27.1853.923@67.27.1853.923" timestamp="1594756695455" />
+    <state x="534" y="31" width="912" height="912" key="CommitChangelistDialog2/67.27.1853.923@67.27.1853.923" timestamp="1595105819914" />
     <state x="1129" y="208" width="424" height="484" key="FileChooserDialogImpl" timestamp="1594731660546">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="1129" y="208" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.923@67.27.1853.923" timestamp="1594731660546" />
-    <state width="1830" height="243" key="GridCell.Tab.0.bottom" timestamp="1595105523851">
+    <state width="1830" height="243" key="GridCell.Tab.0.bottom" timestamp="1595105685776">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="243" key="GridCell.Tab.0.bottom/67.27.1853.923@67.27.1853.923" timestamp="1595105523851" />
-    <state width="1830" height="243" key="GridCell.Tab.0.center" timestamp="1595105523850">
+    <state width="1830" height="243" key="GridCell.Tab.0.bottom/67.27.1853.923@67.27.1853.923" timestamp="1595105685776" />
+    <state width="1830" height="243" key="GridCell.Tab.0.center" timestamp="1595105685773">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="243" key="GridCell.Tab.0.center/67.27.1853.923@67.27.1853.923" timestamp="1595105523850" />
-    <state width="1830" height="243" key="GridCell.Tab.0.left" timestamp="1595105523850">
+    <state width="1830" height="243" key="GridCell.Tab.0.center/67.27.1853.923@67.27.1853.923" timestamp="1595105685773" />
+    <state width="1830" height="243" key="GridCell.Tab.0.left" timestamp="1595105685772">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="243" key="GridCell.Tab.0.left/67.27.1853.923@67.27.1853.923" timestamp="1595105523850" />
-    <state width="1830" height="243" key="GridCell.Tab.0.right" timestamp="1595105523851">
+    <state width="1830" height="243" key="GridCell.Tab.0.left/67.27.1853.923@67.27.1853.923" timestamp="1595105685772" />
+    <state width="1830" height="243" key="GridCell.Tab.0.right" timestamp="1595105685776">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="243" key="GridCell.Tab.0.right/67.27.1853.923@67.27.1853.923" timestamp="1595105523851" />
-    <state width="1830" height="243" key="GridCell.Tab.1.bottom" timestamp="1595105523611">
+    <state width="1830" height="243" key="GridCell.Tab.0.right/67.27.1853.923@67.27.1853.923" timestamp="1595105685776" />
+    <state width="1830" height="243" key="GridCell.Tab.1.bottom" timestamp="1595105685544">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="243" key="GridCell.Tab.1.bottom/67.27.1853.923@67.27.1853.923" timestamp="1595105523611" />
-    <state width="1830" height="243" key="GridCell.Tab.1.center" timestamp="1595105523605">
+    <state width="1830" height="243" key="GridCell.Tab.1.bottom/67.27.1853.923@67.27.1853.923" timestamp="1595105685544" />
+    <state width="1830" height="243" key="GridCell.Tab.1.center" timestamp="1595105685543">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="243" key="GridCell.Tab.1.center/67.27.1853.923@67.27.1853.923" timestamp="1595105523605" />
-    <state width="1830" height="243" key="GridCell.Tab.1.left" timestamp="1595105523604">
+    <state width="1830" height="243" key="GridCell.Tab.1.center/67.27.1853.923@67.27.1853.923" timestamp="1595105685543" />
+    <state width="1830" height="243" key="GridCell.Tab.1.left" timestamp="1595105685542">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="243" key="GridCell.Tab.1.left/67.27.1853.923@67.27.1853.923" timestamp="1595105523604" />
-    <state width="1830" height="243" key="GridCell.Tab.1.right" timestamp="1595105523609">
+    <state width="1830" height="243" key="GridCell.Tab.1.left/67.27.1853.923@67.27.1853.923" timestamp="1595105685542" />
+    <state width="1830" height="243" key="GridCell.Tab.1.right" timestamp="1595105685543">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="243" key="GridCell.Tab.1.right/67.27.1853.923@67.27.1853.923" timestamp="1595105523609" />
+    <state width="1830" height="243" key="GridCell.Tab.1.right/67.27.1853.923@67.27.1853.923" timestamp="1595105685543" />
     <state x="482" y="122" key="SettingsEditor" timestamp="1593775487789">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
@@ -376,10 +357,10 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state width="498" height="446" key="SwitcherDM/67.27.1853.923@67.27.1853.923" timestamp="1593342223818" />
-    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1593185100421">
+    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2" timestamp="1595106066199">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1853.923@67.27.1853.923" timestamp="1593185100421" />
+    <state x="588" y="211" width="800" height="552" key="Vcs.Push.Dialog.v2/67.27.1853.923@67.27.1853.923" timestamp="1595106066199" />
     <state x="647" y="310" key="com.intellij.ide.util.TipDialog" timestamp="1586944304497">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
