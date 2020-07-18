@@ -2,7 +2,6 @@ package com.gestion.ecole.ui.menu.EmploisEleve;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,7 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 
-import com.gestion.ecole.AccueilActivity;
+
 import com.gestion.ecole.R;
 import com.gestion.ecole.login.SessionManagement;
 import com.gestion.ecole.login.LoginActivity;
@@ -23,13 +22,7 @@ import com.google.firebase.iid.FirebaseInstanceId;
 
 
 import android.widget.ListView;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
-
-
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -39,7 +32,7 @@ public class EmploisEleve extends AppCompatActivity {
 
     public static SharedPreferences sharedPreferences;
     public static String SEL_DAY;
-    String res_users,db,url,mdp,intentId, parentID,id_reg;
+    String res_users,db,url,mdp, parentID,id_reg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +40,7 @@ public class EmploisEleve extends AppCompatActivity {
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         SessionManagement sessionManagement = new SessionManagement(EmploisEleve.this);
         res_users=sessionManagement.getSESSION_RES_USERS();
         db=sessionManagement.getSESSION_DB();
@@ -152,17 +146,18 @@ public class EmploisEleve extends AppCompatActivity {
                 List regMobileList=regMobile.get();
                 for (Map<String, Object> item5 : (List<Map<String, Object>>) regMobileList) {
                     id_reg=item5.get("id").toString();
-                    System.out.println("aaa : " + id_reg);
-
-
                 }
+
+                //Supprimer le registration id du parent
                 AsyncTask<URL, String, Boolean> delete  = new DeleteRegIdOdoo(db,url,mdp,res_users,"parent.registration", id_reg).execute();
-                System.out.println("delete"+delete.get());
+
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            // Supprimer la session du parent
+            // Redirect parent dans la page du login
             SessionManagement sessionManagement = new SessionManagement(EmploisEleve.this);
             sessionManagement.removeSession();
             Intent intent = new Intent(this, LoginActivity.class);
@@ -174,4 +169,3 @@ public class EmploisEleve extends AppCompatActivity {
     }
 
 }
-

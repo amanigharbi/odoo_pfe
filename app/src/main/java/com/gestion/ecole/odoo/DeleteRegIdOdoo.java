@@ -20,14 +20,12 @@ public class DeleteRegIdOdoo  extends AsyncTask<URL,String,Boolean> {
     String table,db,url,uid,password;
     String id;
 
-    String field1,field2,val1,val2;
+
     public DeleteRegIdOdoo(String db, String url, String password, String uid,String table,String id){
         this.db=db;
         this.url=url;
         this.uid=uid;
         this.password=password;
-
-
         this.table=table;
         this.id=id;
 
@@ -51,7 +49,8 @@ public class DeleteRegIdOdoo  extends AsyncTask<URL,String,Boolean> {
                     db, uid, password,
                     table, "unlink",
                     asList(asList(id))));
-// check if the deleted record is still in the database
+
+            //Tester si le record existe encore dans la base
             asList((Object[])models.execute("execute_kw", asList(
                     db, uid, password,
                     table, "search",

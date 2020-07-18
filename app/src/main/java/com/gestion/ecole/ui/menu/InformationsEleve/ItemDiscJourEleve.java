@@ -7,8 +7,6 @@ public class ItemDiscJourEleve {
     ){
         this.tvStatus=tvStatus;
         this.tvDate=tvDate;
-
-
     }
 
 

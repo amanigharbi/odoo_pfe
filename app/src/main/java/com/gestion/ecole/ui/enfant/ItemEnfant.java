@@ -12,7 +12,6 @@ public class ItemEnfant {
 
     }
 
-
     public String getNom() {
         return tvNom;
     }

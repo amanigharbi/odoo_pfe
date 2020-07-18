@@ -155,7 +155,6 @@ public class Emplois_details extends AppCompatActivity {
                     } else if (selected_day.equalsIgnoreCase("Friday")) {
                         for (Map<String, Object> item : (List<Map<String, Object>>) listfriday) {
                             time.add((item.get("start_time").toString()+" - "+item.get("end_time").toString()));
-                            System.out.println("day" + item.get("start_time").toString());
 
                             Object[] sub = (Object[]) item.get(("subject_id"));
                             subject.add(sub[1].toString());
@@ -167,7 +166,6 @@ public class Emplois_details extends AppCompatActivity {
                     } else {
                         for (Map<String, Object> item : (List<Map<String, Object>>) listsaturday) {
                             time.add((item.get("start_time").toString()+" - "+item.get("end_time").toString()));
-                            System.out.println("day" + item.get("start_time").toString());
 
                             Object[] sub = (Object[]) item.get(("subject_id"));
                             subject.add(sub[1].toString());
@@ -221,17 +219,17 @@ public class Emplois_details extends AppCompatActivity {
                 List regMobileList=regMobile.get();
                 for (Map<String, Object> item5 : (List<Map<String, Object>>) regMobileList) {
                     id_reg=item5.get("id").toString();
-                    System.out.println("aaa : " + id_reg);
-
-
                 }
+                //Supprimer le registration id du parent
                 AsyncTask<URL, String, Boolean> delete  = new DeleteRegIdOdoo(db,url,mdp,res_users,"parent.registration", id_reg).execute();
-                System.out.println("delete"+delete.get());
+
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            // Supprimer la session du parent
+            // Redirect parent dans la page du login
             SessionManagement sessionManagement = new SessionManagement(Emplois_details.this);
             sessionManagement.removeSession();
             Intent intent = new Intent(this, LoginActivity.class);

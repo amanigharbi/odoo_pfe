@@ -35,7 +35,6 @@ public class AdapterDiscJourEleve extends RecyclerView.Adapter<AdapterDiscJourEl
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        // LayoutAnimationController animation = AnimationUtils.loadLayoutAnimation(context, R.anim.layoutanim);
         holder.tvStatus.setText(list.get(position).getTvStatus());
         holder.tvDate.setText(list.get(position).getTvDate());
 
@@ -61,7 +60,6 @@ public class AdapterDiscJourEleve extends RecyclerView.Adapter<AdapterDiscJourEl
 
             tvStatus = itemView.findViewById(R.id.tvStatus);
             tvDate = itemView.findViewById(R.id.tvdate);
-
 
             imgInfoEleve=itemView.findViewById(R.id.imgInfoEleve);
 

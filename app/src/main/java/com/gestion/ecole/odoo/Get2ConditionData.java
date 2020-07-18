@@ -18,7 +18,7 @@ public class Get2ConditionData extends AsyncTask<URL,String, List> {
     String table;
     String attr1,attr2,attr3,attr4,db,url,uid,password;
     String[] fields;
-    String[][] condition;
+
 
     public Get2ConditionData(){
         super();

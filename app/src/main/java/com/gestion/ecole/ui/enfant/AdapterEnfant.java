@@ -28,13 +28,12 @@ public class AdapterEnfant extends RecyclerView.Adapter<AdapterEnfant.ViewHolder
     ArrayList<ItemEnfant> list;
     Context context;
     Fragment fragment;
+
     public AdapterEnfant(ArrayList<ItemEnfant> list, Context context) {
         this.list = list;
         this.context = context;
     }
-    public AdapterEnfant(Fragment fragment){
-        this.fragment=fragment;
-    }
+
 
     @NonNull
     @Override
@@ -45,7 +44,7 @@ public class AdapterEnfant extends RecyclerView.Adapter<AdapterEnfant.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull AdapterEnfant.ViewHolder holder, int position) {
-        // LayoutAnimationController animation = AnimationUtils.loadLayoutAnimation(context, R.anim.layoutanim);
+
         holder.tvNom.setText(list.get(position).getNom());
         holder.tvNomParent.setText(list.get(position).getNomParent());
         holder.tvNomClasse.setText(list.get(position).getNomClasse());
@@ -94,9 +93,8 @@ public class AdapterEnfant extends RecyclerView.Adapter<AdapterEnfant.ViewHolder
         public TextView tvNom, tvNomParent,tvNomClasse,idEnfant;
         public Button btnConsulter;
         public RelativeLayout RlEnfant;
-
         public ImageView imgInfoEleve;
-        FragmentManager manager;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 

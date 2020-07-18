@@ -35,7 +35,6 @@ public class AdapterSanctionsEleve extends RecyclerView.Adapter<AdapterSanctions
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-       // LayoutAnimationController animation = AnimationUtils.loadLayoutAnimation(context, R.anim.layoutanim);
         holder.tvStatus.setText(list.get(position).getTvStatus());
         holder.tvNombre.setText(list.get(position).getTvNombre());
 

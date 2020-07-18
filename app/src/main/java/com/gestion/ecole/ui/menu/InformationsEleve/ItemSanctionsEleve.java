@@ -7,8 +7,6 @@ public class ItemSanctionsEleve {
             ){
         this.tvStatus=tvStatus;
          this.tvNombre=tvNombre;
-
-
     }
 
 

@@ -46,13 +46,16 @@ public class AccueilActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
+
+        //Session parent
         SessionManagement sessionManagement = new SessionManagement(AccueilActivity.this);
         parentID = sessionManagement.getId();
         res_users=sessionManagement.getSESSION_RES_USERS();
         db=sessionManagement.getSESSION_DB();
         url=sessionManagement.getSESSION_URL();
         mdp=sessionManagement.getMdp();
-        System.out.println("registration id : " + FirebaseInstanceId.getInstance().getToken());
+
+        //registration_id : clé du mobile
         registration_id =FirebaseInstanceId.getInstance().getToken();
 
         AsyncTask<URL, String, List> regMobile  = new GetConditionData(db,url,mdp,res_users,"parent.registration", new String[]{"reg_id", "parent_id"},
@@ -63,10 +66,8 @@ public class AccueilActivity extends AppCompatActivity implements View.OnClickLi
             List regMobileList=regMobile.get();
             for (Map<String, Object> item5 : (List<Map<String, Object>>) regMobileList) {
                 reg=item5.get("reg_id").toString();
-                System.out.println("red reg : " + reg);
-
-
             }
+            //s'il n'y a pas de registration pour le parent, il va le crée
             if(!(registration_id.equals(reg))) {
                 createRegId = new CreateRegId (db,url,mdp,res_users,"parent.registration","reg_id",registration_id,"parent_id",parentID).execute();
                 System.out.println("createRegId"+createRegId.get());
@@ -113,7 +114,6 @@ public class AccueilActivity extends AppCompatActivity implements View.OnClickLi
                 loadFragment(new MenuFragment());
                 break;
             case R.id.btNotification :
-                //loadFragment(new NotifFragment());
                 Intent i = new Intent(this, NotifActivity.class);
                 startActivity(i);
                 break;
@@ -139,20 +139,18 @@ public class AccueilActivity extends AppCompatActivity implements View.OnClickLi
                 List regMobileList=regMobile.get();
                 for (Map<String, Object> item5 : (List<Map<String, Object>>) regMobileList) {
                     id_reg=item5.get("id").toString();
-                    System.out.println("aaa : " + id_reg);
-
-
                 }
+                //Supprimer le registration id du parent
                 AsyncTask<URL, String, Boolean> delete  = new DeleteRegIdOdoo(db,url,mdp,res_users,"parent.registration", id_reg).execute();
-                System.out.println("delete"+delete.get());
+
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 
-            // Clear the User session data
-            // and redirect user to LoginActivity
+            // Supprimer la session du parent
+            // Redirect parent dans la page du login
             SessionManagement sessionManagement = new SessionManagement(AccueilActivity.this);
             sessionManagement.removeSession();
 

@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -27,10 +26,6 @@ public class AdapterContactEns  extends RecyclerView.Adapter<AdapterContactEns.V
     public AdapterContactEns(ArrayList<ItemEnseignant> list, Context context) {
         this.list = list;
         this.context = context;
-    }
-    public AdapterContactEns(ArrayList<ItemEnseignant> list) {
-        this.list = list;
-
     }
 
     @NonNull
@@ -53,7 +48,7 @@ public class AdapterContactEns  extends RecyclerView.Adapter<AdapterContactEns.V
             public void onClick(View v) {
                 String receiveEmaiil = viewHolder.tvEmail.getText().toString();
                 String [] split=receiveEmaiil.split(",");
-                System.out.println("hello "+split);
+
                 String Subject ="Renseignement";
                 Intent intent= new Intent(Intent.ACTION_SEND);
 

@@ -16,8 +16,6 @@ import com.gestion.ecole.R;
 
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel mViewModel;
-
     public static HomeFragment newInstance() {
         return new HomeFragment();
     }
@@ -33,7 +31,6 @@ public class HomeFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        // TODO: Use the ViewModel
     }
 
 }

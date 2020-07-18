@@ -3,9 +3,6 @@ package com.gestion.ecole.odoo;
 
 import android.os.AsyncTask;
 
-import com.gestion.ecole.login.SessionManagement;
-
-
 import org.apache.xmlrpc.XmlRpcException;
 import org.apache.xmlrpc.client.XmlRpcClient;
 import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
@@ -24,7 +21,7 @@ public class GetConnectionData extends AsyncTask<URL,String, List>  {
     String table;
     String attr1,attr2,db,url,password;
     String[] fields;
-    String[][] condition;
+
 
     public GetConnectionData(){
         super();

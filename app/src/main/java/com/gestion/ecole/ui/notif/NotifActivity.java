@@ -29,7 +29,7 @@ import java.util.concurrent.ExecutionException;
 
 public class NotifActivity extends AppCompatActivity {
     AsyncTask<URL, String, Boolean> setnotif;
-RecyclerView rvNotification;
+    RecyclerView rvNotification;
     ArrayList<ItemNotification> itemNotification;
 
     ArrayList<String> titre=new ArrayList<>();
@@ -58,7 +58,7 @@ RecyclerView rvNotification;
         db=sessionManagement.getSESSION_DB();
         url=sessionManagement.getSESSION_URL();
         mdp=sessionManagement.getMdp();
-         res_users=sessionManagement.getSESSION_RES_USERS();
+        res_users=sessionManagement.getSESSION_RES_USERS();
 
         try {
 
@@ -133,12 +133,12 @@ RecyclerView rvNotification;
                 List regMobileList=regMobile.get();
                 for (Map<String, Object> item5 : (List<Map<String, Object>>) regMobileList) {
                     id_reg=item5.get("id").toString();
-                    System.out.println("aaa : " + id_reg);
+
 
 
                 }
                 AsyncTask<URL, String, Boolean> delete  = new DeleteRegIdOdoo(db,url,mdp,res_users,"parent.registration", id_reg).execute();
-                System.out.println("delete"+delete.get());
+
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {

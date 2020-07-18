@@ -1,7 +1,7 @@
 package com.gestion.ecole.ui.menu.ContactEnseignant;
 
 public class ItemEnseignant {
-String tvNomPrenom,tvEmail,tvNum,tvMatiere;
+String tvNomPrenom,tvEmail,tvNum;
 
 public ItemEnseignant(String tvNP, String tvE,String tvNum){
     this.tvNomPrenom= tvNP;

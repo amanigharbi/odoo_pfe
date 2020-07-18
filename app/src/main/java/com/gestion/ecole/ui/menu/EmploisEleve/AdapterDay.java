@@ -5,17 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.gestion.ecole.R;
-import com.gestion.ecole.ui.menu.AdapterMenu;
 
-import java.util.ArrayList;
 
 public class AdapterDay extends ArrayAdapter {
 
@@ -54,5 +50,3 @@ public class AdapterDay extends ArrayAdapter {
         private TextView tvDay;
     }
 }
-
-

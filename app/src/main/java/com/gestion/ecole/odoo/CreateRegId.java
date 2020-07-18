@@ -20,6 +20,7 @@ public class CreateRegId extends AsyncTask<URL,String,Boolean> {
     String table;
     String db,url,uid,password;
     String field1,field2,val1,val2;
+
     public CreateRegId(String db, String url, String password, String uid,String table,String field1,String val1,String field2,String val2){
         this.db=db;
         this.url=url;

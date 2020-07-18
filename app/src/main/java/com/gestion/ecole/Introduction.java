@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,7 +28,7 @@ public class Introduction extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_introduction);
 
-        //runing for first time
+        //Demarrer les premiers pages pour la premier fois seulement
         /*  SharedPreferences settings=getSharedPreferences("prefs",0);
         boolean firstRun=settings.getBoolean("firstRun",false);
         if(firstRun==false)

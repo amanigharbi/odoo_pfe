@@ -34,7 +34,6 @@ public class AdapterDayDetails extends  RecyclerView.Adapter<AdapterDayDetails.V
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        // LayoutAnimationController animation = AnimationUtils.loadLayoutAnimation(context, R.anim.layoutanim);
         holder.tvTime.setText(list.get(position).getTime());
         holder.tvSubject.setText(list.get(position).getSubject());
         holder.tvTeacher.setText(list.get(position).getTeacher());
@@ -70,4 +69,3 @@ public class AdapterDayDetails extends  RecyclerView.Adapter<AdapterDayDetails.V
         }
     }
 }
-

@@ -18,7 +18,6 @@ import com.gestion.ecole.login.SessionManagement;
 import com.gestion.ecole.odoo.DeleteRegIdOdoo;
 import com.gestion.ecole.odoo.Get2ConditionData;
 import com.gestion.ecole.odoo.GetConditionData;
-import com.gestion.ecole.odoo.GetConnectionData;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.net.URL;
@@ -29,14 +28,10 @@ import java.util.concurrent.ExecutionException;
 
 public class enfant extends AppCompatActivity {
 
-    CardView cvImage;
-
     RecyclerView rvEnfantConsulter;
     AdapterEnfant mAdapter;
 
-
     ArrayList<ItemEnfant> itemEnfant;
-
 
     ArrayList<String> nom=new ArrayList<>();
     ArrayList<String> id=new ArrayList<>();
@@ -45,7 +40,7 @@ public class enfant extends AppCompatActivity {
 
 
     String[] idArray,nomArray,nomParentArray,nomClasseArray;
-    String NameParent,res_users,db,url,mdp,intentId, parentID,id_reg;
+    String NameParent,res_users,db,url,mdp,parentID,id_reg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,19 +54,16 @@ public class enfant extends AppCompatActivity {
         rvEnfantConsulter=findViewById(R.id.rvEnfantConsulter);
         rvEnfantConsulter.setHasFixedSize(true);
 
-
-
-
-
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(enfant.this);
         rvEnfantConsulter.setLayoutManager(layoutManager);
 
+        //ouvrir une session pour le parent
         SessionManagement sessionManagement = new SessionManagement(enfant.this);
-       parentID = sessionManagement.getId();
+        parentID = sessionManagement.getId();
         db=sessionManagement.getSESSION_DB();
         url=sessionManagement.getSESSION_URL();
-       mdp=sessionManagement.getMdp();
-         NameParent = sessionManagement.getNameParent();
+        mdp=sessionManagement.getMdp();
+        NameParent = sessionManagement.getNameParent();
          res_users=sessionManagement.getSESSION_RES_USERS();
 
 
@@ -80,7 +72,6 @@ public class enfant extends AppCompatActivity {
         try {
 
                 List ListinfoEleve = InfoEleve.get();
-                System.out.println("enfant 2 :" + ListinfoEleve);
 
                 //Information eleve
                 for (Map<String, Object> item : (List<Map<String, Object>>) ListinfoEleve) {
@@ -112,12 +103,9 @@ public class enfant extends AppCompatActivity {
         idArray = id.toArray(new String[id.size()]);
 
 
-
         itemEnfant=new ArrayList<>();
 
         for(int i=0;i<nomArray.length;i++) {
-
-
             itemEnfant.add(new ItemEnfant(
                     nomArray[i].toString(),
                     nomParentArray[i].toString(),
@@ -126,14 +114,10 @@ public class enfant extends AppCompatActivity {
 
 
 
-
         mAdapter = new AdapterEnfant(itemEnfant, enfant.this);
         rvEnfantConsulter.setAdapter(mAdapter);
         rvEnfantConsulter.getAdapter().notifyDataSetChanged();
         rvEnfantConsulter.scheduleLayoutAnimation();
-
-
-
     }
 
     @Override
@@ -156,19 +140,19 @@ public class enfant extends AppCompatActivity {
                 List regMobileList=regMobile.get();
                 for (Map<String, Object> item5 : (List<Map<String, Object>>) regMobileList) {
                     id_reg=item5.get("id").toString();
-                    System.out.println("aaa : " + id_reg);
-
-
                 }
+                //Supprimer le registration id du parent
                 AsyncTask<URL, String, Boolean> delete  = new DeleteRegIdOdoo(db,url,mdp,res_users,"parent.registration", id_reg).execute();
-                System.out.println("delete"+delete.get());
+
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            SessionManagement sessionManagement = new SessionManagement(enfant
-                    .this);
+
+            // Supprimer la session du parent
+            // Redirect parent dans la page du login
+            SessionManagement sessionManagement = new SessionManagement(enfant.this);
             sessionManagement.removeSession();
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);

@@ -27,26 +27,21 @@ import java.util.ArrayList;
 
 public class MenuFragment extends Fragment {
 
-    RecyclerView rvArticles;
+    RecyclerView rvMenu;
     AdapterMenu mAdapter;
 
-
-
     public MenuFragment() {
-        // Required empty public constructor
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.menu_fragment, container, false);
-        rvArticles = v.findViewById(R.id.rvArticles);
-        rvArticles.setHasFixedSize(true);
+        rvMenu = v.findViewById(R.id.rvMenu);
+        rvMenu.setHasFixedSize(true);
 
         final RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
-        rvArticles.setLayoutManager(layoutManager);
+        rvMenu.setLayoutManager(layoutManager);
 
         ArrayList<ItemMenu> dataArticles = new ArrayList<>();
         dataArticles.add(new ItemMenu("Disciplines", "Voir l'état de votre enfant", R.drawable.infor));
@@ -54,29 +49,29 @@ public class MenuFragment extends Fragment {
         dataArticles.add(new ItemMenu("Contacts", "Voir les contacts des enseignants",R.drawable.contactenseignant));
 
         mAdapter = new AdapterMenu(dataArticles, getActivity());
-        rvArticles.setAdapter(mAdapter);
-        rvArticles.setPadding(130,100,130,100);
+        rvMenu.setAdapter(mAdapter);
+        rvMenu.setPadding(130,100,130,100);
 
         final SnapHelper snapHelper = new LinearSnapHelper();
-        snapHelper.attachToRecyclerView(rvArticles);
+        snapHelper.attachToRecyclerView(rvMenu);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                RecyclerView.ViewHolder viewHolder = rvArticles.findViewHolderForAdapterPosition(0);
+                RecyclerView.ViewHolder viewHolder = rvMenu.findViewHolderForAdapterPosition(0);
                 RelativeLayout rl1 = viewHolder.itemView.findViewById(R.id.rl1);
                 rl1.animate().scaleY(1).scaleX(1).setDuration(350).setInterpolator(new AccelerateInterpolator()).start();
             }
         },100);
 
-        rvArticles.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        rvMenu.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
                 View v = snapHelper.findSnapView(layoutManager);
                 int pos = layoutManager.getPosition(v);
 
-                RecyclerView.ViewHolder viewHolder = rvArticles.findViewHolderForAdapterPosition(pos);
+                RecyclerView.ViewHolder viewHolder = rvMenu.findViewHolderForAdapterPosition(pos);
                 RelativeLayout rl1 = viewHolder.itemView.findViewById(R.id.rl1);
 
                 if (newState == RecyclerView.SCROLL_STATE_IDLE){
@@ -98,6 +93,7 @@ public class MenuFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu, menu) ;
+
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

@@ -19,8 +19,6 @@ import com.gestion.ecole.login.LoginActivity;
 import com.gestion.ecole.odoo.DeleteRegIdOdoo;
 import com.gestion.ecole.odoo.Get2ConditionData;
 import com.gestion.ecole.odoo.GetConditionData;
-import com.gestion.ecole.odoo.GetConnectionData;
-import com.gestion.ecole.ui.enfant.enfant;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 
@@ -31,9 +29,6 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 public class ContactEnseignant extends AppCompatActivity {
-
-    ImageButton btHome;
-
     RecyclerView rvEnseignant;
     AdapterContactEns mAdapter;
 
@@ -42,7 +37,7 @@ public class ContactEnseignant extends AppCompatActivity {
     ArrayList<String> nomPrenom=new ArrayList<>();
     ArrayList<String> email=new ArrayList<>();
     ArrayList<String> numero=new ArrayList<>();
-    String res_users,db,url,mdp,intentId, parentID,id_reg;
+    String res_users,db,url,mdp, parentID,id_reg;
 
     String[] nomPrenomArray,emailArray,numeroArray;
 
@@ -135,17 +130,17 @@ public class ContactEnseignant extends AppCompatActivity {
                 List regMobileList=regMobile.get();
                 for (Map<String, Object> item5 : (List<Map<String, Object>>) regMobileList) {
                     id_reg=item5.get("id").toString();
-                    System.out.println("aaa : " + id_reg);
-
-
                 }
+                //Supprimer le registration id du parent
                 AsyncTask<URL, String, Boolean> delete  = new DeleteRegIdOdoo(db,url,mdp,res_users,"parent.registration", id_reg).execute();
-                System.out.println("delete"+delete.get());
+
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            // Supprimer la session du parent
+            // Redirect parent dans la page du login
             SessionManagement sessionManagement = new SessionManagement(ContactEnseignant.this);
             sessionManagement.removeSession();
             Intent intent = new Intent(this, LoginActivity.class);

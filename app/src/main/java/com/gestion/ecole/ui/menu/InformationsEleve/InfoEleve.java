@@ -15,7 +15,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -66,19 +65,19 @@ public class InfoEleve extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 RecyclerView rvDesciplineEleve;
-                AdapterDesciplineEleve DescAdapter;
+                AdapterDisciplineEleve DescAdapter;
                 ArrayList<ItemDesciplineEleve> itemDesciplineEleve;
 
                 ArrayList<String> nomMatiere=new ArrayList<>();
                 ArrayList<String> dateHeure=new ArrayList<>();
                 ArrayList<String> status=new ArrayList<>();
 
-                TextView txtclose,tvTitre;
+                TextView txtclose;
                 String[] nomMatiereArray,dateHeureArray,statusArray;
 
                 myDialog.setContentView(R.layout.activity_discipline_matiere);
                 txtclose =(TextView) myDialog.findViewById(R.id.txtclose);
-                tvTitre=(TextView) myDialog.findViewById(R.id.vtTitre);
+
 
                 rvDesciplineEleve=myDialog.findViewById(R.id.rvDesciplineEleve);
                 rvDesciplineEleve.setHasFixedSize(true);
@@ -89,7 +88,7 @@ public class InfoEleve extends AppCompatActivity {
                 try {
 
                     //Informations Discipline
-                    AsyncTask<URL, String, List> infoDescipline = new GetConditionData(db,url,mdp,res_users,"student.desciplines", new String[]{"student_id", "subject_id", "device_datetime", "status"},
+                    AsyncTask<URL, String, List> infoDescipline = new GetConditionData(db,url,mdp,res_users,"student.disciplines", new String[]{"student_id", "subject_id", "device_datetime", "status"},
                             "student_id.id", intentId).execute();
                     List ListInfoDescipline = infoDescipline.get();
 
@@ -127,7 +126,7 @@ public class InfoEleve extends AppCompatActivity {
 
 
 
-                DescAdapter = new AdapterDesciplineEleve(itemDesciplineEleve, InfoEleve.this);
+                DescAdapter = new AdapterDisciplineEleve(itemDesciplineEleve, InfoEleve.this);
                 rvDesciplineEleve.setAdapter( DescAdapter);
                 rvDesciplineEleve.getAdapter().notifyDataSetChanged();
                 rvDesciplineEleve.scheduleLayoutAnimation();
@@ -159,7 +158,7 @@ public class InfoEleve extends AppCompatActivity {
                 String[] statusDiscArray,dateArray;
                 myDialog.setContentView(R.layout.activity_discipline_jour);
                 txtclose =(TextView) myDialog.findViewById(R.id.txtclose);
-               tvTitre=(TextView) myDialog.findViewById(R.id.vtTitre);
+
 
                 rvAbscenceJournaliaireEleve= myDialog.findViewById(R.id.rvAbscenceJournaliaireEleve);
                 rvAbscenceJournaliaireEleve.setHasFixedSize(true);
@@ -169,7 +168,7 @@ public class InfoEleve extends AppCompatActivity {
 
                 try {
 
-                    AsyncTask<URL, String, List> infoDiscJour = new GetConditionData(db,url,mdp,res_users,"student.daily.disciplines", new String[]{"student_id", "status", "date"},
+                    AsyncTask<URL, String, List> infoDiscJour = new GetConditionData(db,url,mdp,res_users,"absence.daily", new String[]{"student_id", "status", "date"},
                             "student_id.id", intentId).execute();
                     List ListInfoDiscJour = infoDiscJour.get();
 
@@ -218,9 +217,6 @@ public class InfoEleve extends AppCompatActivity {
             }
         });
 
-
-
-
         cardSanction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -230,11 +226,11 @@ public class InfoEleve extends AppCompatActivity {
 
                 ArrayList<String> sanctions=new ArrayList<>();
                 ArrayList<String> nombre=new ArrayList<>();
-                TextView txtclose,tvTitre;
+                TextView txtclose;
                 String[] sanctionArray,nombreArray;
                 myDialog.setContentView(R.layout.activity_sanction_eleve);
                 txtclose =(TextView) myDialog.findViewById(R.id.txtclose);
-                tvTitre=(TextView) myDialog.findViewById(R.id.vtTitre);
+
 
                 rvSanctionsEleve=myDialog.findViewById(R.id.rvSanctionsEleve);
                 rvSanctionsEleve.setHasFixedSize(true);
@@ -249,17 +245,11 @@ public class InfoEleve extends AppCompatActivity {
 
 
                     List ListInfoSanctions = infoSanctions.get();
-
-
-
-
                     for (Map<String, Object> item : (List<Map<String, Object>>) ListInfoSanctions) {
 
                         sanctions.add(item.get("sanction").toString());
                         nombre.add(item.get("number").toString());
                     }
-
-
                 }
                 catch (ClassCastException e) {
                     e.printStackTrace();
@@ -278,15 +268,10 @@ public class InfoEleve extends AppCompatActivity {
 
 
                 itemSanctionsEleve =new ArrayList<>();
-
-
-
-
                 for(int i=0;i<sanctionArray.length;i++) {
                     itemSanctionsEleve.add(new ItemSanctionsEleve(
                             sanctionArray[i].toString(),
                             nombreArray[i].toString()));}
-
 
 
                 mAdapter = new AdapterSanctionsEleve(itemSanctionsEleve, InfoEleve.this);
@@ -329,17 +314,17 @@ public class InfoEleve extends AppCompatActivity {
                 List regMobileList=regMobile.get();
                 for (Map<String, Object> item5 : (List<Map<String, Object>>) regMobileList) {
                     id_reg=item5.get("id").toString();
-                    System.out.println("aaa : " + id_reg);
-
-
                 }
+                //Supprimer le registration id du parent
                 AsyncTask<URL, String, Boolean> delete  = new DeleteRegIdOdoo(db,url,mdp,res_users,"parent.registration", id_reg).execute();
-                System.out.println("delete"+delete.get());
+
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            // Supprimer la session du parent
+            // Redirect parent dans la page du login
             SessionManagement sessionManagement = new SessionManagement(InfoEleve.this);
             sessionManagement.removeSession();
             Intent intent = new Intent(this, LoginActivity.class);

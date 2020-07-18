@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
 
             public void onClick(View v) {
-                String db = "project_pfe",
+                        String db = "pfe",
                         username = email.getText().toString(),
                         pass = mdp.getText().toString(),
                         url = "http://192.168.1.14:8069";
@@ -100,15 +100,13 @@ public class LoginActivity extends AppCompatActivity {
 
 
     private void checkSession() {
-        //check if user is logged in
-        //if user is logged in --> move to mainActivity
 
         SessionManagement sessionManagement = new SessionManagement(LoginActivity.this);
         String  iD = sessionManagement.getId();
         String  name = sessionManagement.getNameParent();
 
         if( (iD!="") || (name!="")){
-            //user id logged in and so move to mainActivity
+
             Intent intent = new Intent(LoginActivity.this, AccueilActivity.class);
             startActivity(intent);
         }

@@ -9,18 +9,11 @@ import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 
-import static com.gestion.ecole.odoo.ConnectionOdoo.db;
-import static com.gestion.ecole.odoo.ConnectionOdoo.password;
-import static com.gestion.ecole.odoo.ConnectionOdoo.uid;
-import static com.gestion.ecole.odoo.ConnectionOdoo.url;
 import static java.util.Arrays.asList;
 
 public class SetDataOdoo extends AsyncTask<URL,String, Boolean> {
-    static Boolean ids;
     String table;
-    String[] fields;
     String attr1,attr2,id,db,url,uid,password;
 
     public SetDataOdoo(String db, String url, String password, String uid,String table,String id,String attr1,String attr2){
@@ -29,7 +22,6 @@ public class SetDataOdoo extends AsyncTask<URL,String, Boolean> {
         this.uid=uid;
         this.password=password;
         this.table=table;
-        this.fields=fields;
         this.id=id;
         this.attr1=attr1;
         this.attr2=attr2;

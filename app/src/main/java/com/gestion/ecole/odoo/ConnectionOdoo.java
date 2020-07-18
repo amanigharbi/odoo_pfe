@@ -70,12 +70,6 @@ public class ConnectionOdoo extends AsyncTask<URL,String,String> {
 
     @Override
     protected void onPostExecute(String s) {
-      //  super.onPostExecute(s);
-    //    if(s.equals("Connected")){
-      //    Toast.makeText(app, s, Toast.LENGTH_LONG).show();
-      //  }else{
-      //      Toast.makeText(app, "not connected", Toast.LENGTH_LONG).show();
-      //  }
 
 
     }

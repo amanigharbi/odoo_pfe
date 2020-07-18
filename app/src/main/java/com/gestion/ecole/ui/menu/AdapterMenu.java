@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class AdapterMenu  extends RecyclerView.Adapter<AdapterMenu.ViewHolder>{
     ArrayList<ItemMenu> list;
     Context context;
-    String variable="";
+
 
     public AdapterMenu(ArrayList<ItemMenu> list, Context context) {
         this.list = list;
@@ -52,19 +52,13 @@ public class AdapterMenu  extends RecyclerView.Adapter<AdapterMenu.ViewHolder>{
                 else if (list.get(i).getTitle() == "Contacts") {
                     i1.putExtra("1",list.get(i).getTitle());
                     v.getContext().startActivity(i1);
-                    // v.getContext().startActivity(new Intent(v.getContext(), ContactEnseignant.class));
                 }
                 else if (list.get(i).getTitle() == "Emplois"){
-                    //v.getContext().startActivity(new Intent(v.getContext(), EmploisEleve.class));
                     i1.putExtra("1",list.get(i).getTitle());
                     v.getContext().startActivity(i1);
                 }
             }
         });
-
-
-
-
     }
 
     @Override

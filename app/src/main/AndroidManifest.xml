@@ -22,17 +22,19 @@
         <activity
             android:name=".ui.menu.EmploisEleve.Emplois_details"
             android:parentActivityName=".ui.menu.EmploisEleve.EmploisEleve" />
-        <activity android:name=".ui.menu.MenuFragment" />
+        <activity android:name=".ui.menu.MenuFragment"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".ui.menu.EmploisEleve.EmploisEleve"
             android:parentActivityName=".ui.menu.MenuFragment" />
         <activity
             android:name=".ui.menu.ContactEnseignant.ContactEnseignant"
             android:parentActivityName=".ui.menu.MenuFragment" />
-        <activity android:name=".ui.notif.NotifActivity" />
-        <activity android:name=".ui.notif.NotifFragment" />
-        <activity android:name=".ui.notif.AlarmReceiver" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".ui.notif.NotifActivity">
+          
+        </activity>
+
+
         <activity android:name=".AccueilActivity" />
         <activity android:name=".login.LoginActivity" />
         <activity
@@ -45,7 +47,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.menu.AdapterMenu" /> <!-- Firebase Notifications -->
+        <activity android:name=".ui.menu.AdapterMenu" />
+        <!-- Firebase Notifications -->
         <service android:name=".service.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
