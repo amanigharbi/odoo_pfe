@@ -145,12 +145,7 @@
                 </search>
             </field>
         </record>
-      <!--  <record id="action_view_time_table_line_kanban_2" model="ir.actions.act_window.view">
-        <field name="view_mode">kanban</field>
-        <field eval="21" name="sequence" />
-        <field name="view_id" ref="time_table_line_kanban_view" />
 
-    </record>-->
         <!-- Actions Of Form & Tree Views Of Time Table Information -->
         <record id="action_timetable_regular" model="ir.actions.act_window">
             <field name="name">Timetable</field>

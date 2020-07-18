@@ -6,7 +6,7 @@ from odoo import models, api
 class ResUsers(models.Model):
 
     _inherit = "res.users"
-
+#create user in hr module
     @api.model
     def create(self, vals):
         '''Inherit Method to create user of group teacher or parent'''

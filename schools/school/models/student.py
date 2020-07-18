@@ -9,9 +9,7 @@ from odoo.exceptions import except_orm
 from odoo.exceptions import ValidationError
 from .import school
 
-# from lxml import etree
-# added import statement in try-except because when server runs on
-# windows operating system issue arise because this library is not in Windows.
+
 try:
     from odoo.tools import image_colorize, image_resize_image_big
 except:
@@ -221,8 +219,8 @@ class StudentStudent(models.Model):
                               ('cancel', 'Cancel'),
                               ('ancient', 'ancient')],
                              'Status', readonly=True, default="draft")
-    descplines_ids = fields.One2many('student.desciplines', 'student_id', 'Desciplines')
-    daily_discplines_ids = fields.One2many('absence.daily', 'student_id', 'Daily Disciplines')
+    discplines_ids = fields.One2many('student.disciplines', 'student_id', 'Disciplines')
+    daily_absence_ids = fields.One2many('absence.daily', 'student_id', 'Daily Disciplines')
     sanctions_ids = fields.One2many('student.sanctions', 'student_id', 'Sanctions')
 
 
@@ -326,8 +324,8 @@ class StudentStudent(models.Model):
                        'student_code': student_code,
                        'reg_code': registation_code})
         return True
-class StudentDesciplines(models.Model):
-    _name = 'student.desciplines'
+class StudentDisciplines(models.Model):
+    _name = 'student.disciplines'
     _description = "Student Disciplines"
 
     subject_id = fields.Many2one('subject.subject', 'Name subject')

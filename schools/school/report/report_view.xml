@@ -9,7 +9,7 @@
                 name="school.identity_card" groups="school.group_school_administration,school.group_school_teacher,school.group_school_student"/>
          <report id="report_ticket_qweb"
                 string="Ticket entry"
-                model="student.desciplines"
+                model="student.disciplines"
                 report_type = "qweb-pdf"
                 file="school.ticket"
                 name="school.ticket" />

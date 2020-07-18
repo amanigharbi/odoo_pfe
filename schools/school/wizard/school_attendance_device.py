@@ -18,15 +18,36 @@ class school_attendance_device(models.TransientModel):
     device_name = fields.Many2one('devices', 'Device Name')
     device_id = fields.Many2one('devices', 'devices.id')
 
+#add student in device and device_users
     @api.multi
-    def ticket(self, name, last, status, classe, datetime, subject):
-        f = open("test", "w")
+    def button_add(self, vals):
+        if self.student_name and self.device_name:
+
+            for student in self.student_name:
+                info_student = self.env['student.student'].search([('id','=',student.id)])
+                for info in info_student:
+                    classe = self.env['school.standard'].search([('id', '=', info.standard_id.id)])
+
+                    for cla in classe:
+                        class_name = cla.name
+                for deivce in self.device_name:
+                        self.env['device.users'].create(
+                            {'name': student.name,'last_name':info.last,'classe':class_name, 'device_user_id': student.id, 'device_id': deivce.id})
+                        deivces = self.env['device.users'].search([('device_user_id', '=', student.id)])
+                        for rec in deivces:
+                            device_users.DeviceUser.create_user(rec, rec)
+        else:
+            raise except_orm(('Warning'), ('''Select student/device please!!!'''))
+
+#method of print
+    @api.multi
+    def ticket(self, name, last, status, classe, time, date, subject):
+        f = open("billet", "w")
 
         name = functools.reduce(operator.add, ("          ", name, " ", last, "\n"))
-        # status = functools.reduce(operator.add, ("  Status: ", status, "\n"))
         classe = functools.reduce(operator.add, ("  Class: ", classe, "\n"))
         subject = functools.reduce(operator.add, ("  Subject: ", subject, "\n"))
-        datetime = functools.reduce(operator.add, ("  DateTime  : ", datetime, "\n"))
+        datetime = functools.reduce(operator.add, ("  DateTime  : ", date, " ", time, "\n"))
 
         f.write("___________________________________\n")
         f.write("          Ticket " + status + "          \n\n")
@@ -36,24 +57,8 @@ class school_attendance_device(models.TransientModel):
         f.write(subject)
         f.write("___________________________________")
         f.close()
-        os.system('lpr test')
 
-        
-
-    @api.multi
-    def button_add(self, vals):
-        # student =self.env['student.student'].search([('standard_id','=','')])
-        if self.student_name and self.device_name:
-
-            for student in self.student_name:
-                for deivce in self.device_name:
-                    self.env['device.users'].create(
-                        {'name': student.name, 'device_user_id': student.id, 'device_id': deivce.id})
-                    deivces = self.env['device.users'].search([('device_user_id', '=', student.id)])
-                    for rec in deivces:
-                        device_users.DeviceUser.create_user(rec, rec)
-        else:
-            raise except_orm(('Warning'), ('''Select student/device please!!!'''))
+        os.system('lpr billet')
 
     # action planifié du pointage d'élève
     def test_attendance_student(self):
@@ -94,7 +99,9 @@ class school_attendance_device(models.TransientModel):
 
                     last_date = datetime.datetime.strptime(str(x.device_datetime), '%Y-%m-%d %H:%M:%S')
                     current_time = last_date.strftime("%H.%M")
-                    current_time = float(current_time) + 1.0
+                    current_t = float(current_time) + 1.0
+                    current_time = round((current_t), 2)
+                    current_date = last_date.strftime("%Y-%m-%d")
 
                     # les informations d'élève ou son id est le meme du table device_attendance
                     student_object = self.env['student.student'].search([('id', '=', student_id)])
@@ -112,7 +119,7 @@ class school_attendance_device(models.TransientModel):
 
 
 
-                    # l'emploie du temps relative au classe et école de l'élève pointé
+                    # l'emploi du temps relative au classe et école de l'élève pointé
                     timetable_object = self.env['time.table'].search(
                         [('school_id', '=', school), ('standard_id', '=', standard)])
                     timetable = timetable_object.id
@@ -129,7 +136,6 @@ class school_attendance_device(models.TransientModel):
                     late_mn = 0
 
                     for rec in timetable_objet_line:
-                        # if (current_time >= rec.start_time and current_time - rec.start_time <= 1 and current_time - rec.start_time >= 0):
 
                         # les informations de l'emploie nécessaires
                         start_time = rec.start_time
@@ -143,7 +149,6 @@ class school_attendance_device(models.TransientModel):
                     settings_nb_avertissement = search.number_avertissement
                     settings_nb_exclu = search.number_exclu
                     settings_discipline_selected=search.status_discipline
-
 
                         # tester si l'élève pointé est retard
                     if (current_time - start_time <= late):
@@ -175,12 +180,13 @@ class school_attendance_device(models.TransientModel):
                             start_time))
 
                     # création de la discipline de l'élève necessaire
-                    self.env['student.desciplines'].create(
+                    self.env['student.disciplines'].create(
                         {'subject_id': subject_id, 'device_datetime': last_date, 'status': status,
                          'student_id': student_id})
 
                     #impression de billet
-                    #self.ticket(name,last,status,standard_name,str(last_date),subject_name)
+                    self.ticket(name, last, status, standard_name, str(current_time), str(current_date),
+                                subject_name)
 
                     # création de la notification pour le parent avec le discipline nécessaire
                     self.env['history.notification'].create(
@@ -197,11 +203,11 @@ class school_attendance_device(models.TransientModel):
 
 
                     # conter le nombre totales des retard
-                    nombreTotaleRetard = self.env['student.desciplines'].search_count(
+                    nombreTotaleRetard = self.env['student.disciplines'].search_count(
                         [('status', '=', 'Late'), ('student_id.id', '=', student_id)])
 
                     # conter le nombre totales des abcences
-                    nombreTotaleAbsence = self.env['student.desciplines'].search_count(
+                    nombreTotaleAbsence = self.env['student.disciplines'].search_count(
                         [('status', '=', 'Absent'), ('student_id.id', '=', student_id)])
 
                     # extraire le nombre des avertissements
@@ -247,11 +253,11 @@ class school_attendance_device(models.TransientModel):
             self.env.user.notify_info(message='None Pointed Student')
 
 
-
+#count number of discipline
     def count_discipline_absent(self, id, date_actuelle):
         count = 0
 
-        discipline_student = self.env['student.desciplines'].search([
+        discipline_student = self.env['student.disciplines'].search([
             ('student_id', '=', id)])
         for c in discipline_student:
             device = c.device_datetime

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <template id="report_stat_descipline"  priority="17">
+    <template id="report_stat_discipline"  priority="17">
         <t t-call="web.html_container">
          <t t-call="web.external_layout">
 <t t-if="choix=='Day'">

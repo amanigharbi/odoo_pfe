@@ -12,7 +12,6 @@
                         <field name="student_name"  placeholder="Enter Student Name" widget="many2many_tags" string="Student Name"/>
                         <field name="device_name" placeholder="Enter Device Name" />
                     </group>
-
                     <footer>
                         <button class="btn btn-sm btn-default fa fa-plus" name="button_add" type="object" string="Add"/>
                     </footer>

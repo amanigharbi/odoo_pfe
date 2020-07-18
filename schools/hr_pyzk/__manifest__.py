@@ -27,6 +27,7 @@ It works on zkteco machines using pyzk library( version 1.9)
         'security/pyzk_security.xml',
         'security/ir.model.access.csv',
         'data/importAttendances.xml',
+
      ],
     'installable': True,
     'auto_install': False,

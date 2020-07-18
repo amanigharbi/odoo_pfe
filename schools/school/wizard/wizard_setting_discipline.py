@@ -2,9 +2,9 @@ from odoo import models, fields, api
 
 
 
-class parametrage_descipline(models.TransientModel):
-    _name = 'settings.descipline'
-    _description = "settings descipline"
+class parametrage_discipline(models.TransientModel):
+    _name = 'settings.discipline'
+    _description = "settings discipline"
 
     status_discipline=fields.Selection([('Absent','Absent'),('Late','Late')],'Choice Discipline')
     number_avertissement=fields.Integer('Number of discipline choiced to get avertissement :')
@@ -24,18 +24,18 @@ class parametrage_descipline(models.TransientModel):
         new_nb_exclu = data['form']['number_exclu']
         new_max_late = data['form']['max_late']
         new_status_discipline = data['form']['status_discipline']
-        if self.env['settings.descipline'].search_count([]) > 0:
-            search = self.env['settings.descipline'].search([])
+        if self.env['settings.discipline'].search_count([]) > 0:
+            search = self.env['settings.discipline'].search([])
 
             for a in search:
                 a.unlink()
 
-            self.env['settings.descipline'].create({'number_avertissement':new_nb_avert,
+            self.env['settings.discipline'].create({'number_avertissement':new_nb_avert,
                     'number_exclu': new_nb_exclu,
                     'max_late':new_max_late,'status_discipline':new_status_discipline,
                      })
         else:
-            self.env['settings.descipline'].create({'number_avertissement': new_nb_avert,
+            self.env['settings.discipline'].create({'number_avertissement': new_nb_avert,
                                                     'number_exclu': new_nb_exclu,
                                                     'max_late': new_max_late,
                                                     'status_discipline': new_status_discipline,

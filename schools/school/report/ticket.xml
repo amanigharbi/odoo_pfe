@@ -24,12 +24,7 @@
                                     </strong>
                                 </td>
                             </tr>
-                          <!--  <tr>
-                                <td align="center">
-                                    <img t-if="student.photo" t-att-src="'data:image/png;base64,%s' % to_text(student.photo)"
-                                         style="height:120px;width=120px" />
-                                </td>
-                            </tr>-->
+
                             <tr>
                                 <td height="10px"></td>
                             </tr>

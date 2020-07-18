@@ -8,6 +8,9 @@
                    <!-- <field name="device_uid"/> -->
                     <field name="device_user_id"/>
                     <field name="name"/>
+                      <field name="last_name" />
+                        <field name="classe" />
+                    <field name="fingers" />
                 </tree>
             </field>
         </record>
@@ -20,35 +23,19 @@
                     <group>
                         <field name="device_user_id" required="True"/>
                          <field name="name" required="True"/>
+                        <field name="last_name" required="True"/>
+                        <field name="classe" required="True"/>
                         <field name="device_id"/>
-                    </group>
-                    <footer>
-                        <button class="oe_highlight" name="create_user" string="Create Fingerprint User" type="object"/>
+                        <field name="fingers" />
 
-                        OR
-                        <button class="oe_highlight" name="edit_user" string="Edit/Update Existing Fingerprint User" type="object"/>
+                    </group>
+
+                    <footer>
+
+                        <button class="oe_highlight" name="check_nb_fingerprint" string="Check Number Fingerprint" type="object"/>
 
                     </footer>
 
-                    <div class="alert alert-success alert-dismissible" invisible="not context.get('show_message1', False)">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
-                        <strong>Success!</strong> Fingerprint User has been created successfully.
-                    </div>
-
-                    <div class="alert alert-danger alert-dismissible" invisible="not context.get('show_message2', False)">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
-                        <strong>Warning!</strong> pyzk_id has already been taken. Please choose a new pyzk_id .
-                    </div>
-
-                    <div class="alert alert-success alert-dismissible" invisible="not context.get('show_message3', False)">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
-                        <strong>Success!</strong> Existing User has been updated successfully .
-                    </div>
-
-                    <div class="alert alert-danger alert-dismissible" invisible="not context.get('show_message4', False)">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">X</a>
-                        <strong>Warning!</strong> User does not exist in the fingerprint device. Please create the user first.
-                    </div>
 
                 </form>
             </field>

@@ -189,9 +189,9 @@
                             <field name="teacher_id" colspan="4"/>
                         </page>
 
-                      <page string="Desciplines By Session" >
-                            <field name="descplines_ids" nolabel="1" colspan="4">
-                                <tree string="Despline">
+                      <page string="Disciplines By Session" >
+                            <field name="discplines_ids" nolabel="1" colspan="4">
+                                <tree string="Displine">
                                     <field name="student_id" invisible="1" />
                                     <field name="subject_id" required="1"/>
                                     <field name="device_datetime" required="1"/>
@@ -200,10 +200,10 @@
                                 </tree>
                             </field>
                          </page>
-                        <page string="Daily Disciplines" >
-                            <field name="daily_discplines_ids" nolabel="1" colspan="4"
+                        <page string="Daily Abscence" >
+                            <field name="daily_absence_ids" nolabel="1" colspan="4"
                           >
-                                <tree string="Daily Discplines">
+                                <tree string="Daily Absence">
                                     <field name="student_id" invisible="1" />
                                     <field name="date" options="{'format': 'DD/MM/YYYY'}" required="1"/>
                                     <field name="status"/>
@@ -217,7 +217,6 @@
                                 <tree string="Sanction">
                                       <field name="student_id" invisible="1" />
                                     <field name="sanction" required="1" />
-                                    <!--    <field name="sanction" required="1" widget="Selection"/>-->
                                     <field name="number" required="1"/>
                                 </tree>
                             </field>

@@ -14,7 +14,7 @@ from dateutil.relativedelta import relativedelta
 
 EM = (r"[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$")
 
-
+#method to verify email
 def emailvalidation(email):
 
     if email:
@@ -25,7 +25,7 @@ def emailvalidation(email):
         else:
             return True
 
-
+#class of academic year
 class AcademicYear(models.Model):
     ''' Defines an academic year '''
     _name = "academic.year"
@@ -109,7 +109,7 @@ class AcademicYear(models.Model):
             raise ValidationError(_('''Error! You cannot set two current
             year active!'''))
 
-
+#class of academic month
 class AcademicMonth(models.Model):
     ''' Defining a month of an academic year '''
     _name = "academic.month"
@@ -164,7 +164,7 @@ class AcademicMonth(models.Model):
 
 
 
-
+#class od division of class
 class StandardDivision(models.Model):
     ''' Defining a division(A, B, C) related to standard'''
     _name = "standard.division"
@@ -176,7 +176,7 @@ class StandardDivision(models.Model):
     code = fields.Char('Code', required=True)
     description = fields.Text('Description')
 
-
+#class of standard(class)
 class StandardStandard(models.Model):
     ''' Defining Standard Information '''
     _name = 'standard.standard'
@@ -197,7 +197,7 @@ class StandardStandard(models.Model):
             return stand_ids.id
         return False
 
-
+#standard+division
 class SchoolStandard(models.Model):
     ''' Defining a standard related to school '''
     _name = 'school.standard'
@@ -279,7 +279,7 @@ class SchoolStandard(models.Model):
         if standard_search:
             raise ValidationError(_('''Division and class should be unique!'''
                                     ))
-
+#method of delete a class in kanban
     @api.multi
     def unlink(self):
         for rec in self:
@@ -301,7 +301,7 @@ class SchoolStandard(models.Model):
         return [(rec.id, rec.standard_id.name + '[' + rec.division_id.name +
                  ']') for rec in self]
 
-
+#class of school
 class SchoolSchool(models.Model):
     ''' Defining School Information '''
     _name = 'school.school'
@@ -329,7 +329,7 @@ class SchoolSchool(models.Model):
                                 system, all documents related to this partner
                                 will be printed in this language.
                                 If not, it will be English.''')
-
+#create the school into res company
     @api.model
     def create(self, vals):
         res = super(SchoolSchool, self).create(vals)
@@ -337,7 +337,7 @@ class SchoolSchool(models.Model):
         res.company_id.parent_id = main_company.id
         return res
 
-
+#class of subject
 class SubjectSubject(models.Model):
     '''Defining a subject '''
     _name = "subject.subject"
@@ -357,10 +357,7 @@ class SubjectSubject(models.Model):
                                   help='Check this if subject is practical.')
 
 
-
-
-
-
+#mother tongue
 class MotherTongue(models.Model):
     _name = 'mother.toungue'
     _description = "Mother Toungue"
@@ -385,9 +382,6 @@ class AttendanceType(models.Model):
     code = fields.Char('Code', required=True)
 
 
-
-
-
 class StudentDescription(models.Model):
     ''' Defining a Student Description'''
     _name = 'student.description'
@@ -396,9 +390,6 @@ class StudentDescription(models.Model):
     des_id = fields.Many2one('student.student', 'Student Ref.')
     name = fields.Char('Name')
     description = fields.Char('Description')
-
-
-
 
 class StudentHistory(models.Model):
     _name = "student.history"

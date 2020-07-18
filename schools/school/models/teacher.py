@@ -36,7 +36,7 @@ class SchoolTeacher(models.Model):
                                   'students_teacher_id','student_id',
                                   'Student')
     phone_numbers = fields.Char("Phone Number")
-
+#if teacher is a parent
     @api.onchange('is_parent')
     def _onchange_isparent(self):
         if self.is_parent:

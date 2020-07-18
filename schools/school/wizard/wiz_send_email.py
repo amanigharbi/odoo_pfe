@@ -44,3 +44,4 @@ class SendMail(models.TransientModel):
                                          self._context.get('active_id'),
                                          force_send=True)
         return {'type': 'ir.actions.act_window_close'}
+

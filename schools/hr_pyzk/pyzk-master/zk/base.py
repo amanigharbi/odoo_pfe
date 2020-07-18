@@ -960,6 +960,7 @@ class ZK(object):
             command = const.CMD_USERTEMP_RRQ (doesn't work always)
             command_string = pack('hb', uid, temp_id)
         """
+
         if not uid:
             users = self.get_users()
             users = list(filter(lambda x: x.user_id==str(user_id), users))

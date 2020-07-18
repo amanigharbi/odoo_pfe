@@ -33,7 +33,7 @@ class statistic_student(models.TransientModel):
 
     class Reportstatistic(models.AbstractModel):
 
-        _name = 'report.school.report_stat_descipline'
+        _name = 'report.school.report_stat_discipline'
 
         def nbjoursMonth(self, m, a):
             """Donne le number de jours du Month m de l'année a"""
@@ -43,8 +43,6 @@ class statistic_student(models.TransientModel):
             return nj
 
         def get_numberDate(self, date):
-            Month = datetime.now().month
-            Year = datetime.now().year
             nb = 0
             if date == "Week":
                 nb = nb + 6
@@ -55,9 +53,9 @@ class statistic_student(models.TransientModel):
             return nb
 
         @api.multi
-        def get_numberDesipline(self, id, status):
+        def get_numberDisipline(self, id, status):
             count = 0
-            stat = (self.env['student.desciplines'].search_count(
+            stat = (self.env['student.disciplines'].search_count(
                 [('status', '=', status), ('id', '=', id)]) > 0)
             if stat:
                 count = count + 1
@@ -96,10 +94,8 @@ class statistic_student(models.TransientModel):
 
         @api.model
         def _get_report_values(self, docids, data=None):
-            #academic_year= data['form']['academic_year'][0]
 
             docs = []
-
             docs_day = []
             doc_academic_year = []
             standard = data['form'].get('standard_id')
@@ -120,15 +116,14 @@ class statistic_student(models.TransientModel):
                     # info et number of student academic year selected
                     student_AY = self.env['student.student'].search([('year','=',id_year)])
                     for ele in student_AY:
-                        desciplineAY = ele.descplines_ids
+                        disciplineAY = ele.discplines_ids
                         sanctionAY = ele.sanctions_ids
                         daily_absAY = ele.daily_discplines_ids
-                        for rec2 in desciplineAY:
-                            countAbsentAY = self.get_numberDesipline(rec2.id, 'Absent') + countAbsentAY
-                            countlateAY = self.get_numberDesipline(rec2.id, 'Late') + countlateAY
+                        for rec2 in disciplineAY:
+                            countAbsentAY = self.get_numberDisipline(rec2.id, 'Absent') + countAbsentAY
+                            countlateAY = self.get_numberDisipline(rec2.id, 'Late') + countlateAY
 
                         totalAbsenceAY = countAbsentAY
-
                         totallateAY = countlateAY
 
                         percentageAbsence_y = self.calcul_percentage_year(nb, totalAbsenceAY, id_year)
@@ -146,7 +141,6 @@ class statistic_student(models.TransientModel):
                         for day_abs in daily_absAY:
                             countDayAbsAY = self.get_numberDailyAbs(day_abs.id) + countDayAbsAY
                         totalDayAbsAY = countDayAbsAY
-
                         percentageDayAbs_y = self.calcul_percentage_year(nb, totalDayAbsAY, id_year)
 
                     doc_academic_year.append({
@@ -166,10 +160,6 @@ class statistic_student(models.TransientModel):
 
                     # info of standard selected
                     standard = self.env['school.standard'].search([('id', '=', a)])
-                    #count_standard =self.env['school.standard'].search_count([('id', '=', a)])
-
-
-
                     countAbsent = 0
                     countlate = 0
                     countDayAbs = 0
@@ -183,13 +173,13 @@ class statistic_student(models.TransientModel):
                         student = self.env['student.student'].search([('standard_id', '=', id)])
 
                         for ele in student:
-                            descipline = ele.descplines_ids
+                            discipline = ele.discplines_ids
                             sanction = ele.sanctions_ids
-                            daily_abs = ele.daily_discplines_ids
+                            daily_abs = ele.daily_absence_ids
 
-                            for rec2 in descipline:
-                                countAbsent = self.get_numberDesipline(rec2.id, 'Absent') + countAbsent
-                                countlate = self.get_numberDesipline(rec2.id, 'Late') + countlate
+                            for rec2 in discipline:
+                                countAbsent = self.get_numberDisipline(rec2.id, 'Absent') + countAbsent
+                                countlate = self.get_numberDisipline(rec2.id, 'Late') + countlate
 
                             totalAbsence = countAbsent
                             totallate = countlate

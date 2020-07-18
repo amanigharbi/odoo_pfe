@@ -8,7 +8,6 @@ class ParentRelation(models.Model):
     '''Defining a Parent relation with child'''
     _name = "parent.relation"
     _description = "Parent-child relation information"
-
     name = fields.Char("Relation name", required=True)
 
 
@@ -28,14 +27,11 @@ class SchoolParent(models.Model):
                          for student in self.student_id]
             self.standard_id = [(6, 0, standard_ids)]
             self.stand_id = [(6, 0, stand_ids)]
-    cin = fields.Char('Identity Card Paren')
+    cin = fields.Char('Identity Card Parent')
     notification_ids = fields.One2many('history.notification', 'parent_id', 'Notification')
     partner_id = fields.Many2one('res.partner', 'User ID', ondelete="cascade",
                                  delegate=True, required=True)
     relation_id = fields.Many2one('parent.relation', "Relation with Child")
-
-
-
     student_id = fields.Many2many('student.student', 'students_parents_rel',
                                   'students_parent_id', 'student_id',
                                   'Children')
@@ -50,7 +46,7 @@ class SchoolParent(models.Model):
     teacher_id = fields.Many2one('school.teacher', 'Teacher',
                                  related="standard_id.user_id", store=True)
     registration_id_mobile=fields.One2many('parent.registration', 'parent_id', 'Registration ID')
-
+#create parent in res users
     @api.model
     def create(self, vals):
         parent_id = super(SchoolParent, self).create(vals)
@@ -73,11 +69,13 @@ class SchoolParent(models.Model):
         self.country_id = False
         if self.state_id:
             self.country_id = self.state_id.country_id.id
+#class of registration id mobile of parent
 class PrentRegistration(models.Model):
     _name = 'parent.registration'
     _description = 'Parent Registration ID'
     reg_id = fields.Char('Registration mobile')
     parent_id=fields.Many2one('school.parent', 'Parent')
+#table stocke history notif
 class history_notification(models.Model):
         _name = 'history.notification'
         _description = "history notification"
@@ -87,6 +85,7 @@ class history_notification(models.Model):
         message = fields.Char("Message")
         status_message = fields.Selection([('In Progress','In Progress'),('Sent','Sent'),],'Status of Message')
         parent_id = fields.Many2one('school.parent','Parents')
+        #method push notif using firebase
         def get_notif(title,message,reg_id):
                 push_service = FCMNotification(api_key="AAAAHTeART0:APA91bF8366zxEmL8KA5cwv6tDvH9mg8_iemweE_WkUDf0fvssh-4um9Cbf0o9ucINkQa2w_7LCcblAjl2rBO9d2u4Od9I5wn-7Qlb7E4nLDQ6eJvKX8CqNs8yL5jN4464CgpTYZ96of")
                 print("push",reg_id)

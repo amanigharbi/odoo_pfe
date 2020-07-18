@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <odoo>
-     <record id="view_settings_descipline_form" model="ir.ui.view">
-        <field name="name">settings_descipline.form</field>
-        <field name="model">settings.descipline</field>
+     <record id="view_settings_discipline_form" model="ir.ui.view">
+        <field name="name">settings_discipline.form</field>
+        <field name="model">settings.discipline</field>
         <field name="arch" type="xml">
-              <form string="Settings Descipline">
-                    <separator string="Settings Descipline" colspan="4"/>
+              <form string="Settings Discipline">
+                    <separator string="Settings Discipline" colspan="4"/>
                     <group colspan="4" col="6">
                         <field name="status_discipline" />
                         <field name="number_avertissement" />
@@ -26,17 +26,17 @@
 
 
 
-     <record id="action_settings_descipline_form" model="ir.actions.act_window">
-        <field name="name">settings descipline</field>
-        <field name="res_model">settings.descipline</field>
+     <record id="action_settings_discipline_form" model="ir.actions.act_window">
+        <field name="name">settings discipline</field>
+        <field name="res_model">settings.discipline</field>
         <field name="view_type">form</field>
         <field name="view_mode">form</field>
-        <field name="view_id" ref="view_settings_descipline_form" />
+        <field name="view_id" ref="view_settings_discipline_form" />
         <field name="target">new</field>
     </record>
 
      <menuitem id="menu_settings_form" name="Settings" parent="menu_configuration" />
-     <menuitem id="menu_settings_descipline_form" name="Settings Descipline" parent="menu_settings_form" action="action_settings_descipline_form" />
+     <menuitem id="menu_settings_discipline_form" name="Settings Discipline" parent="menu_settings_form" action="action_settings_discipline_form" />
 
 
 </odoo>

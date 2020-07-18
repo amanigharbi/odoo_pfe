@@ -18,12 +18,18 @@ class UserWizard(models.TransientModel):
         odoo_users_id = [user.device_user_id for user in odoo_users]
         unique_data = c.DeviceUsers.get_users(devices)
 
+
+
+
         for user in unique_data:
+
             if int(user.user_id) not in odoo_users_id:
                 users_object.create({
                     'device_user_id': int(user.user_id),
                     'device_uid': user.uid,
                     'name': user.name,
+
+
                 })
     def test_search_attendance(self,times,attendances):
         all_attendances = []
@@ -33,15 +39,12 @@ class UserWizard(models.TransientModel):
         device_user_object = self.env['device.users']
         device_users = device_user_object.search([])
         attendance_object = self.env['device.attendances']
-
-
-
         all_attendances = [[y.id, x[1].astimezone(pytz.utc), x[2], x[3]]
                            for x in attendances for y in device_users if
                            int(x[0]) == y.device_user_id]
 
         all_clocks.extend(all_attendances)
-        print('aaaaaaaaaaaaaaa', all_clocks)
+
         for cl in all_clocks:
             attendance_object.create({
                 'device_user_id': cl[0],
