@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<odoo>
+     <record id="view_settings_discipline_form" model="ir.ui.view">
+        <field name="name">settings_discipline.form</field>
+        <field name="model">settings.discipline</field>
+        <field name="arch" type="xml">
+              <form string="Settings Discipline">
+                    <separator string="Settings Discipline" colspan="4"/>
+                    <group colspan="4" col="6">
+                        <field name="status_discipline" />
+                        <field name="number_avertissement" />
+                        <field name="number_exclu" />
+
+                    </group>
+                    <group colspan="2" col="6">
+                        <field name="max_late"  />
+
+                    </group>
+                   <footer>
+                       <button class="btn btn-sm btn-default fa fa-plus" name="save_settings" string="Save" type="object"/>
+                       <button class="btn btn-sm btn-default fa fa-ban" special="Cancel" string="Close"/>
+                       </footer>
+               </form>
+        </field>
+     </record>
+
+
+
+     <record id="action_settings_discipline_form" model="ir.actions.act_window">
+        <field name="name">settings discipline</field>
+        <field name="res_model">settings.discipline</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_settings_discipline_form" />
+        <field name="target">new</field>
+    </record>
+
+     <menuitem id="menu_settings_form" name="Settings" parent="menu_configuration" />
+     <menuitem id="menu_settings_discipline_form" name="Settings Discipline" parent="menu_settings_form" action="action_settings_discipline_form" />
+
+
+</odoo>
