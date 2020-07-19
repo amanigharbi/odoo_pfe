@@ -118,7 +118,7 @@ class statistic_student(models.TransientModel):
                     for ele in student_AY:
                         disciplineAY = ele.discplines_ids
                         sanctionAY = ele.sanctions_ids
-                        daily_absAY = ele.daily_discplines_ids
+                        daily_absAY = ele.daily_absence_ids
                         for rec2 in disciplineAY:
                             countAbsentAY = self.get_numberDisipline(rec2.id, 'Absent') + countAbsentAY
                             countlateAY = self.get_numberDisipline(rec2.id, 'Late') + countlateAY

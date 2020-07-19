@@ -42,7 +42,6 @@ class AcademicYear(models.Model):
                             help='Ending of academic year')
     month_ids = fields.One2many('academic.month', 'year_id', 'Months',
                                 help="related Academic months")
-    grade_id = fields.Many2one('grade.master', "Grade")
     current = fields.Boolean('Current', help="Set Active Current Year")
     description = fields.Text('Description')
 
@@ -488,30 +487,6 @@ class StudentRelationMaster(models.Model):
     name = fields.Char('Name', required=True, help="Enter Relation name")
     seq_no = fields.Integer('Sequence')
 
-
-class GradeMaster(models.Model):
-    _name = 'grade.master'
-    _description = "Grade Master"
-
-    name = fields.Char('Grade', required=True)
-    grade_ids = fields.One2many('grade.line', 'grade_id', 'Grade Lines')
-
-
-class GradeLine(models.Model):
-    _name = 'grade.line'
-    _description = "Grades"
-    _rec_name = 'grade'
-
-    from_mark = fields.Integer('From Marks', required=True,
-                               help='The grade will starts from this marks.')
-    to_mark = fields.Integer('To Marks', required=True,
-                             help='The grade will ends to this marks.')
-    grade = fields.Char('Grade', required=True, help="Grade")
-    sequence = fields.Integer('Sequence', help="Sequence order of the grade.")
-    fail = fields.Boolean('Fail', help='If fail field is set to True,\
-                                  it will allow you to set the grade as fail.')
-    grade_id = fields.Many2one("grade.master", 'Grade Ref.')
-    name = fields.Char('Name')
 
 
 class StudentNews(models.Model):

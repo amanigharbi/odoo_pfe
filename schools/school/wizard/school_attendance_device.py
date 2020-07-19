@@ -142,8 +142,8 @@ class school_attendance_device(models.TransientModel):
                         subject_id = rec.subject_id.id
                         subject_name = rec.subject_id.name
 
-                    # extraire les attributs du table settings.descipline
-                    search = self.env['settings.descipline'].search([])
+                    # extraire les attributs du table settings.discipline
+                    search = self.env['settings.discipline'].search([])
                     late = search.max_late
 
                     settings_nb_avertissement = search.number_avertissement
@@ -156,6 +156,10 @@ class school_attendance_device(models.TransientModel):
                         # le retard de l'élève
                         late_mn = round((current_time - start_time), 2)
 
+                        # impression de billet
+                        self.ticket(name, last, status, standard_name, str(current_time), str(current_date),
+                                    subject_name)
+
                         # notification pour l'admin
                         message = (
                                 'A Student Is Pointed: \n' + name + ' Is Late In ' + subject_name + ' With ' + str(
@@ -166,6 +170,7 @@ class school_attendance_device(models.TransientModel):
                         # notification pour le parent
                         message_notif = ('Votre Enfant ' + name + ' Est Retard DE : ' + str(
                             late_mn) + 'Min, Dans La Matière ' + subject_name + ' Prévu à ' + str(start_time))
+
                     else:
                         status = "Absent"
 
@@ -184,9 +189,6 @@ class school_attendance_device(models.TransientModel):
                         {'subject_id': subject_id, 'device_datetime': last_date, 'status': status,
                          'student_id': student_id})
 
-                    #impression de billet
-                    self.ticket(name, last, status, standard_name, str(current_time), str(current_date),
-                                subject_name)
 
                     # création de la notification pour le parent avec le discipline nécessaire
                     self.env['history.notification'].create(

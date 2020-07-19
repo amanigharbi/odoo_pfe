@@ -173,6 +173,7 @@ class StudentStudent(models.Model):
     photo = fields.Binary('Photo', default=_default_image)
     year = fields.Many2one('academic.year', 'Academic Year', readonly=True,
                            default=check_current_year)
+
     cast_id = fields.Many2one('student.cast', 'Religion/Caste')
     relation = fields.Many2one('student.relation.master', 'Relation')
 

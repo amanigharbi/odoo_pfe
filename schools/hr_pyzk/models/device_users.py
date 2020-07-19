@@ -20,8 +20,26 @@ class DeviceUser(models.Model):
          'It is not possible to create more than one user '
          'with the same device_user_id'),
     ]
+#crete user into device
+    @api.multi
+    def create_user(self, device):
+        """
+                Function uses to get attendances
+                """
+        ip_address = self.device_id.ip_address
+        port = self.device_id.port
+        device_password = self.device_id.device_password
+        user_id = str(self.device_user_id)
 
-#method to chek if student has finger (return number fingerprint)
+        with c.ConnectToDevice(ip_address, port, device_password) as conn:
+
+            device_users = conn.get_users()
+            device_user_ids = [int(x.user_id) for x in device_users]
+            if self.device_user_id not in device_user_ids:
+                conn.set_user(uid=self.device_user_id, name=self.name, privilege=const.USER_DEFAULT, user_id=user_id)
+
+
+    #method to chek if student has finger (return number fingerprint)
     @api.multi
     def get_numberFinger(self, uid):
         count = 0

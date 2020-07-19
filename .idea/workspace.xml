@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="48887eca-9025-43fa-ab67-720817bf3bb5" name="Default Changelist" comment="" />
+    <list default="true" id="48887eca-9025-43fa-ab67-720817bf3bb5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/hr_pyzk/models/device_users.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/hr_pyzk/models/device_users.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/backup/odoo/pfe_2020-07-14_19-49-46.zip" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/backup/odoo/School_2020-07-19_16-02-39.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/backup/pgadmin/pfe.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/models/school.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/school.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/models/student.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/models/student.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/security/ir.model.access.csv" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/security/ir.model.access.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/views/parent_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/parent_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/views/school_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/school_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/views/student_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/views/student_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_discipline/stat_discipline.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_discipline/stat_discipline.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_discipline/statistic.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_discipline/statistic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/wizard/report_statistic_discipline/statistic_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/report_statistic_discipline/statistic_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schools/school/wizard/school_attendance_device.py" beforeDir="false" afterPath="$PROJECT_DIR$/schools/school/wizard/school_attendance_device.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -324,38 +339,38 @@
       <screen x="67" y="27" width="1853" height="923" />
     </state>
     <state x="1129" y="208" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.923@67.27.1853.923" timestamp="1594731660546" />
-    <state width="1830" height="243" key="GridCell.Tab.0.bottom" timestamp="1595105685776">
+    <state width="1830" height="243" key="GridCell.Tab.0.bottom" timestamp="1595174401074">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="243" key="GridCell.Tab.0.bottom/67.27.1853.923@67.27.1853.923" timestamp="1595105685776" />
-    <state width="1830" height="243" key="GridCell.Tab.0.center" timestamp="1595105685773">
+    <state width="1830" height="243" key="GridCell.Tab.0.bottom/67.27.1853.923@67.27.1853.923" timestamp="1595174401074" />
+    <state width="1830" height="243" key="GridCell.Tab.0.center" timestamp="1595174401073">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="243" key="GridCell.Tab.0.center/67.27.1853.923@67.27.1853.923" timestamp="1595105685773" />
-    <state width="1830" height="243" key="GridCell.Tab.0.left" timestamp="1595105685772">
+    <state width="1830" height="243" key="GridCell.Tab.0.center/67.27.1853.923@67.27.1853.923" timestamp="1595174401073" />
+    <state width="1830" height="243" key="GridCell.Tab.0.left" timestamp="1595174401072">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="243" key="GridCell.Tab.0.left/67.27.1853.923@67.27.1853.923" timestamp="1595105685772" />
-    <state width="1830" height="243" key="GridCell.Tab.0.right" timestamp="1595105685776">
+    <state width="1830" height="243" key="GridCell.Tab.0.left/67.27.1853.923@67.27.1853.923" timestamp="1595174401072" />
+    <state width="1830" height="243" key="GridCell.Tab.0.right" timestamp="1595174401073">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="243" key="GridCell.Tab.0.right/67.27.1853.923@67.27.1853.923" timestamp="1595105685776" />
-    <state width="1830" height="243" key="GridCell.Tab.1.bottom" timestamp="1595105685544">
+    <state width="1830" height="243" key="GridCell.Tab.0.right/67.27.1853.923@67.27.1853.923" timestamp="1595174401073" />
+    <state width="1830" height="243" key="GridCell.Tab.1.bottom" timestamp="1595174400855">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="243" key="GridCell.Tab.1.bottom/67.27.1853.923@67.27.1853.923" timestamp="1595105685544" />
-    <state width="1830" height="243" key="GridCell.Tab.1.center" timestamp="1595105685543">
+    <state width="1830" height="243" key="GridCell.Tab.1.bottom/67.27.1853.923@67.27.1853.923" timestamp="1595174400855" />
+    <state width="1830" height="243" key="GridCell.Tab.1.center" timestamp="1595174400854">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="243" key="GridCell.Tab.1.center/67.27.1853.923@67.27.1853.923" timestamp="1595105685543" />
-    <state width="1830" height="243" key="GridCell.Tab.1.left" timestamp="1595105685542">
+    <state width="1830" height="243" key="GridCell.Tab.1.center/67.27.1853.923@67.27.1853.923" timestamp="1595174400854" />
+    <state width="1830" height="243" key="GridCell.Tab.1.left" timestamp="1595174400854">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="243" key="GridCell.Tab.1.left/67.27.1853.923@67.27.1853.923" timestamp="1595105685542" />
-    <state width="1830" height="243" key="GridCell.Tab.1.right" timestamp="1595105685543">
+    <state width="1830" height="243" key="GridCell.Tab.1.left/67.27.1853.923@67.27.1853.923" timestamp="1595174400854" />
+    <state width="1830" height="243" key="GridCell.Tab.1.right" timestamp="1595174400854">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
-    <state width="1830" height="243" key="GridCell.Tab.1.right/67.27.1853.923@67.27.1853.923" timestamp="1595105685543" />
+    <state width="1830" height="243" key="GridCell.Tab.1.right/67.27.1853.923@67.27.1853.923" timestamp="1595174400854" />
     <state x="482" y="122" key="SettingsEditor" timestamp="1595110856689">
       <screen x="67" y="27" width="1853" height="923" />
     </state>
