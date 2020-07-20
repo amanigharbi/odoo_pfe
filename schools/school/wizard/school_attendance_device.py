@@ -111,11 +111,7 @@ class school_attendance_device(models.TransientModel):
                     school = student_object.school_id.id
                     name = student_object.student_name
                     last = student_object.last
-                    # les informations relatives au parent de l'élève pointé
-                    parent_object = self.env['school.parent'].search([('student_id', '=', student_id)])
-                    parent = parent_object.id
-                    name_parent=parent_object.name
-                    reg_object = self.env['parent.registration'].search([('parent_id', '=', parent)])
+                 
 
 
 
@@ -189,19 +185,25 @@ class school_attendance_device(models.TransientModel):
                         {'subject_id': subject_id, 'device_datetime': last_date, 'status': status,
                          'student_id': student_id})
 
+                    # les informations relatives au parent de l'élève pointé
+                    parent_object = self.env['school.parent'].search([('student_id', '=', student_id)])
+                    for par in parent_object:
+                        parent = par.id
+                        name_parent = par.name
+                        reg_object = self.env['parent.registration'].search([('parent_id', '=', parent)])
+                        # création de la notification pour le parent avec le discipline nécessaire
+                        self.env['history.notification'].create(
+                            {'student_id': student_id, 'title': status, 'message': message_notif,
+                             'status_message': 'In Progress', 'parent_id': parent})
+                        titre = (name + " Est : " + status)
 
-                    # création de la notification pour le parent avec le discipline nécessaire
-                    self.env['history.notification'].create(
-                        {'student_id': student_id, 'title': status, 'message': message_notif,
-                         'status_message': 'In Progress', 'parent_id': parent})
-                    titre = (name + " Est : " + status)
-                    if reg_object:
-                        for reg in reg_object:
-                            reg_id = reg.reg_id
-                            history_notification.get_notif(titre, message_notif, reg_id)
-                    else:
-                        message = ('Demandez au parent '+name_parent+' d '+' installer l '+' application pour recevoir ses notifications !')
-                        self.env.user.notify_danger(message)
+                        if reg_object:
+                            for reg in reg_object:
+                                reg_id = reg.reg_id
+                                history_notification.get_notif(titre, message_notif, reg_id)
+                        else:
+                            message = ('Demandez au parent '+name_parent+' d '+' installer l '+' application pour recevoir ses notifications !')
+                            self.env.user.notify_danger(message)
 
 
                     # conter le nombre totales des retard
