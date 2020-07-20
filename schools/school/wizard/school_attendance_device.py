@@ -288,10 +288,18 @@ class school_attendance_device(models.TransientModel):
 
                 # les informations relatives au parent de l'élève
                 parent_object = self.env['school.parent'].search([('student_id', '=', id)])
-                parent = parent_object.id
-                # création de la notification pour le parent avec l'absence nécessaire
-                message_notif = ('Votre Enfant ' + name + ' Est Absent(e) Le ' + date_actuelle)
-                self.env['history.notification'].create(
-                    {'student_id': id, 'title': "Absence D'Une Journée", 'message': message_notif,
-                     'status_message': 'In Progress', 'parent_id': parent})
+                for par in parent_object:
+                    parent = par.id
+                    name_parent = par.name
+                    reg_object = self.env['parent.registration'].search([('parent_id', '=', parent)])
+                    titre='Absence Journée'
+                    # création de la notification pour le parent avec l'absence nécessaire
+                    message_notif = ('Votre Enfant ' + name + ' Est Absent(e) Le ' + date_actuelle)
+                    self.env['history.notification'].create(
+                        {'student_id': id, 'title': "Absence D'Une Journée", 'message': message_notif,
+                         'status_message': 'In Progress', 'parent_id': parent})
+                    if reg_object:
+                        for reg in reg_object:
+                            reg_id = reg.reg_id
+                            history_notification.get_notif(titre, message_notif, reg_id)
 
